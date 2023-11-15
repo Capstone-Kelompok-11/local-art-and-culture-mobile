@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:local_art_and_culture/constants/color_collections.dart';
 
 void main() {
   runApp(const MyApp());
@@ -110,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: TextStyle(color: ColorCollections.primaryColor),
             ),
           ],
         ),
