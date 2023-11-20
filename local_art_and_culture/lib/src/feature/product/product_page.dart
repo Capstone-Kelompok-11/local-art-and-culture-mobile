@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:local_art_and_culture/src/feature/product/detail_product.dart';
 
 class ListProductPage extends StatefulWidget {
   const ListProductPage({Key? key}) : super(key: key);
@@ -170,26 +171,34 @@ class _ListProductPageState extends State<ListProductPage> {
                       ? 'Baju Kebaya Wanita Pink Full Set Lokal'
                       : 'Dompet Wanita Series AMC Kulit Naga Asli  ';
 
-                  return Card(
-                    elevation: 0.0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25.0),
-                    ),
-                    child: OverflowBox(
-                      maxHeight: 315,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20.0),
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color(0xFF999999).withOpacity(0.25),
-                              spreadRadius: 0,
-                              blurRadius: 25,
-                            ),
-                          ],
-                        ),
-                        child: InkWell(
+                  return InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const DetailProduct()),
+                      );
+                    },
+                    child: Card(
+                      elevation: 0.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25.0),
+                      ),
+                      child: OverflowBox(
+                        maxHeight: 320,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20.0),
+                            boxShadow: [
+                              BoxShadow(
+                                color:
+                                    const Color(0xFF999999).withOpacity(0.25),
+                                spreadRadius: 0,
+                                blurRadius: 25,
+                              ),
+                            ],
+                          ),
                           child: Padding(
                             padding: const EdgeInsets.all(12.0),
                             child: Column(

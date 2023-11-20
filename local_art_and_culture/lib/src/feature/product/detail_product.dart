@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:local_art_and_culture/src/feature/product/product_page.dart';
 
 class DetailProduct extends StatefulWidget {
   const DetailProduct({Key? key}) : super(key: key);
@@ -55,7 +56,13 @@ class _DetailProductState extends State<DetailProduct> {
                   color: Colors.black,
                   size: 28.0,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ListProductPage()),
+                  );
+                },
               ),
             ),
             Positioned(
