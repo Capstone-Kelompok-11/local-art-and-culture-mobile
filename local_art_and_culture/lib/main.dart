@@ -111,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: TextStyle(color: ColorCollections.primaryColor),
+              style: TextStyle(color: ColorCollections.primaryBlueColor),
             ),
           ],
         ),
