@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:local_art_and_culture/src/feature/product/detail_product.dart';
 import 'package:local_art_and_culture/src/feature/product/product_page.dart';
 
 void main() {
@@ -6,7 +7,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const ListProductPage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const ListProductPage(),
+        '/detail': (context) => const DetailProduct(),
+      },
     );
   }
 }
