@@ -1,95 +1,131 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
 
-class MyApp extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Event Page',
-      home: HomePage(),
-    );
-  }
+  _MyHomePageState createState() => _MyHomePageState();
 }
 
-class HomePage extends StatelessWidget {
+class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Event Page'),
+        title: Text('Tampilan UI Flutter'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
-      body: ListView(
-        children: const [
-          // Event 1
-          EventCard(
-            imageUrl: 'https://assets.larikuinfo.id/2023/07/18/banner-alkafest-2023.jpg',
-            title: 'Alkafest 2023 Closing Ceremony',
-            time: '19:02',
-            location: 'Gedung Serba Guna Alka',
-            description: 'Penutupan acara Alkafest 2023 dengan penampilan dari berbagai artis dan musisi terkenal.',
+      body: Column(
+        children: [
+          Row(
+            children: [
+              // Search bar
+              Container(
+                width: MediaQuery.of(context).size.width * 0.7,
+                height: 50,
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Cari event',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+              ),
+            ],
           ),
-          // Event 2
-          EventCard(
-            imageUrl: 'https://assets.larikuinfo.id/2023/07/20/banner-akurat-festival.jpg',
-            title: 'Akurat Festival',
-            location: 'Padang Expo',
-            description: 'Festival musik dan budaya yang menampilkan berbagai musisi dan seniman dari berbagai genre.', time: '',
+          // Kategori event
+          Row(
+            children: [
+              // Workshop
+              TextButton(
+                onPressed: () {},
+                child: Text('Workshop'),
+                style: TextButton.styleFrom(
+                  primary: Colors.grey,
+                ),
+              ),
+              // Event
+              TextButton(
+                onPressed: () {},
+                child: Text('Event'),
+                style: TextButton.styleFrom(
+                  primary: Colors.grey,
+                ),
+              ),
+              // Pameran
+              TextButton(
+                onPressed: () {},
+                child: Text('Pameran'),
+                style: TextButton.styleFrom(
+                  primary: Colors.blue,
+                ),
+              ),
+              // Festival budaya
+              TextButton(
+                onPressed: () {},
+                child: Text('Festival budaya'),
+                style: TextButton.styleFrom(
+                  primary: Colors.grey,
+                ),
+              ),
+            ],
           ),
-          // Event 3
-          EventCard(
-            imageUrl: 'https://assets.larikuinfo.id/2023/07/20/banner-sejong-market.jpg',
-            title: 'Sejong Market',
-            location: 'Kawasan Sejong',
-            description: 'Pasar yang menjual berbagai produk dari Korea Selatan, termasuk makanan, minuman, dan suvenir.', time: '',
-          ),
-          // Event 4
-          EventCard(
-            imageUrl: 'https://assets.larikuinfo.id/2023/07/20/banner-run-wm-e.jpg',
-            title: 'RUN WME',
-            location: 'Jalan Sudirman',
-            description: 'Lomba lari yang diselenggarakan oleh WME dengan rute sepanjang 10 kilometer.', time: '',
+          // ListView
+          ListView(
+            children: [
+              // Gambar pameran
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: 262,
+                margin: EdgeInsets.only(top: 182, left: 24),
+                child: Image.asset('assets/images/pameran.jpg'),
+              ),
+              // Judul pameran
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: 40,
+                color: Colors.blue,
+                child: Center(
+                  child: Text('Pameran'),
+                ),
+              ),
+              // Detail pameran
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: 60,
+                child: Column(
+                  children: [
+                    // Nama galeri
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text('Orasis Art Gallery'),
+                      ],
+                    ),
+                    // Harga
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text('From IDR 10k'),
+                      ],
+                    ),
+                    // Lokasi
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Icon(Icons.map),
+                        Text('Orasis Art Gallery'),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ],
-      ),
-    );
-  }
-}
-
-class EventCard extends StatelessWidget {
-  final String imageUrl;
-  final String title;
-  final String time;
-  final String location;
-  final String description;
-
-  const EventCard({
-    required this.imageUrl,
-    required this.title,
-    required this.time,
-    required this.location,
-    required this.description,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 200,
-      width: MediaQuery.of(context).size.width,
-      child: Card(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.network(imageUrl),
-            const SizedBox(height: 10),
-            Text(title, style: const TextStyle(fontSize: 20)),
-            Text(time, style: const TextStyle(fontSize: 16)),
-            Text(location, style: const TextStyle(fontSize: 14)),
-            Text(description, style: const TextStyle(fontSize: 12)),
-          ],
-        ),
       ),
     );
   }
