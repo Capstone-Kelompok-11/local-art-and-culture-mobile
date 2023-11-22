@@ -1,55 +1,54 @@
 import 'package:flutter/material.dart';
+import 'package:local_art_and_culture/widget/app_bar_home.dart';
 import 'package:local_art_and_culture/widget/card.dart';
 import 'package:local_art_and_culture/widget/card_event.dart';
 import 'package:local_art_and_culture/widget/news_card.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
+import 'package:local_art_and_culture/widget/bottom_navigation_bar.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
   List<NewsCard> newsCards = [];
+  final NavItemBuilder navItemBuilder = NavItemBuilder();
 
-  BottomNavigationBarItem _buildNavItem(IconData icon, String label) {
-    return BottomNavigationBarItem(
-      icon: Icon(icon, size: 24, color: Colors.grey),
-      label: label,
-    );
-  }
-
+  int _selectedIndex = 0;
   @override
   void initState() {
     super.initState();
-    fetchData();
+    fetchNewsData(); // Ubah pemanggilan dari fetchData() menjadi fetchNewsData()
   }
 
-  Future<List<NewsCard>> fetchData() async {
-    final response = await http.get(Uri.parse(
-        'https://newsapi.org/v2/top-headlines?country=id&apiKey=2196eb2b8e104a7dae40225a94ed7a28'));
+  Future<void> fetchNewsData() async {
+    try {
+      NewsCard newsCard = const NewsCard(
+        imagePath: '',
+        title: '',
+        date: '',
+        content: '',
+      ); // Buat instance dari NewsCard
+      List<NewsCard> fetchedNewsCards = await newsCard
+          .fetchData(); // Panggil metode fetchData() dari NewsCard
 
-    if (response.statusCode == 200) {
-      final Map<String, dynamic> data = json.decode(response.body);
-      final List<dynamic> articles = data['articles'];
-
-      // Konversi data JSON menjadi list NewsCard
-      List<NewsCard> newsCards = articles
-          .map((article) => NewsCard.fromMap({
-                'urlToImage': article['urlToImage'],
-                'judul': article['title'],
-                'diterbitkanDi': article['publishedAt'],
-                'keterangan': article['content'],
-              }))
-          .toList();
-
-      return newsCards;
-    } else {
-      throw Exception('Failed to load news');
+      setState(() {
+        newsCards =
+            fetchedNewsCards; // Perbarui newsCards dengan hasil fetch dari NewsCard
+      });
+    } catch (error) {
+      // ignore: avoid_print
+      print('Error fetching news: $error');
     }
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 
   @override
@@ -57,10 +56,56 @@ class _MyHomePageState extends State<MyHomePage> {
     const cardPadding = EdgeInsets.all(10.0); // Tetapkan padding untuk kartu
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
+        appBar: const CustomAppBar(
+          name: 'Sule',
+          location: 'Surabaya',
+        ),
         body: SingleChildScrollView(
           child: Column(
             children: [
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 30.0),
+                padding: const EdgeInsets.fromLTRB(15.0, 31.0, 0.0, 31.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        Expanded(
+                          child: TextField(
+                            decoration: InputDecoration(
+                              hintText: 'Cari...',
+                              prefixIcon: Icon(Icons.search),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                            ),
+                          ),
+                        ),
+                        IconButton(
+                          icon: Icon(Icons.filter_list),
+                          onPressed: () {
+                            // Tambahkan logika untuk menangani klik icon filter di sini
+                          },
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 30.0),
                 padding: const EdgeInsets.fromLTRB(15.0, 31.0, 0.0, 31.0),
@@ -170,7 +215,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                     SizedBox(
-                      height: 400, // Ubah tinggi sesuai kebutuhan
+                      height: 270, // Ubah tinggi sesuai kebutuhan
                       child: ListView.builder(
                         scrollDirection: Axis.vertical,
                         itemCount:
@@ -188,7 +233,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
               ),
-              const SizedBox(height: 16),
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 30.0),
                 padding: const EdgeInsets.fromLTRB(15.0, 31.0, 0.0, 31.0),
@@ -264,7 +308,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           const Text(
-                            'Terlarid di sekitarmu~',
+                            'Terlaris di sekitarmu~',
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
@@ -309,16 +353,20 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
               ),
+              const SizedBox(height: 50),
             ],
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: [
-            _buildNavItem(Icons.home, "Home"),
-            _buildNavItem(Icons.search, 'Search'),
-            _buildNavItem(Icons.favorite, 'Favorite'),
-            _buildNavItem(Icons.person, 'Profile'),
+            navItemBuilder.buildNavItem(Icons.home, 'Home'),
+            navItemBuilder.buildNavItem(Icons.event, 'Event'),
+            navItemBuilder.buildNavItem(Icons.storefront, 'Product'),
+            navItemBuilder.buildNavItem(Icons.person, 'Profile'),
           ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.blue, // Warna terpilih
+          onTap: _onItemTapped,
         ),
       ),
     );

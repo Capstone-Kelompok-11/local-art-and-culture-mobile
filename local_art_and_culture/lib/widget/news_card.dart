@@ -16,6 +16,35 @@ class NewsCard extends StatelessWidget {
     required this.content,
   }) : super(key: key);
 
+  Future<List<NewsCard>> fetchData() async {
+    try {
+      final response = await http.get(Uri.parse(
+          'https://newsapi.org/v2/everything?q=tesla&dari=22-10-2023&sortBy=diterbitkanDi&apiKey=2196eb2b8e104a7dae40225a94ed7a28'));
+
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final List<dynamic> articles = data['articles'];
+
+        List<NewsCard> newsCards = articles
+            .map((article) => NewsCard.fromMap({
+                  'urlToImage': article['urlToImage'],
+                  'judul': article['title'],
+                  'diterbitkanDi': article['publishedAt'],
+                  'keterangan': article['content'],
+                }))
+            .toList();
+
+        return newsCards;
+      } else {
+        throw Exception('Failed to load news');
+      }
+    } catch (error) {
+      // ignore: avoid_print
+      print('Error fetching news: $error');
+      rethrow; // Anda bisa memutuskan untuk melemparkan kembali kesalahan atau menangani sesuai kebutuhan.
+    }
+  }
+
   factory NewsCard.fromMap(Map<String, dynamic> map) {
     return NewsCard(
       imagePath: map['urlToImage'] ?? '',
@@ -103,18 +132,5 @@ class NewsCard extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  Future<void> fetchData() async {
-    final response = await http.get(Uri.parse(
-        'https://newsapi.org/v2/top-headlines?country=id&apiKey=2196eb2b8e104a7dae40225a94ed7a28'));
-
-    if (response.statusCode == 200) {
-      final Map<String, dynamic> data = json.decode(response.body);
-      final List<dynamic> articles = data['articles'];
-      // Use 'articles' data as needed
-    } else {
-      throw Exception('Failed to load news');
-    }
   }
 }

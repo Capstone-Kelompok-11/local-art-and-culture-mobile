@@ -71,6 +71,7 @@ class RoundedImageCard extends StatelessWidget {
                 color: Colors.grey,
               ),
               Text(
+                // ignore: unnecessary_string_interpolations
                 '$locationRating',
                 style: const TextStyle(
                   fontSize: 14,
