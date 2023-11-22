@@ -1,15 +1,55 @@
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/widget/card.dart';
 import 'package:local_art_and_culture/widget/card_event.dart';
+import 'package:local_art_and_culture/widget/news_card.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  List<NewsCard> newsCards = [];
 
   BottomNavigationBarItem _buildNavItem(IconData icon, String label) {
     return BottomNavigationBarItem(
       icon: Icon(icon, size: 24, color: Colors.grey),
       label: label,
     );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData();
+  }
+
+  Future<List<NewsCard>> fetchData() async {
+    final response = await http.get(Uri.parse(
+        'https://newsapi.org/v2/top-headlines?country=id&apiKey=2196eb2b8e104a7dae40225a94ed7a28'));
+
+    if (response.statusCode == 200) {
+      final Map<String, dynamic> data = json.decode(response.body);
+      final List<dynamic> articles = data['articles'];
+
+      // Konversi data JSON menjadi list NewsCard
+      List<NewsCard> newsCards = articles
+          .map((article) => NewsCard.fromMap({
+                'urlToImage': article['urlToImage'],
+                'judul': article['title'],
+                'diterbitkanDi': article['publishedAt'],
+                'keterangan': article['content'],
+              }))
+          .toList();
+
+      return newsCards;
+    } else {
+      throw Exception('Failed to load news');
+    }
   }
 
   @override
@@ -129,7 +169,21 @@ class MyHomePage extends StatelessWidget {
                         ],
                       ),
                     ),
-
+                    SizedBox(
+                      height: 400, // Ubah tinggi sesuai kebutuhan
+                      child: ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        itemCount:
+                            newsCards.length, // Gunakan panjang list newsCards
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.all(10),
+                            child:
+                                newsCards[index], // Tampilkan NewsCard dari API
+                          );
+                        },
+                      ),
+                    ),
                     // Contoh elemen tambahan di dalam SingleChildScrollView
                   ],
                 ),
