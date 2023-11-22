@@ -18,9 +18,6 @@ class MyHomePage extends StatelessWidget {
 
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Rounded Card with Image'),
-        ),
         body: SingleChildScrollView(
           child: Column(
             children: [
