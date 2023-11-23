@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:local_art_and_culture/src/feature/product/checkout_product.dart';
 import 'package:local_art_and_culture/src/feature/product/product_page.dart';
 
 class DetailProduct extends StatefulWidget {
@@ -12,29 +13,137 @@ class DetailProduct extends StatefulWidget {
 class _DetailProductState extends State<DetailProduct> {
   bool isExpanded = false;
   bool isFavorite = false;
+  bool isChatSelected = false;
+  bool isCartSelected = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView(
+      body: Column(
         children: [
-          productImage(),
-          const SizedBox(height: 10),
+          Expanded(
+            child: ListView(
+              children: [
+                productImage(),
+                const SizedBox(height: 10),
+                const Divider(
+                  color: Color(0xffE6E6E6),
+                  thickness: 1,
+                ),
+                productStore(),
+                const Divider(
+                  color: Color(0xffE6E6E6),
+                  thickness: 1,
+                ),
+                descriptionProduct(),
+                const Divider(
+                  color: Color(0xffE6E6E6),
+                  thickness: 1,
+                ),
+                reviewProduct(),
+              ],
+            ),
+          ),
           const Divider(
             color: Color(0xffE6E6E6),
             thickness: 1,
           ),
-          productStore(),
-          const Divider(
-            color: Color(0xffE6E6E6),
-            thickness: 1,
+          checkoutNavigationBar(),
+        ],
+      ),
+    );
+  }
+
+  Widget checkoutNavigationBar() {
+    return Padding(
+      padding: const EdgeInsets.all(8),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    isChatSelected = !isChatSelected;
+                  });
+                },
+                child: Container(
+                  margin: const EdgeInsets.only(left: 15.0, right: 10.0),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: isChatSelected
+                          ? const Color(0xff3653B0)
+                          : const Color(0xffCCCCCC),
+                      width: 1.5,
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Icon(
+                      Icons.chat,
+                      color: isChatSelected
+                          ? const Color(0xff3653B0)
+                          : const Color(0xffCCCCCC),
+                      size: 24.0,
+                    ),
+                  ),
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  setState(() {
+                    isCartSelected = !isCartSelected;
+                  });
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: isCartSelected
+                          ? const Color(0xff3653B0)
+                          : const Color(0xffCCCCCC),
+                      width: 1.5,
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Icon(
+                      Icons.shopping_cart,
+                      color: isCartSelected
+                          ? const Color(0xff3653B0)
+                          : const Color(0xffCCCCCC),
+                      size: 24.0,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
-          descriptionProduct(),
-          const Divider(
-            color: Color(0xffE6E6E6),
-            thickness: 1,
-          ),
-          reviewProduct(),
+          Padding(
+            padding: const EdgeInsets.only(right: 15.0),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const CheckoutProductPage()));
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xff3653B0),
+                minimumSize: const Size(209, 44),
+              ),
+              child: Text(
+                'Beli Sekarang',
+                style: GoogleFonts.plusJakartaSans(
+                  color: Colors.white,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );

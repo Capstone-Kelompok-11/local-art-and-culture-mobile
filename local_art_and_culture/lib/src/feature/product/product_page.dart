@@ -103,16 +103,16 @@ class _ListProductPageState extends State<ListProductPage> {
 
   Widget buttonFilter(BuildContext context) {
     return Container(
-      height: 35,
+      height: 28,
       width: MediaQuery.of(context).size.width - 8,
-      margin: const EdgeInsets.only(bottom: 15.0),
+      margin: const EdgeInsets.only(bottom: 10.0),
       child: ListView(
         scrollDirection: Axis.horizontal,
         controller: _scrollController,
         children: categories.map((category) {
           bool isPressed = _selectedCategory == category;
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 8),
             child: ElevatedButton(
               onPressed: () {
                 setState(() {
