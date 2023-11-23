@@ -218,8 +218,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       height: 270, // Ubah tinggi sesuai kebutuhan
                       child: ListView.builder(
                         scrollDirection: Axis.vertical,
-                        itemCount:
-                            newsCards.length, // Gunakan panjang list newsCards
+                        itemCount: 5, // Gunakan panjang list newsCards
                         itemBuilder: (context, index) {
                           return Padding(
                             padding: const EdgeInsets.all(10),
