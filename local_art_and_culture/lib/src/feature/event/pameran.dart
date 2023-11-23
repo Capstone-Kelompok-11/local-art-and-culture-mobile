@@ -13,10 +13,13 @@ class _PameranPageState extends State<PameranPage> {
         preferredSize: Size.fromHeight(56.0), // Sesuaikan dengan tinggi yang diinginkan
         child: AppBar(
           automaticallyImplyLeading: false, // Hilangkan tombol kembali otomatis
-          title: Row(
-            children: [
+          title: Row(   
+            children: [ 
               IconButton(
-                icon: const Icon(Icons.arrow_back),
+                icon: Padding(
+                  padding: EdgeInsets.only(right: 1.0), // Adjust the left padding as needed
+                  child: const Icon(Icons.arrow_back),
+                ),
                 onPressed: () {
                   Navigator.pop(context);
                 },
@@ -39,31 +42,35 @@ class _PameranPageState extends State<PameranPage> {
                   ),
                 ),
               ),
-
-              Expanded(
-                child: Container(
-                  height: 50,
-                  child: const TextField(
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.search),
-                      filled: true,
-                      fillColor: Color.fromARGB(255, 247, 244, 244),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(20.0),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-
               // IconButton(
               //   icon: const Icon(Icons.wifi_rounded),
               //   onPressed: () {
               //     Navigator.pop(context);
               //   },
               // ),
+              SizedBox(width: 10),
+              Container(
+              margin: EdgeInsets.only(bottom: 3.0),
+              decoration: BoxDecoration(
+                color: Colors.blue, // Warna latar belakang
+                borderRadius: BorderRadius.circular(14.0), // Bordes sudut
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5), // Warna bayangan
+                    spreadRadius: 3,
+                    blurRadius: 5,
+                    offset: Offset(0, 2), // Posisi bayangan
+                  ),
+                ],
+              ),
+              child: IconButton(
+                icon: const Icon(Icons.wifi_rounded),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                color: Colors.white, // Warna ikon
+              ),
+            )
             ],
           ),
         ),
@@ -74,52 +81,88 @@ class _PameranPageState extends State<PameranPage> {
           Row(
             children: [
               // Workshop
-              TextButton(
+              SizedBox(width: 28),
+              Container(
+              margin: EdgeInsets.only(bottom: 3.0),
+               // Sesuaikan nilai right dengan jarak yang diinginkan
+              child: TextButton(
                 onPressed: () {},
                 child: Text('Workshop'),
                 style: TextButton.styleFrom(
-                  primary: Colors.grey,
+                  primary: Color.fromARGB(255, 253, 253, 253),
+                  backgroundColor: Color.fromARGB(255, 205, 209, 212),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  padding: EdgeInsets.fromLTRB(4.0, 12.0, 4.0, 12.0),
                 ),
               ),
-              // Event
-              TextButton(
+            ),
+            SizedBox(width: 25),
+            Container(
+              margin: EdgeInsets.only(bottom: 3.0),
+               // Sesuaikan nilai right dengan jarak yang diinginkan
+              child: TextButton(
                 onPressed: () {},
                 child: Text('Event'),
                 style: TextButton.styleFrom(
-                  primary: Colors.grey,
+                  primary: Color.fromARGB(255, 253, 253, 253),
+                  backgroundColor: const Color.fromARGB(255, 205, 209, 212),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  padding: EdgeInsets.fromLTRB(4.0, 12.0, 4.0, 12.0),
                 ),
               ),
-              // Pameran
-              TextButton(
+            ),      
+            SizedBox(width: 25),
+            Container(
+              margin: EdgeInsets.only(bottom: 3.0),
+               // Sesuaikan nilai right dengan jarak yang diinginkan
+              child: TextButton(
                 onPressed: () {},
                 child: Text('Pameran'),
                 style: TextButton.styleFrom(
-                  primary: Colors.blue,
+                  primary: Color.fromARGB(255, 253, 253, 253),
+                  backgroundColor: Color.fromARGB(255, 112, 148, 247),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  padding: EdgeInsets.fromLTRB(4.0, 12.0, 4.0, 12.0),
                 ),
               ),
-              // Festival budaya
-              TextButton(
-                onPressed: () {},
-                child: Text('Festival budaya'),
-                style: TextButton.styleFrom(
-                  primary: Colors.grey,
-                ),
-              ),
-            ],
-          ),
-          // ListView
-          Expanded(
-            child: ListView(
-              children: [
-                // ... (berisi kode pameran yang lain)
-              ],
             ),
+            SizedBox(width: 25),
+            Container(
+              margin: EdgeInsets.only(bottom: 3.0),
+               // Sesuaikan nilai right dengan jarak yang diinginkan
+              child: TextButton(
+                onPressed: () {},
+                child: Text('Festival Budaya'),
+                style: TextButton.styleFrom(
+                  primary: Color.fromARGB(255, 253, 253, 253),
+                  backgroundColor: const Color.fromARGB(255, 205, 209, 212),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                  padding: EdgeInsets.fromLTRB(4.0, 12.0, 4.0, 12.0),
+                ),
+              ),
+            ),  
+            ],
+            
+              
           ),
+           
         ],
+        
+          
       ),
     );
   }
 }
+
+
 
 
 
