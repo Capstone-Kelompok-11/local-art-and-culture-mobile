@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/constants/color_collections.dart';
+import 'package:local_art_and_culture/src/feature/event/detail_pameran.dart';
 import 'package:local_art_and_culture/src/feature/event/pameran.dart';
 
 void main() {
@@ -13,6 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
