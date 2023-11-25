@@ -1,18 +1,14 @@
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:local_art_and_culture/src/feature/product/detail_product.dart';
+import 'package:local_art_and_culture/src/feature/product/screens/detail_product.dart';
 
-class ListProductPage extends StatefulWidget {
-  const ListProductPage({Key? key}) : super(key: key);
+class CardProducts extends StatefulWidget {
+  const CardProducts({super.key});
 
   @override
-  State<ListProductPage> createState() => _ListProductPageState();
+  State<CardProducts> createState() => _CardProductsState();
 }
 
-class _ListProductPageState extends State<ListProductPage> {
-  List<String> categories = ["All", "Book", "Fashion", "Handmade"];
+class _CardProductsState extends State<CardProducts> {
   List<String> products = [
     "Product 1",
     "Product 2",
@@ -20,128 +16,8 @@ class _ListProductPageState extends State<ListProductPage> {
     "Product 4",
     "Product 5"
   ];
-  final ScrollController _scrollController = ScrollController();
-  String? _selectedCategory;
-  bool isPressed = false;
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(top: 60),
-                  child: const Icon(
-                    Icons.keyboard_backspace_rounded,
-                    size: 25,
-                  ),
-                ),
-                const SizedBox(
-                  width: 10,
-                ),
-                searchBar(context),
-                const SizedBox(width: 10),
-                Container(
-                  margin: const EdgeInsets.only(top: 60),
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: const Color(0xff768DD5),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: const Icon(
-                    Icons.filter_list,
-                    color: Colors.black,
-                    size: 25,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 20),
-            buttonFilter(context),
-            cardProduct(context)
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget searchBar(BuildContext context) {
-    return Container(
-      width: 300,
-      margin: const EdgeInsets.only(top: 60),
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(30),
-        border: Border.all(color: const Color.fromARGB(255, 255, 255, 255)),
-        boxShadow: const [
-          BoxShadow(
-            color: Color.fromRGBO(153, 153, 153, 0.25),
-            spreadRadius: 1,
-            blurRadius: 8,
-          )
-        ],
-      ),
-      child: const Row(
-        children: [
-          Icon(Icons.search, color: Color(0xff333333)),
-          SizedBox(width: 8),
-          Expanded(
-            child: TextField(
-              decoration: InputDecoration(border: InputBorder.none),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget buttonFilter(BuildContext context) {
-    return Container(
-      height: 28,
-      width: MediaQuery.of(context).size.width - 8,
-      margin: const EdgeInsets.only(bottom: 10.0),
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        controller: _scrollController,
-        children: categories.map((category) {
-          bool isPressed = _selectedCategory == category;
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  _selectedCategory = isPressed ? null : category;
-                });
-                print(_selectedCategory);
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: isPressed
-                    ? const Color(0xff3653B0)
-                    : const Color(0xffCCCCCC),
-                minimumSize: const Size(130, 0),
-              ),
-              child: Text(
-                category,
-                style: GoogleFonts.plusJakartaSans(
-                  color: Colors.white,
-                  fontSize: 13,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ),
-          );
-        }).toList(),
-      ),
-    );
-  }
-
-  Widget cardProduct(BuildContext context) {
     return Expanded(
       child: DefaultTextStyle(
         style: const TextStyle(

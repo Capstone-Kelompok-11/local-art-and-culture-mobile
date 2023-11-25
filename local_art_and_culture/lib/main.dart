@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:local_art_and_culture/src/feature/product/detail_product.dart';
-import 'package:local_art_and_culture/src/feature/product/product_page.dart';
+import 'package:local_art_and_culture/models/payment_model.dart';
+import 'package:local_art_and_culture/src/feature/product/screens/detail_product.dart';
+import 'package:local_art_and_culture/src/feature/product/screens/product_page.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => PaymentModel()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

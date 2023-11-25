@@ -1,0 +1,56 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+class ButtonFilter extends StatefulWidget {
+  const ButtonFilter({super.key});
+
+  @override
+  State<ButtonFilter> createState() => _ButtonFilterState();
+}
+
+class _ButtonFilterState extends State<ButtonFilter> {
+  List<String> categories = ["All", "Book", "Fashion", "Handmade"];
+  final ScrollController _scrollController = ScrollController();
+  String? _selectedCategory;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 28,
+      width: MediaQuery.of(context).size.width - 8,
+      margin: const EdgeInsets.only(bottom: 10.0),
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        controller: _scrollController,
+        children: categories.map((category) {
+          bool isPressed = _selectedCategory == category;
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  _selectedCategory = isPressed ? null : category;
+                });
+                print(_selectedCategory);
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: isPressed
+                    ? const Color(0xff3653B0)
+                    : const Color(0xffCCCCCC),
+                minimumSize: const Size(130, 0),
+              ),
+              child: Text(
+                category,
+                style: GoogleFonts.plusJakartaSans(
+                  color: Colors.white,
+                  fontSize: 13,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          );
+        }).toList(),
+      ),
+    );
+  }
+}
