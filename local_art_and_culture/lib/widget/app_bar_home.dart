@@ -1,4 +1,7 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String name;
@@ -55,8 +58,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         IconButton(
-          icon: const Icon(
-            Icons.notifications,
+          icon: SvgPicture.asset(
+            'assets/svg/bell-ring.svg',
             color: Colors.black,
           ),
           onPressed: () {
