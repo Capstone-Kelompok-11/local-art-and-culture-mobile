@@ -57,10 +57,6 @@ class _MyHomePageState extends State<MyHomePage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: const CustomAppBar(
-          name: 'Sule',
-          location: 'Surabaya',
-        ),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -81,6 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    CustomContainer(name: 'Andre', location: 'Surabaya'),
                     Row(
                       children: [
                         Expanded(
@@ -175,7 +172,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
+                      color: Colors.grey.withOpacity(0.1),
                       spreadRadius: 2,
                       blurRadius: 5,
                       offset: const Offset(0, 3),
@@ -231,6 +228,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
               ),
+              SizedBox(height: 16),
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 30.0),
                 padding: const EdgeInsets.fromLTRB(15.0, 31.0, 0.0, 31.0),
@@ -238,7 +236,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
+                      color: Colors.grey.withOpacity(0.1),
                       spreadRadius: 2,
                       blurRadius: 5,
                       offset: const Offset(0, 3),
@@ -277,7 +275,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                     SizedBox(
-                      height: 350, // Ubah tinggi sesuai kebutuhan
+                      height: 385, // Ubah tinggi sesuai kebutuhan
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: 4,
@@ -292,6 +290,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               title: 'Rp 80.000',
                               locationRating: "Surabaya",
                               starRating: 4.5,
+                              terjual: '120',
                             ),
                           );
                         },
@@ -328,7 +327,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                     SizedBox(
-                      height: 350,
+                      height: 385, // Ubah tinggi sesuai kebutuhan
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: 4,
@@ -343,6 +342,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               title: 'Rp 80.000',
                               locationRating: "Surabaya",
                               starRating: 4.5,
+                              terjual: '138',
                             ),
                           );
                         },
@@ -351,7 +351,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
               ),
-              const SizedBox(height: 50),
+              const SizedBox(height: 0),
             ],
           ),
         ),
