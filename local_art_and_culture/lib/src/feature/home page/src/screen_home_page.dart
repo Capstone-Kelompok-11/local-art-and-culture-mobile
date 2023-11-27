@@ -285,8 +285,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           return const Padding(
                             padding: cardPadding,
                             child: RoundedImageCard(
-                              imagePath:
-                                  'assets/dompet_kulit_lokal_wanita_main.jpg',
+                              imagePath: 'assets/dompet.jpg',
+                              label: 'Fashion',
                               subtitle:
                                   'Dompet Wanita Series AMC Kulit Naga Asli',
                               title: 'Rp 80.000',
@@ -328,7 +328,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                     SizedBox(
-                      height: 350, // Ubah tinggi sesuai kebutuhan
+                      height: 350,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: 4,
@@ -336,8 +336,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           return const Padding(
                             padding: cardPadding,
                             child: RoundedImageCard(
-                              imagePath:
-                                  'assets/dompet_kulit_lokal_wanita_main.jpg',
+                              imagePath: 'assets/dompet.jpg',
+                              label: 'Fashion',
                               subtitle:
                                   'Dompet Wanita Series AMC Kulit Naga Asli',
                               title: 'Rp 80.000',
