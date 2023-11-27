@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:local_art_and_culture/widget/app_bar_home.dart';
 import 'package:local_art_and_culture/widget/card.dart';
 import 'package:local_art_and_culture/widget/card_event.dart';
 import 'package:local_art_and_culture/widget/news_card.dart';
-import 'package:local_art_and_culture/widget/bottom_navigation_bar.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -15,7 +15,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<NewsCard> newsCards = [];
-  final NavItemBuilder navItemBuilder = NavItemBuilder();
 
   int _selectedIndex = 0;
   @override
@@ -88,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: TextField(
                             decoration: InputDecoration(
                               hintText: 'Cari...',
-                              prefixIcon: Icon(Icons.search),
+                              prefixIcon: const Icon(Icons.search),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
@@ -96,7 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                         ),
                         IconButton(
-                          icon: Icon(Icons.filter_list),
+                          icon: const Icon(Icons.filter_list),
                           onPressed: () {
                             // Tambahkan logika untuk menangani klik icon filter di sini
                           },
@@ -358,13 +357,33 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: [
-            navItemBuilder.buildNavItem(Icons.home, 'Home'),
-            navItemBuilder.buildNavItem(Icons.event, 'Event'),
-            navItemBuilder.buildNavItem(Icons.storefront, 'Product'),
-            navItemBuilder.buildNavItem(Icons.person, 'Profile'),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                'assets/svg/home.svg',
+              ),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                'assets/svg/event.svg',
+              ),
+              label: 'Event',
+            ),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                'assets/svg/Group.svg',
+              ),
+              label: 'Product',
+            ),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                'assets/svg/person.svg',
+              ),
+              label: 'Profile',
+            ),
           ],
           currentIndex: _selectedIndex,
-          selectedItemColor: Colors.blue, // Warna terpilih
+          selectedItemColor: Colors.blue,
           onTap: _onItemTapped,
         ),
       ),
