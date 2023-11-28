@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:local_art_and_culture/widget/app_bar_home.dart';
+import 'package:local_art_and_culture/widget/calender.dart';
 import 'package:local_art_and_culture/widget/card.dart';
 import 'package:local_art_and_culture/widget/card_event.dart';
+import 'package:local_art_and_culture/widget/icon_filter.dart';
 import 'package:local_art_and_culture/widget/news_card.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -62,12 +64,17 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 30.0),
-                padding: const EdgeInsets.fromLTRB(15.0, 31.0, 0.0, 31.0),
+                padding: const EdgeInsets.only(
+                  top: 64,
+                  left: 24,
+                  right: 24,
+                  bottom: 28,
+                ),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
+                      color: Colors.grey.withOpacity(0.1),
                       spreadRadius: 2,
                       blurRadius: 5,
                       offset: const Offset(0, 3),
@@ -77,28 +84,46 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CustomContainer(name: 'Andre', location: 'Surabaya'),
-                    Row(
+                    const Row(
                       children: [
                         Expanded(
-                          child: TextField(
-                            decoration: InputDecoration(
-                              hintText: 'Cari...',
-                              prefixIcon: const Icon(Icons.search),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
-                            ),
+                          child: CustomContainer(
+                            profileImageUrl:
+                                'https://via.placeholder.com/32x32',
+                            greetingText: 'Horas, Sule!',
+                            locationText: 'Surabaya',
                           ),
+                        )
+                      ],
+                    ),
+                    const SizedBox(height: 32),
+                    Row(
+                      children: [
+                        const Expanded(
+                          child: SearchBar(),
                         ),
-                        IconButton(
+                        const SizedBox(width: 12),
+                        CustomIconButton(
                           icon: const Icon(Icons.filter_list),
-                          onPressed: () {
-                            // Tambahkan logika untuk menangani klik icon filter di sini
-                          },
+                          onTap: () {},
                         ),
                       ],
                     ),
+                    const SizedBox(height: 32),
+                    const Row(
+                      children: [
+                        Expanded(
+                            child: CustomCalendar(
+                                month: 'September',
+                                tahun: '2023',
+                                weekOne: 'weekOne',
+                                weekTwo: 'weekTwo',
+                                weekThree: 'weekThree',
+                                weekFour: 'weekFour',
+                                weekFive: 'weekFive',
+                                weekSix: 'weekSix'))
+                      ],
+                    )
                   ],
                 ),
               ),
@@ -228,7 +253,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 30.0),
                 padding: const EdgeInsets.fromLTRB(15.0, 31.0, 0.0, 31.0),
