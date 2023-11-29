@@ -3,23 +3,11 @@ import 'package:flutter/material.dart';
 class CustomCalendar extends StatelessWidget {
   final String month;
   final String tahun;
-  final String weekOne;
-  final String weekTwo;
-  final String weekThree;
-  final String weekFour;
-  final String weekFive;
-  final String weekSix;
 
   const CustomCalendar({
     Key? key,
     required this.month,
     required this.tahun,
-    required this.weekOne,
-    required this.weekTwo,
-    required this.weekThree,
-    required this.weekFour,
-    required this.weekFive,
-    required this.weekSix,
   }) : super(key: key);
 
   @override

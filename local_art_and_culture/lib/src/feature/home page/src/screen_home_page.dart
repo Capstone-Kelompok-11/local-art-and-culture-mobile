@@ -6,6 +6,8 @@ import 'package:local_art_and_culture/widget/card.dart';
 import 'package:local_art_and_culture/widget/card_event.dart';
 import 'package:local_art_and_culture/widget/icon_filter.dart';
 import 'package:local_art_and_culture/widget/news_card.dart';
+import 'package:local_art_and_culture/widget/searchbar.dart';
+import 'package:local_art_and_culture/widget/slider_home_page.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -100,7 +102,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     Row(
                       children: [
                         const Expanded(
-                          child: SearchBar(),
+                          child: CustomSearchBar(
+                            leadingIcon: Icon(Icons.search),
+                          ),
                         ),
                         const SizedBox(width: 12),
                         CustomIconButton(
@@ -113,16 +117,16 @@ class _MyHomePageState extends State<MyHomePage> {
                     const Row(
                       children: [
                         Expanded(
-                            child: CustomCalendar(
-                                month: 'September',
-                                tahun: '2023',
-                                weekOne: 'weekOne',
-                                weekTwo: 'weekTwo',
-                                weekThree: 'weekThree',
-                                weekFour: 'weekFour',
-                                weekFive: 'weekFive',
-                                weekSix: 'weekSix'))
+                          child: CustomCalendar(
+                            month: 'September',
+                            tahun: '2023',
+                          ),
+                        )
                       ],
+                    ),
+                    const SizedBox(height: 32),
+                    Row(
+                      children: [Expanded(child: CustomImageSlider())],
                     )
                   ],
                 ),

@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 
 class CustomSearchBar extends StatelessWidget {
   final Widget leadingIcon;
-  final Widget trailingIcon;
   final Function()? onLeadingTap;
   final Function()? onTrailingTap;
 
   const CustomSearchBar({
     Key? key,
     required this.leadingIcon,
-    required this.trailingIcon,
     this.onLeadingTap,
     this.onTrailingTap,
   }) : super(key: key);
@@ -19,7 +17,7 @@ class CustomSearchBar extends StatelessWidget {
     return Container(
       width: 293,
       height: 40,
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       clipBehavior: Clip.antiAlias,
       decoration: ShapeDecoration(
         color: Colors.white,
@@ -35,44 +33,22 @@ class CustomSearchBar extends StatelessWidget {
           )
         ],
       ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Row(
         children: [
-          Container(
-            width: double.infinity,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  width: 24,
-                  height: 24,
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        width: 24,
-                        height: 24,
-                        clipBehavior: Clip.antiAlias,
-                        decoration: const BoxDecoration(),
-                        child: const Column(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+          GestureDetector(
+            onTap: onLeadingTap,
+            child: leadingIcon,
+          ),
+          const SizedBox(
+              width: 10), // Add some spacing between icon and text field
+          const Expanded(
+            child: TextField(
+              decoration: InputDecoration(
+                border: InputBorder.none,
+              ),
             ),
           ),
+          // Add trailingIcon here if needed
         ],
       ),
     );
