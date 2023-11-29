@@ -73,7 +73,6 @@ class RoundedImageCard extends StatelessWidget {
                     fontSize: 10,
                     fontFamily: 'Plus Jakarta Sans',
                     fontWeight: FontWeight.w500,
-                    height: 0.15,
                   ),
                 ),
               ],

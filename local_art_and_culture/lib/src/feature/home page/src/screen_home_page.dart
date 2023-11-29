@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:local_art_and_culture/widget/app_bar_home.dart';
+import 'package:local_art_and_culture/widget/button_fitur.dart';
 import 'package:local_art_and_culture/widget/calender.dart';
 import 'package:local_art_and_culture/widget/card.dart';
 import 'package:local_art_and_culture/widget/card_event.dart';
@@ -61,327 +62,343 @@ class _MyHomePageState extends State<MyHomePage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                margin: const EdgeInsets.symmetric(vertical: 30.0),
-                padding: const EdgeInsets.only(
-                  top: 64,
-                  left: 24,
-                  right: 24,
-                  bottom: 28,
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.1),
-                      spreadRadius: 2,
-                      blurRadius: 5,
-                      offset: const Offset(0, 3),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Row(
-                      children: [
-                        Expanded(
-                          child: CustomContainer(
-                            profileImageUrl:
-                                'https://via.placeholder.com/32x32',
-                            greetingText: 'Horas, Sule!',
-                            locationText: 'Surabaya',
-                          ),
-                        )
-                      ],
-                    ),
-                    const SizedBox(height: 32),
-                    Row(
-                      children: [
-                        const Expanded(
-                          child: CustomSearchBar(
-                            leadingIcon: Icon(Icons.search),
-                          ),
-                        ),
-                        const SizedBox(width: 12),
-                        CustomIconButton(
-                          icon: const Icon(Icons.filter_list),
-                          onTap: () {},
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 32),
-                    const Row(
-                      children: [
-                        Expanded(
-                          child: CustomCalendar(
-                            month: 'September',
-                            tahun: '2023',
-                          ),
-                        )
-                      ],
-                    ),
-                    const SizedBox(height: 32),
-                    Row(
-                      children: [Expanded(child: CustomImageSlider())],
-                    )
-                  ],
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.symmetric(vertical: 30.0),
-                padding: const EdgeInsets.fromLTRB(15.0, 31.0, 0.0, 31.0),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 2,
-                      blurRadius: 5,
-                      offset: const Offset(0, 3),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 16.0, vertical: 8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        extendBody: true,
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Container(
+                  padding: const EdgeInsets.only(
+                    top: 64,
+                    left: 24,
+                    right: 24,
+                    bottom: 28,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.1),
+                        spreadRadius: 2,
+                        blurRadius: 5,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Row(
                         children: [
-                          const Text(
-                            'Rekomendasi Event',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
+                          Expanded(
+                            child: CustomContainer(
+                              profileImageUrl:
+                                  'https://via.placeholder.com/32x32',
+                              greetingText: 'Horas, Sule!',
+                              locationText: 'Surabaya',
+                            ),
+                          )
+                        ],
+                      ),
+                      const SizedBox(height: 32),
+                      Row(
+                        children: [
+                          const Expanded(
+                            child: CustomSearchBar(
+                              leadingIcon: Icon(Icons.search),
                             ),
                           ),
-                          GestureDetector(
-                            onTap: () {
-                              // Tindakan ketika "Lihat Semua" ditekan
-                            },
-                            child: const Text(
-                              'Lihat Semua',
-                              style: TextStyle(
-                                color: Colors.blue,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
+                          const SizedBox(width: 12),
+                          CustomIconButton(
+                            icon: const Icon(Icons.filter_list),
+                            onTap: () {},
                           ),
                         ],
                       ),
-                    ),
-                    SizedBox(
-                      height: 335, // Ubah tinggi sesuai kebutuhan
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: 3,
-                        itemBuilder: (context, index) {
-                          return const Padding(
+                      const SizedBox(height: 32),
+                      const Row(
+                        children: [
+                          Expanded(
+                            child: CustomCalendar(
+                              month: 'September',
+                              tahun: '2023',
+                            ),
+                          )
+                        ],
+                      ),
+                      const SizedBox(height: 32),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: CustomImageSlider(),
+                          )
+                        ],
+                      ),
+                      const SizedBox(height: 32),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: MyButtons(),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(vertical: 30.0),
+                  padding: const EdgeInsets.fromLTRB(15.0, 31.0, 0.0, 31.0),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 2,
+                        blurRadius: 5,
+                        offset: const Offset(0, 1),
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16.0, vertical: 8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              'Rekomendasi Event',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                // Tindakan ketika "Lihat Semua" ditekan
+                              },
+                              child: const Text(
+                                'Lihat Semua',
+                                style: TextStyle(
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 335, // Ubah tinggi sesuai kebutuhan
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 3,
+                          itemBuilder: (context, index) {
+                            return const Padding(
+                                padding: cardPadding,
+                                child: CardEvent(
+                                    imagePath: 'assets/banner 3.png',
+                                    title: 'Workshop Ceramics for Beginner',
+                                    label1: 'Festival Budaya',
+                                    label2: 'Berbayar',
+                                    date: '16-17 Okt 2023'));
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: const EdgeInsets.symmetric(vertical: 30.0),
+                  padding: const EdgeInsets.fromLTRB(15.0, 31.0, 0.0, 31.0),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.1),
+                        spreadRadius: 2,
+                        blurRadius: 5,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16.0, vertical: 8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              'Artikel Terkini',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                // Tindakan ketika "Lihat Semua" ditekan
+                              },
+                              child: const Text(
+                                'Lihat Semua',
+                                style: TextStyle(
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 270, // Ubah tinggi sesuai kebutuhan
+                        child: ListView.builder(
+                          scrollDirection: Axis.vertical,
+                          itemCount: 5, // Gunakan panjang list newsCards
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: newsCards[
+                                  index], // Tampilkan NewsCard dari API
+                            );
+                          },
+                        ),
+                      ),
+                      // Contoh elemen tambahan di dalam SingleChildScrollView
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 16),
+                Container(
+                  margin: const EdgeInsets.symmetric(vertical: 30.0),
+                  padding: const EdgeInsets.fromLTRB(15.0, 31.0, 0.0, 31.0),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.1),
+                        spreadRadius: 2,
+                        blurRadius: 5,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16.0, vertical: 8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              'Rekomendasi Produk',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                // Tindakan ketika "Lihat Semua" ditekan
+                              },
+                              child: const Text(
+                                'Lihat Semua',
+                                style: TextStyle(
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 385, // Ubah tinggi sesuai kebutuhan
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 4,
+                          itemBuilder: (context, index) {
+                            return const Padding(
                               padding: cardPadding,
-                              child: CardEvent(
-                                  imagePath: 'assets/banner 3.png',
-                                  title: 'Workshop Ceramics for Beginner',
-                                  date: '16-17 Okt 2023'));
-                        },
+                              child: RoundedImageCard(
+                                imagePath: 'assets/dompet.jpg',
+                                label: 'Fashion',
+                                subtitle:
+                                    'Dompet Wanita Series AMC Kulit Naga Asli',
+                                title: 'Rp 80.000',
+                                locationRating: "Surabaya",
+                                starRating: 4.5,
+                                terjual: '120',
+                              ),
+                            );
+                          },
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.symmetric(vertical: 30.0),
-                padding: const EdgeInsets.fromLTRB(15.0, 31.0, 0.0, 31.0),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.1),
-                      spreadRadius: 2,
-                      blurRadius: 5,
-                      offset: const Offset(0, 3),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 16.0, vertical: 8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
-                            'Artikel Terkini',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              // Tindakan ketika "Lihat Semua" ditekan
-                            },
-                            child: const Text(
-                              'Lihat Semua',
+                      // Contoh elemen tambahan di dalam SingleChildScrollView
+                      const SizedBox(height: 20),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16.0, vertical: 8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const Text(
+                              'Terlaris di sekitarmu~',
                               style: TextStyle(
-                                color: Colors.blue,
+                                fontSize: 18,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 270, // Ubah tinggi sesuai kebutuhan
-                      child: ListView.builder(
-                        scrollDirection: Axis.vertical,
-                        itemCount: 5, // Gunakan panjang list newsCards
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.all(10),
-                            child:
-                                newsCards[index], // Tampilkan NewsCard dari API
-                          );
-                        },
-                      ),
-                    ),
-                    // Contoh elemen tambahan di dalam SingleChildScrollView
-                  ],
-                ),
-              ),
-              const SizedBox(height: 16),
-              Container(
-                margin: const EdgeInsets.symmetric(vertical: 30.0),
-                padding: const EdgeInsets.fromLTRB(15.0, 31.0, 0.0, 31.0),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.1),
-                      spreadRadius: 2,
-                      blurRadius: 5,
-                      offset: const Offset(0, 3),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 16.0, vertical: 8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
-                            'Rekomendasi Produk',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              // Tindakan ketika "Lihat Semua" ditekan
-                            },
-                            child: const Text(
-                              'Lihat Semua',
-                              style: TextStyle(
-                                color: Colors.blue,
-                                fontWeight: FontWeight.bold,
+                            GestureDetector(
+                              onTap: () {
+                                // Tindakan ketika "Lihat Semua" ditekan
+                              },
+                              child: const Text(
+                                'Lihat Semua',
+                                style: TextStyle(
+                                  color: Colors.blue,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 385, // Ubah tinggi sesuai kebutuhan
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: 4,
-                        itemBuilder: (context, index) {
-                          return const Padding(
-                            padding: cardPadding,
-                            child: RoundedImageCard(
-                              imagePath: 'assets/dompet.jpg',
-                              label: 'Fashion',
-                              subtitle:
-                                  'Dompet Wanita Series AMC Kulit Naga Asli',
-                              title: 'Rp 80.000',
-                              locationRating: "Surabaya",
-                              starRating: 4.5,
-                              terjual: '120',
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                    // Contoh elemen tambahan di dalam SingleChildScrollView
-                    const SizedBox(height: 20),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 16.0, vertical: 8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
-                            'Terlaris di sekitarmu~',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              // Tindakan ketika "Lihat Semua" ditekan
-                            },
-                            child: const Text(
-                              'Lihat Semua',
-                              style: TextStyle(
-                                color: Colors.blue,
-                                fontWeight: FontWeight.bold,
+                      SizedBox(
+                        height: 385, // Ubah tinggi sesuai kebutuhan
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 4,
+                          itemBuilder: (context, index) {
+                            return const Padding(
+                              padding: cardPadding,
+                              child: RoundedImageCard(
+                                imagePath: 'assets/dompet.jpg',
+                                label: 'Fashion',
+                                subtitle:
+                                    'Dompet Wanita Series AMC Kulit Naga Asli',
+                                title: 'Rp 80.000',
+                                locationRating: "Surabaya",
+                                starRating: 4.5,
+                                terjual: '138',
                               ),
-                            ),
-                          ),
-                        ],
+                            );
+                          },
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 385, // Ubah tinggi sesuai kebutuhan
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: 4,
-                        itemBuilder: (context, index) {
-                          return const Padding(
-                            padding: cardPadding,
-                            child: RoundedImageCard(
-                              imagePath: 'assets/dompet.jpg',
-                              label: 'Fashion',
-                              subtitle:
-                                  'Dompet Wanita Series AMC Kulit Naga Asli',
-                              title: 'Rp 80.000',
-                              locationRating: "Surabaya",
-                              starRating: 4.5,
-                              terjual: '138',
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(height: 0),
-            ],
+                const SizedBox(height: 0),
+              ],
+            ),
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
