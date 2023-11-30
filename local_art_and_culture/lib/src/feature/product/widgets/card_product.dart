@@ -42,7 +42,7 @@ class _CardProductsState extends State<CardProducts> {
                       ? 'lib/assets/gambar-produk-2.jpg'
                       : 'lib/assets/gambar-produk-1.jpg';
 
-                  String category = index.isEven ? 'Fasion' : 'Handmade';
+                  String category = index.isEven ? 'Fasion' : 'Karya Tangan';
                   String title = index.isEven
                       ? 'Baju Kebaya Wanita Pink Full Set Lokal'
                       : 'Dompet Wanita Series AMC Kulit Naga Asli  ';
@@ -101,8 +101,8 @@ class _CardProductsState extends State<CardProducts> {
                                       vertical: 4.0, horizontal: 10.0),
                                   decoration: BoxDecoration(
                                     color: index.isEven
-                                        ? const Color(0xff3653B0)
-                                        : const Color(0xff026c52),
+                                        ? const Color(0xff339981)
+                                        : const Color(0xffF6C63C),
                                     borderRadius: BorderRadius.circular(15.0),
                                   ),
                                   child: Text(
@@ -148,7 +148,7 @@ class _CardProductsState extends State<CardProducts> {
                                     ),
                                   ],
                                 ),
-                                const SizedBox(height: 8.0),
+                                const SizedBox(height: 5.0),
                                 RichText(
                                   text: TextSpan(
                                     style: DefaultTextStyle.of(context).style,
