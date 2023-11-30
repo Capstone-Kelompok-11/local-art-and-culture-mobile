@@ -9,14 +9,14 @@ class ButtonFilter extends StatefulWidget {
 }
 
 class _ButtonFilterState extends State<ButtonFilter> {
-  List<String> categories = ["All", "Book", "Fashion", "Handmade"];
+  List<String> categories = ["Semua", "Buku", "Fashion", "Karya Tangan"];
   final ScrollController _scrollController = ScrollController();
   String? _selectedCategory;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 28,
+      height: 35,
       width: MediaQuery.of(context).size.width - 8,
       margin: const EdgeInsets.only(bottom: 10.0),
       child: ListView(
@@ -31,13 +31,14 @@ class _ButtonFilterState extends State<ButtonFilter> {
                 setState(() {
                   _selectedCategory = isPressed ? null : category;
                 });
+                // ignore: avoid_print
                 print(_selectedCategory);
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: isPressed
                     ? const Color(0xff3653B0)
                     : const Color(0xffCCCCCC),
-                minimumSize: const Size(130, 0),
+                minimumSize: const Size(60, 0),
               ),
               child: Text(
                 category,
