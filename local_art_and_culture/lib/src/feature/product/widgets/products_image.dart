@@ -59,8 +59,9 @@ class _ProductsImageState extends State<ProductsImage> {
                         isFavorite
                             ? Icons.favorite_rounded
                             : Icons.favorite_border_rounded,
-                        color:
-                            isFavorite ? Colors.white : const Color(0xff999999),
+                        color: isFavorite
+                            ? Colors.white
+                            : const Color.fromARGB(255, 255, 255, 255),
                         size: 28.0,
                       ),
                     ),
@@ -70,7 +71,7 @@ class _ProductsImageState extends State<ProductsImage> {
             ],
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 15),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

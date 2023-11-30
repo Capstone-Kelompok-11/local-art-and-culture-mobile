@@ -16,37 +16,25 @@ class _DetailProductState extends State<DetailProduct> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView(
-              children: const [
-                ProductsImage(),
-                SizedBox(height: 10),
-                Divider(
-                  color: Color(0xffE6E6E6),
-                  thickness: 1,
-                ),
-                ProductStore(),
-                Divider(
-                  color: Color(0xffE6E6E6),
-                  thickness: 1,
-                ),
-                DescriptionProducts(),
-                Divider(
-                  color: Color(0xffE6E6E6),
-                  thickness: 1,
-                ),
-                ReviewProduct(),
-              ],
+      body: Container(
+        color: const Color(0xffF2F2F2),
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView(
+                children: const [
+                  ProductsImage(),
+                  SizedBox(height: 8),
+                  ProductStore(),
+                  DescriptionProducts(),
+                  SizedBox(height: 8),
+                  ReviewProduct(),
+                ],
+              ),
             ),
-          ),
-          const Divider(
-            color: Color(0xffE6E6E6),
-            thickness: 1,
-          ),
-          const CheckoutNavigationBar()
-        ],
+            const CheckoutNavigationBar()
+          ],
+        ),
       ),
     );
   }
