@@ -7,6 +7,8 @@ class PameranPage extends StatefulWidget {
 }
 
 class _PameranPageState extends State<PameranPage> {
+  get automaticallyImplyLeading => null;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,29 +55,15 @@ class _PameranPageState extends State<PameranPage> {
                   ),
                 ),
               ),
-              // IconButton(
-              //   icon: const Icon(Icons.wifi_rounded),
-              //   onPressed: () {
-              //     Navigator.pop(context);
-              //   },
-              // ),
               const SizedBox(width: 10),
               Container(
               margin: const EdgeInsets.only(bottom: 3.0),
               decoration: BoxDecoration(
                 color: Colors.blue, // Warna latar belakang
-                borderRadius: BorderRadius.circular(14.0), // Bordes sudut
-                boxShadow: [
-                  // BoxShadow(
-                  //   color: Colors.grey.withOpacity(0.5), // Warna bayangan
-                  //   spreadRadius: 3,
-                  //   blurRadius: 5,
-                  //   offset: Offset(0, 2), // Posisi bayangan
-                  // ),
-                ],
+                borderRadius: BorderRadius.circular(14.0), 
               ),
               child: IconButton(
-                icon: const Icon(Icons.wifi_rounded),
+                icon: const Icon(Icons.filter_list),
                 onPressed: () {
                   Navigator.pop(context);
                 },
@@ -88,11 +76,12 @@ class _PameranPageState extends State<PameranPage> {
       ),
       body: Column(
         children: [
+          
           // Kategori event
           Row(
             children: [
               // Workshop
-              const SizedBox(width: 28),
+              const SizedBox(width: 5),
               Container(
               margin: const EdgeInsets.only(bottom: 3.0),
                // Sesuaikan nilai right dengan jarak yang diinginkan
@@ -109,7 +98,7 @@ class _PameranPageState extends State<PameranPage> {
                 ),
               ),
             ),
-            const SizedBox(width: 25),
+            const SizedBox(width: 10),
             Container(
               margin: const EdgeInsets.only(bottom: 3.0),
                // Sesuaikan nilai right dengan jarak yang diinginkan
@@ -126,7 +115,7 @@ class _PameranPageState extends State<PameranPage> {
                 ),
               ),
             ),      
-            const SizedBox(width: 25),
+            const SizedBox(width: 10),
             Container(
               margin: const EdgeInsets.only(bottom: 3.0),
                // Sesuaikan nilai right dengan jarak yang diinginkan
@@ -143,7 +132,7 @@ class _PameranPageState extends State<PameranPage> {
                 ),
               ),
             ),
-            const SizedBox(width: 25),
+            const SizedBox(width: 10),
             Container(
               margin: const EdgeInsets.only(bottom: 3.0),
                // Sesuaikan nilai right dengan jarak yang diinginkan
@@ -165,92 +154,88 @@ class _PameranPageState extends State<PameranPage> {
           Expanded(
             child: ListView(
               children: [
-                // Gambar pameran
-                // Container(
-                //   padding: const EdgeInsets.only(left: 15, right: 15),
-                //   child: Column(
-                //     crossAxisAlignment: CrossAxisAlignment.center,
-                //     children: [
-                //       Container(
-                //         margin: const EdgeInsets.only(top: 20),
-                //         child: Image.asset(
-                //           'assets/Pameran1.png',
-                //           width: double.infinity,
-                //           height: 214,
-                //           fit: BoxFit.fitWidth,
-                //         ),
-                //       ),
-                //     ],
-                //   ),
-                // ),
-                Container(
-                  padding: const EdgeInsets.only(left: 15, right: 15),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.only(top: 20),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0), // Sesuaikan nilai sesuai keinginan Anda
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10.0), // Sesuaikan nilai sesuai keinginan Anda
-                          child: Image.asset(
-                            'assets/Pameran1.png',
-                            width: double.infinity,
-                            height: 214,
-                            fit: BoxFit.fitWidth,
+                SizedBox(
+                  child: Container(
+                    padding: const EdgeInsets.only(left: 15, right: 15),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DetailPameran1(),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            margin: const EdgeInsets.only(top: 20),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10.0),
+                              child: Image.asset(
+                                'assets/Pameran1.png',
+                                width: double.infinity,
+                                height: 214,
+                                fit: BoxFit.fitWidth,
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
                 // Detail pameran
                 const SizedBox(width: 14),
-                Container(
-                  margin: const EdgeInsets.only(bottom: 3.0),
-                  width: MediaQuery.of(context).size.width,
-                  height: 80,
-                  child: const Column(
-                    children: [
-                      // Nama galeri
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text('Pameran', style: TextStyle(
-                          color: Color.fromARGB(255, 40, 134, 95),
+                SizedBox(
+                  child: Container(
+                    margin: const EdgeInsets.only(bottom: 3.0),
+                    width: MediaQuery.of(context).size.width,
+                    height: 80,
+                    child: const Column(
+                      children: [
+                        // Nama galeri
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text('Pameran', style: TextStyle(
+                            color: Color.fromARGB(255, 40, 134, 95),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                          ),),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text('Orasis Art Gallery', style: TextStyle(
+                          color: Colors.black,
                           fontWeight: FontWeight.bold,
-                          fontSize: 15,
+                          fontSize: 20,
                         ),),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text('Orasis Art Gallery', style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      ),),
-                        ],
-                      ),
-                      // Harga
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text('From IDR 10k', style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 15,
-                      ),), 
-                          Icon(Icons.location_on),
-                          Text('Orasis Art Gallery', style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 15,),)
-                        ],
-                      ),
-                      // Lokasi
-                    ],
+                          ],
+                        ),
+                        // Harga
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text('From IDR 10k', style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 15,
+                        ),), 
+                            Icon(Icons.location_on, color: Colors.grey),
+                            Text('Orasis Art Gallery', style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 15,),)
+                          ],
+                        ),
+                        // Lokasi
+                      ],
+                    ),
                   ),
                 ),
 
@@ -261,18 +246,28 @@ class _PameranPageState extends State<PameranPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Container(
-                        margin: const EdgeInsets.only(top: 20),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0), // Sesuaikan nilai sesuai keinginan Anda
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10.0), // Sesuaikan nilai sesuai keinginan Anda
-                          child: Image.asset(
-                            'assets/Pameran2.png',
-                            width: double.infinity,
-                            height: 214,
-                            fit: BoxFit.fitWidth,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DetailPameran2(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.only(top: 20),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10.0),
+                            child: Image.asset(
+                              'assets/Pameran2.png',
+                              width: double.infinity,
+                              height: 214,
+                              fit: BoxFit.fitWidth,
+                            ),
                           ),
                         ),
                       ),
@@ -314,7 +309,7 @@ class _PameranPageState extends State<PameranPage> {
                         color: Colors.grey,
                         fontSize: 15,
                       ),), 
-                          Icon(Icons.location_on),
+                          Icon(Icons.location_on, color: Colors.grey),
                           Text('Jl. Kemang Raya, 11, jakarta Selatan', style: TextStyle(
                         color: Colors.grey,
                         fontSize: 15,),)
@@ -330,18 +325,28 @@ class _PameranPageState extends State<PameranPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Container(
-                        margin: const EdgeInsets.only(top: 20),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0), // Sesuaikan nilai sesuai keinginan Anda
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10.0), // Sesuaikan nilai sesuai keinginan Anda
-                          child: Image.asset(
-                            'assets/Pameran3.png',
-                            width: double.infinity,
-                            height: 214,
-                            fit: BoxFit.fitWidth,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DetailPameran3(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.only(top: 20),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10.0),
+                            child: Image.asset(
+                              'assets/Pameran3.png',
+                              width: double.infinity,
+                              height: 214,
+                              fit: BoxFit.fitWidth,
+                            ),
                           ),
                         ),
                       ),
@@ -383,7 +388,7 @@ class _PameranPageState extends State<PameranPage> {
                         color: Colors.grey,
                         fontSize: 15,
                       ),), 
-                          Icon(Icons.location_on),
+                          Icon(Icons.location_on, color: Colors.grey),
                           Text('Jl. Kemang Timur No.90C', style: TextStyle(
                         color: Colors.grey,
                         fontSize: 15,),)
@@ -393,64 +398,40 @@ class _PameranPageState extends State<PameranPage> {
                     ],
                   ),
                 ),
-
-                // Detail pameran
-                // Container(
-                //   padding: const EdgeInsets.only(left: 15, right: 15),
-                //   child: Column(
-                //     crossAxisAlignment: CrossAxisAlignment.center,
-                //     children: [
-                //       Container(
-                //         margin: const EdgeInsets.only(top: 20),
-                //         decoration: BoxDecoration(
-                //           borderRadius: BorderRadius.circular(10.0), // Sesuaikan nilai sesuai keinginan Anda
-                //         ),
-                //         child: ClipRRect(
-                //           borderRadius: BorderRadius.circular(10.0), // Sesuaikan nilai sesuai keinginan Anda
-                //           child: Image.asset(
-                //             'assets/Pameran4.png',
-                //             width: double.infinity,
-                //             height: 214,
-                //             fit: BoxFit.fitWidth,
-                //           ),
-                //         ),
-                //       ),
-                //     ],
-                //   ),
-                // ),
+                
                 Container(
-  padding: const EdgeInsets.only(left: 15, right: 15),
-  child: Column(
-    crossAxisAlignment: CrossAxisAlignment.center,
-    children: [
-      GestureDetector(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => DetailPameran(),
-            ),
-          );
-        },
-        child: Container(
-          margin: const EdgeInsets.only(top: 20),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(10.0),
-            child: Image.asset(
-              'assets/Pameran4.png',
-              width: double.infinity,
-              height: 214,
-              fit: BoxFit.fitWidth,
-            ),
-          ),
-        ),
-      ),
-    ],
-  ),
-),
+                  padding: const EdgeInsets.only(left: 15, right: 15),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DetailPameran(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.only(top: 20),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10.0),
+                            child: Image.asset(
+                              'assets/Pameran4.png',
+                              width: double.infinity,
+                              height: 214,
+                              fit: BoxFit.fitWidth,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
 
                 Container(
                   width: MediaQuery.of(context).size.width,
@@ -486,7 +467,7 @@ class _PameranPageState extends State<PameranPage> {
                         color: Colors.grey,
                         fontSize: 15,
                       ),), 
-                          Icon(Icons.location_on),
+                          Icon(Icons.location_on, color: Colors.grey),
                           Text('Museum Macan', style: TextStyle(
                         color: Colors.grey,
                         fontSize: 15,),)
@@ -503,18 +484,28 @@ class _PameranPageState extends State<PameranPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Container(
-                        margin: const EdgeInsets.only(top: 20),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0), // Sesuaikan nilai sesuai keinginan Anda
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10.0), // Sesuaikan nilai sesuai keinginan Anda
-                          child: Image.asset(
-                            'assets/Pameran5.png',
-                            width: double.infinity,
-                            height: 214,
-                            fit: BoxFit.fitWidth,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DetailPameran5(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.only(top: 20),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10.0),
+                            child: Image.asset(
+                              'assets/Pameran5.png',
+                              width: double.infinity,
+                              height: 214,
+                              fit: BoxFit.fitWidth,
+                            ),
                           ),
                         ),
                       ),
@@ -556,13 +547,13 @@ class _PameranPageState extends State<PameranPage> {
                         color: Colors.grey,
                         fontSize: 15,
                       ),), 
-                          Icon(Icons.location_on_outlined),
+                          Icon(Icons.location_on, color: Colors.grey),
                           Text('Seminyak', style: TextStyle(
                         color: Colors.grey,
                         fontSize: 15,),)
                         ],
                       ),
-                      // Lokasi
+
                     ],
                   ),
                 ), 
@@ -570,6 +561,37 @@ class _PameranPageState extends State<PameranPage> {
             ),
           ),   
         ],   
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+              icon: const Icon(Icons.home),
+              onPressed: () {
+                // Handle favorite button press
+              },
+            ),
+            IconButton(
+              icon: const Icon(Icons.calendar_month_sharp),
+              onPressed: () {
+                // Handle shopping cart button press
+              },
+            ),
+            IconButton(
+              icon: const Icon(Icons.storefront_outlined),
+              onPressed: () {
+                // Handle message button press
+              },
+            ),
+            IconButton(
+              icon: const Icon(Icons.person),
+              onPressed: () {
+                // Handle message button press
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/constants/color_collections.dart';
 import 'package:local_art_and_culture/src/feature/event/detail_pameran.dart';
 import 'package:local_art_and_culture/src/feature/event/pameran.dart';
+import 'package:local_art_and_culture/src/feature/event/pembayaran.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
+      
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -37,6 +39,7 @@ class MyApp extends StatelessWidget {
       ),
       home: PameranPage(),
     );
+    
   }
 }
 
