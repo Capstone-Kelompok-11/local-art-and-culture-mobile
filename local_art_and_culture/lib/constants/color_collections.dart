@@ -15,4 +15,7 @@ class ColorCollections {
   static const Color primaryDarkBlue10Color = Color(0xFF0C1227);
   static const Color primaryDarkBlue30Color = Color(0xFF3A425F);
   static const Color primaryDarkBlue70Color = Color(0xFF8D93A5);
+
+ 
+  static const kprimaryColor = Color.fromARGB(255, 56, 105, 185);
 }

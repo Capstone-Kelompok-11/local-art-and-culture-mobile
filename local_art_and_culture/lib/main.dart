@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/constants/color_collections.dart';
-import 'package:local_art_and_culture/src/feature/event/detail_pameran.dart';
-import 'package:local_art_and_culture/src/feature/event/pameran.dart';
-import 'package:local_art_and_culture/src/feature/event/pembayaran.dart';
+
+import 'package:local_art_and_culture/src/feature/event/pameran/screens/main_screen.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: PameranPage(),
+      home:const MainScreen(),
     );
     
   }
