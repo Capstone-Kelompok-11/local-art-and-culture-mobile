@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:local_art_and_culture/src/feature/chatbot/chatbot_screen.dart';
 
 void main() {
@@ -15,4 +16,4 @@ class MyApp extends StatelessWidget {
       home: ChatbotScreen(),
     );
   }
-}
+
