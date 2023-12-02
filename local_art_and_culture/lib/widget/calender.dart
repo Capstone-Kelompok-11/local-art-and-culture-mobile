@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class CustomCalendar extends StatelessWidget {
-  final String month;
-  final String tahun;
-
-  const CustomCalendar({
-    Key? key,
-    required this.month,
-    required this.tahun,
-  }) : super(key: key);
+  const CustomCalendar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    DateTime now = DateTime.now();
+    String month = DateFormat.MMMM().format(now);
+    String tahun = DateFormat.y().format(now);
+
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: ShapeDecoration(
@@ -58,11 +56,16 @@ class CustomCalendar extends StatelessWidget {
                     borderRadius: BorderRadius.circular(25),
                   ),
                 ),
-                child: const Center(
-                  child: Icon(
-                    Icons.navigate_next_rounded,
-                    color: Colors.white,
-                    size: 24,
+                child: Center(
+                  child: IconButton(
+                    onPressed: () {
+                      // Tambahkan logika navigasi halaman di sini
+                    },
+                    icon: const Icon(
+                      Icons.navigate_next_rounded,
+                      color: Colors.white,
+                      size: 24,
+                    ),
                   ),
                 ),
               ),
@@ -101,29 +104,39 @@ class CustomCalendar extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 30),
-          Wrap(
-            alignment: WrapAlignment.spaceBetween,
-            children: [
-              _buildDayContainer('Min', '31'),
-              _buildDayContainer('Sen', '1'),
-              _buildDayContainer('Sel', '2'),
-              _buildDayContainer('Rab', '3'),
-              _buildDayContainer('Kam', '4'),
-              _buildDayContainer('Jum', '5'),
-              _buildDayContainer('Sab', '6'),
-            ],
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Wrap(
+              alignment: WrapAlignment.spaceBetween,
+              children: [
+                _buildDayContainer(
+                    'Sen', now.subtract(const Duration(days: 6))),
+                _buildDayContainer(
+                    'Sel', now.subtract(const Duration(days: 5))),
+                _buildDayContainer(
+                    'Rab', now.subtract(const Duration(days: 4))),
+                _buildDayContainer(
+                    'Kam', now.subtract(const Duration(days: 3))),
+                _buildDayContainer(
+                    'Jum', now.subtract(const Duration(days: 2))),
+                _buildDayContainer(
+                    'Sab', now.subtract(const Duration(days: 1))),
+                _buildDayContainer('Min', now),
+              ],
+            ),
           ),
         ],
       ),
     );
   }
 
-  Widget _buildDayContainer(String day, String date) {
+  Widget _buildDayContainer(String day, DateTime date) {
     Color? dateColor;
 
-    if (date == '5') {
+    if (date.weekday == DateTime.saturday && date.day == 2) {
+      // Memeriksa hari Sabtu dan tanggalnya adalah 2
       dateColor = const Color(0xFF7EB3A6);
-    } else if (date == '2') {
+    } else if (date.weekday == DateTime.tuesday) {
       dateColor = const Color(0xFFF3B1A5);
     }
 
@@ -151,7 +164,10 @@ class CustomCalendar extends StatelessWidget {
               Container(
                 width: 25,
                 height: 25,
-                decoration: dateColor != null && (date == '2' || date == '5')
+                decoration: dateColor != null &&
+                        (date.weekday == DateTime.tuesday ||
+                            (date.weekday == DateTime.saturday &&
+                                date.day == 2))
                     ? BoxDecoration(
                         color: dateColor,
                         shape: BoxShape.circle,
@@ -159,7 +175,7 @@ class CustomCalendar extends StatelessWidget {
                     : null,
                 child: Center(
                   child: Text(
-                    date,
+                    '${date.day}',
                     style: const TextStyle(
                       color: Color(0xFF1A1A1A),
                       fontSize: 15,

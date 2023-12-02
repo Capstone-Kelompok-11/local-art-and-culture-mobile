@@ -9,9 +9,9 @@ class CustomImageSlider extends StatefulWidget {
 class _CustomImageSliderState extends State<CustomImageSlider> {
   int _current = 0;
   final List<String> imageList = [
-    "https://via.placeholder.com/345x168",
-    "https://via.placeholder.com/345x168",
-    "https://via.placeholder.com/345x168",
+    "assets/Rectangle 63.png",
+    "assets/Rectangle 63.png",
+    "assets/Rectangle 63.png",
     // Add other image URLs here
   ];
 
@@ -47,7 +47,7 @@ class _CustomImageSliderState extends State<CustomImageSlider> {
                   margin: EdgeInsets.symmetric(horizontal: 5.0),
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: NetworkImage(item),
+                      image: AssetImage(item),
                       fit: BoxFit.fill,
                     ),
                     borderRadius: BorderRadius.circular(24),

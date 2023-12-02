@@ -35,7 +35,7 @@ class CustomContainer extends StatelessWidget {
                   clipBehavior: Clip.antiAlias,
                   decoration: ShapeDecoration(
                     image: DecorationImage(
-                      image: NetworkImage(profileImageUrl),
+                      image: AssetImage(profileImageUrl),
                       fit: BoxFit.fill,
                     ),
                     shape: RoundedRectangleBorder(

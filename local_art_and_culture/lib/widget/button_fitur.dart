@@ -18,50 +18,53 @@ class MyButtons extends StatelessWidget {
       width: 345,
       height: 94,
       padding: const EdgeInsets.symmetric(horizontal: 2),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          GestureDetector(
-            onTap: () {
-              // Tambahkan navigasi atau aksi yang diperlukan untuk Fashion di sini
-              print('Fashion');
-            },
-            child: buildButton(
-              'Fashion',
-              const Color(0xFF3653B0),
-              Icons.local_activity,
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            GestureDetector(
+              onTap: () {
+                // Tambahkan navigasi atau aksi yang diperlukan untuk Fashion di sini
+                print('Fashion');
+              },
+              child: buildButton(
+                'Fashion',
+                const Color(0xFF3653B0),
+                Icons.local_activity,
+              ),
             ),
-          ),
-          const SizedBox(width: 28),
-          GestureDetector(
-            onTap: () {
-              // Tambahkan navigasi atau aksi yang diperlukan untuk Festival di sini
-              print('Festival');
-            },
-            child: buildButton(
-                'Festival', const Color(0xFFE8644B), Icons.local_activity),
-          ),
-          const SizedBox(width: 28),
-          GestureDetector(
-            onTap: () {
-              // Tambahkan navigasi atau aksi yang diperlukan untuk Workshop di sini
-              print('Workshop');
-            },
-            child: buildButton(
-                'Workshop', const Color(0xFFF3B502), Icons.local_activity),
-          ),
-          const SizedBox(width: 28),
-          GestureDetector(
-            onTap: () {
-              // Tambahkan navigasi atau aksi yang diperlukan untuk Pameran di sini
-              print('Pameran');
-            },
-            child: buildButton(
-                'Pameran', const Color(0xFF026C52), Icons.local_activity),
-          ),
-        ],
+            const SizedBox(width: 28),
+            GestureDetector(
+              onTap: () {
+                // Tambahkan navigasi atau aksi yang diperlukan untuk Festival di sini
+                print('Festival');
+              },
+              child: buildButton(
+                  'Festival', const Color(0xFFE8644B), Icons.local_activity),
+            ),
+            const SizedBox(width: 28),
+            GestureDetector(
+              onTap: () {
+                // Tambahkan navigasi atau aksi yang diperlukan untuk Workshop di sini
+                print('Workshop');
+              },
+              child: buildButton(
+                  'Workshop', const Color(0xFFF3B502), Icons.local_activity),
+            ),
+            const SizedBox(width: 28),
+            GestureDetector(
+              onTap: () {
+                // Tambahkan navigasi atau aksi yang diperlukan untuk Pameran di sini
+                print('Pameran');
+              },
+              child: buildButton(
+                  'Pameran', const Color(0xFF026C52), Icons.local_activity),
+            ),
+          ],
+        ),
       ),
     );
   }

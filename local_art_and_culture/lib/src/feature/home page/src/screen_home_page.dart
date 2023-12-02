@@ -92,8 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         children: [
                           Expanded(
                             child: CustomContainer(
-                              profileImageUrl:
-                                  'https://via.placeholder.com/32x32',
+                              profileImageUrl: 'assets/foto.jpg',
                               greetingText: 'Horas, Sule!',
                               locationText: 'Surabaya',
                             ),
@@ -119,10 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       const Row(
                         children: [
                           Expanded(
-                            child: CustomCalendar(
-                              month: 'September',
-                              tahun: '2023',
-                            ),
+                            child: CustomCalendar(),
                           )
                         ],
                       ),
@@ -199,7 +195,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             return const Padding(
                                 padding: cardPadding,
                                 child: CardEvent(
-                                    imagePath: 'assets/banner 3.png',
+                                    imagePath: 'assets/Banner 3.png',
                                     title: 'Workshop Ceramics for Beginner',
                                     label1: 'Festival Budaya',
                                     label2: 'Berbayar',
@@ -211,7 +207,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 Container(
-                  margin: const EdgeInsets.symmetric(vertical: 30.0),
+                  margin: const EdgeInsets.symmetric(vertical: 10.0),
                   padding: const EdgeInsets.fromLTRB(15.0, 31.0, 0.0, 31.0),
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -220,7 +216,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         color: Colors.grey.withOpacity(0.1),
                         spreadRadius: 2,
                         blurRadius: 5,
-                        offset: const Offset(0, 3),
+                        offset: const Offset(0, 1),
                       ),
                     ],
                   ),
@@ -273,9 +269,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 16),
                 Container(
-                  margin: const EdgeInsets.symmetric(vertical: 30.0),
+                  margin: const EdgeInsets.symmetric(vertical: 10.0),
                   padding: const EdgeInsets.fromLTRB(15.0, 31.0, 0.0, 31.0),
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -396,7 +391,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 0),
               ],
             ),
           ),
