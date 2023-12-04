@@ -1,16 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:local_art_and_culture/src/feature/profil/screen_edit_profil.dart';
 
-class AccountSection extends StatefulWidget {
-  const AccountSection({Key? key}) : super(key: key);
-
-  @override
-  _AccountSectionState createState() => _AccountSectionState();
-}
-
-class _AccountSectionState extends State<AccountSection> {
-  String username = ''; // Variabel untuk menyimpan username
-  String email = ''; // Variabel untuk menyimpan email
+class KontenSection extends StatelessWidget {
+  const KontenSection({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +16,7 @@ class _AccountSectionState extends State<AccountSection> {
           const SizedBox(
             width: 345,
             child: Text(
-              'Akun',
+              'Konten',
               style: TextStyle(
                 color: Color(0xFF3653B0),
                 fontSize: 18,
@@ -39,11 +30,11 @@ class _AccountSectionState extends State<AccountSection> {
           Container(
             child: Row(
               children: [
-                const Icon(Icons.lock, color: Color(0xFF3653B0)),
+                const Icon(Icons.favorite, color: Color(0xFF3653B0)),
                 const SizedBox(width: 16),
                 const Expanded(
                   child: Text(
-                    'Ubah Password',
+                    'Wishlist',
                     style: TextStyle(
                       color: Color(0xFF4C4C4C),
                       fontSize: 14,
@@ -70,11 +61,11 @@ class _AccountSectionState extends State<AccountSection> {
           Container(
             child: Row(
               children: [
-                const Icon(Icons.person, color: Color(0xFF3653B0)),
+                const Icon(Icons.shopping_cart, color: Color(0xFF3653B0)),
                 const SizedBox(width: 16),
                 const Expanded(
                   child: Text(
-                    'Edit Profil',
+                    'Riwayat Pembalian',
                     style: TextStyle(
                       color: Color(0xFF4C4C4C),
                       fontSize: 14,
@@ -89,28 +80,9 @@ class _AccountSectionState extends State<AccountSection> {
                   clipBehavior: Clip.antiAlias,
                   decoration: const BoxDecoration(),
                   child: Stack(children: [
-                    // ...
                     IconButton(
-                      onPressed: () async {
-                        final Map<String, String>? updatedData =
-                            await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => EditProfilePage(),
-                          ),
-                        );
-
-                        if (updatedData != null) {
-                          setState(() {
-                            // Perbarui nilai username dan email di AccountSection
-                            username = updatedData['username'] ?? username;
-                            email = updatedData['email'] ?? email;
-                          });
-                        }
-                      },
-                      icon: Icon(Icons.keyboard_arrow_right),
-                    ),
-// ...
+                        onPressed: () {},
+                        icon: Icon(Icons.keyboard_arrow_right))
                   ]),
                 )
               ],
@@ -120,11 +92,11 @@ class _AccountSectionState extends State<AccountSection> {
           Container(
             child: Row(
               children: [
-                const Icon(Icons.pin_drop, color: Color(0xFF3653B0)),
+                const Icon(Icons.support_agent, color: Color(0xFF3653B0)),
                 const SizedBox(width: 16),
                 const Expanded(
                   child: Text(
-                    'Alamat Tersimpan',
+                    'Bantuan',
                     style: TextStyle(
                       color: Color(0xFF4C4C4C),
                       fontSize: 14,
