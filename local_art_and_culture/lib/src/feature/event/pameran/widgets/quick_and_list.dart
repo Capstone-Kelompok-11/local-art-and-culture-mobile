@@ -84,7 +84,7 @@ class QuickAndFastList extends StatelessWidget {
                                         minimumSize: const Size(44, 19),
                                       ),
                                       child: const Text(
-                                        "Event",
+                                        "Pameran",
                                         style: TextStyle(fontSize: 12, color: Colors.white),
                                       ),
                                     ),
