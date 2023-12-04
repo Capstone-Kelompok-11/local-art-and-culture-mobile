@@ -39,7 +39,7 @@ class EventAppbar extends StatelessWidget {
                       fillColor: Color.fromARGB(255, 201, 192, 192),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(
-                          Radius.circular(20.0), 
+                          Radius.circular(30.0), 
                         ),
                       ),
                     ),

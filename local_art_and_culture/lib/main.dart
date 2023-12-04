@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:local_art_and_culture/constants/color_collections.dart';
-
 import 'package:local_art_and_culture/src/feature/event/pameran/screens/main_screen.dart';
 
 
@@ -38,6 +36,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home:const MainScreen(),
+      //home:const MainScreen(),
     );
     
   }

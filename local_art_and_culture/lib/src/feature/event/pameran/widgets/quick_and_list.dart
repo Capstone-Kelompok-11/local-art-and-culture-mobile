@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/src/feature/event/pameran/models/data_pameran.dart';
 import 'package:local_art_and_culture/src/feature/event/pameran/screens/detail_pameran.dart';
 
-
 class QuickAndFastList extends StatelessWidget {
   const QuickAndFastList({Key? key});
 
@@ -10,18 +9,7 @@ class QuickAndFastList extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30.0),
-          color: const Color.fromARGB(255, 255, 255, 255),
-          boxShadow: [
-            BoxShadow(
-              color: Color.fromARGB(255, 255, 255, 255).withOpacity(0.7),
-              spreadRadius: 3,
-              blurRadius: 5,
-              offset: Offset(0, 2),
-            ),
-          ],
-        ),
+        margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: List.generate(
@@ -34,13 +22,27 @@ class QuickAndFastList extends StatelessWidget {
                 ),
               ),
               child: Card(
-                margin: const EdgeInsets.only(right: 10, bottom: 10),
+                margin: const EdgeInsets.only(bottom: 16),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
                 elevation: 3,
+                //color: Colors.white,
                 child: Container(
-                  width: MediaQuery.of(context).size.width - 20,
+                  width: MediaQuery.of(context).size.width - 32,
+                  //color: Colors.white,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.3),
+                        spreadRadius: 1,
+                        blurRadius: 4,
+                        offset: Offset(0, 2),
+                      ),
+                    ],
+                    color: Colors.white,
+                  ),
                   child: Stack(
                     children: [
                       Column(
@@ -49,91 +51,121 @@ class QuickAndFastList extends StatelessWidget {
                           Container(
                             width: double.infinity,
                             height: 130,
+                            margin: const EdgeInsets.only(bottom: 8, top:10, left: 16, right: 16),
+                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(15),
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                                topRight: Radius.circular(10),
+                                bottomLeft: Radius.circular(10), // Radius circular pada bagian bawah
+                                bottomRight: Radius.circular(10), // Radius circular pada bagian bawah
+                              ),
                               image: DecorationImage(
                                 image: AssetImage(foods[index].image),
-                                fit: BoxFit.fill,
+                                fit: BoxFit.cover,
+                                
                               ),
                             ),
                           ),
-                          const SizedBox(height: 10),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              ElevatedButton(
-                                onPressed: () {
-                                  // Add your action for "Event" button
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  primary: Colors.red,
-                                  minimumSize: Size(44, 19),
-                                  
+                          Padding(
+                            padding: const EdgeInsets.all(12),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        // Tambahkan tindakan untuk tombol "Event"
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                        primary: Colors.red,
+                                        minimumSize: const Size(44, 19),
+                                      ),
+                                      child: const Text(
+                                        "Event",
+                                        style: TextStyle(fontSize: 12, color: Colors.white),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 8),
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        // Tambahkan tindakan untuk tombol "Berbayar"
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                        primary: Colors.blue,
+                                        minimumSize: const Size(44, 19),
+                                      ),
+                                      child: const Text(
+                                        "Berbayar",
+                                        style: TextStyle(fontSize: 12, color: Colors.white),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                child: Text("Event",style: TextStyle(fontSize: 12, color: Colors.white),),
-                              ),
-                              ElevatedButton(
-                                onPressed: () {
-                                  // Add your action for "Berbayar" button
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  primary: Colors.green,
-                                  minimumSize: Size(44, 19),
+                                const SizedBox(height: 5),
+                                Text(
+                                  foods[index].name,
+                                  style: const TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
-                                child: Text("Berbayar", style: TextStyle(fontSize: 12, color: Colors.white),),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 5),
-                          Text(
-                            foods[index].name,
-                            style: const TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
+                                const SizedBox(height: 10),
+                                Row(
+                                  children: [
+                                    Text(
+                                      "${foods[index].IDR} K From IDR |",
+                                      style: const TextStyle(
+                                        fontSize: 12,
+                                        color: Colors.grey,
+                                      ),
+                                    ),
+                                    const Text(
+                                      " · ",
+                                      style: TextStyle(color: Colors.grey),
+                                    ),
+                                    const Icon(
+                                      Icons.location_on,
+                                      size: 18,
+                                      color: Colors.grey,
+                                    ),
+                                    Text(
+                                      "${foods[index].map} Jl",
+                                      style: const TextStyle(
+                                        fontSize: 12,
+                                        color: Colors.grey,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
-                          ),
-                          const SizedBox(height: 10),
-                          Row(
-                            children: [
-                              Text(
-                                "${foods[index].IDR} K From IDR |",
-                                style: const TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                              const Text(
-                                " · ",
-                                style: TextStyle(color: Colors.grey),
-                              ),
-                              const Icon(
-                                Icons.location_on,
-                                size: 18,
-                                color: Colors.grey,
-                              ),
-                              Text(
-                                "${foods[index].map} Jl",
-                                style: const TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                            ],
                           ),
                         ],
                       ),
                       Positioned(
-                        top: 160,
-                        right: 1,
-                        child: IconButton(
-                          onPressed: () {},
-                          style: IconButton.styleFrom(
-                            fixedSize: const Size(5, 5),
+                      top: 215,
+                      right: 15,
+                      child: Center(
+                        child: Container(
+                          width: 20, // Lebar lingkaran
+                          height: 20, // Tinggi lingkaran
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Color.fromARGB(255, 5, 61, 145), // Warna latar belakang kuning
                           ),
-                          iconSize: 15,
-                          icon: const Icon(Icons.arrow_right),
+                          child: IconButton(
+                            onPressed: () {},
+                            padding: const EdgeInsets.all(0), // Atur padding ikon
+                            iconSize: 15,
+                            icon: const Icon(Icons.keyboard_arrow_right_rounded, color: Colors.white,),
+                          ),
                         ),
-                      )
+                      ),
+                    )
+
                     ],
                   ),
                 ),
