@@ -20,7 +20,7 @@ class _ProfilPageState extends State<ProfilPage> {
     if (index == 3) {
       final Map<String, String>? updatedData = await Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const EditProfilePage()),
+        MaterialPageRoute(builder: (context) => const EditScreen()),
       );
     } else {
       setState(() {

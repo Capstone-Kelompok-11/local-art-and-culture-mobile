@@ -1,77 +1,117 @@
 import 'package:flutter/material.dart';
 
-class EditProfilePage extends StatefulWidget {
-  const EditProfilePage({Key? key}) : super(key: key);
+class EditScreen extends StatefulWidget {
+  const EditScreen({Key? key}) : super(key: key);
 
   @override
-  _EditProfilePageState createState() => _EditProfilePageState();
+  State<EditScreen> createState() => _EditScreenState();
 }
 
-class _EditProfilePageState extends State<EditProfilePage> {
-  String profileName = '';
-  String email = '';
-  String phoneNumber = '';
-
-  Future<void> _saveChangesAndReturn() async {
-    // Lakukan penyimpanan perubahan ke backend atau penyimpanan data di sini
-
-    // Kirim kembali data yang diperbarui ke halaman sebelumnya saat tombol save ditekan
-    Map<String, String> updatedData = {
-      'username': profileName,
-      'email': email,
-      // Tambahkan data lain jika diperlukan
-    };
-
-    // Kembali ke halaman sebelumnya (ProfilPage) dengan data yang diperbarui
-    Navigator.pop(context, updatedData);
-  }
-
+class _EditScreenState extends State<EditScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Edit Profile'),
-        actions: [
-          IconButton(
-            onPressed: _saveChangesAndReturn,
-            icon: const Icon(Icons.save),
+    return Container(
+      width: 393,
+      height: 766,
+      padding: const EdgeInsets.symmetric(vertical: 48),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          // Bagian Ubah Foto Profil
+          Container(
+            width: double.infinity,
+            height: 169,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                // Upload Foto Profil
+                Container(
+                  width: 140,
+                  height: 140,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      image:
+                          NetworkImage("https://via.placeholder.com/140x140"),
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 8),
+                SizedBox(
+                  width: double.infinity,
+                  child: Text(
+                    'Ubah Foto Profil',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Color(0xFF3653B0),
+                      fontSize: 14,
+                      fontFamily: 'Plus Jakarta Sans',
+                      fontWeight: FontWeight.w700,
+                      height: 1.0,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
+          const SizedBox(height: 40),
+          // Bagian Username
+          Container(
+            width: double.infinity,
+            height: 81,
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.only(left: 8),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: SizedBox(
+                          child: Text(
+                            'Username',
+                            style: TextStyle(
+                              color: Color(0xFF666666),
+                              fontSize: 14,
+                              fontFamily: 'Plus Jakarta Sans',
+                              fontWeight: FontWeight.w700,
+                              height: 1.0,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                // Text Form Field untuk Username
+                TextFormField(
+                  decoration: InputDecoration(
+                    hintText: 'Masukkan username',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ),
+                  // controller: usernameController,
+                  // Tambahkan properti sesuai kebutuhan
+                ),
+              ],
+            ),
+          ),
+          // ... Bagian Email dan Nomor Telepon serta tombol Simpan Perubahan
+          // (Penambahan properti untuk TextFormField dan tombol)
         ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            TextFormField(
-              decoration: const InputDecoration(labelText: 'Username'),
-              onChanged: (value) {
-                setState(() {
-                  profileName = value;
-                });
-              },
-            ),
-            const SizedBox(height: 20),
-            TextFormField(
-              decoration: const InputDecoration(labelText: 'Email'),
-              onChanged: (value) {
-                setState(() {
-                  email = value;
-                });
-              },
-            ),
-            const SizedBox(height: 20),
-            TextFormField(
-              decoration: const InputDecoration(labelText: 'Phone Number'),
-              onChanged: (value) {
-                setState(() {
-                  phoneNumber = value;
-                });
-              },
-            ),
-            // Add features to update profile picture if needed
-          ],
-        ),
       ),
     );
   }
