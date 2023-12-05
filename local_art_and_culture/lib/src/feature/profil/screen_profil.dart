@@ -15,8 +15,6 @@ class ProfilPage extends StatefulWidget {
 
 class _ProfilPageState extends State<ProfilPage> {
   int _selectedIndex = 0;
-  String profileName = '';
-  String email = '';
 
   void _onItemTapped(int index) async {
     if (index == 3) {
@@ -24,13 +22,6 @@ class _ProfilPageState extends State<ProfilPage> {
         context,
         MaterialPageRoute(builder: (context) => const EditProfilePage()),
       );
-
-      if (updatedData != null) {
-        setState(() {
-          profileName = updatedData['username'] ?? profileName;
-          email = updatedData['email'] ?? email;
-        });
-      }
     } else {
       setState(() {
         _selectedIndex = index;
@@ -65,10 +56,10 @@ class _ProfilPageState extends State<ProfilPage> {
                       ),
                     ],
                   ),
-                  child: Column(
+                  child: const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Padding(
+                      Padding(
                         padding: EdgeInsets.symmetric(
                             horizontal: 16.0, vertical: 8.0),
                         child: Row(
@@ -80,10 +71,10 @@ class _ProfilPageState extends State<ProfilPage> {
                       ),
                       // Tambahkan ProfileContainer di sini
                       ProfileContainer(
-                        profileName: profileName,
-                        email: email,
+                        profileName: 'profileName',
+                        email: 'email',
                         imageUrl: 'assets/foto.jpg',
-                        containerWidth: 300, // Atur lebar container di sini
+                        // Atur lebar container di sini
                       ),
                     ],
                   ),

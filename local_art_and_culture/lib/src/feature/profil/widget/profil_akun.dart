@@ -91,25 +91,10 @@ class _AccountSectionState extends State<AccountSection> {
                   child: Stack(children: [
                     // ...
                     IconButton(
-                      onPressed: () async {
-                        final Map<String, String>? updatedData =
-                            await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => EditProfilePage(),
-                          ),
-                        );
-
-                        if (updatedData != null) {
-                          setState(() {
-                            // Perbarui nilai username dan email di AccountSection
-                            username = updatedData['username'] ?? username;
-                            email = updatedData['email'] ?? email;
-                          });
-                        }
-                      },
+                      onPressed: () async {},
                       icon: Icon(Icons.keyboard_arrow_right),
                     ),
+
 // ...
                   ]),
                 )
