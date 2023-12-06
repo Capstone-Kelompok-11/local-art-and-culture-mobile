@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:local_art_and_culture/src/feature/event/pameran/screens/checkout.dart';
 import 'package:local_art_and_culture/src/feature/event/pameran/screens/pendaftaran_screen.dart';
 
 
@@ -15,6 +16,15 @@ class DetailScreen extends StatefulWidget {
 
 class _DetailScreenState extends State<DetailScreen> {
   int currentNumber = 1;
+
+  // Tambahkan list data merchandise untuk GridView
+  List<Map<String, dynamic>> merchandiseData = [
+    {"name": "Bloom Totebag", "price": "Rp 170.000", "image": "assets/Merch1.png"},
+    {"name": "Medioker", "price": "Rp 200.000", "image": "assets/Merch2.png"},
+    {"name": "Poster By Terater", "price": "Rp 150.000", "image": "assets/Merch3.png"},
+    {"name": "Sarung Tali Hutan", "price": "Rp 475.000", "image": "assets/Merch4.png"},
+    // Tambahkan data merchandise lainnya sesuai kebutuhan
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -266,168 +276,165 @@ class _DetailScreenState extends State<DetailScreen> {
                         ],
                       ),
                       Container(
-  padding: const EdgeInsets.all(16),
-  margin: const EdgeInsets.symmetric(vertical: 8),
-  decoration: BoxDecoration(
-    color: Colors.white,
-    borderRadius: BorderRadius.circular(15),
-    boxShadow: [
-      BoxShadow(
-        color: Colors.grey.withOpacity(0.5),
-        spreadRadius: 2,
-        blurRadius: 5,
-        offset: const Offset(0, 3),
-      ),
-    ],
-  ),
-  child: Row(
-    children: [
-      Container(
-        width: 83,  // Ubah lebar gambar
-        height: 91, // Ubah tinggi gambar
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          image: DecorationImage(
-            image: AssetImage(widget.pameran.image),
-            fit: BoxFit.fill,
-          ),
-        ),
-      ),
-      const SizedBox(width: 10),
-      Expanded(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Tickets Museum Macan WEEKDAY",
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Text(
-              "Rp 50.000",
-              style: TextStyle(
-                fontSize: 20,
-                color: Color.fromARGB(255, 16, 119, 204),
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 8), // Tambahkan jarak antara teks dan currentNumber
-            Row(
-              children: [
-                IconButton(
-                  icon: const Icon(Icons.remove, color: Color.fromARGB(255, 0, 0, 0)),
-                  onPressed: () {
-                    // Tambahkan logika untuk mengurangi jumlah pembelian
-                  },
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: Text(
-                    currentNumber.toString(),
-                    style: const TextStyle(
-                      fontSize: 18,
-                    ),
-                  ),
-                ),
-                IconButton(
-                  icon: const Icon(Icons.add, color: Color.fromARGB(255, 0, 0, 0)),
-                  onPressed: () {
-                    // Tambahkan logika untuk menambah jumlah pembelian
-                  },
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    ],
-  ),
-),
-Container(
-  padding: const EdgeInsets.all(16),
-  margin: const EdgeInsets.symmetric(vertical: 8),
-  decoration: BoxDecoration(
-    color: Colors.white,
-    borderRadius: BorderRadius.circular(15),
-    boxShadow: [
-      BoxShadow(
-        color: Colors.grey.withOpacity(0.5),
-        spreadRadius: 2,
-        blurRadius: 5,
-        offset: const Offset(0, 3),
-      ),
-    ],
-  ),
-  child: Row(
-    children: [
-      Container(
-        width: 83,  // Ubah lebar gambar
-        height: 91, // Ubah tinggi gambar
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          image: DecorationImage(
-            image: AssetImage(widget.pameran.image),
-            fit: BoxFit.fill,
-          ),
-        ),
-      ),
-      const SizedBox(width: 10),
-      Expanded(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Tickets Museum Macan WEEKDAY",
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Text(
-              "Rp 50.000",
-              style: TextStyle(
-                fontSize: 20,
-                color: Color.fromARGB(255, 16, 119, 204),
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 8), // Tambahkan jarak antara teks dan currentNumber
-            Row(
-              children: [
-                IconButton(
-                  icon: const Icon(Icons.remove, color: Color.fromARGB(255, 0, 0, 0)),
-                  onPressed: () {
-                    // Tambahkan logika untuk mengurangi jumlah pembelian
-                  },
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: Text(
-                    currentNumber.toString(),
-                    style: const TextStyle(
-                      fontSize: 18,
-                    ),
-                  ),
-                ),
-                IconButton(
-                  icon: const Icon(Icons.add, color: Color.fromARGB(255, 0, 0, 0)),
-                  onPressed: () {
-                    // Tambahkan logika untuk menambah jumlah pembelian
-                  },
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    ],
-  ),
-),
-
-
-                     
+                        padding: const EdgeInsets.all(16),
+                        margin: const EdgeInsets.symmetric(vertical: 8),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(15),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 2,
+                              blurRadius: 5,
+                              offset: const Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            Container(
+                              width: 83,  // Ubah lebar gambar
+                              height: 91, // Ubah tinggi gambar
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                image: DecorationImage(
+                                  image: AssetImage(widget.pameran.image),
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Text(
+                                    "Tickets Museum Macan WEEKDAY",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  const Text(
+                                    "Rp 50.000",
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      color: Color.fromARGB(255, 16, 119, 204),
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8), // Tambahkan jarak antara teks dan currentNumber
+                                  Row(
+                                    children: [
+                                      IconButton(
+                                        icon: const Icon(Icons.remove, color: Color.fromARGB(255, 0, 0, 0)),
+                                        onPressed: () {
+                                          // Tambahkan logika untuk mengurangi jumlah pembelian
+                                        },
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(horizontal: 8),
+                                        child: Text(
+                                          currentNumber.toString(),
+                                          style: const TextStyle(
+                                            fontSize: 18,
+                                          ),
+                                        ),
+                                      ),
+                                      IconButton(
+                                        icon: const Icon(Icons.add, color: Color.fromARGB(255, 0, 0, 0)),
+                                        onPressed: () {
+                                          // Tambahkan logika untuk menambah jumlah pembelian
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(16),
+                        margin: const EdgeInsets.symmetric(vertical: 8),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(15),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 2,
+                              blurRadius: 5,
+                              offset: const Offset(0, 3),
+                            ),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            Container(
+                              width: 83,  // Ubah lebar gambar
+                              height: 91, // Ubah tinggi gambar
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                image: DecorationImage(
+                                  image: AssetImage(widget.pameran.image),
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 10),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Text(
+                                    "Tickets Museum Macan WEEKDAY",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  const Text(
+                                    "Rp 50.000",
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      color: Color.fromARGB(255, 16, 119, 204),
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8), // Tambahkan jarak antara teks dan currentNumber
+                                  Row(
+                                    children: [
+                                      IconButton(
+                                        icon: const Icon(Icons.remove, color: Color.fromARGB(255, 0, 0, 0)),
+                                        onPressed: () {
+                                          // Tambahkan logika untuk mengurangi jumlah pembelian
+                                        },
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(horizontal: 8),
+                                        child: Text(
+                                          currentNumber.toString(),
+                                          style: const TextStyle(
+                                            fontSize: 18,
+                                          ),
+                                        ),
+                                      ),
+                                      IconButton(
+                                        icon: const Icon(Icons.add, color: Color.fromARGB(255, 0, 0, 0)),
+                                        onPressed: () {
+                                          // Tambahkan logika untuk menambah jumlah pembelian
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                           const SizedBox(height: 40),
                           const Text(
                             "Merchandise",
@@ -437,68 +444,77 @@ Container(
                             ),
                           ),
                           const SizedBox(height: 10),
-                        // Menggunakan Card untuk tiket
-                        Card(
-                          elevation: 5,
-                          child: Padding(
-                            padding: const EdgeInsets.all(16),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Tickets Museum Macan WEEKDAY",
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                Row(
-                                  children: [
-                                    Text(
-                                      "Rp 50.000",
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        color: Color.fromARGB(255, 16, 119, 204),
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                    const Spacer(),
-                                    IconButton(
-                                      icon: const Icon(
-                                        Icons.remove,
-                                        color: Color.fromARGB(255, 0, 0, 0),
-                                      ),
-                                      onPressed: () {
-                                        decrement();
-                                      },
-                                    ),
-                                    Text(
-                                      currentNumber.toString(),
-                                      style: const TextStyle(
-                                        fontSize: 18,
-                                      ),
-                                    ),
-                                    IconButton(
-                                      icon: const Icon(
-                                        Icons.add,
-                                        color: Color.fromARGB(255, 0, 0, 0),
-                                      ),
-                                      onPressed: () {
-                                        increment();
-                                      },
-                                    ),
-                                    
-                                  ],
-                                ),
-                              ],
+                          // Tambahkan GridView.builder di sini
+            GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 8.0,
+                mainAxisSpacing: 8.0,
+              ),
+              
+              itemCount: merchandiseData.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                   width: 169, // Lebar Card
+                    height: 240, // Tinggi Card
+                    child: Card(
+                  elevation: 5,
+                  color: Colors.white, // Tambahkan warna putih pada Card
+                  shadowColor: Colors.grey.shade200, // Tambahkan warna bayangan abu-abu
+                  child: Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          height: 120, // Sesuaikan tinggi gambar sesuai kebutuhan
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            image: DecorationImage(
+                              image: AssetImage(merchandiseData[index]["image"]),
+                              fit: BoxFit.cover,
                             ),
                           ),
                         ),
+                        const SizedBox(height: 8),
+                        Container(
+                        alignment: Alignment.centerLeft, 
+                      
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                        Text(
+                          merchandiseData[index]["name"],
+                          style: const TextStyle(
+                            fontSize: 13,
+                            //fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          merchandiseData[index]["price"],
+                          style: const TextStyle(
+                            fontSize: 14,
+                            //color: Color.fromARGB(255, 16, 119, 204),
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ],
-                        
-                      ),
+                    ),
                   ),
-                  Container(
+                        
+                      ],
+                ),
+                  ),),
+                  );
+              }, 
+            ),
+          ],
+        ),
+        ),
+        Container(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               color: Colors.white, // Atur warna latar belakang untuk bottom navigation
               child: Row(
@@ -540,6 +556,10 @@ Container(
                   ElevatedButton(
                     onPressed: () {
                       // Tambahkan logika untuk tombol "Beli Tiket"
+                      Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => PaymentMethodScreen2()), // Ganti dengan rute yang sesuai
+                );
                     },
                     child: const Text(
                       'Beli Tiket',
@@ -558,19 +578,13 @@ Container(
           ],
         ),
       ),
-          ],
-    ),
+    ],
+  ),
+  ),
+);
   
-
-                    
-                  ),
-                );
-                  const SizedBox(height: 20);
-                
-            
+  }
         
-      
-    
   }
   
   void decrement() {
@@ -580,4 +594,3 @@ Container(
   void increment() {
     // Tambahkan logika untuk menambah jumlah pembelian
   }
-}
