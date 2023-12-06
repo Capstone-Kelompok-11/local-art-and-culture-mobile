@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:local_art_and_culture/components/search_bar_homepage.dart';
 import 'package:local_art_and_culture/widget/app_bar_home.dart';
 import 'package:local_art_and_culture/widget/card.dart';
 import 'package:local_art_and_culture/widget/card_event.dart';
 import 'package:local_art_and_culture/widget/news_card.dart';
-import 'package:local_art_and_culture/widget/bottom_navigation_bar.dart';
+import 'package:local_art_and_culture/components/bottom_navigation_bar.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -65,47 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
-                margin: const EdgeInsets.symmetric(vertical: 30.0),
-                padding: const EdgeInsets.fromLTRB(15.0, 31.0, 0.0, 31.0),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 2,
-                      blurRadius: 5,
-                      offset: const Offset(0, 3),
-                    ),
-                  ],
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Expanded(
-                          child: TextField(
-                            decoration: InputDecoration(
-                              hintText: 'Cari...',
-                              prefixIcon: Icon(Icons.search),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
-                            ),
-                          ),
-                        ),
-                        IconButton(
-                          icon: Icon(Icons.filter_list),
-                          onPressed: () {
-                            // Tambahkan logika untuk menangani klik icon filter di sini
-                          },
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
+              const SearchHeaderHomepage(),
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 30.0),
                 padding: const EdgeInsets.fromLTRB(15.0, 31.0, 0.0, 31.0),
@@ -152,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                     SizedBox(
-                      height: 335, // Ubah tinggi sesuai kebutuhan
+                      height: 335,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: 3,
@@ -160,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           return const Padding(
                               padding: cardPadding,
                               child: CardEvent(
-                                  imagePath: 'assets/banner 3.png',
+                                  imagePath: 'lib/assets/banner3.png',
                                   title: 'Workshop Ceramics for Beginner',
                                   date: '16-17 Okt 2023'));
                         },
@@ -287,7 +248,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             padding: cardPadding,
                             child: RoundedImageCard(
                               imagePath:
-                                  'assets/dompet_kulit_lokal_wanita_main.jpg',
+                                  'lib/assets/dompet_kulit_lokal_wanita_main.jpg',
                               subtitle:
                                   'Dompet Wanita Series AMC Kulit Naga Asli',
                               title: 'Rp 80.000',
@@ -338,7 +299,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             padding: cardPadding,
                             child: RoundedImageCard(
                               imagePath:
-                                  'assets/dompet_kulit_lokal_wanita_main.jpg',
+                                  'lib/assets/dompet_kulit_lokal_wanita_main.jpg',
                               subtitle:
                                   'Dompet Wanita Series AMC Kulit Naga Asli',
                               title: 'Rp 80.000',
@@ -364,8 +325,23 @@ class _MyHomePageState extends State<MyHomePage> {
             navItemBuilder.buildNavItem(Icons.person, 'Profile'),
           ],
           currentIndex: _selectedIndex,
-          selectedItemColor: Colors.blue, // Warna terpilih
-          onTap: _onItemTapped,
+          selectedItemColor: const Color(0xff3653B0),
+          onTap: (index) {
+            switch (index) {
+              case 0:
+                Navigator.pushNamed(context, '/home');
+                break;
+              case 1:
+                Navigator.pushNamed(context, '/event');
+                break;
+              case 2:
+                Navigator.pushNamed(context, '/product');
+                break;
+              case 3:
+                Navigator.pushNamed(context, '/profile');
+                break;
+            }
+          },
         ),
       ),
     );
