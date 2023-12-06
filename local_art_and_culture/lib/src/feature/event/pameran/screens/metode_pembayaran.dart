@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/src/feature/event/pameran/screens/scan.dart';
 
-
 class PaymentMethodScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -55,7 +54,9 @@ class PaymentMethodScreen extends StatelessWidget {
                 // Tambahkan logika untuk membayar
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => QRPage()), // Ganti dengan rute yang sesuai
+                  MaterialPageRoute(
+                      builder: (context) =>
+                          QRPage()), // Ganti dengan rute yang sesuai
                 );
               },
               child: Text(

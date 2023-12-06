@@ -31,7 +31,8 @@ class PaymentMethodScreen2 extends StatelessWidget {
                   // Tambahkan logika untuk membayar sekarang
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => PaymentMethodScreen()),
+                    MaterialPageRoute(
+                        builder: (context) => PaymentMethodScreen()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
@@ -74,7 +75,6 @@ class PaymentMethodScreen2 extends StatelessWidget {
             Container(
               width: 177,
               height: 27,
-              
               child: const Center(
                 child: Text(
                   "Rincian Pembayaran",
@@ -82,7 +82,6 @@ class PaymentMethodScreen2 extends StatelessWidget {
                     color: Color.fromARGB(255, 7, 7, 7),
                     fontWeight: FontWeight.bold,
                   ),
-                  
                 ),
               ),
             ),
@@ -174,7 +173,6 @@ class CheckoutItem extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: Colors.white,
-      
       ),
       child: Row(
         children: [
@@ -190,7 +188,8 @@ class CheckoutItem extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 8),
-          Column(
+          Expanded(
+          child:Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -210,9 +209,48 @@ class CheckoutItem extends StatelessWidget {
                       color: Colors.grey,
                     ),
                   ),
+                  const SizedBox(width: 8),
+                  // Tambahkan elemen waktu dan tombol aksi di sini
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        "Senin - Jumat",
+                        style: const TextStyle(
+                          color: Colors.grey,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Row(
+                        children: [
+                          IconButton(
+                            icon: Icon(Icons.delete),
+                            onPressed: () {
+                              // Tambahkan logika untuk menghapus item
+                            },
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.remove),
+                            onPressed: () {
+                              // Tambahkan logika untuk mengurangi jumlah produk
+                            },
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.add),
+                            onPressed: () {
+                              // Tambahkan logika untuk menambah jumlah produk
+                            },
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ],
+                
+                
               ),
             ],
+          ),
           ),
         ],
       ),
