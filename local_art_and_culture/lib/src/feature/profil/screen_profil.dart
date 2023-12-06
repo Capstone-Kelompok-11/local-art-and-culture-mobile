@@ -17,11 +17,7 @@ class _ProfilPageState extends State<ProfilPage> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) async {
-    if (index == 3) {
-      final Map<String, String>? updatedData = await Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const EditScreen()),
-      );
+    if (index == 4) {
     } else {
       setState(() {
         _selectedIndex = index;
@@ -42,8 +38,6 @@ class _ProfilPageState extends State<ProfilPage> {
             child: Column(
               children: [
                 Container(
-                  width: 393,
-                  height: 329,
                   padding: const EdgeInsets.all(24),
                   decoration: BoxDecoration(
                     color: Colors.white,

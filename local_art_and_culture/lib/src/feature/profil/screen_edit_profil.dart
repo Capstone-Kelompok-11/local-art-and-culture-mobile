@@ -1,117 +1,143 @@
 import 'package:flutter/material.dart';
+import 'package:local_art_and_culture/src/feature/profil/widget/profil_edit.dart';
+import 'widget/profil_edit_input.dart';
 
 class EditScreen extends StatefulWidget {
-  const EditScreen({Key? key}) : super(key: key);
-
   @override
-  State<EditScreen> createState() => _EditScreenState();
+  _EditScreenState createState() => _EditScreenState();
 }
 
 class _EditScreenState extends State<EditScreen> {
+  String _uploadedImageUrl = "";
+  late List<TextEditingController> controllers;
+
+  @override
+  void initState() {
+    super.initState();
+    controllers = List.generate(3, (_) => TextEditingController());
+  }
+
+  void handleImageChanged(String newImageUrl) {
+    setState(() {
+      _uploadedImageUrl = newImageUrl;
+    });
+  }
+
+  @override
+  void dispose() {
+    for (var controller in controllers) {
+      controller.dispose();
+    }
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 393,
-      height: 766,
-      padding: const EdgeInsets.symmetric(vertical: 48),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          // Bagian Ubah Foto Profil
-          Container(
-            width: double.infinity,
-            height: 169,
+    return Scaffold(
+      body: Center(
+        child: SingleChildScrollView(
+          child: Container(
+            width: 393,
+            height: 766,
+            padding: const EdgeInsets.symmetric(vertical: 48),
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // Upload Foto Profil
-                Container(
-                  width: 140,
-                  height: 140,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                      image:
-                          NetworkImage("https://via.placeholder.com/140x140"),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 8),
-                SizedBox(
-                  width: double.infinity,
-                  child: Text(
-                    'Ubah Foto Profil',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Color(0xFF3653B0),
-                      fontSize: 14,
-                      fontFamily: 'Plus Jakarta Sans',
-                      fontWeight: FontWeight.w700,
-                      height: 1.0,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 40),
-          // Bagian Username
-          Container(
-            width: double.infinity,
-            height: 81,
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.only(left: 8),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: SizedBox(
-                          child: Text(
-                            'Username',
-                            style: TextStyle(
-                              color: Color(0xFF666666),
-                              fontSize: 14,
-                              fontFamily: 'Plus Jakarta Sans',
-                              fontWeight: FontWeight.w700,
-                              height: 1.0,
-                            ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      clipBehavior: Clip.antiAlias,
+                      decoration: const BoxDecoration(),
+                      child: Stack(children: [
+                        Expanded(
+                          child: IconButton(
+                            icon: const Icon(Icons.arrow_back),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
                           ),
                         ),
+                      ]),
+                    ),
+                    const Expanded(
+                      child: SizedBox(
+                        child: Text(
+                          'Edit Profil',
+                          style: TextStyle(
+                            color: Color(0xFF1A1A1A),
+                            fontSize: 20,
+                            fontFamily: 'Plus Jakarta Sans',
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                ProfilePictureWidget(
+                  imageUrl: _uploadedImageUrl,
+                  onImageChanged: handleImageChanged,
+                ),
+                const SizedBox(height: 40),
+                ProfileInputWidget(
+                  label: 'Username',
+                  controllers: [controllers[0]],
+                ),
+                const SizedBox(height: 24),
+                ProfileInputWidget(
+                  label: 'Email',
+                  controllers: [controllers[1]],
+                ),
+                const SizedBox(height: 24),
+                ProfileInputWidget(
+                  label: 'Nomor Telepon',
+                  controllers: [controllers[2]],
+                ),
+                const SizedBox(height: 40),
+                Container(
+                  width: 197,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  decoration: ShapeDecoration(
+                    color: const Color(0xFF3653B0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(24),
+                    ),
+                  ),
+                  child: const Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Simpan Perubahan',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                              fontFamily: 'Plus Jakarta Sans',
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
                 ),
-                // Text Form Field untuk Username
-                TextFormField(
-                  decoration: InputDecoration(
-                    hintText: 'Masukkan username',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                  ),
-                  // controller: usernameController,
-                  // Tambahkan properti sesuai kebutuhan
-                ),
               ],
             ),
           ),
-          // ... Bagian Email dan Nomor Telepon serta tombol Simpan Perubahan
-          // (Penambahan properti untuk TextFormField dan tombol)
-        ],
+        ),
       ),
     );
   }

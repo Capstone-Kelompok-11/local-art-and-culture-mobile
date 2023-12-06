@@ -4,21 +4,23 @@ class ProfileContainer extends StatelessWidget {
   final String profileName;
   final String email;
   final String imageUrl;
-  final double containerWidth;
 
   const ProfileContainer({
     Key? key,
     required this.profileName,
     required this.email,
     required this.imageUrl,
-    this.containerWidth = 345, // lebar default
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double containerWidth =
+        screenWidth * 0.9; // Menggunakan 90% dari lebar layar
+
     return Container(
-      height: 265,
-      padding: const EdgeInsets.all(24),
+      width: containerWidth,
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
       decoration: const BoxDecoration(color: Colors.white),
       child: Column(
         mainAxisSize: MainAxisSize.min,

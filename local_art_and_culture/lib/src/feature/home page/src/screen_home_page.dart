@@ -53,6 +53,27 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _selectedIndex = index;
     });
+
+    switch (index) {
+      case 0:
+        // Navigasi ke halaman Home
+        Navigator.pushReplacementNamed(context, '/home');
+        break;
+      case 1:
+        // Navigasi ke halaman Event
+        Navigator.pushReplacementNamed(context, '/event');
+        break;
+      case 2:
+        // Navigasi ke halaman Product
+        Navigator.pushReplacementNamed(context, '/product');
+        break;
+      case 3:
+        // Navigasi ke halaman Profile
+        Navigator.pushReplacementNamed(context, '/profile');
+        break;
+      default:
+        break;
+    }
   }
 
   @override

@@ -60,7 +60,7 @@ class _AccountSectionState extends State<AccountSection> {
                   child: Stack(children: [
                     IconButton(
                         onPressed: () {},
-                        icon: Icon(Icons.keyboard_arrow_right))
+                        icon: const Icon(Icons.keyboard_arrow_right))
                   ]),
                 )
               ],
@@ -91,8 +91,14 @@ class _AccountSectionState extends State<AccountSection> {
                   child: Stack(children: [
                     // ...
                     IconButton(
-                      onPressed: () async {},
-                      icon: Icon(Icons.keyboard_arrow_right),
+                      onPressed: () async {
+                        // Navigasi ke halaman EditScreen
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => EditScreen()),
+                        );
+                      },
+                      icon: const Icon(Icons.keyboard_arrow_right),
                     ),
 
 // ...
@@ -126,7 +132,7 @@ class _AccountSectionState extends State<AccountSection> {
                   child: Stack(children: [
                     IconButton(
                         onPressed: () {},
-                        icon: Icon(Icons.keyboard_arrow_right))
+                        icon: const Icon(Icons.keyboard_arrow_right))
                   ]),
                 )
               ],
