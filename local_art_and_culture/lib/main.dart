@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/models/payment_model.dart';
+import 'package:local_art_and_culture/src/feature/home%20page/src/screen_home_page.dart';
 import 'package:local_art_and_culture/src/feature/product/screens/detail_product.dart';
 import 'package:local_art_and_culture/src/feature/product/screens/product_page.dart';
-import 'package:local_art_and_culture/src/feature/chatbot/bantuan_screen.dart';
-import 'package:local_art_and_culture/constants/color_collections.dart';
 import 'package:local_art_and_culture/src/feature/splash%20login/splashscreen.dart';
 import 'package:local_art_and_culture/src/feature/chatbot/chatbot_screen.dart';
 import 'package:provider/provider.dart';
@@ -17,6 +16,7 @@ void main() {
       child: const MyApp(),
     ),
   );
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -32,11 +32,15 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-         '/': (context) => SplashScreen(),
+        '/': (context) => const SplashScreen(),
+        '/home': (context) => const MyHomePage(),
         '/product': (context) => const ListProductPage(),
         '/detail/product': (context) => const DetailProduct(),
-        '/chatbot': (context) => const ChatBotScreen()
+        '/chatbot': (context) => const ChatbotScreen(),
       },
+    );
+  }
+}
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -48,9 +52,8 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (context) => OnboardScreen(),
       ));
@@ -75,7 +78,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   );
                 },
                 child: Image.asset(
-                  'assets/logo.png',
+                  'lib/assets/logo.png',
                   width: 108.43,
                   height: 78.02,
                 ),
@@ -87,4 +90,3 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
-
