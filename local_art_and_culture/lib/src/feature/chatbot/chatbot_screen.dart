@@ -32,7 +32,7 @@ class _ChatScreenState extends State<ChatbotScreen> {
 
   void sendMsg() async {
     String text = controller.text;
-    String apiKey = "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";
+    String apiKey = "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";
     controller.clear();
     try {
       if (text.isNotEmpty) {

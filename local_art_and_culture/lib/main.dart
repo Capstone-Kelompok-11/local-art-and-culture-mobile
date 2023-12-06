@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:local_art_and_culture/src/feature/chatbot/bantuan_screen.dart';
 import 'package:local_art_and_culture/constants/color_collections.dart';
 import 'package:local_art_and_culture/src/feature/splash%20login/splashscreen.dart';
-
 import 'package:local_art_and_culture/src/feature/chatbot/chatbot_screen.dart';
 
 void main() {
@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+
       title: 'Notes App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -78,3 +79,4 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
+
