@@ -22,7 +22,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.white,
       elevation: 2,
       leading: const CircleAvatar(
-        backgroundImage: AssetImage('assets/foto.jpg'),
+        backgroundImage: AssetImage('lib/assets/foto.jpg'),
         radius:
             1, // Sesuaikan dengan setengah dari width atau height yang diinginkan
         backgroundColor: Colors.transparent, // Hapus jika tidak perlu
@@ -59,7 +59,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         IconButton(
           icon: SvgPicture.asset(
-            'assets/svg/bell-ring.svg',
+            'lib/assets/svg/bell-ring.svg',
             color: Colors.black,
           ),
           onPressed: () {

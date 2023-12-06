@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:local_art_and_culture/src/feature/home%20page/src/screen_home_page.dart';
 
 import 'register.dart';
 
@@ -232,13 +233,17 @@ class _ThirdComponentState extends State<ThirdComponent> {
             ],
           ),
           ElevatedButton(
-            onPressed: () {
-              // Perform login
-            },
             style: ElevatedButton.styleFrom(
               padding: EdgeInsets.symmetric(vertical: 15),
-              primary: Color.fromRGBO(54, 83, 176, 1),
+              backgroundColor: Color.fromRGBO(54, 83, 176, 1),
             ),
+            onPressed: () {
+              // Ini adalah bagian yang akan dijalankan saat tombol ditekan
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MyHomePage()),
+              );
+            },
             child: Container(
               width: double.infinity,
               child: Center(
@@ -315,13 +320,14 @@ class _ThirdComponentState extends State<ThirdComponent> {
                   children: [
                     InkWell(
                       onTap: () {},
-                      child: Image.asset('assets/google_logo.png', height: 40),
+                      child:
+                          Image.asset('lib/assets/google_logo.png', height: 40),
                     ),
                     SizedBox(width: 16),
                     InkWell(
                       onTap: () {},
-                      child:
-                          Image.asset('assets/facebook_logo.png', height: 40),
+                      child: Image.asset('lib/assets/facebook_logo.png',
+                          height: 40),
                     ),
                   ],
                 ),

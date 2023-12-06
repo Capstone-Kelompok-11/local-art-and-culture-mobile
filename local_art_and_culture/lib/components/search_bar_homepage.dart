@@ -1,23 +1,13 @@
 import 'package:flutter/material.dart';
 
-class SearchHeader extends StatelessWidget {
-  const SearchHeader({Key? key}) : super(key: key);
+class SearchHeaderHomepage extends StatelessWidget {
+  const SearchHeaderHomepage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(
-          margin: const EdgeInsets.only(top: 20),
-          child: const Icon(
-            Icons.keyboard_backspace_rounded,
-            size: 25,
-          ),
-        ),
-        const SizedBox(
-          width: 10,
-        ),
         searchBar(context),
         const SizedBox(width: 10),
         Container(
@@ -39,7 +29,7 @@ class SearchHeader extends StatelessWidget {
 
   Widget searchBar(BuildContext context) {
     return Container(
-      width: 300,
+      width: 320,
       margin: const EdgeInsets.only(top: 20),
       padding: const EdgeInsets.symmetric(horizontal: 15),
       decoration: BoxDecoration(
@@ -56,11 +46,14 @@ class SearchHeader extends StatelessWidget {
       ),
       child: const Row(
         children: [
-          Icon(Icons.search, color: Color(0xff333333)),
+          Icon(Icons.search, color: Color(0xffB3B3B3)),
           SizedBox(width: 8),
           Expanded(
             child: TextField(
-              decoration: InputDecoration(border: InputBorder.none),
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'Cari di Lokasani',
+                  hintStyle: TextStyle(color: Color(0xffB3B3B3))),
             ),
           ),
         ],

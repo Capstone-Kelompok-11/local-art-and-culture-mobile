@@ -312,13 +312,14 @@ class _RegisterButtonComponentState extends State<RegisterButtonComponent> {
                   children: [
                     InkWell(
                       onTap: () {},
-                      child: Image.asset('assets/google_logo.png', height: 40),
+                      child:
+                          Image.asset('lib/assets/google_logo.png', height: 40),
                     ),
                     SizedBox(width: 16),
                     InkWell(
                       onTap: () {},
-                      child:
-                          Image.asset('assets/facebook_logo.png', height: 40),
+                      child: Image.asset('lib/assets/facebook_logo.png',
+                          height: 40),
                     ),
                   ],
                 ),

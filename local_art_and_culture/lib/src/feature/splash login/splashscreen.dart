@@ -1,5 +1,6 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
-import 'package:local_art_and_culture/constants/color_collections.dart';
 import 'package:local_art_and_culture/src/feature/splash%20login/login.dart';
 
 class OnboardScreen extends StatefulWidget {
@@ -15,17 +16,17 @@ class _OnboardScreenState extends State<OnboardScreen> {
 
   List<AllinOnboardModel> allinonboardlist = [
     AllinOnboardModel(
-      "assets/pict1.jpg",
+      "lib/assets/pict1.jpg",
       "Mari Jelajahi, Beli dan Rasakan Makna Mendalam dari Komunitas Kami",
       "Temukan dan Rayakan Seni & Budaya Lokal",
     ),
     AllinOnboardModel(
-      "assets/pict2.jpg",
+      "lib/assets/pict2.jpg",
       "Temukan, Lihat dan Dukung Seniman Lokal dengan Menjelajahi Koleksi Seni",
       "Jelajahi Karya Seni Lokal yang Menginspirasi",
     ),
     AllinOnboardModel(
-      "assets/pict3.png",
+      "lib/assets/pict3.png",
       "Jelajahi Beragam Seni Lokal dan Dapatkan Tiket Acara Tanpa Repot",
       "Beli Tiket Seni dan Acara Unik dalam Satu Aplikasi",
     ),

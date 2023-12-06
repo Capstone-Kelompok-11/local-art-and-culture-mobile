@@ -32,15 +32,15 @@ dependencies:
     sdk: flutter
   http: ^1.1.0
   intl: ^0.18.1
-  getwidget: ^2.0.4
+
   envied: ^0.5.1
   cupertino_icons: ^1.0.2
   google_fonts: ^6.1.0
-  intl: ^0.18.1
   provider: ^6.1.1
   dio: ^5.3.4
   svg_flutter: ^0.0.1
   flutter_svg: ^2.0.9
+  getwidget: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -62,7 +62,6 @@ flutter:
   assets:
     - lib/assets/
 
-
   fonts:
     # - family: Schyler
     #   fonts:
@@ -72,10 +71,10 @@ flutter:
 
     - family: Plus Jakarta Sans
       fonts:
-        - asset: assets/fonts/PlusJakartaSans.ttf
+        - asset: lib/assets/fonts/PlusJakartaSans.ttf
     - family: Plus Jakarta Sans Regular
       fonts:
-        - asset: assets/fonts/PlusJakartaSans-Regular.ttf
+        - asset: lib/assets/fonts/PlusJakartaSans-Regular.ttf
     - family: SF Pro Display
-      fonts: 
-        - asset: assets/fonts/SF-Pro-Display-Semibold.ttf
+      fonts:
+        - asset: lib/assets/fonts/SF-Pro-Display-Semibold.ttf
