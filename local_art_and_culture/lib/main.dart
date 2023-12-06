@@ -1,34 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:local_art_and_culture/models/payment_model.dart';
+import 'package:local_art_and_culture/src/feature/product/screens/detail_product.dart';
+import 'package:local_art_and_culture/src/feature/product/screens/product_page.dart';
 import 'package:local_art_and_culture/src/feature/chatbot/bantuan_screen.dart';
 import 'package:local_art_and_culture/constants/color_collections.dart';
 import 'package:local_art_and_culture/src/feature/splash%20login/splashscreen.dart';
 import 'package:local_art_and_culture/src/feature/chatbot/chatbot_screen.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(MyApp());
-}
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => PaymentModel()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-
-      title: 'Notes App',
+      title: 'Lokasani',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
       ),
-      // home: LoggedInHandler(),
       initialRoute: '/',
       routes: {
-        '/': (context) => SplashScreen(),
+         '/': (context) => SplashScreen(),
+        '/product': (context) => const ListProductPage(),
+        '/detail/product': (context) => const DetailProduct(),
+        '/chatbot': (context) => const ChatBotScreen()
       },
-      home: ChatbotScreen(),
-    );
-  }
-}
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
