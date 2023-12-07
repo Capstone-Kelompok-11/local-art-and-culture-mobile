@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:local_art_and_culture/src/feature/profil/screen_edit_profil.dart';
+
 import 'package:local_art_and_culture/src/feature/profil/widget/profil_akun.dart';
 import 'package:local_art_and_culture/src/feature/profil/widget/profil_gambar.dart';
 import 'package:local_art_and_culture/src/feature/profil/widget/profil_konten.dart';
