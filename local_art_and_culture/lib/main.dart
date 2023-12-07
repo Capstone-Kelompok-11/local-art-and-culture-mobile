@@ -3,13 +3,14 @@ import 'package:local_art_and_culture/models/payment_model.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/src/screen_home_page.dart';
 import 'package:local_art_and_culture/src/feature/product/screens/detail_product.dart';
 import 'package:local_art_and_culture/src/feature/product/screens/product_page.dart';
+import 'package:local_art_and_culture/src/feature/profil/screen_alamat_profil.dart';
 import 'package:local_art_and_culture/src/feature/splash%20login/splashscreen.dart';
 import 'package:local_art_and_culture/src/feature/chatbot/chatbot_screen.dart';
 import 'package:provider/provider.dart';
 import './src/feature/profil/screen_profil.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(AlamatPage());
 }
 
 class MyApp extends StatelessWidget {
