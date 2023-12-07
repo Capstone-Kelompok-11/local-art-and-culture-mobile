@@ -15,7 +15,6 @@ class CustomContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
     return Container(
       width: 345,
       height: 46,
@@ -23,19 +22,6 @@ class CustomContainer extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
-=======
-    return AppBar(
-      backgroundColor: Colors.white,
-      elevation: 2,
-      leading: const CircleAvatar(
-        backgroundImage: AssetImage('lib/assets/foto.jpg'),
-        radius:
-            1, // Sesuaikan dengan setengah dari width atau height yang diinginkan
-        backgroundColor: Colors.transparent, // Hapus jika tidak perlu
-      ),
-      title: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
->>>>>>> develop
         children: [
           Container(
             child: Row(
@@ -152,38 +138,6 @@ class CustomContainer extends StatelessWidget {
           ),
         ],
       ),
-<<<<<<< HEAD
-=======
-      actions: [
-        IconButton(
-          icon: SvgPicture.asset(
-            'lib/assets/svg/bell-ring.svg',
-            color: Colors.black,
-          ),
-          onPressed: () {
-            // Aksi ketika ikon notifikasi ditekan
-          },
-        ),
-        IconButton(
-          icon: const Icon(
-            Icons.chat_rounded,
-            color: Colors.black,
-          ),
-          onPressed: () {
-            // Aksi ketika ikon chat ditekan
-          },
-        ),
-        IconButton(
-          icon: const Icon(
-            Icons.shopping_cart,
-            color: Colors.black,
-          ),
-          onPressed: () {
-            // Aksi ketika ikon keranjang belanja ditekan
-          },
-        ),
-      ],
->>>>>>> develop
     );
   }
 }
