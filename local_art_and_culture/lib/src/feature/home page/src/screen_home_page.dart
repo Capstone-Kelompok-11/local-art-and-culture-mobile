@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:flutter_svg/svg.dart';
+=======
+import 'package:local_art_and_culture/components/search_bar_homepage.dart';
+>>>>>>> develop
 import 'package:local_art_and_culture/widget/app_bar_home.dart';
 import 'package:local_art_and_culture/widget/button_fitur.dart';
 import 'package:local_art_and_culture/widget/calender.dart';
@@ -7,8 +11,12 @@ import 'package:local_art_and_culture/widget/card.dart';
 import 'package:local_art_and_culture/widget/card_event.dart';
 import 'package:local_art_and_culture/widget/icon_filter.dart';
 import 'package:local_art_and_culture/widget/news_card.dart';
+<<<<<<< HEAD
 import 'package:local_art_and_culture/widget/searchbar.dart';
 import 'package:local_art_and_culture/widget/slider_home_page.dart';
+=======
+import 'package:local_art_and_culture/components/bottom_navigation_bar.dart';
+>>>>>>> develop
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -83,6 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+<<<<<<< HEAD
         extendBody: true,
         body: SafeArea(
           child: SingleChildScrollView(
@@ -252,6 +261,52 @@ class _MyHomePageState extends State<MyHomePage> {
                           children: [
                             const Text(
                               'Artikel Terkini',
+=======
+        appBar: const CustomAppBar(
+          name: 'Sule',
+          location: 'Surabaya',
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SearchHeaderHomepage(),
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 30.0),
+                padding: const EdgeInsets.fromLTRB(15.0, 31.0, 0.0, 31.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: const Offset(0, 3),
+                    ),
+                  ],
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16.0, vertical: 8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text(
+                            'Rekomendasi Event',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              // Tindakan ketika "Lihat Semua" ditekan
+                            },
+                            child: const Text(
+                              'Lihat Semua',
+>>>>>>> develop
                               style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
@@ -272,6 +327,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ],
                         ),
                       ),
+<<<<<<< HEAD
                       SizedBox(
                         height: 270, // Ubah tinggi sesuai kebutuhan
                         child: ListView.builder(
@@ -356,6 +412,22 @@ class _MyHomePageState extends State<MyHomePage> {
                             );
                           },
                         ),
+=======
+                    ),
+                    SizedBox(
+                      height: 335,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 3,
+                        itemBuilder: (context, index) {
+                          return const Padding(
+                              padding: cardPadding,
+                              child: CardEvent(
+                                  imagePath: 'lib/assets/banner3.png',
+                                  title: 'Workshop Ceramics for Beginner',
+                                  date: '16-17 Okt 2023'));
+                        },
+>>>>>>> develop
                       ),
                       // Contoh elemen tambahan di dalam SingleChildScrollView
                       const SizedBox(height: 20),
@@ -387,6 +459,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ],
                         ),
                       ),
+<<<<<<< HEAD
                       SizedBox(
                         height: 385, // Ubah tinggi sesuai kebutuhan
                         child: ListView.builder(
@@ -404,13 +477,87 @@ class _MyHomePageState extends State<MyHomePage> {
                                 locationRating: "Surabaya",
                                 starRating: 4.5,
                                 terjual: '138',
+=======
+                    ),
+                    SizedBox(
+                      height: 350, // Ubah tinggi sesuai kebutuhan
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 4,
+                        itemBuilder: (context, index) {
+                          return const Padding(
+                            padding: cardPadding,
+                            child: RoundedImageCard(
+                              imagePath:
+                                  'lib/assets/dompet_kulit_lokal_wanita_main.jpg',
+                              subtitle:
+                                  'Dompet Wanita Series AMC Kulit Naga Asli',
+                              title: 'Rp 80.000',
+                              locationRating: "Surabaya",
+                              starRating: 4.5,
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    // Contoh elemen tambahan di dalam SingleChildScrollView
+                    const SizedBox(height: 20),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16.0, vertical: 8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text(
+                            'Terlaris di sekitarmu~',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              // Tindakan ketika "Lihat Semua" ditekan
+                            },
+                            child: const Text(
+                              'Lihat Semua',
+                              style: TextStyle(
+                                color: Colors.blue,
+                                fontWeight: FontWeight.bold,
+>>>>>>> develop
                               ),
                             );
                           },
                         ),
                       ),
+<<<<<<< HEAD
                     ],
                   ),
+=======
+                    ),
+                    SizedBox(
+                      height: 350, // Ubah tinggi sesuai kebutuhan
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 4,
+                        itemBuilder: (context, index) {
+                          return const Padding(
+                            padding: cardPadding,
+                            child: RoundedImageCard(
+                              imagePath:
+                                  'lib/assets/dompet_kulit_lokal_wanita_main.jpg',
+                              subtitle:
+                                  'Dompet Wanita Series AMC Kulit Naga Asli',
+                              title: 'Rp 80.000',
+                              locationRating: "Surabaya",
+                              starRating: 4.5,
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+>>>>>>> develop
                 ),
               ],
             ),
@@ -444,8 +591,28 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
           currentIndex: _selectedIndex,
+<<<<<<< HEAD
           selectedItemColor: Colors.blue,
           onTap: _onItemTapped,
+=======
+          selectedItemColor: const Color(0xff3653B0),
+          onTap: (index) {
+            switch (index) {
+              case 0:
+                Navigator.pushNamed(context, '/home');
+                break;
+              case 1:
+                Navigator.pushNamed(context, '/event');
+                break;
+              case 2:
+                Navigator.pushNamed(context, '/product');
+                break;
+              case 3:
+                Navigator.pushNamed(context, '/profile');
+                break;
+            }
+          },
+>>>>>>> develop
         ),
       ),
     );

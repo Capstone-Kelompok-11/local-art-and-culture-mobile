@@ -1,45 +1,55 @@
 import 'package:flutter/material.dart';
+import 'package:local_art_and_culture/models/payment_model.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/src/screen_home_page.dart';
+import 'package:local_art_and_culture/src/feature/product/screens/detail_product.dart';
+import 'package:local_art_and_culture/src/feature/product/screens/product_page.dart';
+import 'package:local_art_and_culture/src/feature/splash%20login/splashscreen.dart';
+import 'package:local_art_and_culture/src/feature/chatbot/chatbot_screen.dart';
+import 'package:provider/provider.dart';
 import './src/feature/profil/screen_profil.dart';
 
 void main() {
-  runApp(ProfilPage());
+  runApp(MyApp());
 }
 
-class MyWidget extends StatelessWidget {
-  const MyWidget({Key? key}) : super(key: key);
-
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: '/home',
-      routes: {
-<<<<<<< Updated upstream
-        '/home': (context) => const MyHomePage(),
-        '/profile': (context) => const ProfilPage(),
-
-        // ... daftar rute lainnya ...
-      },
-=======
-        '/splashscreen': (context) => SplashScreen(),
-      },
-      home: SplashScreen(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => PaymentModel()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Lokasani',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        initialRoute: '/',
+        routes: {
+          '/': (context) =>
+              SplashScreenDelay(), // Menggunakan SplashScreenDelay untuk inisialisasi
+          '/home': (context) => MyHomePage(),
+          '/product': (context) => ListProductPage(),
+          '/detail/product': (context) => DetailProduct(),
+          '/chatbot': (context) => ChatbotScreen(),
+          '/profile': (context) => ProfilPage(),
+          '/splashscreen': (context) => SplashScreen(),
+        },
+      ),
     );
   }
 }
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
-
+class SplashScreenDelay extends StatefulWidget {
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  State<SplashScreenDelay> createState() => _SplashScreenDelayState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashScreenDelayState extends State<SplashScreenDelay> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     Future.delayed(Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
@@ -48,6 +58,13 @@ class _SplashScreenState extends State<SplashScreen> {
     });
   }
 
+  @override
+  Widget build(BuildContext context) {
+    return SplashScreen(); // Return SplashScreen ketika delay selesai
+  }
+}
+
+class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,7 +83,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   );
                 },
                 child: Image.asset(
-                  'assets/logo.png',
+                  'lib/assets/logo.png', // Ubah path gambar sesuai dengan lokasi sebenarnya
                   width: 108.43,
                   height: 78.02,
                 ),
@@ -75,7 +92,6 @@ class _SplashScreenState extends State<SplashScreen> {
           ],
         ),
       ),
->>>>>>> Stashed changes
     );
   }
 }
