@@ -37,7 +37,7 @@ class _ProductsOrderState extends State<ProductsOrder> {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(16.0),
                       child: Image.asset(
-                        'lib/assets/gambar-produk-2.jpg',
+                        'assets/gambar-produk-2.jpg',
                         height: 83,
                         width: 83,
                         fit: BoxFit.cover,
@@ -72,7 +72,8 @@ class _ProductsOrderState extends State<ProductsOrder> {
                                   IconButton(
                                     onPressed: () {
                                       if (paymentModel.quantity > 1) {
-                                        paymentModel.updateQuantity(paymentModel.quantity - 1);
+                                        paymentModel.updateQuantity(
+                                            paymentModel.quantity - 1);
                                       }
                                     },
                                     icon: const Icon(
@@ -92,7 +93,8 @@ class _ProductsOrderState extends State<ProductsOrder> {
                                   const SizedBox(width: 10),
                                   IconButton(
                                     onPressed: () {
-                                      paymentModel.updateQuantity(paymentModel.quantity + 1);
+                                      paymentModel.updateQuantity(
+                                          paymentModel.quantity + 1);
                                     },
                                     icon: const Icon(
                                       Icons.add_circle,

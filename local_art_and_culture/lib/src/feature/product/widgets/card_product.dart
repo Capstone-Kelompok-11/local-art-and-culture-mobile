@@ -39,8 +39,8 @@ class _CardProductsState extends State<CardProducts> {
                 itemCount: products.length,
                 itemBuilder: (context, index) {
                   String imagePath = index.isEven
-                      ? 'lib/assets/gambar-produk-2.jpg'
-                      : 'lib/assets/gambar-produk-1.jpg';
+                      ? 'assets/gambar-produk-2.jpg'
+                      : 'assets/gambar-produk-1.jpg';
 
                   String category = index.isEven ? 'Fasion' : 'Karya Tangan';
                   String title = index.isEven

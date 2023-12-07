@@ -16,17 +16,17 @@ class _OnboardScreenState extends State<OnboardScreen> {
 
   List<AllinOnboardModel> allinonboardlist = [
     AllinOnboardModel(
-      "lib/assets/pict1.jpg",
+      "assets/pict1.jpg",
       "Mari Jelajahi, Beli dan Rasakan Makna Mendalam dari Komunitas Kami",
       "Temukan dan Rayakan Seni & Budaya Lokal",
     ),
     AllinOnboardModel(
-      "lib/assets/pict2.jpg",
+      "assets/pict2.jpg",
       "Temukan, Lihat dan Dukung Seniman Lokal dengan Menjelajahi Koleksi Seni",
       "Jelajahi Karya Seni Lokal yang Menginspirasi",
     ),
     AllinOnboardModel(
-      "lib/assets/pict3.png",
+      "assets/pict3.png",
       "Jelajahi Beragam Seni Lokal dan Dapatkan Tiket Acara Tanpa Repot",
       "Beli Tiket Seni dan Acara Unik dalam Satu Aplikasi",
     ),
@@ -81,7 +81,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
             ),
           ),
           Positioned(
-            bottom: 120,
+            bottom: 20,
             left: 0,
             right: 0,
             child: Container(

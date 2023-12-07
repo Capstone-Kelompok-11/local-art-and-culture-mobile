@@ -18,7 +18,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => PaymentModel()),
+        ChangeNotifierProvider(
+          create: (_) => PaymentModel(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -31,11 +33,11 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) =>
               SplashScreenDelay(), // Menggunakan SplashScreenDelay untuk inisialisasi
-          '/home': (context) => MyHomePage(),
-          '/product': (context) => ListProductPage(),
-          '/detail/product': (context) => DetailProduct(),
-          '/chatbot': (context) => ChatbotScreen(),
-          '/profile': (context) => ProfilPage(),
+          '/home': (context) => const MyHomePage(),
+          '/product': (context) => const ListProductPage(),
+          '/detail/product': (context) => const DetailProduct(),
+          '/chatbot': (context) => const ChatbotScreen(),
+          '/profile': (context) => const ProfilPage(),
           '/splashscreen': (context) => SplashScreen(),
         },
       ),
@@ -52,7 +54,7 @@ class _SplashScreenDelayState extends State<SplashScreenDelay> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (context) => OnboardScreen(),
       ));
@@ -84,7 +86,7 @@ class SplashScreen extends StatelessWidget {
                   );
                 },
                 child: Image.asset(
-                  'lib/assets/logo.png', // Ubah path gambar sesuai dengan lokasi sebenarnya
+                  'assets/logo.png', // Ubah path gambar sesuai dengan lokasi sebenarnya
                   width: 108.43,
                   height: 78.02,
                 ),

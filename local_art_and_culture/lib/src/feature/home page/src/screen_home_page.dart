@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:local_art_and_culture/widget/app_bar_home.dart';
-import 'package:local_art_and_culture/widget/button_fitur.dart';
-import 'package:local_art_and_culture/widget/calender.dart';
-import 'package:local_art_and_culture/widget/card.dart';
-import 'package:local_art_and_culture/widget/card_event.dart';
-import 'package:local_art_and_culture/widget/icon_filter.dart';
-import 'package:local_art_and_culture/widget/news_card.dart';
-import 'package:local_art_and_culture/widget/searchbar.dart';
-import 'package:local_art_and_culture/widget/slider_home_page.dart';
+import 'package:local_art_and_culture/components/bottom_navigation_bar.dart';
+import 'package:local_art_and_culture/src/feature/home%20page/widget/app_bar_home.dart';
+import 'package:local_art_and_culture/src/feature/home%20page/widget/button_fitur.dart';
+import 'package:local_art_and_culture/src/feature/home%20page/widget/calender.dart';
+import 'package:local_art_and_culture/src/feature/home%20page/widget/card.dart';
+import 'package:local_art_and_culture/src/feature/home%20page/widget/card_event.dart';
+import 'package:local_art_and_culture/src/feature/home%20page/widget/icon_filter.dart';
+import 'package:local_art_and_culture/src/feature/home%20page/widget/news_card.dart';
+import 'package:local_art_and_culture/src/feature/home%20page/widget/searchbar.dart';
+import 'package:local_art_and_culture/src/feature/home%20page/widget/slider_home_page.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -20,7 +21,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<NewsCard> newsCards = [];
-
+  final NavItemBuilder navItemBuilder = NavItemBuilder();
   int _selectedIndex = 0;
   @override
   void initState() {
@@ -50,6 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _onItemTapped(int index) {
+    print(index);
     setState(() {
       _selectedIndex = index;
     });
@@ -418,33 +420,15 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: [
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/svg/home.svg',
-              ),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/svg/event.svg',
-              ),
-              label: 'Event',
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/svg/Group.svg',
-              ),
-              label: 'Product',
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/svg/person.svg',
-              ),
-              label: 'Profile',
-            ),
+            navItemBuilder.buildNavItem(Icons.home, 'Home'),
+            navItemBuilder.buildNavItem(Icons.event, 'Event'),
+            navItemBuilder.buildNavItem(Icons.storefront, 'Product'),
+            navItemBuilder.buildNavItem(Icons.person, 'Profile'),
           ],
           currentIndex: _selectedIndex,
           selectedItemColor: Colors.blue,
+          unselectedItemColor: const Color.fromARGB(255, 134, 132, 132),
+          showUnselectedLabels: true,
           onTap: _onItemTapped,
         ),
       ),

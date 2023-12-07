@@ -60,7 +60,7 @@ class _ProfilePictureWidgetState extends State<ProfilePictureWidget> {
                     )
                   : const DecorationImage(
                       image: AssetImage(
-                          'path_to_placeholder_image'), // Ganti dengan path ke placeholder image
+                          ''), // Ganti dengan path ke placeholder image
                       fit: BoxFit.fill,
                     ),
             ),

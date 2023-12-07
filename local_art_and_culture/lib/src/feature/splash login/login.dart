@@ -17,12 +17,12 @@ class _LoginPageState extends State<LoginPage> {
       body: Center(
         child: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 TitleComponent(),
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
                 FieldComponent(
                   isPasswordVisible: _isPasswordVisible,
                   togglePasswordVisibility: (bool isVisible) {
@@ -31,7 +31,7 @@ class _LoginPageState extends State<LoginPage> {
                     });
                   },
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 ThirdComponent(),
               ],
             ),
@@ -46,8 +46,8 @@ class TitleComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 20, left: 20, right: 20),
-      child: Column(
+      margin: const EdgeInsets.only(bottom: 20, left: 20, right: 20),
+      child: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
@@ -82,14 +82,14 @@ class FieldComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.centerRight,
-      margin: EdgeInsets.only(left: 20, right: 20),
+      margin: const EdgeInsets.only(left: 20, right: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Container(
             alignment: Alignment.centerLeft,
-            margin: EdgeInsets.only(bottom: 5, left: 8),
-            child: Text('Email',
+            margin: const EdgeInsets.only(bottom: 5, left: 8),
+            child: const Text('Email',
                 style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
@@ -100,7 +100,7 @@ class FieldComponent extends StatelessWidget {
             decoration: InputDecoration(
               hintText: 'Masukkan Email',
               filled: true,
-              hintStyle: TextStyle(
+              hintStyle: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.normal,
                 fontFamily: 'Plus Jakarta Sans',
@@ -111,19 +111,19 @@ class FieldComponent extends StatelessWidget {
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
-                borderSide: BorderSide(color: Colors.transparent),
+                borderSide: const BorderSide(color: Colors.transparent),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
-                borderSide: BorderSide(color: Colors.transparent),
+                borderSide: const BorderSide(color: Colors.transparent),
               ),
             ),
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Container(
             alignment: Alignment.centerLeft,
-            margin: EdgeInsets.only(bottom: 5, left: 8),
-            child: Text(
+            margin: const EdgeInsets.only(bottom: 5, left: 8),
+            child: const Text(
               'Kata Sandi',
               style: TextStyle(
                 fontSize: 14,
@@ -137,7 +137,7 @@ class FieldComponent extends StatelessWidget {
             obscureText: !isPasswordVisible,
             decoration: InputDecoration(
               hintText: 'Masukkan Kata Sandi',
-              hintStyle: TextStyle(
+              hintStyle: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.normal,
                 fontFamily: 'Plus Jakarta Sans',
@@ -149,11 +149,11 @@ class FieldComponent extends StatelessWidget {
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
-                borderSide: BorderSide(color: Colors.transparent),
+                borderSide: const BorderSide(color: Colors.transparent),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
-                borderSide: BorderSide(color: Colors.transparent),
+                borderSide: const BorderSide(color: Colors.transparent),
               ),
               suffixIcon: IconButton(
                 icon: Icon(
@@ -169,7 +169,7 @@ class FieldComponent extends StatelessWidget {
             onPressed: () {
               // Navigate to forgot password page
             },
-            child: Text(
+            child: const Text(
               'Lupa Kata Sandi?',
               style: TextStyle(
                 color: Colors.blue,
@@ -195,7 +195,7 @@ class _ThirdComponentState extends State<ThirdComponent> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 10, left: 40, right: 40),
+      margin: const EdgeInsets.only(top: 10, left: 40, right: 40),
       child: Column(
         children: [
           Row(
@@ -208,22 +208,22 @@ class _ThirdComponentState extends State<ThirdComponent> {
                   });
                 },
                 child: Container(
-                  padding: EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(8),
                   child: _radioValue
-                      ? Icon(
+                      ? const Icon(
                           Icons.radio_button_checked,
                           size: 20,
                           color: Color.fromRGBO(54, 83, 176, 1),
                         )
-                      : Icon(
+                      : const Icon(
                           Icons.radio_button_unchecked,
                           size: 20,
                           color: Colors.grey,
                         ),
                 ),
               ),
-              SizedBox(width: 8),
-              Text(
+              const SizedBox(width: 8),
+              const Text(
                 'Biarkan saya tetap masuk',
                 style: TextStyle(
                   fontSize: 12,
@@ -234,19 +234,19 @@ class _ThirdComponentState extends State<ThirdComponent> {
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              padding: EdgeInsets.symmetric(vertical: 15),
-              backgroundColor: Color.fromRGBO(54, 83, 176, 1),
+              padding: const EdgeInsets.symmetric(vertical: 15),
+              backgroundColor: const Color.fromRGBO(54, 83, 176, 1),
             ),
             onPressed: () {
               // Ini adalah bagian yang akan dijalankan saat tombol ditekan
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => MyHomePage()),
+                MaterialPageRoute(builder: (context) => const MyHomePage()),
               );
             },
             child: Container(
               width: double.infinity,
-              child: Center(
+              child: const Center(
                 child: Text(
                   'Masuk',
                   style: TextStyle(
@@ -261,7 +261,7 @@ class _ThirdComponentState extends State<ThirdComponent> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 'Belum punya akun?',
                 style: TextStyle(
                   fontSize: 12,
@@ -275,7 +275,7 @@ class _ThirdComponentState extends State<ThirdComponent> {
                     MaterialPageRoute(builder: (context) => RegisterPage()),
                   );
                 },
-                child: Text(
+                child: const Text(
                   'Daftar disini',
                   style: TextStyle(
                     color: Colors.grey,
@@ -286,12 +286,12 @@ class _ThirdComponentState extends State<ThirdComponent> {
               ),
             ],
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Container(
             child: Column(
               children: [
                 Container(
-                  margin: EdgeInsets.symmetric(vertical: 10),
+                  margin: const EdgeInsets.symmetric(vertical: 10),
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
@@ -300,9 +300,9 @@ class _ThirdComponentState extends State<ThirdComponent> {
                         color: Colors.grey,
                       ),
                       Container(
-                        padding: EdgeInsets.all(8),
+                        padding: const EdgeInsets.all(8),
                         color: Theme.of(context).scaffoldBackgroundColor,
-                        child: Text(
+                        child: const Text(
                           'Atau Masuk Dengan',
                           style: TextStyle(
                             color: Colors.grey,
@@ -314,20 +314,13 @@ class _ThirdComponentState extends State<ThirdComponent> {
                     ],
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     InkWell(
                       onTap: () {},
-                      child:
-                          Image.asset('lib/assets/google_logo.png', height: 40),
-                    ),
-                    SizedBox(width: 16),
-                    InkWell(
-                      onTap: () {},
-                      child: Image.asset('lib/assets/facebook_logo.png',
-                          height: 40),
+                      child: Image.asset('assets/google_logo.png', height: 40),
                     ),
                   ],
                 ),

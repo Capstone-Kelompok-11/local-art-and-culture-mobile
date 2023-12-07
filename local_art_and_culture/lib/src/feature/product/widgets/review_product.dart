@@ -65,7 +65,7 @@ class ReviewProduct extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(30.0),
                   child: const Image(
-                    image: AssetImage('lib/assets/logo-store.jpg'),
+                    image: AssetImage('assets/logo-store.jpg'),
                     width: 25,
                     height: 25,
                   ),
@@ -107,7 +107,7 @@ class ReviewProduct extends StatelessWidget {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10.0),
                         child: const Image(
-                          image: AssetImage('lib/assets/gambar-produk-2.jpg'),
+                          image: AssetImage('assets/gambar-produk-2.jpg'),
                           width: 90,
                           height: 90,
                           fit: BoxFit.cover,

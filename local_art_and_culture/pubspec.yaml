@@ -66,7 +66,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
-    
+    - assets/svg
   #   - images/a_dot_ham.jpeg
 
   fonts:
@@ -78,10 +78,10 @@ flutter:
 
     - family: Plus Jakarta Sans
       fonts:
-        - asset: lib/assets/fonts/PlusJakartaSans.ttf
+        - asset: assets/fonts/PlusJakartaSans.ttf
     - family: Plus Jakarta Sans Regular
       fonts:
-        - asset: lib/assets/fonts/PlusJakartaSans-Regular.ttf
+        - asset: assets/fonts/PlusJakartaSans-Regular.ttf
     - family: SF Pro Display
       fonts:
-        - asset: lib/assets/fonts/SF-Pro-Display-Semibold.ttf
+        - asset: assets/fonts/SF-Pro-Display-Semibold.ttf
