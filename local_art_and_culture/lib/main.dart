@@ -6,60 +6,65 @@ import 'package:local_art_and_culture/src/feature/product/screens/product_page.d
 import 'package:local_art_and_culture/src/feature/splash%20login/splashscreen.dart';
 import 'package:local_art_and_culture/src/feature/chatbot/chatbot_screen.dart';
 import 'package:provider/provider.dart';
+import './src/feature/profil/screen_profil.dart';
 
 void main() {
-  runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => PaymentModel()),
-      ],
-      child: const MyApp(),
-    ),
-  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Lokasani',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => PaymentModel()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Lokasani',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        initialRoute: '/',
+        routes: {
+          '/': (context) =>
+              SplashScreenDelay(), // Menggunakan SplashScreenDelay untuk inisialisasi
+          '/home': (context) => MyHomePage(),
+          '/product': (context) => ListProductPage(),
+          '/detail/product': (context) => DetailProduct(),
+          '/chatbot': (context) => ChatbotScreen(),
+          '/profile': (context) => ProfilPage(),
+          '/splashscreen': (context) => SplashScreen(),
+        },
       ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const SplashScreen(),
-        '/home': (context) => const MyHomePage(),
-        '/product': (context) => const ListProductPage(),
-        '/detail/product': (context) => const DetailProduct(),
-        '/chatbot': (context) => const ChatbotScreen(),
-      },
     );
   }
 }
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
-
+class SplashScreenDelay extends StatefulWidget {
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  State<SplashScreenDelay> createState() => _SplashScreenDelayState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashScreenDelayState extends State<SplashScreenDelay> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (context) => OnboardScreen(),
       ));
     });
   }
 
+  @override
+  Widget build(BuildContext context) {
+    return SplashScreen(); // Return SplashScreen ketika delay selesai
+  }
+}
+
+class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,7 +83,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   );
                 },
                 child: Image.asset(
-                  'lib/assets/logo.png',
+                  'lib/assets/logo.png', // Ubah path gambar sesuai dengan lokasi sebenarnya
                   width: 108.43,
                   height: 78.02,
                 ),
