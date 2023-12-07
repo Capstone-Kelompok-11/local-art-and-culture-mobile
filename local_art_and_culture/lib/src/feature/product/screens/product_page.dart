@@ -13,8 +13,6 @@ class ListProductPage extends StatefulWidget {
 
 class _ListProductPageState extends State<ListProductPage> {
   bool isPressed = false;
-  int _selectedIndex = 0;
-  final NavItemBuilder navItemBuilder = NavItemBuilder();
 
   @override
   Widget build(BuildContext context) {
@@ -35,35 +33,17 @@ class _ListProductPageState extends State<ListProductPage> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          navItemBuilder.buildNavItem(Icons.home, 'Home'),
-          navItemBuilder.buildNavItem(Icons.event, 'Event'),
-          navItemBuilder.buildNavItem(Icons.storefront, 'Product'),
-          navItemBuilder.buildNavItem(Icons.person, 'Profile'),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: const Color(0xff3653B0),
-        onTap: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-
-          switch (index) {
-            case 0:
+      bottomNavigationBar: CustomBottomNavigationBar(
+          selectedIndex: 2,
+          onItemTapped: (index) {
+            if (index == 0) {
               Navigator.pushNamed(context, '/home');
-              break;
-            case 1:
+            } else if (index == 1) {
               Navigator.pushNamed(context, '/event');
-              break;
-            case 2:
-              break;
-            case 3:
+            } else if (index == 3) {
               Navigator.pushNamed(context, '/profile');
-              break;
-          }
-        },
-      ),
+            }
+          }),
     );
   }
 }
