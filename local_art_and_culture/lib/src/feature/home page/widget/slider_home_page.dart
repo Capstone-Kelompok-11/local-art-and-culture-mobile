@@ -9,9 +9,9 @@ class CustomImageSlider extends StatefulWidget {
 class _CustomImageSliderState extends State<CustomImageSlider> {
   int _current = 0;
   final List<String> imageList = [
-    "assets/Rectangle 63.png",
-    "assets/Rectangle 63.png",
-    "assets/Rectangle 63.png",
+    "assets/rectangle63.png",
+    "assets/rectangle63.png",
+    "assets/rectangle63.png",
     // Add other image URLs here
   ];
 

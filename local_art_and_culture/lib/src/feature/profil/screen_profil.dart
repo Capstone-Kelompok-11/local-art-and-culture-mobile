@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:local_art_and_culture/components/bottom_navigation_bar.dart';
 
 import 'package:local_art_and_culture/src/feature/profil/widget/profil_akun.dart';
 import 'package:local_art_and_culture/src/feature/profil/widget/profil_gambar.dart';
@@ -14,14 +15,33 @@ class ProfilPage extends StatefulWidget {
 }
 
 class _ProfilPageState extends State<ProfilPage> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 3;
+  final NavItemBuilder navItemBuilder = NavItemBuilder();
+  void _onItemTapped(int index) {
+    print(index);
+    setState(() {
+      _selectedIndex = index;
+    });
 
-  void _onItemTapped(int index) async {
-    if (index == 4) {
-    } else {
-      setState(() {
-        _selectedIndex = index;
-      });
+    switch (index) {
+      case 0:
+        // Navigasi ke halaman Home
+        Navigator.pushReplacementNamed(context, '/home');
+        break;
+      case 1:
+        // Navigasi ke halaman Event
+        Navigator.pushReplacementNamed(context, '/event');
+        break;
+      case 2:
+        // Navigasi ke halaman Product
+        Navigator.pushReplacementNamed(context, '/product');
+        break;
+      case 3:
+        // Navigasi ke halaman Profile
+        Navigator.pushReplacementNamed(context, '/profile');
+        break;
+      default:
+        break;
     }
   }
 
@@ -145,33 +165,15 @@ class _ProfilPageState extends State<ProfilPage> {
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: [
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/svg/home.svg',
-              ),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/svg/event.svg',
-              ),
-              label: 'Event',
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/svg/Group.svg',
-              ),
-              label: 'Product',
-            ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/svg/person.svg',
-              ),
-              label: 'Profile',
-            ),
+            navItemBuilder.buildNavItem(Icons.home, 'Home'),
+            navItemBuilder.buildNavItem(Icons.event, 'Event'),
+            navItemBuilder.buildNavItem(Icons.storefront, 'Product'),
+            navItemBuilder.buildNavItem(Icons.person, 'Profile'),
           ],
           currentIndex: _selectedIndex,
           selectedItemColor: Colors.blue,
+          unselectedItemColor: const Color.fromARGB(255, 134, 132, 132),
+          showUnselectedLabels: true,
           onTap: _onItemTapped,
         ),
       ),

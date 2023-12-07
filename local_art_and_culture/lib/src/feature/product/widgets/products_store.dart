@@ -20,7 +20,7 @@ class _ProductStoreState extends State<ProductStore> {
             ClipRRect(
               borderRadius: BorderRadius.circular(30.0),
               child: const Image(
-                image: AssetImage('lib/assets/logo-store.jpg'),
+                image: AssetImage('assets/logo-store.jpg'),
                 width: 40,
                 height: 40,
               ),
