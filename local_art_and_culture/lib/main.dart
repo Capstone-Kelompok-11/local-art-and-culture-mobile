@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:local_art_and_culture/src/feature/article/ui/article_list.dart';
 import 'package:local_art_and_culture/models/payment_model.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/src/screen_home_page.dart';
 import 'package:local_art_and_culture/src/feature/product/screens/detail_product.dart';
 import 'package:local_art_and_culture/src/feature/product/screens/product_page.dart';
-import 'package:local_art_and_culture/src/feature/profil/screen_alamat_profil.dart';
 import 'package:local_art_and_culture/src/feature/splash%20login/splashscreen.dart';
 import 'package:local_art_and_culture/src/feature/chatbot/chatbot_screen.dart';
 import 'package:provider/provider.dart';
 import './src/feature/profil/screen_profil.dart';
 
-
 void main() {
-
   runApp(MyApp());
-
 }
 
 class MyApp extends StatelessWidget {
@@ -36,8 +31,7 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/',
         routes: {
-          '/': (context) =>
-              SplashScreenDelay(), // Menggunakan SplashScreenDelay untuk inisialisasi
+          '/': (context) => SplashScreenDelay(),
           '/home': (context) => const MyHomePage(),
           '/product': (context) => const ListProductPage(),
           '/detail/product': (context) => const DetailProduct(),
@@ -68,7 +62,7 @@ class _SplashScreenDelayState extends State<SplashScreenDelay> {
 
   @override
   Widget build(BuildContext context) {
-    return SplashScreen(); // Return SplashScreen ketika delay selesai
+    return SplashScreen();
   }
 }
 
@@ -91,7 +85,7 @@ class SplashScreen extends StatelessWidget {
                   );
                 },
                 child: Image.asset(
-                  'assets/logo.png', // Ubah path gambar sesuai dengan lokasi sebenarnya
+                  'assets/logo.png',
                   width: 108.43,
                   height: 78.02,
                 ),
