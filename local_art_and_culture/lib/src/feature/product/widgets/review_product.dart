@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:local_art_and_culture/src/feature/product/screens/review_product.dart';
 
 class ReviewProduct extends StatelessWidget {
   const ReviewProduct({super.key});
@@ -45,6 +46,13 @@ class ReviewProduct extends StatelessWidget {
                   ],
                 ),
                 GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ReviewProductPage()),
+                    );
+                  },
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: Text('Lihat semua',
