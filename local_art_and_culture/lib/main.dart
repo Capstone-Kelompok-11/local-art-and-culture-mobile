@@ -10,7 +10,7 @@ import 'package:provider/provider.dart';
 import './src/feature/profil/screen_profil.dart';
 
 void main() {
-  runApp(AlamatPage());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {

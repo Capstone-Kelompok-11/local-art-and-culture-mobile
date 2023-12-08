@@ -37,7 +37,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
       currentIndex = newIndex;
 
       if (currentIndex == allinonboardlist.length - 1) {
-        Future.delayed(const Duration(milliseconds: 500), () {
+        Future.delayed(const Duration(milliseconds: 800), () {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => LoginPage()),
@@ -67,7 +67,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
               );
             },
           ),
-          Positioned(
+          const Positioned(
             top: 30,
             right: 20,
             child: Text(
@@ -108,8 +108,8 @@ class _OnboardScreenState extends State<OnboardScreen> {
                   // Third container with GestureDetector (forward arrow on the right, width 25%)
                   Container(
                     width: MediaQuery.of(context).size.width * 0.25,
-                    margin: EdgeInsets.only(left: 10),
-                    decoration: BoxDecoration(
+                    margin: const EdgeInsets.only(left: 10),
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       color: Color(0xFF3653B0),
                     ),
@@ -130,7 +130,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
                         child: Container(
                           width: 51,
                           height: 51,
-                          child: Center(
+                          child: const Center(
                             child: Icon(
                               Icons.arrow_forward,
                               color: Colors.white,
@@ -154,18 +154,18 @@ class _OnboardScreenState extends State<OnboardScreen> {
       onTap: () {
         _pageController.animateToPage(
           index,
-          duration: Duration(milliseconds: 500),
+          duration: const Duration(milliseconds: 500),
           curve: Curves.easeInOut,
         );
       },
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 5),
+        margin: const EdgeInsets.symmetric(horizontal: 5),
         width: currentIndex == index ? 30.0 : 10.0,
         height: 10.0,
         decoration: BoxDecoration(
           color: currentIndex == index
-              ? Color.fromRGBO(232, 100, 75, 1)
-              : Color.fromRGBO(217, 217, 217, 1),
+              ? const Color.fromRGBO(232, 100, 75, 1)
+              : const Color.fromRGBO(217, 217, 217, 1),
           borderRadius: BorderRadius.circular(5),
         ),
       ),
@@ -202,7 +202,7 @@ class PageBuilderWidget extends StatelessWidget {
           const SizedBox(height: 20),
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.black,
               fontSize: 32,
               fontFamily: 'Plus Jakarta Sans',
@@ -212,7 +212,7 @@ class PageBuilderWidget extends StatelessWidget {
           const SizedBox(height: 20),
           Text(
             description,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.black,
               fontSize: 16,
               fontFamily: 'Plus Jakarta Sans Regular',

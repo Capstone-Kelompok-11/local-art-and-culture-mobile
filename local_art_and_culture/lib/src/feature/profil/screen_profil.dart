@@ -164,14 +164,20 @@ class _ProfilPageState extends State<ProfilPage> {
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: [
-            navItemBuilder.buildNavItem(Icons.home, 'Home'),
-            navItemBuilder.buildNavItem(Icons.event, 'Event'),
-            navItemBuilder.buildNavItem(Icons.storefront, 'Product'),
-            navItemBuilder.buildNavItem(Icons.person, 'Profile'),
+            navItemBuilder.buildNavItem(
+                Icons.home, 'Home', _selectedIndex, 0, _onItemTapped),
+            navItemBuilder.buildNavItem(
+                Icons.event, 'Event', _selectedIndex, 1, _onItemTapped),
+            navItemBuilder.buildNavItem(
+                Icons.storefront, 'Product', _selectedIndex, 2, _onItemTapped),
+            navItemBuilder.buildNavItem(
+                Icons.person, 'Profile', _selectedIndex, 3, _onItemTapped),
           ],
           currentIndex: _selectedIndex,
-          selectedItemColor: Colors.blue,
-          unselectedItemColor: const Color.fromARGB(255, 134, 132, 132),
+          selectedItemColor:
+              const Color(0xff3653B0), // Warna ikon yang terpilih
+          unselectedItemColor: const Color.fromARGB(
+              255, 118, 114, 114), // Warna ikon yang tidak terpilih
           showUnselectedLabels: true,
           onTap: _onItemTapped,
         ),
