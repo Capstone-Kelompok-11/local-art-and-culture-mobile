@@ -30,21 +30,31 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  cupertino_icons: ^1.0.2
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+
   http: ^1.1.0
   intl: ^0.18.1
-  getwidget: ^2.0.4
   envied: ^0.5.1
-  cupertino_icons: ^1.0.2
+  google_fonts: ^6.1.0
+  provider: ^6.1.1
   dio: ^5.3.4
   svg_flutter: ^0.0.1
   flutter_svg: ^2.0.9
+  getwidget: ^4.0.0
+  carousel_slider: ^4.2.1
+  flutter_calendar_week: ^3.0.2
+  image_picker: ^1.0.4
+  file_picker: ^6.1.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
   chat_bubbles: ^1.5.0
-  google_fonts: ^6.1.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -58,10 +68,12 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/
     - assets/icons/
+    - assets/img/
+    - assets/img/artikel/
+    - assets/img/profil/
     - assets/svg/
-
-  #   - images/a_dot_ham.jpeg
 
 
   fonts:
@@ -78,5 +90,5 @@ flutter:
       fonts:
         - asset: assets/fonts/PlusJakartaSans-Regular.ttf
     - family: SF Pro Display
-      fonts: 
+      fonts:
         - asset: assets/fonts/SF-Pro-Display-Semibold.ttf
