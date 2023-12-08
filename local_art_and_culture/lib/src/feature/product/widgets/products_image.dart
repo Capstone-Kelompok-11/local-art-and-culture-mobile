@@ -20,7 +20,7 @@ class _ProductsImageState extends State<ProductsImage> {
         children: [
           Stack(
             children: [
-              const Image(image: AssetImage('/assets/gambar-produk-2.jpg')),
+              const Image(image: AssetImage('assets/gambar-produk-2.jpg')),
               Positioned(
                 top: 23,
                 left: 20,

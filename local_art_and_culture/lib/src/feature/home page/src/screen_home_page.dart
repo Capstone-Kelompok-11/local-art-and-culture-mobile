@@ -22,8 +22,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<NewsCard> newsCards = [];
-  final NavItemBuilder navItemBuilder = NavItemBuilder();
-  int _selectedIndex = 0;
+
   @override
   void initState() {
     super.initState();
@@ -48,34 +47,6 @@ class _MyHomePageState extends State<MyHomePage> {
     } catch (error) {
       // ignore: avoid_print
       print('Error fetching news: $error');
-    }
-  }
-
-  void _onItemTapped(int index) {
-    print(index);
-    setState(() {
-      _selectedIndex = index;
-    });
-
-    switch (index) {
-      case 0:
-        // Navigasi ke halaman Home
-        Navigator.pushReplacementNamed(context, '/home');
-        break;
-      case 1:
-        // Navigasi ke halaman Event
-        Navigator.pushReplacementNamed(context, '/event');
-        break;
-      case 2:
-        // Navigasi ke halaman Product
-        Navigator.pushReplacementNamed(context, '/product');
-        break;
-      case 3:
-        // Navigasi ke halaman Profile
-        Navigator.pushReplacementNamed(context, '/profile');
-        break;
-      default:
-        break;
     }
   }
 
@@ -219,7 +190,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             return const Padding(
                                 padding: cardPadding,
                                 child: CardEvent(
-                                    imagePath: 'assets/Banner 3.png',
+                                    imagePath: 'assets/banner3.png',
                                     title: 'Workshop Ceramics for Beginner',
                                     label1: 'Festival Budaya',
                                     label2: 'Berbayar',
@@ -438,5 +409,4 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-}
 }
