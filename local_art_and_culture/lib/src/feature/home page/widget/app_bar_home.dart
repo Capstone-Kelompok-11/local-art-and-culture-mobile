@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import 'package:local_art_and_culture/src/feature/chat/pesan_semua_screen.dart';
+
 class CustomContainer extends StatelessWidget {
   final String profileImageUrl;
   final String greetingText;
@@ -121,7 +123,12 @@ class CustomContainer extends StatelessWidget {
               const SizedBox(width: 16),
               IconButton(
                 onPressed: () {
-                  // Action for chat icon
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            PesanSemuaScreen()), // Ganti dengan halaman "Event" yang sesuai
+                  );
                 },
                 icon: SvgPicture.asset('assets/svg/chat-processing.svg'),
                 iconSize: 24,
