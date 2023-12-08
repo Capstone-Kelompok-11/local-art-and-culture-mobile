@@ -12,7 +12,9 @@ import './src/feature/profil/screen_profil.dart';
 
 
 void main() {
+
   runApp(MyApp());
+
 }
 
 class MyApp extends StatelessWidget {
