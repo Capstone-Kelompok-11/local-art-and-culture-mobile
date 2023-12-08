@@ -424,24 +424,19 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          items: [
-            navItemBuilder.buildNavItem(
-                Icons.home, 'Home', _selectedIndex, 0, _onItemTapped),
-            navItemBuilder.buildNavItem(
-                Icons.event, 'Event', _selectedIndex, 1, _onItemTapped),
-            navItemBuilder.buildNavItem(
-                Icons.storefront, 'Product', _selectedIndex, 2, _onItemTapped),
-            navItemBuilder.buildNavItem(
-                Icons.person, 'Profile', _selectedIndex, 3, _onItemTapped),
-          ],
-          currentIndex: _selectedIndex,
-          selectedItemColor: const Color(0xff3653B0),
-          unselectedItemColor: const Color.fromARGB(255, 118, 114, 114),
-          showUnselectedLabels: true,
-          onTap: _onItemTapped,
-        ),
+        bottomNavigationBar: CustomBottomNavigationBar(
+            selectedIndex: 0,
+            onItemTapped: (index) {
+              if (index == 1) {
+                Navigator.pushNamed(context, '/event');
+              } else if (index == 2) {
+                Navigator.pushNamed(context, '/product');
+              } else if (index == 3) {
+                Navigator.pushNamed(context, '/profile');
+              }
+            }),
       ),
     );
   }
+}
 }
