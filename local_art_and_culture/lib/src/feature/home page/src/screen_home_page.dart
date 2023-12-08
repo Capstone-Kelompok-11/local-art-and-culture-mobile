@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+
 import 'package:local_art_and_culture/components/bottom_navigation_bar.dart';
+import 'package:local_art_and_culture/src/feature/article/ui/article_list.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/app_bar_home.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/button_fitur.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/calender.dart';
@@ -261,7 +262,12 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             GestureDetector(
                               onTap: () {
-                                // Tindakan ketika "Lihat Semua" ditekan
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          ArticleList()), // Ganti dengan halaman "Event" yang sesuai
+                                );
                               },
                               child: const Text(
                                 'Lihat Semua',
@@ -420,14 +426,18 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: [
-            navItemBuilder.buildNavItem(Icons.home, 'Home'),
-            navItemBuilder.buildNavItem(Icons.event, 'Event'),
-            navItemBuilder.buildNavItem(Icons.storefront, 'Product'),
-            navItemBuilder.buildNavItem(Icons.person, 'Profile'),
+            navItemBuilder.buildNavItem(
+                Icons.home, 'Home', _selectedIndex, 0, _onItemTapped),
+            navItemBuilder.buildNavItem(
+                Icons.event, 'Event', _selectedIndex, 1, _onItemTapped),
+            navItemBuilder.buildNavItem(
+                Icons.storefront, 'Product', _selectedIndex, 2, _onItemTapped),
+            navItemBuilder.buildNavItem(
+                Icons.person, 'Profile', _selectedIndex, 3, _onItemTapped),
           ],
           currentIndex: _selectedIndex,
-          selectedItemColor: Colors.blue,
-          unselectedItemColor: const Color.fromARGB(255, 134, 132, 132),
+          selectedItemColor: const Color(0xff3653B0),
+          unselectedItemColor: const Color.fromARGB(255, 118, 114, 114),
           showUnselectedLabels: true,
           onTap: _onItemTapped,
         ),

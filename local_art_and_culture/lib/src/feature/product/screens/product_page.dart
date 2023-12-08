@@ -13,8 +13,35 @@ class ListProductPage extends StatefulWidget {
 
 class _ListProductPageState extends State<ListProductPage> {
   bool isPressed = false;
-  int _selectedIndex = 0;
+  int _selectedIndex = 2;
   final NavItemBuilder navItemBuilder = NavItemBuilder();
+  void _onItemTapped(int index) {
+    print(index);
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    switch (index) {
+      case 0:
+        // Navigasi ke halaman Home
+        Navigator.pushReplacementNamed(context, '/home');
+        break;
+      case 1:
+        // Navigasi ke halaman Event
+        Navigator.pushReplacementNamed(context, '/event');
+        break;
+      case 2:
+        // Navigasi ke halaman Product
+        Navigator.pushReplacementNamed(context, '/product');
+        break;
+      case 3:
+        // Navigasi ke halaman Profile
+        Navigator.pushReplacementNamed(context, '/profile');
+        break;
+      default:
+        break;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,32 +64,21 @@ class _ListProductPageState extends State<ListProductPage> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: [
-          navItemBuilder.buildNavItem(Icons.home, 'Home'),
-          navItemBuilder.buildNavItem(Icons.event, 'Event'),
-          navItemBuilder.buildNavItem(Icons.storefront, 'Product'),
-          navItemBuilder.buildNavItem(Icons.person, 'Profile'),
+          navItemBuilder.buildNavItem(
+              Icons.home, 'Home', _selectedIndex, 0, _onItemTapped),
+          navItemBuilder.buildNavItem(
+              Icons.event, 'Event', _selectedIndex, 1, _onItemTapped),
+          navItemBuilder.buildNavItem(
+              Icons.storefront, 'Product', _selectedIndex, 2, _onItemTapped),
+          navItemBuilder.buildNavItem(
+              Icons.person, 'Profile', _selectedIndex, 3, _onItemTapped),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: const Color(0xff3653B0),
-        onTap: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-
-          switch (index) {
-            case 0:
-              Navigator.pushNamed(context, '/home');
-              break;
-            case 1:
-              Navigator.pushNamed(context, '/event');
-              break;
-            case 2:
-              break;
-            case 3:
-              Navigator.pushNamed(context, '/profile');
-              break;
-          }
-        },
+        selectedItemColor: const Color(0xff3653B0), // Warna ikon yang terpilih
+        unselectedItemColor: const Color.fromARGB(
+            255, 118, 114, 114), // Warna ikon yang tidak terpilih
+        showUnselectedLabels: true,
+        onTap: _onItemTapped,
       ),
     );
   }
