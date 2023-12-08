@@ -99,7 +99,7 @@ class Tiket extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            Image.asset("assets/png/access_alarm.png"),
+                            Image.asset("assets/png/access_alarm1.png"),
                             Text(
                               "$date",
                               style: const TextStyle(

@@ -405,7 +405,7 @@ class _DetailFestivalState extends State<DetailFestival> {
                   Tiket(
                     imagePath: "assets/png/gambar1_3.png",
                     title: "Tickets Jak-japan Matsuri 2023 Day 1",
-                    date: "18 Nov ‘23, 09:30-20.30 WIB",
+                    date: "01 - 12 November 2023",
                     harga: "120.000",
                     category: 'Regular Day2',
                   ),
@@ -432,7 +432,7 @@ class _DetailFestivalState extends State<DetailFestival> {
                   ),
                   Marchandise(
                       imagePath: 'assets/png/masker.png',
-                      title: "Makser",
+                      title: "Masker",
                       harga: "30.000")
                 ],
               ),
