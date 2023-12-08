@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:local_art_and_culture/components/bottom_navigation_bar.dart';
 
 import 'package:local_art_and_culture/src/feature/profil/widget/profil_akun.dart';

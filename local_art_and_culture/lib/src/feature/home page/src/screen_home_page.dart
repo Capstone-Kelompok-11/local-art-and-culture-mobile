@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+
 import 'package:local_art_and_culture/components/bottom_navigation_bar.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/app_bar_home.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/button_fitur.dart';
