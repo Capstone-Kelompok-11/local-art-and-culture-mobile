@@ -35,6 +35,32 @@ class _DetailScreenState extends State<DetailScreen> {
     // Tambahkan data merchandise lainnya sesuai kebutuhan
   ];
 
+  void _showMapBottomSheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext builder) {
+        return Container(
+          height: 200,
+          color: Colors.white,
+          child: const Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Lokasi Museum Macan",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 16),
+              // ... (Tambahkan widget atau konten lainnya sesuai kebutuhan)
+            ],
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -164,8 +190,9 @@ class _DetailScreenState extends State<DetailScreen> {
                           children: [
                             Icon(
                               Icons.location_on,
+                              
                               color: Color.fromARGB(255, 53, 51, 45),
-                              size: 25,
+                              size: 25, 
                             ),
                             SizedBox(width: 5),
                             Expanded(
