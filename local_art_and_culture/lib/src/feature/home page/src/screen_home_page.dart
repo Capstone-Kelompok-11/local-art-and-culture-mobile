@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:local_art_and_culture/components/bottom_navigation_bar.dart';
+import 'package:local_art_and_culture/src/feature/article/ui/article_list.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/app_bar_home.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/button_fitur.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/calender.dart';
@@ -261,7 +262,12 @@ class _MyHomePageState extends State<MyHomePage> {
                             ),
                             GestureDetector(
                               onTap: () {
-                                // Tindakan ketika "Lihat Semua" ditekan
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          ArticleList()), // Ganti dengan halaman "Event" yang sesuai
+                                );
                               },
                               child: const Text(
                                 'Lihat Semua',
@@ -430,10 +436,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 Icons.person, 'Profile', _selectedIndex, 3, _onItemTapped),
           ],
           currentIndex: _selectedIndex,
-          selectedItemColor:
-              const Color(0xff3653B0), // Warna ikon yang terpilih
-          unselectedItemColor: const Color.fromARGB(
-              255, 118, 114, 114), // Warna ikon yang tidak terpilih
+          selectedItemColor: const Color(0xff3653B0),
+          unselectedItemColor: const Color.fromARGB(255, 118, 114, 114),
           showUnselectedLabels: true,
           onTap: _onItemTapped,
         ),
