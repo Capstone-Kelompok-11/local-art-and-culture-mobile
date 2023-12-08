@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:local_art_and_culture/src/feature/chatbot/bantuan_screen.dart';
 
 class KontenSection extends StatelessWidget {
   const KontenSection({Key? key});
@@ -112,7 +113,14 @@ class KontenSection extends StatelessWidget {
                   decoration: const BoxDecoration(),
                   child: Stack(children: [
                     IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    BantuanScreen()), // Ganti dengan halaman "Event" yang sesuai
+                          );
+                        },
                         icon: Icon(Icons.keyboard_arrow_right))
                   ]),
                 )
