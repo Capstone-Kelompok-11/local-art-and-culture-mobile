@@ -49,6 +49,7 @@ dependencies:
   flutter_calendar_week: ^3.0.2
   image_picker: ^1.0.4
   file_picker: ^6.1.1
+  dotted_line: ^3.2.2
 
 dev_dependencies:
   flutter_test:
@@ -74,7 +75,8 @@ flutter:
     - assets/img/artikel/
     - assets/img/profil/
     - assets/svg/
-
+    - assets/png/
+    - assets/fonts/
 
   fonts:
     # - family: Schyler

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:local_art_and_culture/components/invoice_product.dart';
 import 'package:local_art_and_culture/models/payment_model.dart';
 import 'package:provider/provider.dart';
 
@@ -57,7 +58,13 @@ class _PaymentNavigationBarState extends State<PaymentNavigationBar> {
                       ],
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const InvoiceProduct()),
+                            (route) => false);
+                      },
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(
                             vertical: 14.0, horizontal: 32.0),
