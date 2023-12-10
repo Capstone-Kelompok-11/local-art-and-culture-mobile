@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/models/login_model.dart';
+import 'package:local_art_and_culture/utils/token_account.dart';
 import 'package:local_art_and_culture/utils/utils.dart';
 
 class SignInService {
@@ -17,7 +18,9 @@ class SignInService {
       );
       debugPrint("=>${response.data}");
 
-      final ModelSignIn? modelSignIn = modelSignInFromJson(response.data);
+      // final ModelSignIn? modelSignIn = modelSignInFromJson(response.data);
+      final modelSignIn = modelSignInFromJson(response.data);
+      TokenManager.setAccessToken(modelSignIn.data.users.token);
       return modelSignIn;
     } catch (error) {
       debugPrint('Terjadi kesalahan saat melakukan permintaan: $error');
