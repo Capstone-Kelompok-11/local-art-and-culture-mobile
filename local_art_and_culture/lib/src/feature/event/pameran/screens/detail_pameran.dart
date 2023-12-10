@@ -190,9 +190,8 @@ class _DetailScreenState extends State<DetailScreen> {
                           children: [
                             Icon(
                               Icons.location_on,
-                              
                               color: Color.fromARGB(255, 53, 51, 45),
-                              size: 25, 
+                              size: 25,
                             ),
                             SizedBox(width: 5),
                             Expanded(
@@ -502,20 +501,18 @@ class _DetailScreenState extends State<DetailScreen> {
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
-                            crossAxisSpacing: 8.0,
-                            mainAxisSpacing: 8.0,
+                            crossAxisSpacing: 10.0,
+                            mainAxisSpacing: 20.0,
                           ),
                           itemCount: merchandiseData.length,
                           itemBuilder: (BuildContext context, int index) {
                             return Container(
-                              width: 169, // Lebar Card
-                              height: 240, // Tinggi Card
+                              width: 169,
+                              height: 240,
                               child: Card(
                                 elevation: 5,
-                                color: Colors
-                                    .white, // Tambahkan warna putih pada Card
-                                shadowColor: Colors.grey
-                                    .shade200, // Tambahkan warna bayangan abu-abu
+                                color: Colors.white,
+                                shadowColor: Colors.black,
                                 child: Padding(
                                   padding: const EdgeInsets.all(8),
                                   child: Column(
@@ -523,8 +520,7 @@ class _DetailScreenState extends State<DetailScreen> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Container(
-                                        height:
-                                            120, // Sesuaikan tinggi gambar sesuai kebutuhan
+                                        height: 50,
                                         decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(8),
@@ -538,7 +534,8 @@ class _DetailScreenState extends State<DetailScreen> {
                                       ),
                                       const SizedBox(height: 8),
                                       Container(
-                                        alignment: Alignment.centerLeft,
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 8),
                                         child: Column(
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
@@ -546,16 +543,14 @@ class _DetailScreenState extends State<DetailScreen> {
                                             Text(
                                               merchandiseData[index]["name"],
                                               style: const TextStyle(
-                                                fontSize: 13,
-                                                //fontWeight: FontWeight.bold,
+                                                fontSize: 9,
                                               ),
                                             ),
                                             const SizedBox(height: 4),
                                             Text(
                                               merchandiseData[index]["price"],
                                               style: const TextStyle(
-                                                fontSize: 14,
-                                                //color: Color.fromARGB(255, 16, 119, 204),
+                                                fontSize: 9,
                                                 fontWeight: FontWeight.bold,
                                               ),
                                             ),
@@ -568,7 +563,7 @@ class _DetailScreenState extends State<DetailScreen> {
                               ),
                             );
                           },
-                        ),
+                        )
                       ],
                     ),
                   ),
