@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:local_art_and_culture/src/feature/chat/chat_screen.dart';
 import 'package:local_art_and_culture/src/feature/chat/componen/list_tile_chat.dart';
 import 'package:local_art_and_culture/src/feature/chat/pesan_unreply_screen.dart';

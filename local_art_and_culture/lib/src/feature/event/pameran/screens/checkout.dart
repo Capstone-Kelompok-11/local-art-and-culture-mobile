@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:local_art_and_culture/src/feature/event/pameran/screens/metode_pembayaran.dart';
 import 'package:local_art_and_culture/src/feature/event/pameran/screens/pendaftaran_screen.dart';
 
 class PaymentMethodScreen2 extends StatelessWidget {
@@ -140,14 +139,12 @@ class PaymentMethodScreen2 extends StatelessWidget {
                     SizedBox(height: 2),
                     Text(
                       "Total Harga\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t Rp 290.000",
-                      style: TextStyle(
-                        
-                      ),
+                      style: TextStyle(),
                     ),
                     Divider(
-                      color: Colors.grey,  // Warna garis
-                      thickness: 0.5,         // Ketebalan garis
-                      height: 3,           // Jarak vertikal dari atas dan bawah garis
+                      color: Colors.grey, // Warna garis
+                      thickness: 0.5, // Ketebalan garis
+                      height: 3, // Jarak vertikal dari atas dan bawah garis
                     ),
                     SizedBox(height: 14),
                     Text(
@@ -161,14 +158,16 @@ class PaymentMethodScreen2 extends StatelessWidget {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Biaya Layanan\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t Rp 1.000"),
-                        Text("Biaya Jasa Aplikasi\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t Rp 2.000"),
+                        Text(
+                            "Biaya Layanan\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t Rp 1.000"),
+                        Text(
+                            "Biaya Jasa Aplikasi\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t Rp 2.000"),
                       ],
                     ),
                     Divider(
-                      color: Colors.grey,  // Warna garis
-                      thickness: 0.5,         // Ketebalan garis
-                      height: 3,           // Jarak vertikal dari atas dan bawah garis
+                      color: Colors.grey, // Warna garis
+                      thickness: 0.5, // Ketebalan garis
+                      height: 3, // Jarak vertikal dari atas dan bawah garis
                     ),
                     SizedBox(height: 14),
                     Text(
@@ -178,7 +177,6 @@ class PaymentMethodScreen2 extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    
                   ],
                 ),
               ),
@@ -190,6 +188,7 @@ class PaymentMethodScreen2 extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class CheckoutItem extends StatelessWidget {
   final String image;
   final String title;
@@ -262,9 +261,7 @@ class CheckoutItem extends StatelessWidget {
                 Text(
                   "\nHarga: Rp $price",
                   style: const TextStyle(
-                    color: Colors.blueAccent,
-                    fontWeight: FontWeight.bold
-                  ),
+                      color: Colors.blueAccent, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
