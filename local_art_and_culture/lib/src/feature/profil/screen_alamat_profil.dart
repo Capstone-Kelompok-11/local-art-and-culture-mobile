@@ -28,11 +28,16 @@ class _AlamatPageState extends State<AlamatPage> {
                       Container(
                         clipBehavior: Clip.antiAlias,
                         decoration: const BoxDecoration(),
-                        child: Row(children: [
-                          IconButton(
-                              onPressed: () {},
-                              icon: const Icon(Icons.arrow_back))
-                        ]),
+                        child: Row(
+                          children: [
+                            IconButton(
+                              icon: const Icon(Icons.arrow_back),
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                            ),
+                          ],
+                        ),
                       ),
                       const Text(
                         'Daftar Alamat',
