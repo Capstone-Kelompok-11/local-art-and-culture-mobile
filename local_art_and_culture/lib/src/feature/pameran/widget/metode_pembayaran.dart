@@ -110,7 +110,7 @@ class PaymentList extends StatelessWidget {
                     Row(
                       children: [
                         Image.asset(
-                          "assets/png/${option.image}",
+                          "assets/img/${option.image}",
                           width: 40,
                           height: 40,
                         ),

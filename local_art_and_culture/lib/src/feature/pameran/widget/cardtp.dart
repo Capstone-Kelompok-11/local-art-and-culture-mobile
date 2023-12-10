@@ -143,7 +143,7 @@ class _ButtonPlusMinState extends State<ButtonPlusMin> {
           child: Container(
             height: 15,
             width: 15,
-            child: Image.asset("assets/png/mintiket.png"),
+            child: Image.asset("assets/img/mintiket.png"),
           ),
         ),
         SizedBox(width: 8), // Provide some spacing between buttons
@@ -162,7 +162,7 @@ class _ButtonPlusMinState extends State<ButtonPlusMin> {
           child: Container(
             height: 15,
             width: 15,
-            child: Image.asset("assets/png/plustiket.png"),
+            child: Image.asset("assets/img/plustiket.png"),
           ),
         ),
       ],

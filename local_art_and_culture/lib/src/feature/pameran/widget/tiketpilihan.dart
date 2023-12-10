@@ -85,7 +85,7 @@ class TiketPilihan extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            Image.asset("assets/png/label_important.png"),
+                            Image.asset("assets/img/label_important.png"),
                             Text(
                               "$category",
                               style: const TextStyle(
@@ -99,7 +99,7 @@ class TiketPilihan extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            Image.asset("assets/png/access_alarm1.png"),
+                            Image.asset("assets/img/access_alarm1.png"),
                             Text(
                               "$date",
                               style: const TextStyle(
@@ -178,7 +178,7 @@ class _ButtonPlusMinState extends State<ButtonPlusMin> {
           child: Container(
             height: 24,
             width: 24,
-            child: Image.asset("assets/png/mintiket.png"),
+            child: Image.asset("assets/img/mintiket.png"),
           ),
         ),
         SizedBox(width: 8), // Provide some spacing between buttons
@@ -197,7 +197,7 @@ class _ButtonPlusMinState extends State<ButtonPlusMin> {
           child: Container(
             height: 24,
             width: 24,
-            child: Image.asset("assets/png/plustiket.png"),
+            child: Image.asset("assets/img/plustiket.png"),
           ),
         ),
       ],

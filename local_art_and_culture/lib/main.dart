@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:local_art_and_culture/src/feature/pameran/screen/detail_pameran.dart';
 import 'package:local_art_and_culture/src/feature/pameran/screen/home_screen.dart';
 
 
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:const HomeScreen(),
+      home:const DetailPameran(),
       //home:const MainScreen(),
     );
     

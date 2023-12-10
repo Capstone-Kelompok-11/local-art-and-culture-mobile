@@ -33,12 +33,13 @@ class _PilihanTiketState extends State<PilihanTiket> {
               height: 16,
             ),
             TiketPilihan(
-              imagePath: "assets/png/gambar1_3.png",
+              imagePath: "assets/img/Pameran2.png",
               title: "Tickets Jak-japan Matsuri 2023 Day 1",
               date: "18 Nov ‘23, 09:30-20.30 WIB",
               harga: "120.000",
               category: 'Regular Day2',
             ),
+            
             Row(
               children: [
                 SizedBox(
@@ -60,16 +61,37 @@ class _PilihanTiketState extends State<PilihanTiket> {
               child: Row(
                 children: [
                   CardTP(
-                      imagePath: "assets/png/mug.png",
-                      title: "Mug Jak",
-                      harga: "55.000"),
+                      imagePath: "assets/img/Merch1.png",
+                      title: "Bloom Totebag",
+                      harga: "170.000"),
                   SizedBox(
                     width: 20,
                   ),
                   CardTP(
-                      imagePath: "assets/png/masker.png",
-                      title: "Masker",
-                      harga: "30.000")
+                      imagePath: "assets/img/Merch2.png",
+                      title: "Medioker",
+                      harga: "200.000")
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  CardTP(
+                      imagePath: "assets/img/Merch3.png",
+                      title: "Poster By Teratai",
+                      harga: "150.000"),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  CardTP(
+                      imagePath: "assets/img/Merch4.png",
+                      title: "Medioker",
+                      harga: "200.000")
                 ],
               ),
             ),
@@ -133,7 +155,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
                   width: 140,
                 ),
                 Text(
-                  'Rp.205.000',
+                  'Rp.290.000',
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 14,
@@ -270,7 +292,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
                   width: 150,
                 ),
                 Text(
-                  'Rp.208.000',
+                  'Rp.293.000',
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 14,
@@ -318,7 +340,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
                     ),
                   ),
                   Text(
-                    "RP.208.000",
+                    "RP.293.000",
                     style: TextStyle(
                       color: Color(0xFF3653B0),
                       fontSize: 20,

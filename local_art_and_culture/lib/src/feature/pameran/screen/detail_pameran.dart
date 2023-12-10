@@ -174,7 +174,7 @@ class _DetailPameranState extends State<DetailPameran> {
                 const SizedBox(
                   width: 28,
                 ),
-                Image.asset("assets/png/Logo.png"),
+                Image.asset("assets/img/Logo.png"),
                 const SizedBox(
                   width: 5,
                 ),
@@ -344,7 +344,7 @@ class _DetailPameranState extends State<DetailPameran> {
                         const SizedBox(
                           width: 24,
                         ),
-                        Image.asset("assets/png/calendar-range.png"),
+                        Image.asset("assets/img/calendar-range.png"),
                         const SizedBox(
                           width: 5,
                         ),
@@ -368,7 +368,7 @@ class _DetailPameranState extends State<DetailPameran> {
                         const SizedBox(
                           width: 24,
                         ),
-                        Image.asset("assets/png/access_alarm.png"),
+                        Image.asset("assets/img/access_alarm.png"),
                         const SizedBox(
                           width: 5,
                         ),
@@ -393,12 +393,7 @@ class _DetailPameranState extends State<DetailPameran> {
               height: 8,
               thickness: 8,
             ),
-            BintangTamu(),
-            Divider(
-              color: Colors.grey.shade200,
-              height: 8,
-              thickness: 8,
-            ),
+          
             const SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: Column(
@@ -419,6 +414,7 @@ class _DetailPameranState extends State<DetailPameran> {
               height: 8,
               thickness: 8,
             ),
+            
             const SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(

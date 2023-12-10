@@ -63,7 +63,7 @@ class _InvoiceScreenState extends State<InvoiceScreen> {
                       ),
                     ),
                     const TiketInvoice(
-                        imagePath: "assets/png/gambar dp.png",
+                        imagePath: "assets/img/Pameran2.png",
                         title: "Jak-Japan Matsuri 2023\n - Closing Ceremony",
                         location: "Gambir Expo - Jiexpo \nKemayoran",
                         date: "18 - 19 Nov 2023"),

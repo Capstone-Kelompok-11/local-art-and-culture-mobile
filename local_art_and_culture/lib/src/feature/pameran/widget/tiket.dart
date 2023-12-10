@@ -85,7 +85,7 @@ class Tiket extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            Image.asset("assets/png/label_important.png"),
+                            Image.asset("assets/img/label_important.png"),
                             Text(
                               "$category",
                               style: const TextStyle(
@@ -99,7 +99,7 @@ class Tiket extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            Image.asset("assets/png/access_alarm1.png"),
+                            Image.asset("assets/img/access_alarm1.png"),
                             Text(
                               "$date",
                               style: const TextStyle(

@@ -20,15 +20,15 @@ class _DetailPembelianState extends State<DetailPembelian> {
         child: Column(
           children: [
             const SizedBox(
-              height: 16,
+              height: 1,
             ),
             AppBarDP(),
             TiketDP(
-                imagePath: "assets/png/gambar dp.png",
-                title: "Jak-japan Matsuri 2023 Day 1",
+                imagePath: "assets/img/Pameran2.png",
+                title: "Museum Macan",
                 location: "Gambir Expo - Jiexpo Kemayoran",
-                date: "18 - 19 Nov 2023",
-                time: "09:30 - 20.30 WIB"),
+                date: "Museum Macan",
+                time: "Setiap Hari"),
             SizedBox(
               height: 8,
             ),

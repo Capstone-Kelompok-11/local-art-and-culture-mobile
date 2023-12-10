@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class BintangTamu extends StatelessWidget {
   final List<String> bintangTamuList = [
-    "assets/png/BT1.png",
-    "assets/png/GT.png",
+    "assets/img/BT1.png",
+    "assets/img/GT.png",
     // Tambahkan gambar lainnya di sini
   ];
 

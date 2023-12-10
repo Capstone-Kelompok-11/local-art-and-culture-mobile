@@ -8,12 +8,17 @@ class InvoiceQR extends StatelessWidget {
     return Container(
       width: 331,
       height: 299.15,
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
       child: Column(
         children: [
-          Image.asset("assets/png/qr.png"),
-          const SizedBox(
-            height: 16,
+          Container(
+            width: 200, // Atur lebar sesuai kebutuhan Anda
+            height: 200, // Atur tinggi sesuai kebutuhan Anda
+            margin: const EdgeInsets.only(bottom: 3),
+            child: Image.asset(
+              "assets/img/qr.png",
+              fit: BoxFit.cover, // Sesuaikan dengan kebutuhan Anda
+            ),
           ),
           const Center(
             child: Column(
@@ -30,7 +35,7 @@ class InvoiceQR extends StatelessWidget {
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

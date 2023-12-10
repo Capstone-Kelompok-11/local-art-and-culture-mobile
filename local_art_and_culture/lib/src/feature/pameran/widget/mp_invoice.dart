@@ -26,26 +26,39 @@ class InvoiceMP extends StatelessWidget {
             ],
           ),
           SizedBox(
-            height: 22,
+            height: 20,
           ),
           Row(
-            children: [
-              Image.asset("assets/png/ovo.png"),
-              const SizedBox(
-                width: 10,
-              ),
-              const Text(
-                'OVO',
-                style: TextStyle(
-                  color: Color(0xFF1A1A1A),
-                  fontSize: 14,
-                  fontFamily: 'Plus Jakarta Sans',
-                  fontWeight: FontWeight.w600,
-                  height: 0.11,
-                ),
-              )
-            ],
-          ),
+  children: [
+    Container(
+      width: 50, // Atur lebar sesuai kebutuhan Anda
+      height: 50, // Atur tinggi sesuai kebutuhan Anda
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20.0), // Atur radius sesuai kebutuhan Anda
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(8.0),
+      child: Image.asset(
+        "assets/img/ovo.png",
+        fit: BoxFit.cover, // Sesuaikan dengan kebutuhan Anda
+      ),
+    ),),
+    const SizedBox(
+      width: 10,
+    ),
+    const Text(
+      'OVO',
+      style: TextStyle(
+        color: Color(0xFF1A1A1A),
+        fontSize: 14,
+        fontFamily: 'Plus Jakarta Sans',
+        fontWeight: FontWeight.w600,
+        height: 0.11,
+      ),
+    )
+  ],
+)
+
         ],
       ),
     );

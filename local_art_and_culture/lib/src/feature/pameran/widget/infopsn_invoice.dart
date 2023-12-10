@@ -275,7 +275,7 @@ class InfopsnInvoice extends StatelessWidget {
                 ),
               ),
               Text(
-                'Rp 208.000',
+                'Rp 293.000',
                 style: TextStyle(
                   color: Color(0xFF162146),
                   fontSize: 12,

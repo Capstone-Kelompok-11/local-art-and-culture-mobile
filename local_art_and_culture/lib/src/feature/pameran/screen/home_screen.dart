@@ -48,8 +48,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           decoration: BoxDecoration(boxShadow: [
                             BoxShadow(
                                 color: Colors.grey.withOpacity(0.5),
-                                spreadRadius: 2,
-                                blurRadius: 8,
+                                spreadRadius: 0.5,
+                                blurRadius: 25,
                                 offset: const Offset(0, 0))
                           ]),
                           child: const TextField(
@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               prefixIcon: Icon(Icons.search),
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.all(
-                                    Radius.circular(24.0),
+                                    Radius.circular(25.0),
                                   ),
                                   borderSide: BorderSide.none),
                               filled: true,
@@ -80,17 +80,26 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            const SizedBox(height: 16.0),
-            const Categories(),
-            const SizedBox(height: 16.0),
-            const RoundedImageCard(
-                imagePath: 'assets/png/gambar1.png',
-                title: 'Jak-Japan Matsuri 2023',
-                harga: 'From IDR 113 K',
-                location: 'Gambir Expo-Jiexpo Kemayoran'),
-            const SizedBox(
-              height: 16,
-            ),
+            Container(
+              margin: EdgeInsets.all(16.0), // Atur margin sesuai kebutuhan
+              child: Column(
+                children: [
+                  SizedBox(height: 16.0),
+                  Categories(),
+                  SizedBox(height: 16.0),
+                  RoundedImageCard(
+                    width: MediaQuery.of(context).size.width - 32,
+                    imagePath: 'assets/img/Pameran2.png',
+                    title: 'Jak-Japan Matsuri 2023',
+                    harga: 'From IDR 113 K',
+                    location: 'Gambir Expo-Jiexpo Kemayoran',
+                  ),
+                  SizedBox(height: 16),
+                  // Tambahkan widget lainnya sesuai kebutuhan
+                ],
+              ),
+            )
+
           ],
         ),
       ),

@@ -49,7 +49,7 @@ class _MetodePembayaranState extends State<MetodePembayaran> {
                     ),
                   ),
                   Text(
-                    "RP.208.000",
+                    "RP.293.000",
                     style: TextStyle(
                       color: Color(0xFF3653B0),
                       fontSize: 20,
