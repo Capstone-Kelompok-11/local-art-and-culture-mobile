@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/src/feature/chatbot/bantuan_screen.dart';
+import 'package:local_art_and_culture/src/feature/profil/screen/history_page.dart';
 import 'package:local_art_and_culture/src/feature/profil/screen/wishlist_page.dart';
 
 class KontenSection extends StatefulWidget {
@@ -88,16 +89,15 @@ class _KontenSectionState extends State<KontenSection> {
               const Icon(Icons.shopping_cart, color: Color(0xFF3653B0)),
               const SizedBox(width: 16),
               const Expanded(
-                child: Text(
-                  'Riwayat Pembalian',
-                  style: TextStyle(
-                    color: Color(0xFF4C4C4C),
-                    fontSize: 14,
-                    fontFamily: 'Plus Jakarta Sans',
-                    fontWeight: FontWeight.w400,
-                  ),
+                  child: Text(
+                'Riwayat Pembalian',
+                style: TextStyle(
+                  color: Color(0xFF4C4C4C),
+                  fontSize: 14,
+                  fontFamily: 'Plus Jakarta Sans',
+                  fontWeight: FontWeight.w400,
                 ),
-              ),
+              )),
               Container(
                 width: 25,
                 height: 30,
@@ -106,7 +106,13 @@ class _KontenSectionState extends State<KontenSection> {
                 child: Stack(
                   children: [
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const HistoryOrderPage()),
+                            (route) => false);
+                      },
                       icon: const Icon(Icons.keyboard_arrow_right),
                     ),
                   ],
