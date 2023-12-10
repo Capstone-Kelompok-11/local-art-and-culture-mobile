@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:local_art_and_culture/models/login_model.dart';
+import 'package:local_art_and_culture/service/login_service.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/src/screen_home_page.dart';
-
 import 'register.dart';
 
 class LoginPage extends StatefulWidget {
@@ -10,6 +11,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool _isPasswordVisible = false;
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +33,14 @@ class _LoginPageState extends State<LoginPage> {
                       _isPasswordVisible = isVisible;
                     });
                   },
+                  emailController: emailController,
+                  passwordController: passwordController,
                 ),
                 const SizedBox(height: 20),
-                ThirdComponent(),
+                ThirdComponent(
+                  emailController: emailController,
+                  passwordController: passwordController,
+                ),
               ],
             ),
           ),
@@ -72,10 +80,14 @@ class TitleComponent extends StatelessWidget {
 class FieldComponent extends StatelessWidget {
   final bool isPasswordVisible;
   final Function(bool) togglePasswordVisibility;
+  final TextEditingController emailController;
+  final TextEditingController passwordController;
 
   const FieldComponent({
     required this.isPasswordVisible,
     required this.togglePasswordVisibility,
+    required this.emailController,
+    required this.passwordController,
   });
 
   @override
@@ -97,6 +109,7 @@ class FieldComponent extends StatelessWidget {
                     color: Color.fromRGBO(102, 102, 102, 1))),
           ),
           TextField(
+            controller: emailController,
             decoration: InputDecoration(
               hintText: 'Masukkan Email',
               filled: true,
@@ -134,6 +147,7 @@ class FieldComponent extends StatelessWidget {
             ),
           ),
           TextField(
+            controller: passwordController,
             obscureText: !isPasswordVisible,
             decoration: InputDecoration(
               hintText: 'Masukkan Kata Sandi',
@@ -166,9 +180,7 @@ class FieldComponent extends StatelessWidget {
             ),
           ),
           TextButton(
-            onPressed: () {
-              // Navigate to forgot password page
-            },
+            onPressed: () {},
             child: const Text(
               'Lupa Kata Sandi?',
               style: TextStyle(
@@ -185,6 +197,14 @@ class FieldComponent extends StatelessWidget {
 }
 
 class ThirdComponent extends StatefulWidget {
+  final TextEditingController emailController;
+  final TextEditingController passwordController;
+
+  const ThirdComponent({
+    required this.emailController,
+    required this.passwordController,
+  });
+
   @override
   _ThirdComponentState createState() => _ThirdComponentState();
 }
@@ -238,15 +258,11 @@ class _ThirdComponentState extends State<ThirdComponent> {
               backgroundColor: const Color.fromRGBO(54, 83, 176, 1),
             ),
             onPressed: () {
-              // Ini adalah bagian yang akan dijalankan saat tombol ditekan
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const MyHomePage()),
-              );
+              _handleLogin();
             },
-            child: Container(
+            child: const SizedBox(
               width: double.infinity,
-              child: const Center(
+              child: Center(
                 child: Text(
                   'Masuk',
                   style: TextStyle(
@@ -287,48 +303,75 @@ class _ThirdComponentState extends State<ThirdComponent> {
             ],
           ),
           const SizedBox(height: 10),
-          Container(
-            child: Column(
-              children: [
-                Container(
-                  margin: const EdgeInsets.symmetric(vertical: 10),
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Container(
-                        height: 1,
-                        color: Colors.grey,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(8),
-                        color: Theme.of(context).scaffoldBackgroundColor,
-                        child: const Text(
-                          'Atau Masuk Dengan',
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 12,
-                            fontFamily: 'Plus Jakarta Sans',
-                          ),
+          Column(
+            children: [
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 10),
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Container(
+                      height: 1,
+                      color: Colors.grey,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      color: Theme.of(context).scaffoldBackgroundColor,
+                      child: const Text(
+                        'Atau Masuk Dengan',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 12,
+                          fontFamily: 'Plus Jakarta Sans',
                         ),
                       ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    InkWell(
-                      onTap: () {},
-                      child: Image.asset('assets/google_logo.png', height: 40),
                     ),
                   ],
                 ),
-              ],
-            ),
+              ),
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                    onTap: () {},
+                    child: Image.asset('assets/google_logo.png', height: 40),
+                  ),
+                ],
+              ),
+            ],
           ),
         ],
       ),
     );
+  }
+
+  Future<void> _handleLogin() async {
+    setState(() {
+      _radioValue = !_radioValue;
+    });
+
+    String email = widget.emailController.text.trim();
+    String password = widget.passwordController.text.trim();
+
+    final signInService = SignInService();
+    final ModelSignIn? modelSignIn =
+        await signInService.signInAccount(email, password);
+
+    if (modelSignIn != null) {
+      // ignore: use_build_context_synchronously
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const MyHomePage()),
+      );
+    } else {
+      // ignore: use_build_context_synchronously
+      ScaffoldMessenger.of(context).showSnackBar(
+        // ignore: prefer_const_constructors
+        SnackBar(
+          content: const Text('Login Gagal, username atau password anda salah'),
+        ),
+      );
+    }
   }
 }
