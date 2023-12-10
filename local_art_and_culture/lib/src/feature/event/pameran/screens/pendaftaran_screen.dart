@@ -131,7 +131,6 @@ class PaymentMethodScreen1 extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
-
               Container(
                 child: const Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -166,7 +165,7 @@ class PaymentMethodScreen1 extends StatelessWidget {
                 padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(6),
-                  color: Color.fromARGB(255, 221, 232, 243),
+                  color: const Color.fromARGB(255, 221, 232, 243),
                 ),
               ),
               const SizedBox(height: 3),
@@ -204,57 +203,54 @@ class PaymentMethodScreen1 extends StatelessWidget {
                 padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(6),
-                  color: Color.fromARGB(255, 221, 232, 243),
+                  color: const Color.fromARGB(255, 221, 232, 243),
                 ),
               ),
-              Divider(
-                      color: const Color.fromARGB(255, 241, 236, 236), // Warna garis
-                      thickness: 6, // Ketebalan garis
-                      height: 25, // Jarak vertikal dari atas dan bawah garis
-                    ),
+              const Divider(
+                color: Color.fromARGB(255, 241, 236, 236), // Warna garis
+                thickness: 6, // Ketebalan garis
+                height: 25, // Jarak vertikal dari atas dan bawah garis
+              ),
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(10), 
                   color: Colors.white,
                 ),
-                child: const Column(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       "Info Pengunjung",
                       style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 2),
-                    Text(
-                      "Nama Lengkap*",
-                      style: TextStyle(),
+                    const SizedBox(height: 2),
+                    TextFormField(
+                      decoration: InputDecoration(labelText: "Nama Lengkap*", helperText: "",),
+                      style: const TextStyle(),
                     ),
-                    Text(
-                      "Nomor Handphone*",
-                      style: TextStyle(),
+                    TextFormField(
+                      decoration:
+                          const InputDecoration(labelText: "Nomor Handphone*", helperText: "",),
+                      style: const TextStyle(),
                     ),
-                    Text(
-                      "Alamat Email*",
-                      style: TextStyle(),
+                    TextFormField(
+                      decoration: const InputDecoration(labelText: "Alamat Email*", helperText: "",),
+                      style: const TextStyle(),
                     ),
-                    Text(
-                      "No KTP*",
-                      style: TextStyle(),
+                    TextFormField(
+                      decoration: const InputDecoration(labelText: "No KTP*", helperText: "",),
+                      style: const TextStyle(),
                     ),
-                    Text(
-                      "Tambahkan Sebagai Penunjung*",
-                      style: TextStyle(),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                          labelText: "Tambahkan Sebagai Penunjung*", helperText: "Pilih opsi 'Ya' atau 'Tidak'",),
+                      style: const TextStyle(),
                     ),
-                    
-                    
-                    
-                  
-                    
                   ],
                 ),
               ),
