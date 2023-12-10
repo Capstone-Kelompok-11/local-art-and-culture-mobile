@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/src/feature/event/pameran/screens/checkout.dart';
-import 'package:local_art_and_culture/src/feature/event/pameran/screens/pendaftaran_screen.dart';
 
 class DetailScreen extends StatefulWidget {
   final pameran;

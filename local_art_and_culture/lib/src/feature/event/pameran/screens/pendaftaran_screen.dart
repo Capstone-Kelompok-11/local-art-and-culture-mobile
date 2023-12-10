@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:local_art_and_culture/src/feature/event/pameran/screens/metode_pembayaran.dart';
-import 'package:local_art_and_culture/src/feature/event/pameran/screens/pendaftaran_screen.dart';
 import 'package:local_art_and_culture/src/feature/event/pameran/screens/scan.dart';
 
 class PaymentMethodScreen1 extends StatelessWidget {
@@ -215,7 +213,7 @@ class PaymentMethodScreen1 extends StatelessWidget {
                 width: double.infinity,
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10), 
+                  borderRadius: BorderRadius.circular(10),
                   color: Colors.white,
                 ),
                 child: Column(
@@ -230,25 +228,38 @@ class PaymentMethodScreen1 extends StatelessWidget {
                     ),
                     const SizedBox(height: 2),
                     TextFormField(
-                      decoration: InputDecoration(labelText: "Nama Lengkap*", helperText: "",),
-                      style: const TextStyle(),
-                    ),
-                    TextFormField(
-                      decoration:
-                          const InputDecoration(labelText: "Nomor Handphone*", helperText: "",),
-                      style: const TextStyle(),
-                    ),
-                    TextFormField(
-                      decoration: const InputDecoration(labelText: "Alamat Email*", helperText: "",),
-                      style: const TextStyle(),
-                    ),
-                    TextFormField(
-                      decoration: const InputDecoration(labelText: "No KTP*", helperText: "",),
+                      decoration: InputDecoration(
+                        labelText: "Nama Lengkap*",
+                        helperText: "",
+                      ),
                       style: const TextStyle(),
                     ),
                     TextFormField(
                       decoration: const InputDecoration(
-                          labelText: "Tambahkan Sebagai Penunjung*", helperText: "Pilih opsi 'Ya' atau 'Tidak'",),
+                        labelText: "Nomor Handphone*",
+                        helperText: "",
+                      ),
+                      style: const TextStyle(),
+                    ),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        labelText: "Alamat Email*",
+                        helperText: "",
+                      ),
+                      style: const TextStyle(),
+                    ),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        labelText: "No KTP*",
+                        helperText: "",
+                      ),
+                      style: const TextStyle(),
+                    ),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        labelText: "Tambahkan Sebagai Penunjung*",
+                        helperText: "Pilih opsi 'Ya' atau 'Tidak'",
+                      ),
                       style: const TextStyle(),
                     ),
                   ],
@@ -262,6 +273,7 @@ class PaymentMethodScreen1 extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class CheckoutItem extends StatelessWidget {
   final String image;
   final String title;
