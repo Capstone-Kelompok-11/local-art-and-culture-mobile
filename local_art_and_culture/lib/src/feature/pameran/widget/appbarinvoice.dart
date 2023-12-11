@@ -34,7 +34,7 @@ class _AppBarInvoiceState extends State<AppBarInvoice> {
                 icon: const Icon(
                   Icons.arrow_back,
                   size: 24,
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
               ),
               const SizedBox(
@@ -43,7 +43,7 @@ class _AppBarInvoiceState extends State<AppBarInvoice> {
               const Text(
                 "Invoice",
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 20,
                   fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w600,
