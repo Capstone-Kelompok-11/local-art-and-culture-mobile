@@ -120,24 +120,32 @@ class _SliderPageState extends State<SliderPage> {
                   ),
 
                   // Halaman Transaksi (Isi dengan konten yang sesuai)
-                  Container(
-                    color: Colors.green,
-                    child: const Center(
-                      child: Text(
-                        'Halaman Transaksi',
-                        style: TextStyle(fontSize: 24),
-                      ),
-                    ),
+                  ListView.builder(
+                    itemCount: 4,
+                    itemBuilder: (context, index) {
+                      return CustomInfoCard(
+                        title: 'Info',
+                        subtitle: 'Kini Lokasani Hadir dalam Tampilan Baru',
+                        time: '$index Jam',
+                        description:
+                            'Cek tampilan halaman akun lokasani yuk!\nFitur history hadir untuk melihat transaksi terakhirmu. Makin nyaman bertransaksi bersama Lokasani',
+                        icon: 'assets/png/icon_info.png',
+                      );
+                    },
                   ),
                   // Halaman Info (Isi dengan konten yang sesuai)
-                  Container(
-                    color: Colors.blue,
-                    child: const Center(
-                      child: Text(
-                        'Halaman Info',
-                        style: TextStyle(fontSize: 24),
-                      ),
-                    ),
+                  ListView.builder(
+                    itemCount: 4,
+                    itemBuilder: (context, index) {
+                      return CustomInfoCard(
+                        title: 'Info',
+                        subtitle: 'Kini Lokasani Hadir dalam Tampilan Baru',
+                        time: '$index Jam',
+                        description:
+                            'Cek tampilan halaman akun lokasani yuk!\nFitur history hadir untuk melihat transaksi terakhirmu. Makin nyaman bertransaksi bersama Lokasani',
+                        icon: 'assets/png/icon_info.png',
+                      );
+                    },
                   ),
                 ],
               ),
