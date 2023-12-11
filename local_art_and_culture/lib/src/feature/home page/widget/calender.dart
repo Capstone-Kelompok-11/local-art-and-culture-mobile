@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:local_art_and_culture/src/feature/home%20page/src/screen_calender.dart';
 
 class CustomCalendar extends StatelessWidget {
   const CustomCalendar({Key? key}) : super(key: key);
@@ -67,7 +68,12 @@ class CustomCalendar extends StatelessWidget {
                 child: Center(
                   child: IconButton(
                     onPressed: () {
-                      // Tambahkan logika navigasi halaman di sini
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const DetailCalenderEvent(),
+                        ),
+                      );
                     },
                     icon: const Icon(
                       Icons.navigate_next_rounded,
