@@ -4,14 +4,14 @@ class Tiket extends StatelessWidget {
   final String imagePath;
   final String title;
   final String date;
-  final String category;
+  
   final String harga;
 
   const Tiket({
     Key? key,
     required this.imagePath,
     required this.title,
-    required this.category,
+    
     required this.date,
     required this.harga,
   }) : super(key: key);
@@ -19,8 +19,8 @@ class Tiket extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 394,
-      height: 272,
+      width: 400,
+      height: 130,
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
@@ -83,20 +83,20 @@ class Tiket extends StatelessWidget {
                             fontWeight: FontWeight.w700,
                           ),
                         ),
-                        Row(
-                          children: [
-                            Image.asset("assets/img/label_important.png"),
-                            Text(
-                              "$category",
-                              style: const TextStyle(
-                                color: Color(0xFF999999),
-                                fontSize: 10,
-                                fontFamily: 'Plus Jakarta Sans',
-                                fontWeight: FontWeight.w400,
-                              ),
-                            )
-                          ],
-                        ),
+                        // Row(
+                        //   children: [
+                        //     Image.asset("assets/img/label_important.png"),
+                        //     Text(
+                        //       "$category",
+                        //       style: const TextStyle(
+                        //         color: Color(0xFF999999),
+                        //         fontSize: 10,
+                        //         fontFamily: 'Plus Jakarta Sans',
+                        //         fontWeight: FontWeight.w400,
+                        //       ),
+                        //     )
+                        //   ],
+                        // ),
                         Row(
                           children: [
                             Image.asset("assets/img/access_alarm1.png"),

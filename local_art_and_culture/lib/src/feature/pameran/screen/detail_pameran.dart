@@ -281,33 +281,34 @@ class _DetailPameranState extends State<DetailPameran> {
                           },
                           child: Row(
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.location_on,
                                 color: Colors.black,
                                 size: 20,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 5,
                               ),
                               TextButton(
-  onPressed: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => ShowCustomBottomSheetPage()),
-    );
-  },
-  child: Text(
-    'Museum Macan',
-    style: TextStyle(
-      color: Color(0xFF0C1226),
-      fontSize: 13,
-      fontFamily: 'Plus Jakarta Sans',
-      fontWeight: FontWeight.w600,
-      height: 0,
-    ),
-  ),
-),
-
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            ShowCustomBottomSheetPage()),
+                                  );
+                                },
+                                child: const Text(
+                                  'Museum Macan',
+                                  style: TextStyle(
+                                    color: Color(0xFF0C1226),
+                                    fontSize: 13,
+                                    fontFamily: 'Plus Jakarta Sans',
+                                    fontWeight: FontWeight.w600,
+                                    height: 0,
+                                  ),
+                                ),
+                              ),
                             ],
                           ),
                         ),
@@ -378,30 +379,6 @@ class _DetailPameranState extends State<DetailPameran> {
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    Row(
-                      children: [
-                        const SizedBox(
-                          width: 24,
-                        ),
-                        Image.asset("assets/img/access_alarm.png"),
-                        const SizedBox(
-                          width: 5,
-                        ),
-                        const Text(
-                          'Gambir Expo - Jiexpo Kemayoran',
-                          style: TextStyle(
-                            color: Color(0xFF0C1226),
-                            fontSize: 13,
-                            fontFamily: 'Plus Jakarta Sans',
-                            fontWeight: FontWeight.w600,
-                            height: 0,
-                          ),
-                        ),
-                      ],
-                    ),
                   ],
                 ),
               ),
@@ -411,7 +388,6 @@ class _DetailPameranState extends State<DetailPameran> {
               height: 8,
               thickness: 8,
             ),
-
             const SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: Column(
@@ -419,9 +395,14 @@ class _DetailPameranState extends State<DetailPameran> {
                   Tiket(
                     imagePath: "assets/img/pameran2.png",
                     title: "Museum Macan(Voice Against)",
-                    date: "Snin-Jumat",
+                    date: "Senin-Jumat",
                     harga: "79.000",
-                    category: '25 tix left',
+                  ),
+                  Tiket(
+                    imagePath: "assets/img/pameran2.png",
+                    title: "Museum Macan(Voice Against)",
+                    date: "Senin-Jumat",
+                    harga: "79.000",
                   ),
                 ],
               ),
@@ -433,6 +414,16 @@ class _DetailPameranState extends State<DetailPameran> {
               thickness: 8,
             ),
 
+            const Text(
+              'Marchandise',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(
+              height: 25,
+            ),
             const SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -449,6 +440,28 @@ class _DetailPameranState extends State<DetailPameran> {
                       imagePath: 'assets/img/merch2.png',
                       title: "Medioker",
                       harga: "200.000")
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            const SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  Marchandise(
+                    imagePath: "assets/img/merch3.png",
+                    title: "Poster By Teratai",
+                    harga: "150.000",
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Marchandise(
+                      imagePath: 'assets/img/merch4.png',
+                      title: "Sarung tali Hutan",
+                      harga: "475.000")
                 ],
               ),
             ),

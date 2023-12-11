@@ -96,22 +96,14 @@ class InfopsnInvoice extends StatelessWidget {
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
-                            TextSpan(
-                              text: '(Reguler)',
-                              style: TextStyle(
-                                color: Color(0xFF3653B0),
-                                fontSize: 10,
-                                fontFamily: 'Plus Jakarta Sans',
-                                fontWeight: FontWeight.bold,
-                              ),
-                            )
+                            
                           ],
                         ),
                       ),
                     ],
                   ),
                   SizedBox(
-                    width: 1,
+                    width: 80,
                   ),
                   Text(
                     "x1",
@@ -203,62 +195,7 @@ class InfopsnInvoice extends StatelessWidget {
           const SizedBox(
             height: 5,
           ),
-          // Padding(
-          //   padding: const EdgeInsets.symmetric(horizontal: 24.0),
-          //   child: Container(
-          //     width: 345,
-          //     height: 24,
-          //     color: const Color(0xFFEBEEF9),
-          //     child: const Row(
-          //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //       children: [
-          //         Row(
-          //           children: [
-          //             SizedBox(
-          //               width: 1,
-          //             ),
-          //             Text(
-          //               "Merch Masker",
-          //               style: TextStyle(
-          //                 color: Color(0xFF3653B0),
-          //                 fontSize: 10,
-          //                 fontFamily: 'Plus Jakarta Sans',
-          //                 fontWeight: FontWeight.w400,
-          //               ),
-          //             ),
-          //           ],
-          //         ),
-          //         SizedBox(
-          //           width: 40,
-          //         ),
-          //         Text(
-          //           "x1",
-          //           style: TextStyle(
-          //             color: Color(0xFF3653B0),
-          //             fontSize: 10,
-          //             fontFamily: 'Plus Jakarta Sans',
-          //             fontWeight: FontWeight.w400,
-          //           ),
-          //         ),
-          //         SizedBox(
-          //           width: 30,
-          //         ),
-          //         Text(
-          //           "Rp 120.000",
-          //           style: TextStyle(
-          //             color: Color(0xFF3653B0),
-          //             fontSize: 10,
-          //             fontFamily: 'Plus Jakarta Sans',
-          //             fontWeight: FontWeight.w400,
-          //           ),
-          //         ),
-          //         SizedBox(
-          //           width: 1,
-          //         ),
-          //       ],
-          //     ),
-          //   ),
-          // ),
+          
           const SizedBox(
             height: 5,
           ),

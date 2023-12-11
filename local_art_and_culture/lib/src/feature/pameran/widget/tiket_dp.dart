@@ -233,7 +233,7 @@ class TiketDP extends StatelessWidget {
                       width: 1,
                     ),
                     const Text(
-                      "Rp.120.000",
+                      "Rp.50.000",
                       style: TextStyle(
                         color: Color(0xFF3653B0),
                         fontSize: 10,
@@ -259,6 +259,74 @@ class TiketDP extends StatelessWidget {
                   ],
                 ),
               ),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: Container(
+                width: 345,
+                height: 24,
+                color: const Color(0xFFEBEEF9),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        SvgPicture.asset("assets/svg/local_activity.svg"),
+                        SizedBox(
+                          width: 1,
+                        ),
+                        const Text(
+                          "RegulerDay1",
+                          style: TextStyle(
+                            color: Color(0xFF3653B0),
+                            fontSize: 10,
+                            fontFamily: 'Plus Jakarta Sans',
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      width: 1,
+                    ),
+                    const Text(
+                      "Rp.150.000",
+                      style: TextStyle(
+                        color: Color(0xFF3653B0),
+                        fontSize: 10,
+                        fontFamily: 'Plus Jakarta Sans',
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 30,
+                    ),
+                    const Text(
+                      "x1",
+                      style: TextStyle(
+                        color: Color(0xFF3653B0),
+                        fontSize: 10,
+                        fontFamily: 'Plus Jakarta Sans',
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 1,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Divider(
+              color: Colors.grey.shade200,
+              height: 8,
+              thickness: 8,
             ),
           ],
         ),

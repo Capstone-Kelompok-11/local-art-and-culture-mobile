@@ -16,17 +16,17 @@ class Marchandise extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 200, // Menentukan lebar card
-      height: 315, // Menentukan tinggi card
+      height: 280, // Menentukan tinggi card
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30.0),
+        borderRadius: BorderRadius.circular(25.0),
         color: Colors.white,
         boxShadow: const [
           BoxShadow(
             color: Color(0x3F999999),
-            blurRadius: 8,
+            blurRadius: 20,
             offset: Offset(0, 0),
-            spreadRadius: 1,
+            spreadRadius: 2,
           )
         ],
       ),

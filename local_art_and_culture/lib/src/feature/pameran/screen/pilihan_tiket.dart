@@ -4,7 +4,6 @@ import 'package:local_art_and_culture/src/feature/pameran/widget/appbarpt.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/cardtp.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/tiketpilihan.dart';
 
-
 class PilihanTiket extends StatefulWidget {
   const PilihanTiket({super.key});
 
@@ -34,12 +33,18 @@ class _PilihanTiketState extends State<PilihanTiket> {
             ),
             TiketPilihan(
               imagePath: "assets/img/Pameran2.png",
-              title: "Museum Macan (Voice \nAgainst Reason)",
+              title: "Museum Macan (Voice Against \nReason)",
               date: "Senin - Jumat",
               harga: "50.000",
               category: 'Regular Day2',
             ),
-            
+            TiketPilihan(
+              imagePath: "assets/img/Pameran2.png",
+              title: "Museum Macan (Voice Against \nReason)",
+              date: "Senin - Jumat",
+              harga: "79.000",
+              category: 'Regular Day2',
+            ),
             Row(
               children: [
                 SizedBox(
@@ -62,7 +67,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
                 children: [
                   CardTP(
                       imagePath: "assets/img/Merch1.png",
-                      title: "Bloom Totebag",
+                      title: "Bloom",
                       harga: "170.000"),
                   SizedBox(
                     width: 20,
@@ -83,7 +88,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
                 children: [
                   CardTP(
                       imagePath: "assets/img/Merch3.png",
-                      title: "Poster By Teratai",
+                      title: "Poster",
                       harga: "150.000"),
                   SizedBox(
                     width: 20,
@@ -364,7 +369,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
                           (route) => false);
                     },
                     child: Text(
-                      "Checkout",
+                      "Selanjutnya",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 14,
