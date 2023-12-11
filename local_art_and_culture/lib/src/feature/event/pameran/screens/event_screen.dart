@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:local_art_and_culture/components/search_bar.dart';
 import 'package:local_art_and_culture/src/feature/event/pameran/widgets/categories.dart';
-import 'package:local_art_and_culture/src/feature/event/pameran/widgets/event_appbar.dart';
 import 'package:local_art_and_culture/src/feature/event/pameran/widgets/quick_and_list.dart';
-
-
 
 class EvenScreen extends StatefulWidget {
   const EvenScreen({super.key});
@@ -21,11 +19,11 @@ class _EvenScreenState extends State<EvenScreen> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(15),
+            padding: const EdgeInsets.all(10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const EventAppbar(),
+                const SearchHeader(),
                 const SizedBox(height: 10),
                 const SizedBox(height: 20),
                 Categories(currentCat: currentCat),

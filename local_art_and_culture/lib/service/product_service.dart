@@ -18,6 +18,9 @@ class ProductService {
       );
       debugPrint("=>${response.data}");
 
+      print(response.data['data']['data'].length);
+      print(response.data['data']['data']);
+
       if (response.data.containsKey('data') && response.data['data'] is List) {
         final List<dynamic> data = response.data['data'];
         List<ModelProduct> products =

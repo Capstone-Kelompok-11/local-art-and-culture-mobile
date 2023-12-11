@@ -1,21 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:local_art_and_culture/models/product_model.dart';
+import 'package:local_art_and_culture/service/product_service.dart';
 import 'package:local_art_and_culture/src/feature/product/screens/detail_product.dart';
 
 class CardProducts extends StatefulWidget {
-  const CardProducts({super.key});
+  const CardProducts({Key? key}) : super(key: key);
 
   @override
   State<CardProducts> createState() => _CardProductsState();
 }
 
 class _CardProductsState extends State<CardProducts> {
-  List<String> products = [
-    "Product 1",
-    "Product 2",
-    "Product 3",
-    "Product 4",
-    "Product 5"
-  ];
+  List<ModelProduct> products = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchProducts();
+  }
+
+  Future<void> _fetchProducts() async {
+    try {
+      ProductService productService = ProductService();
+      List<ModelProduct> fetchedProducts = await productService.getProducts();
+
+      setState(() {
+        products = fetchedProducts;
+      });
+    } catch (error) {
+      print('Error fetching products: $error');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -43,9 +59,8 @@ class _CardProductsState extends State<CardProducts> {
                       : 'assets/gambar-produk-1.jpg';
 
                   String category = index.isEven ? 'Fasion' : 'Karya Tangan';
-                  String title = index.isEven
-                      ? 'Baju Kebaya Wanita Pink Full Set Lokal'
-                      : 'Dompet Wanita Series AMC Kulit Naga Asli  ';
+                  String title = products[index].name;
+                  String price = 'Rp ${products[index].price}';
 
                   return InkWell(
                     onTap: () {
@@ -122,9 +137,9 @@ class _CardProductsState extends State<CardProducts> {
                                   ),
                                 ),
                                 const SizedBox(height: 8.0),
-                                const Text(
-                                  'Rp 180.000',
-                                  style: TextStyle(
+                                Text(
+                                  price,
+                                  style: const TextStyle(
                                     fontSize: 16.0,
                                     fontWeight: FontWeight.w700,
                                     color: Colors.black,
