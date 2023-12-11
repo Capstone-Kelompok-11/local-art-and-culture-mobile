@@ -14,8 +14,10 @@ class CustomCalendar extends StatelessWidget {
 
     // Contoh beberapa tanggal yang dipilih dari API
     List<DateTime> apiDates = [
-      DateTime.now().subtract(const Duration(days: 4)),
-      DateTime.now().subtract(const Duration(days: 2)),
+      DateTime(DateTime.now().year, DateTime.now().month,
+          11), // Tambahkan tanggal 11
+      DateTime(DateTime.now().year, DateTime.now().month,
+          17), // Tambahkan tanggal 17
     ];
 
     return Container(
@@ -130,15 +132,10 @@ class CustomCalendar extends StatelessWidget {
     );
   }
 
-  // ... kode lainnya ...
-
-// ... kode lainnya ...
-
   Widget _buildDayContainer(String day, DateTime date, DateTime now,
       List<DateTime> apiDates, BuildContext context) {
     Color? dateColor;
 
-    // Periksa apakah tanggal saat ini adalah salah satu dari tanggal yang dipilih dari API
     if (apiDates.any((apiDate) =>
         date.year == apiDate.year &&
         date.month == apiDate.month &&
@@ -243,7 +240,7 @@ class CustomCalendar extends StatelessWidget {
                                                           children: []),
                                                     ),
                                                     const SizedBox(width: 8),
-                                                    Expanded(
+                                                    const Expanded(
                                                       child: SizedBox(
                                                         child: Text(
                                                           'Denah Acara',
