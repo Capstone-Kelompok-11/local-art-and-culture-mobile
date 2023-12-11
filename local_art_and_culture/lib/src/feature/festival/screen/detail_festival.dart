@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:local_art_and_culture/src/feature/festival/screen/home_screen.dart';
 import 'package:local_art_and_culture/src/feature/festival/screen/pilihan_tiket.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/bintang_tamu.dart';
+import 'package:local_art_and_culture/src/feature/festival/widget/bottomsheet.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/marchandies.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/tiket.dart';
 
@@ -102,7 +103,7 @@ class _DetailFestivalState extends State<DetailFestival> {
               ],
             ),
             const SizedBox(
-              height: 29.25,
+              height: 16,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -160,7 +161,6 @@ class _DetailFestivalState extends State<DetailFestival> {
                     fontSize: 24,
                     fontFamily: 'Plus Jakarta Sans',
                     fontWeight: FontWeight.w700,
-                    height: 0.06,
                   ),
                 ),
               ],
@@ -180,13 +180,16 @@ class _DetailFestivalState extends State<DetailFestival> {
                 const Text(
                   "Jak-Japan Projects",
                   style: TextStyle(
-                    color: Color(0xFF666666),
-                    fontSize: 16,
+                    color: Colors.black,
+                    fontSize: 14,
                     fontFamily: 'Plus Jakarta Sans',
-                    fontWeight: FontWeight.w400,
+                    fontWeight: FontWeight.w600,
                   ),
                 )
               ],
+            ),
+            SizedBox(
+              height: 16,
             ),
             Divider(
               color: Colors.grey.shade200,
@@ -264,10 +267,10 @@ class _DetailFestivalState extends State<DetailFestival> {
                             ),
                           ),
                         ),
-                        const SizedBox(
-                          height: 8,
-                        ),
                       ],
+                    ),
+                    const SizedBox(
+                      height: 24,
                     ),
                     const Row(
                       children: [
@@ -322,6 +325,33 @@ class _DetailFestivalState extends State<DetailFestival> {
                           onTap: () {},
                           child: const Text(
                             "Lihat di Google Maps",
+                            style: TextStyle(
+                              color: Color(0xFF627DCF),
+                              fontSize: 12,
+                              fontFamily: 'Plus Jakarta Sans',
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    Row(
+                      children: [
+                        const SizedBox(
+                          width: 46,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            BottomSheetFstv(context);
+                          },
+                          child: const Text(
+                            "Lihat Denah Acara",
                             style: TextStyle(
                               color: Color(0xFF627DCF),
                               fontSize: 12,
