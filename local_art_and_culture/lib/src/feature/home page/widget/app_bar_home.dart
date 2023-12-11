@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import 'package:local_art_and_culture/src/feature/chat/pesan_semua_screen.dart';
+import 'package:local_art_and_culture/src/feature/notif/src/notifikasi.dart';
+
 class CustomContainer extends StatelessWidget {
   final String profileImageUrl;
   final String greetingText;
@@ -107,13 +110,19 @@ class CustomContainer extends StatelessWidget {
               ],
             ),
           ),
-          // Additional Containers
+          // Additional
+
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               IconButton(
                 onPressed: () {
-                  // Action for bell icon
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            SliderPage()), // Ganti dengan halaman "Event" yang sesuai
+                  );
                 },
                 icon: SvgPicture.asset('assets/svg/bell-ring.svg'),
                 iconSize: 24,
@@ -121,7 +130,12 @@ class CustomContainer extends StatelessWidget {
               const SizedBox(width: 16),
               IconButton(
                 onPressed: () {
-                  // Action for chat icon
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            PesanSemuaScreen()), // Ganti dengan halaman "Event" yang sesuai
+                  );
                 },
                 icon: SvgPicture.asset('assets/svg/chat-processing.svg'),
                 iconSize: 24,

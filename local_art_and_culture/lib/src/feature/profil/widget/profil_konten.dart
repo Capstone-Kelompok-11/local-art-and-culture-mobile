@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/src/feature/chatbot/bantuan_screen.dart';
+import 'package:local_art_and_culture/src/feature/profil/screen/history_page.dart';
+import 'package:local_art_and_culture/src/feature/profil/screen/wishlist_page.dart';
 
-class KontenSection extends StatelessWidget {
-  const KontenSection({Key? key});
+class KontenSection extends StatefulWidget {
+  const KontenSection({super.key});
 
+  @override
+  State<KontenSection> createState() => _KontenSectionState();
+}
+
+class _KontenSectionState extends State<KontenSection> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,13 +35,21 @@ class KontenSection extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 24),
-          Container(
-            child: Row(
-              children: [
-                const Icon(Icons.favorite, color: Color(0xFF3653B0)),
-                const SizedBox(width: 16),
-                const Expanded(
-                  child: Text(
+          Row(
+            children: [
+              const Icon(Icons.favorite, color: Color(0xFF3653B0)),
+              const SizedBox(width: 16),
+              Expanded(
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const WishlistPage(),
+                      ),
+                    );
+                  },
+                  child: const Text(
                     'Wishlist',
                     style: TextStyle(
                       color: Color(0xFF4C4C4C),
@@ -44,88 +59,105 @@ class KontenSection extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(
-                  width: 25,
-                  height: 30,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: const BoxDecoration(),
-                  child: Stack(children: [
+              ),
+              Container(
+                width: 25,
+                height: 30,
+                clipBehavior: Clip.antiAlias,
+                decoration: const BoxDecoration(),
+                child: Stack(
+                  children: [
                     IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.keyboard_arrow_right))
-                  ]),
-                )
-              ],
-            ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const WishlistPage(),
+                          ),
+                        );
+                      },
+                      icon: const Icon(Icons.keyboard_arrow_right),
+                    ),
+                  ],
+                ),
+              )
+            ],
           ),
           const SizedBox(height: 8),
-          Container(
-            child: Row(
-              children: [
-                const Icon(Icons.shopping_cart, color: Color(0xFF3653B0)),
-                const SizedBox(width: 16),
-                const Expanded(
+          Row(
+            children: [
+              const Icon(Icons.shopping_cart, color: Color(0xFF3653B0)),
+              const SizedBox(width: 16),
+              const Expanded(
                   child: Text(
-                    'Riwayat Pembalian',
-                    style: TextStyle(
-                      color: Color(0xFF4C4C4C),
-                      fontSize: 14,
-                      fontFamily: 'Plus Jakarta Sans',
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
+                'Riwayat Pembalian',
+                style: TextStyle(
+                  color: Color(0xFF4C4C4C),
+                  fontSize: 14,
+                  fontFamily: 'Plus Jakarta Sans',
+                  fontWeight: FontWeight.w400,
                 ),
-                Container(
-                  width: 25,
-                  height: 30,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: const BoxDecoration(),
-                  child: Stack(children: [
+              )),
+              Container(
+                width: 25,
+                height: 30,
+                clipBehavior: Clip.antiAlias,
+                decoration: const BoxDecoration(),
+                child: Stack(
+                  children: [
                     IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.keyboard_arrow_right))
-                  ]),
-                )
-              ],
-            ),
-          ),
-          const SizedBox(height: 8),
-          Container(
-            child: Row(
-              children: [
-                const Icon(Icons.support_agent, color: Color(0xFF3653B0)),
-                const SizedBox(width: 16),
-                const Expanded(
-                  child: Text(
-                    'Bantuan',
-                    style: TextStyle(
-                      color: Color(0xFF4C4C4C),
-                      fontSize: 14,
-                      fontFamily: 'Plus Jakarta Sans',
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                ),
-                Container(
-                  width: 25,
-                  height: 30,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: const BoxDecoration(),
-                  child: Stack(children: [
-                    IconButton(
-                        onPressed: () {
-                          Navigator.push(
+                      onPressed: () {
+                        Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    BantuanScreen()), // Ganti dengan halaman "Event" yang sesuai
-                          );
-                        },
-                        icon: Icon(Icons.keyboard_arrow_right))
-                  ]),
-                )
-              ],
-            ),
+                                builder: (context) => const HistoryOrderPage()),
+                            (route) => false);
+                      },
+                      icon: const Icon(Icons.keyboard_arrow_right),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          Row(
+            children: [
+              const Icon(Icons.support_agent, color: Color(0xFF3653B0)),
+              const SizedBox(width: 16),
+              const Expanded(
+                child: Text(
+                  'Bantuan',
+                  style: TextStyle(
+                    color: Color(0xFF4C4C4C),
+                    fontSize: 14,
+                    fontFamily: 'Plus Jakarta Sans',
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ),
+              Container(
+                width: 25,
+                height: 30,
+                clipBehavior: Clip.antiAlias,
+                decoration: const BoxDecoration(),
+                child: Stack(
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const BantuanScreen(),
+                          ),
+                        );
+                      },
+                      icon: const Icon(Icons.keyboard_arrow_right),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ],
       ),
