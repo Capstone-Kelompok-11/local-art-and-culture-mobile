@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:local_art_and_culture/src/feature/festival/components/categories.dart';
+import 'package:local_art_and_culture/src/feature/festival/widget/categories.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/card.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class HomeScreenFstv extends StatefulWidget {
+  const HomeScreenFstv({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<HomeScreenFstv> createState() => _HomeScreenFstvState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenFstvState extends State<HomeScreenFstv> {
   @override
   Widget build(BuildContext context) {
     // const Padding = EdgeInsets.all(10.0);
