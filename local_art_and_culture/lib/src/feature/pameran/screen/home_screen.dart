@@ -14,6 +14,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
     const Padding = EdgeInsets.all(10.0);
     return Scaffold(
       body: SingleChildScrollView(
