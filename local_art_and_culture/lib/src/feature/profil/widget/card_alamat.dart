@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:local_art_and_culture/src/feature/profil/ubahalamat.dart';
 
 class AddressCard extends StatelessWidget {
   const AddressCard({
@@ -21,8 +22,6 @@ class AddressCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 345,
-      height: 119,
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,40 +34,68 @@ class AddressCard extends StatelessWidget {
                 child: const Icon(Icons.location_on),
               ),
               const SizedBox(width: 8),
-              Text(
-                addressTitle,
-                style: const TextStyle(
-                  color: Color(0xFF333333),
-                  fontSize: 12,
-                  fontFamily: 'Plus Jakarta Sans',
-                  fontWeight: FontWeight.w600,
+              Expanded(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      addressTitle,
+                      style: const TextStyle(
+                        color: Color(0xFF333333),
+                        fontSize: 12,
+                        fontFamily: 'Plus Jakarta Sans',
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    const SizedBox(width: 7),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 2),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFED8A77),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Text(
+                        addressType,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 10,
+                          fontFamily: 'Plus Jakarta Sans',
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              const SizedBox(width: 8),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                decoration: BoxDecoration(
-                  color: const Color(0xFFED8A77),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Text(
-                  addressType,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 10,
-                    fontFamily: 'Plus Jakarta Sans',
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-              const Spacer(),
-              IconButton(
-                onPressed: onEditPressed,
-                icon: const Icon(Icons.more_horiz),
+              PopupMenuButton<String>(
+                itemBuilder: (BuildContext context) {
+                  return ['Ubah Alamat', 'Jadikan Alamat Utama']
+                      .map((String choice) {
+                    return PopupMenuItem<String>(
+                      value: choice,
+                      child: Text(choice),
+                    );
+                  }).toList();
+                },
+                onSelected: (String choice) {
+                  // Handle the selected choice here
+                  if (choice == 'Ubah Alamat') {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            UbahAlamat(), // Navigate to AddressPage
+                      ),
+                    );
+                  } else if (choice == 'Jadikan Alamat Utama') {
+                    // Perform action for 'Jadikan Alamat Utama'
+                  }
+                },
               ),
             ],
           ),
-          const SizedBox(height: 15),
+          const SizedBox(height: 8),
           Text(
             addressOwner,
             style: const TextStyle(
@@ -79,7 +106,7 @@ class AddressCard extends StatelessWidget {
               height: 1.0,
             ),
           ),
-          const SizedBox(height: 5),
+          const SizedBox(height: 8),
           Text(
             phoneNumber,
             style: const TextStyle(
@@ -90,7 +117,7 @@ class AddressCard extends StatelessWidget {
               height: 1.0,
             ),
           ),
-          const SizedBox(height: 5),
+          const SizedBox(height: 8),
           Text(
             address,
             style: const TextStyle(

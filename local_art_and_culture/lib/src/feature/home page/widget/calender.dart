@@ -10,6 +10,14 @@ class CustomCalendar extends StatelessWidget {
     String month = DateFormat.MMMM().format(now);
     String tahun = DateFormat.y().format(now);
 
+    DateTime startOfWeek = now.subtract(Duration(days: now.weekday - 1));
+
+    // Contoh beberapa tanggal yang dipilih dari API
+    List<DateTime> apiDates = [
+      DateTime.now().subtract(const Duration(days: 4)),
+      DateTime.now().subtract(const Duration(days: 2)),
+    ];
+
     return Container(
       padding: const EdgeInsets.all(24),
       decoration: ShapeDecoration(
@@ -46,9 +54,7 @@ class CustomCalendar extends StatelessWidget {
               ),
               const Spacer(),
               Container(
-                width: 35,
-                height: 35,
-                padding: const EdgeInsets.all(3),
+                padding: const EdgeInsets.all(1),
                 clipBehavior: Clip.antiAlias,
                 decoration: ShapeDecoration(
                   color: const Color(0xFFED8A77),
@@ -106,23 +112,17 @@ class CustomCalendar extends StatelessWidget {
           const SizedBox(height: 30),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            child: Wrap(
-              alignment: WrapAlignment.spaceBetween,
-              children: [
-                _buildDayContainer(
-                    'Sen', now.subtract(const Duration(days: 6))),
-                _buildDayContainer(
-                    'Sel', now.subtract(const Duration(days: 5))),
-                _buildDayContainer(
-                    'Rab', now.subtract(const Duration(days: 4))),
-                _buildDayContainer(
-                    'Kam', now.subtract(const Duration(days: 3))),
-                _buildDayContainer(
-                    'Jum', now.subtract(const Duration(days: 2))),
-                _buildDayContainer(
-                    'Sab', now.subtract(const Duration(days: 1))),
-                _buildDayContainer('Min', now),
-              ],
+            child: Row(
+              children: List.generate(
+                7,
+                (index) {
+                  DateTime currentDate = startOfWeek.add(Duration(days: index));
+                  String day = DateFormat.E().format(currentDate);
+
+                  return _buildDayContainer(
+                      day, currentDate, now, apiDates, context);
+                },
+              ),
             ),
           ),
         ],
@@ -130,14 +130,26 @@ class CustomCalendar extends StatelessWidget {
     );
   }
 
-  Widget _buildDayContainer(String day, DateTime date) {
+  // ... kode lainnya ...
+
+// ... kode lainnya ...
+
+  Widget _buildDayContainer(String day, DateTime date, DateTime now,
+      List<DateTime> apiDates, BuildContext context) {
     Color? dateColor;
 
-    if (date.weekday == DateTime.saturday && date.day == 2) {
-      // Memeriksa hari Sabtu dan tanggalnya adalah 2
-      dateColor = const Color(0xFF7EB3A6);
-    } else if (date.weekday == DateTime.tuesday) {
-      dateColor = const Color(0xFFF3B1A5);
+    // Periksa apakah tanggal saat ini adalah salah satu dari tanggal yang dipilih dari API
+    if (apiDates.any((apiDate) =>
+        date.year == apiDate.year &&
+        date.month == apiDate.month &&
+        date.day == apiDate.day)) {
+      dateColor =
+          const Color(0xFFED8A77); // Mengubah warna untuk tanggal dari API
+    }
+
+    // Tambahkan logika jika tidak ada acara pada minggu ini
+    if (apiDates.isEmpty) {
+      dateColor = Colors.transparent; // Atau warna lain sesuai kebutuhan
     }
 
     return SizedBox(
@@ -161,26 +173,160 @@ class CustomCalendar extends StatelessWidget {
           Stack(
             alignment: Alignment.center,
             children: [
-              Container(
-                width: 25,
-                height: 25,
-                decoration: dateColor != null &&
-                        (date.weekday == DateTime.tuesday ||
-                            (date.weekday == DateTime.saturday &&
-                                date.day == 2))
-                    ? BoxDecoration(
-                        color: dateColor,
-                        shape: BoxShape.circle,
-                      )
-                    : null,
-                child: Center(
-                  child: Text(
-                    '${date.day}',
-                    style: const TextStyle(
-                      color: Color(0xFF1A1A1A),
-                      fontSize: 15,
-                      fontFamily: 'Plus Jakarta Sans',
-                      fontWeight: FontWeight.w500,
+              GestureDetector(
+                onTap: () {
+                  // Tambahkan logika untuk menampilkan bottom sheet di sini
+                  if (dateColor == const Color(0xFFED8A77)) {
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return SingleChildScrollView(
+                          child: Container(
+                            child: Container(
+                              width: 393,
+                              height: 561,
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 24, vertical: 32),
+                              clipBehavior: Clip.antiAlias,
+                              decoration: const ShapeDecoration(
+                                color: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(24),
+                                    topRight: Radius.circular(24),
+                                  ),
+                                ),
+                              ),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  SizedBox(
+                                    width: double.infinity,
+                                    height: 497,
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        SizedBox(
+                                          width: double.infinity,
+                                          height: 32,
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              SizedBox(
+                                                width: double.infinity,
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    Container(
+                                                      width: 32,
+                                                      height: 32,
+                                                      clipBehavior:
+                                                          Clip.antiAlias,
+                                                      decoration:
+                                                          const BoxDecoration(),
+                                                      child: const Stack(
+                                                          children: []),
+                                                    ),
+                                                    const SizedBox(width: 8),
+                                                    Expanded(
+                                                      child: SizedBox(
+                                                        child: Text(
+                                                          'Denah Acara',
+                                                          style: TextStyle(
+                                                            color: Colors.black,
+                                                            fontSize: 20,
+                                                            fontFamily:
+                                                                'Plus Jakarta Sans',
+                                                            fontWeight:
+                                                                FontWeight.w700,
+                                                            height: 0.07,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        const SizedBox(height: 28),
+                                        Container(
+                                          width: 345,
+                                          height: 437,
+                                          clipBehavior: Clip.antiAlias,
+                                          decoration: ShapeDecoration(
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(12),
+                                            ),
+                                          ),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              Container(
+                                                width: 362,
+                                                height: 437,
+                                                decoration: const BoxDecoration(
+                                                  image: DecorationImage(
+                                                    image: NetworkImage(
+                                                        "https://via.placeholder.com/362x437"),
+                                                    fit: BoxFit.fill,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  }
+                },
+                child: Container(
+                  width: 25,
+                  height: 25,
+                  decoration: dateColor != null
+                      ? BoxDecoration(
+                          color: dateColor,
+                          shape: BoxShape.circle,
+                        )
+                      : const BoxDecoration(), // Mengisi BoxDecoration kosong jika dateColor adalah null
+                  child: Center(
+                    child: Text(
+                      '${date.day}',
+                      style: const TextStyle(
+                        color: Color(0xFF1A1A1A),
+                        fontSize: 15,
+                        fontFamily: 'Plus Jakarta Sans',
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                 ),
