@@ -11,6 +11,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool _isPasswordVisible = false;
+
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -211,6 +212,7 @@ class ThirdComponent extends StatefulWidget {
 
 class _ThirdComponentState extends State<ThirdComponent> {
   bool _radioValue = false;
+  bool _isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -253,27 +255,27 @@ class _ThirdComponentState extends State<ThirdComponent> {
             ],
           ),
           ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              padding: const EdgeInsets.symmetric(vertical: 15),
-              backgroundColor: const Color.fromRGBO(54, 83, 176, 1),
-            ),
-            onPressed: () {
-              _handleLogin();
-            },
-            child: const SizedBox(
-              width: double.infinity,
-              child: Center(
-                child: Text(
-                  'Masuk',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white,
-                    fontFamily: 'Plus Jakarta Sans',
-                  ),
-                ),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(vertical: 15),
+                backgroundColor: const Color.fromRGBO(54, 83, 176, 1),
               ),
-            ),
-          ),
+              onPressed: _isLoading ? null : () => _handleLogin(),
+              child: _isLoading
+                  ? const CircularProgressIndicator(
+                      color: Color.fromRGBO(54, 83, 176, 1))
+                  : const SizedBox(
+                      width: double.infinity,
+                      child: Center(
+                        child: Text(
+                          'Masuk',
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.white,
+                            fontFamily: 'Plus Jakarta Sans',
+                          ),
+                        ),
+                      ),
+                    )),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -348,6 +350,7 @@ class _ThirdComponentState extends State<ThirdComponent> {
 
   Future<void> _handleLogin() async {
     setState(() {
+      _isLoading = true;
       _radioValue = !_radioValue;
     });
 
@@ -357,6 +360,10 @@ class _ThirdComponentState extends State<ThirdComponent> {
     final signInService = SignInService();
     final ModelSignIn? modelSignIn =
         await signInService.signInAccount(email, password);
+
+    setState(() {
+      _isLoading = false;
+    });
 
     if (modelSignIn != null) {
       // ignore: use_build_context_synchronously
