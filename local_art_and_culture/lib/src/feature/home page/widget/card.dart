@@ -6,8 +6,8 @@ class RoundedImageCard extends StatelessWidget {
   final String subtitle;
   final String locationRating;
   final double starRating;
-  final String label; // Menambahkan label baru
-  final String terjual; // Menambahkan label baru
+  final String label;
+  final String terjual;
 
   const RoundedImageCard({
     Key? key,
@@ -16,23 +16,16 @@ class RoundedImageCard extends StatelessWidget {
     required this.subtitle,
     required this.locationRating,
     required this.starRating,
-    required this.label, // Menambahkan label sebagai required parameter
-    required this.terjual, // Menambahkan label sebagai required parameter
+    required this.label,
+    required this.terjual,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      //  onTap: () {
-      //     // Navigasi halaman saat card ditekan
-      //     Navigator.push(
-      //       context,
-      //       MaterialPageRoute(builder: (context) => NextPage()), // Ganti dengan halaman yang diinginkan
-      //     );
-      //   },
       child: Container(
-        width: 200, // Menentukan lebar card
-        height: 315, // Menentukan tinggi card
+        width: 200,
+        height: 315,
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30.0),
@@ -69,21 +62,16 @@ class RoundedImageCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20),
                 ),
               ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    label,
-                    style: const TextStyle(
-                      color: Color(0xFF1A1A1A),
-                      fontSize: 10,
-                      fontFamily: 'Plus Jakarta Sans',
-                      fontWeight: FontWeight.w500,
-                    ),
+              child: Center(
+                child: Text(
+                  label,
+                  style: const TextStyle(
+                    color: Color(0xFF1A1A1A),
+                    fontSize: 10,
+                    fontFamily: 'Plus Jakarta Sans',
+                    fontWeight: FontWeight.w500,
                   ),
-                ],
+                ),
               ),
             ),
             const SizedBox(height: 8),
@@ -103,8 +91,6 @@ class RoundedImageCard extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 12),
-            // Menambahkan label yang diwajibkan
-
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -113,12 +99,14 @@ class RoundedImageCard extends StatelessWidget {
                   size: 18,
                   color: Colors.grey,
                 ),
-                Text(
-                  // ignore: unnecessary_string_interpolations
-                  '$locationRating',
-                  style: const TextStyle(
-                    fontSize: 14,
-                    color: Colors.grey,
+                Flexible(
+                  child: Text(
+                    locationRating,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey,
+                    ),
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
               ],
@@ -138,23 +126,23 @@ class RoundedImageCard extends StatelessWidget {
                     color: Color.fromARGB(255, 83, 83, 82),
                   ),
                 ),
-                const SizedBox(
-                    width: 8), // Mengatur jarak antara rating dan terjual
+                const SizedBox(width: 8),
                 const Text(
-                  '|', // Tanda pemisah antara rating dan terjual
+                  '|',
                   style: TextStyle(
                     fontSize: 14,
                     color: Color.fromARGB(255, 83, 83, 82),
                   ),
                 ),
-                const SizedBox(
-                    width: 8), // Mengatur jarak antara rating dan terjual
-                Text(
-                  // ignore: unnecessary_string_interpolations
-                  '$terjual', // Ubah sesuai dengan data yang sebenarnya
-                  style: const TextStyle(
-                    fontSize: 14,
-                    color: Color.fromARGB(255, 83, 83, 82),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    terjual,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      color: Color.fromARGB(255, 83, 83, 82),
+                    ),
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
               ],

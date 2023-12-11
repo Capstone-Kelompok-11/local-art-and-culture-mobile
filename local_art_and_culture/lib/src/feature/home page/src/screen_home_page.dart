@@ -64,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 Container(
                   padding: const EdgeInsets.only(
-                    top: 64,
+                    top: 20,
                     left: 24,
                     right: 24,
                     bottom: 28,
