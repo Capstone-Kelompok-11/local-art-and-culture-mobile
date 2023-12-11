@@ -26,8 +26,8 @@ class _MainScreenState extends State<MainScreen> {
       bottomNavigationBar: CustomBottomNavigationBar(
           selectedIndex: 1,
           onItemTapped: (index) {
-            if (index == 1) {
-              Navigator.pushNamed(context, '/event');
+            if (index == 0) {
+              Navigator.pushNamed(context, '/home');
             } else if (index == 2) {
               Navigator.pushNamed(context, '/product');
             } else if (index == 3) {
