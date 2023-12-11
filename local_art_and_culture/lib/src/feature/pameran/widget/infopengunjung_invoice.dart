@@ -113,6 +113,7 @@ class _InfoPengunjungState extends State<InfoPengunjung> {
               ],
             ),
           ),
+          
           Padding(
             padding: EdgeInsets.all(5.0),
             child: Row(
@@ -138,9 +139,13 @@ class _InfoPengunjungState extends State<InfoPengunjung> {
                 ),
               ],
             ),
-          )
+          ),
+          
         ],
+        
       ),
+      
     );
+    
   }
 }

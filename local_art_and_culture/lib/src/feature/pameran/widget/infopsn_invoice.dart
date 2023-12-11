@@ -26,7 +26,7 @@ class InfopsnInvoice extends StatelessWidget {
           ),
           const Padding(
             padding: EdgeInsets.symmetric(
-              horizontal: 24.0,
+              horizontal: 1.0,
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -62,7 +62,7 @@ class InfopsnInvoice extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            padding: const EdgeInsets.symmetric(horizontal: 1.0),
             child: Container(
               width: 283,
               height: 38,
@@ -88,7 +88,7 @@ class InfopsnInvoice extends StatelessWidget {
                         TextSpan(
                           children: [
                             TextSpan(
-                              text: 'Jak-japan Matsuri 2023 \nDay 1 ',
+                              text: 'Selasa ',
                               style: TextStyle(
                                 color: Color(0xFF3653B0),
                                 fontSize: 10,
@@ -126,7 +126,7 @@ class InfopsnInvoice extends StatelessWidget {
                     width: 30,
                   ),
                   Text(
-                    "Rp.120.000",
+                    "Rp.50.000",
                     style: TextStyle(
                       color: Color(0xFF3653B0),
                       fontSize: 10,
@@ -145,7 +145,7 @@ class InfopsnInvoice extends StatelessWidget {
             height: 5,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            padding: const EdgeInsets.symmetric(horizontal: 1.0),
             child: Container(
               width: 345,
               height: 24,
@@ -159,7 +159,7 @@ class InfopsnInvoice extends StatelessWidget {
                         width: 1,
                       ),
                       Text(
-                        "Merch Mug Jak",
+                        "Poster By Teratai",
                         style: TextStyle(
                           color: Color(0xFF3653B0),
                           fontSize: 10,
@@ -185,7 +185,7 @@ class InfopsnInvoice extends StatelessWidget {
                     width: 30,
                   ),
                   Text(
-                    "Rp.55.000",
+                    "Rp.150.000",
                     style: TextStyle(
                       color: Color(0xFF3653B0),
                       fontSize: 10,
@@ -203,62 +203,62 @@ class InfopsnInvoice extends StatelessWidget {
           const SizedBox(
             height: 5,
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0),
-            child: Container(
-              width: 345,
-              height: 24,
-              color: const Color(0xFFEBEEF9),
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: 1,
-                      ),
-                      Text(
-                        "Merch Masker",
-                        style: TextStyle(
-                          color: Color(0xFF3653B0),
-                          fontSize: 10,
-                          fontFamily: 'Plus Jakarta Sans',
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    width: 40,
-                  ),
-                  Text(
-                    "x1",
-                    style: TextStyle(
-                      color: Color(0xFF3653B0),
-                      fontSize: 10,
-                      fontFamily: 'Plus Jakarta Sans',
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 30,
-                  ),
-                  Text(
-                    "Rp 120.000",
-                    style: TextStyle(
-                      color: Color(0xFF3653B0),
-                      fontSize: 10,
-                      fontFamily: 'Plus Jakarta Sans',
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 1,
-                  ),
-                ],
-              ),
-            ),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(horizontal: 24.0),
+          //   child: Container(
+          //     width: 345,
+          //     height: 24,
+          //     color: const Color(0xFFEBEEF9),
+          //     child: const Row(
+          //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //       children: [
+          //         Row(
+          //           children: [
+          //             SizedBox(
+          //               width: 1,
+          //             ),
+          //             Text(
+          //               "Merch Masker",
+          //               style: TextStyle(
+          //                 color: Color(0xFF3653B0),
+          //                 fontSize: 10,
+          //                 fontFamily: 'Plus Jakarta Sans',
+          //                 fontWeight: FontWeight.w400,
+          //               ),
+          //             ),
+          //           ],
+          //         ),
+          //         SizedBox(
+          //           width: 40,
+          //         ),
+          //         Text(
+          //           "x1",
+          //           style: TextStyle(
+          //             color: Color(0xFF3653B0),
+          //             fontSize: 10,
+          //             fontFamily: 'Plus Jakarta Sans',
+          //             fontWeight: FontWeight.w400,
+          //           ),
+          //         ),
+          //         SizedBox(
+          //           width: 30,
+          //         ),
+          //         Text(
+          //           "Rp 120.000",
+          //           style: TextStyle(
+          //             color: Color(0xFF3653B0),
+          //             fontSize: 10,
+          //             fontFamily: 'Plus Jakarta Sans',
+          //             fontWeight: FontWeight.w400,
+          //           ),
+          //         ),
+          //         SizedBox(
+          //           width: 1,
+          //         ),
+          //       ],
+          //     ),
+          //   ),
+          // ),
           const SizedBox(
             height: 5,
           ),

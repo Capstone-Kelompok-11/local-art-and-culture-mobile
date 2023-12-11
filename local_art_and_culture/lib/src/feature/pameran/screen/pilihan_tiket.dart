@@ -34,9 +34,9 @@ class _PilihanTiketState extends State<PilihanTiket> {
             ),
             TiketPilihan(
               imagePath: "assets/img/Pameran2.png",
-              title: "Tickets Jak-japan Matsuri 2023 Day 1",
-              date: "18 Nov ‘23, 09:30-20.30 WIB",
-              harga: "120.000",
+              title: "Museum Macan (Voice \nAgainst Reason)",
+              date: "Senin - Jumat",
+              harga: "50.000",
               category: 'Regular Day2',
             ),
             

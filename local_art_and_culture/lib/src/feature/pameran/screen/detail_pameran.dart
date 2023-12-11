@@ -3,9 +3,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:local_art_and_culture/src/feature/pameran/screen/home_screen.dart';
 import 'package:local_art_and_culture/src/feature/pameran/screen/pilihan_tiket.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/bintang_tamu.dart';
+import 'package:local_art_and_culture/src/feature/pameran/widget/bottm_sheet.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/marchandies.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/tiket.dart';
-
 
 class DetailPameran extends StatefulWidget {
   const DetailPameran({super.key});
@@ -94,7 +94,8 @@ class _DetailPameranState extends State<DetailPameran> {
                     onPressed: () {
                       Navigator.pushAndRemoveUntil(
                           context,
-                          MaterialPageRoute(builder: (context) => const HomeScreen()),
+                          MaterialPageRoute(
+                              builder: (context) => const HomeScreen()),
                           (route) => false);
                       // Handle favorite button press
                     },
@@ -270,27 +271,45 @@ class _DetailPameranState extends State<DetailPameran> {
                         ),
                       ],
                     ),
-                    const Row(
+                    Row(
                       children: [
                         SizedBox(
                           width: 24,
                         ),
-                        Icon(
-                          Icons.location_on,
-                          color: Colors.black,
-                          size: 20,
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          'Museum Macan',
-                          style: TextStyle(
-                            color: Color(0xFF0C1226),
-                            fontSize: 13,
-                            fontFamily: 'Plus Jakarta Sans',
-                            fontWeight: FontWeight.w600,
-                            height: 0,
+                        GestureDetector(
+                          onTap: () {
+                            ShowCustomBottomSheetPage(); // Ganti dengan fungsi yang sesuai
+                          },
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.location_on,
+                                color: Colors.black,
+                                size: 20,
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              TextButton(
+  onPressed: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ShowCustomBottomSheetPage()),
+    );
+  },
+  child: Text(
+    'Museum Macan',
+    style: TextStyle(
+      color: Color(0xFF0C1226),
+      fontSize: 13,
+      fontFamily: 'Plus Jakarta Sans',
+      fontWeight: FontWeight.w600,
+      height: 0,
+    ),
+  ),
+),
+
+                            ],
                           ),
                         ),
                       ],
@@ -393,17 +412,17 @@ class _DetailPameranState extends State<DetailPameran> {
               height: 8,
               thickness: 8,
             ),
-          
+
             const SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: Column(
                 children: [
                   Tiket(
                     imagePath: "assets/img/pameran2.png",
-                    title: "Tickets Jak-japan Matsuri 2023 Day 1",
-                    date: "01 - 12 November 2023",
-                    harga: "120.000",
-                    category: 'Regular Day2',
+                    title: "Museum Macan(Voice Against)",
+                    date: "Snin-Jumat",
+                    harga: "79.000",
+                    category: '25 tix left',
                   ),
                 ],
               ),
@@ -414,7 +433,7 @@ class _DetailPameranState extends State<DetailPameran> {
               height: 8,
               thickness: 8,
             ),
-            
+
             const SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(

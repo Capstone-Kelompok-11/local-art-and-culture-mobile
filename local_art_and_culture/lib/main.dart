@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:const DetailPameran(),
+      home:const HomeScreen(),
       //home:const MainScreen(),
     );
     

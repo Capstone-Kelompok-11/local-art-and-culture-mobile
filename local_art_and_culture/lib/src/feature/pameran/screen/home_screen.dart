@@ -87,12 +87,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   SizedBox(height: 16.0),
                   Categories(),
                   SizedBox(height: 16.0),
+                  
                   RoundedImageCard(
                     width: MediaQuery.of(context).size.width - 32,
                     imagePath: 'assets/img/Pameran2.png',
-                    title: 'Jak-Japan Matsuri 2023',
-                    harga: 'From IDR 113 K',
-                    location: 'Gambir Expo-Jiexpo Kemayoran',
+                    title: 'Edwin galley',
+                    harga: 'From IDR 0 K',
+                    location: 'Edwin Gallery',
                   ),
                   SizedBox(height: 16),
                   // Tambahkan widget lainnya sesuai kebutuhan

@@ -4,7 +4,6 @@ import 'package:local_art_and_culture/src/feature/pameran/widget/appbardp.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/form.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/tiket_dp.dart';
 
-
 class DetailPembelian extends StatefulWidget {
   const DetailPembelian({super.key});
 

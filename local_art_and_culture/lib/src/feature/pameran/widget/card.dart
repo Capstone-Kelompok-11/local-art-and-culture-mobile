@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:local_art_and_culture/src/feature/pameran/screen/detail_pameran.dart';
 
-
 class RoundedImageCard extends StatelessWidget {
   final String imagePath;
   final String title;
@@ -15,6 +14,7 @@ class RoundedImageCard extends StatelessWidget {
     required this.title,
     required this.harga,
     required this.location,
+    required double width,
   }) : super(key: key);
 
   @override
