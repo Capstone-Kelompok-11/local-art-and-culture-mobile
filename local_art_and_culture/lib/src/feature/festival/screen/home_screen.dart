@@ -13,7 +13,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    const Padding = EdgeInsets.all(10.0);
+    // const Padding = EdgeInsets.all(10.0);
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
