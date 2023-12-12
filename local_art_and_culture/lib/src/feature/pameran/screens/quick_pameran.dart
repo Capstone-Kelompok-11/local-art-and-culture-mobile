@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:local_art_and_culture/src/feature/event/pameran/widgets/pameran_card.dart';
-import 'package:local_art_and_culture/src/feature/event/pameran/widgets/quick_screen_appbar.dart';
-
+import 'package:local_art_and_culture/src/feature/pameran/widgets/pameran_card.dart';
+import 'package:local_art_and_culture/src/feature/pameran/widgets/quick_screen_appbar.dart';
 
 class QuickPameransScreen extends StatefulWidget {
   const QuickPameransScreen({super.key});

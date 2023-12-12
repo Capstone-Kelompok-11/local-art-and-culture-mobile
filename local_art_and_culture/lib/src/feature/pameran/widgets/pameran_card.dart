@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:local_art_and_culture/src/feature/event/pameran/screens/detail_pameran.dart';
-
+import 'package:local_art_and_culture/src/feature/pameran/screens/detail_pameran.dart';
 
 class PameranCard extends StatelessWidget {
   final pameran;

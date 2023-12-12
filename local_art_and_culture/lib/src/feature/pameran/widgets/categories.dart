@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:local_art_and_culture/src/feature/event/pameran/models/category.dart';
-
-
+import 'package:local_art_and_culture/src/feature/pameran/models/category.dart';
 
 class Categories extends StatelessWidget {
   const Categories({
@@ -10,9 +8,9 @@ class Categories extends StatelessWidget {
   });
 
   final String currentCat;
-  
+
   get primaryBlue70Color => null;
-  
+
   get kprimaryColor => null;
 
   @override
@@ -24,8 +22,9 @@ class Categories extends StatelessWidget {
           catgories.length,
           (index) => Container(
             decoration: BoxDecoration(
-              color:
-                  currentCat == catgories[index] ? kprimaryColor : const Color.fromARGB(255, 228, 221, 221),
+              color: currentCat == catgories[index]
+                  ? kprimaryColor
+                  : const Color.fromARGB(255, 228, 221, 221),
               borderRadius: BorderRadius.circular(25),
             ),
             padding: const EdgeInsets.symmetric(

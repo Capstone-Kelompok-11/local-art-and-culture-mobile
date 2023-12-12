@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/components/bottom_navigation_bar.dart';
-import 'package:local_art_and_culture/src/feature/event/pameran/screens/event_screen.dart';
+import 'package:local_art_and_culture/src/feature/pameran/screens/event_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

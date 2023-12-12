@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:local_art_and_culture/src/feature/event/pameran/screens/scan.dart';
+import 'package:local_art_and_culture/src/feature/pameran/screens/scan.dart';
 
 class PaymentMethodScreen1 extends StatelessWidget {
   @override

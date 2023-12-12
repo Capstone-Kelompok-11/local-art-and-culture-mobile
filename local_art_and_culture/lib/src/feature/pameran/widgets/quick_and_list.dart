@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:local_art_and_culture/src/feature/event/pameran/models/data_pameran.dart';
-import 'package:local_art_and_culture/src/feature/event/pameran/screens/detail_pameran.dart';
+import 'package:local_art_and_culture/src/feature/pameran/models/data_pameran.dart';
+import 'package:local_art_and_culture/src/feature/pameran/screens/detail_pameran.dart';
 
 class QuickAndFastList extends StatelessWidget {
   const QuickAndFastList({Key? key});
@@ -51,19 +51,22 @@ class QuickAndFastList extends StatelessWidget {
                           Container(
                             width: double.infinity,
                             height: 130,
-                            margin: const EdgeInsets.only(bottom: 8, top:10, left: 16, right: 16),
-                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                            margin: const EdgeInsets.only(
+                                bottom: 8, top: 10, left: 16, right: 16),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 8),
                             decoration: BoxDecoration(
                               borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(10),
                                 topRight: Radius.circular(10),
-                                bottomLeft: Radius.circular(10), // Radius circular pada bagian bawah
-                                bottomRight: Radius.circular(10), // Radius circular pada bagian bawah
+                                bottomLeft: Radius.circular(
+                                    10), // Radius circular pada bagian bawah
+                                bottomRight: Radius.circular(
+                                    10), // Radius circular pada bagian bawah
                               ),
                               image: DecorationImage(
                                 image: AssetImage(foods[index].image),
                                 fit: BoxFit.cover,
-                                
                               ),
                             ),
                           ),
@@ -85,7 +88,8 @@ class QuickAndFastList extends StatelessWidget {
                                       ),
                                       child: const Text(
                                         "Pameran",
-                                        style: TextStyle(fontSize: 12, color: Colors.white),
+                                        style: TextStyle(
+                                            fontSize: 12, color: Colors.white),
                                       ),
                                     ),
                                     const SizedBox(width: 8),
@@ -99,7 +103,8 @@ class QuickAndFastList extends StatelessWidget {
                                       ),
                                       child: const Text(
                                         "Berbayar",
-                                        style: TextStyle(fontSize: 12, color: Colors.white),
+                                        style: TextStyle(
+                                            fontSize: 12, color: Colors.white),
                                       ),
                                     ),
                                   ],
@@ -146,26 +151,30 @@ class QuickAndFastList extends StatelessWidget {
                         ],
                       ),
                       Positioned(
-                      top: 215,
-                      right: 15,
-                      child: Center(
-                        child: Container(
-                          width: 20, // Lebar lingkaran
-                          height: 20, // Tinggi lingkaran
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Color.fromARGB(255, 5, 61, 145), // Warna latar belakang kuning
-                          ),
-                          child: IconButton(
-                            onPressed: () {},
-                            padding: const EdgeInsets.all(0), // Atur padding ikon
-                            iconSize: 15,
-                            icon: const Icon(Icons.keyboard_arrow_right_rounded, color: Colors.white,),
+                        top: 215,
+                        right: 15,
+                        child: Center(
+                          child: Container(
+                            width: 20, // Lebar lingkaran
+                            height: 20, // Tinggi lingkaran
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Color.fromARGB(255, 5, 61,
+                                  145), // Warna latar belakang kuning
+                            ),
+                            child: IconButton(
+                              onPressed: () {},
+                              padding:
+                                  const EdgeInsets.all(0), // Atur padding ikon
+                              iconSize: 15,
+                              icon: const Icon(
+                                Icons.keyboard_arrow_right_rounded,
+                                color: Colors.white,
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                    )
-
+                      )
                     ],
                   ),
                 ),

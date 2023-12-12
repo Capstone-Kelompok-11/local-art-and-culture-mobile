@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:local_art_and_culture/src/feature/event/pameran/screens/pendaftaran_screen.dart';
+import 'package:local_art_and_culture/src/feature/pameran/screens/pendaftaran_screen.dart';
 
 class PaymentMethodScreen2 extends StatelessWidget {
   @override

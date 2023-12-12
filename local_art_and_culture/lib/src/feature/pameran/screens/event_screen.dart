@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/components/search_bar.dart';
-import 'package:local_art_and_culture/src/feature/event/pameran/widgets/categories.dart';
-import 'package:local_art_and_culture/src/feature/event/pameran/widgets/quick_and_list.dart';
+import 'package:local_art_and_culture/src/feature/pameran/widgets/categories.dart';
+import 'package:local_art_and_culture/src/feature/pameran/widgets/quick_and_list.dart';
 
 class EvenScreen extends StatefulWidget {
   const EvenScreen({super.key});

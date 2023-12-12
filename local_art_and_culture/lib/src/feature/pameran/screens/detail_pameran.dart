@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:local_art_and_culture/src/feature/event/pameran/screens/checkout.dart';
+import 'package:local_art_and_culture/src/feature/pameran/screens/checkout.dart';
 
 class DetailScreen extends StatefulWidget {
   final pameran;
