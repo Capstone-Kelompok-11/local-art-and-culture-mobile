@@ -38,10 +38,10 @@ class _DetailFestivalState extends State<DetailFestival> {
                                   .withOpacity(0.2), // Warna bayangan
                               spreadRadius: 2, // Radius penyebaran bayangan
                               blurRadius: 5, // Radius blur bayangan
-                              offset: Offset(0, 3),
+                              offset: const Offset(0, 3),
                             )
                           ],
-                          image: DecorationImage(
+                          image: const DecorationImage(
                               image: AssetImage('assets/png/gambar1_21.png'),
                               fit: BoxFit.fill),
                         ),
@@ -57,7 +57,7 @@ class _DetailFestivalState extends State<DetailFestival> {
                               color: Colors.black.withOpacity(0.2),
                               spreadRadius: 5,
                               blurRadius: 7,
-                              offset: Offset(0, 3),
+                              offset: const Offset(0, 3),
                             )
                           ]),
                         ),
@@ -95,7 +95,7 @@ class _DetailFestivalState extends State<DetailFestival> {
                       Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => HomeScreenFstv()),
+                              builder: (context) => const HomeScreenFstv()),
                           (route) => false);
                       // Handle favorite button press
                     },
@@ -109,14 +109,14 @@ class _DetailFestivalState extends State<DetailFestival> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   width: 24,
                 ),
                 Container(
-                  margin: EdgeInsets.all(5.0),
-                  padding: EdgeInsets.all(8),
+                  margin: const EdgeInsets.all(5.0),
+                  padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                      color: Color(0xFF91A1D3),
+                      color: const Color(0xFF91A1D3),
                       borderRadius: BorderRadius.circular(20.0)),
                   child: const Text(
                     "Festival Budaya",
@@ -130,7 +130,7 @@ class _DetailFestivalState extends State<DetailFestival> {
                   margin: const EdgeInsets.all(5.0),
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                      color: Color(0xFFEBEEF9),
+                      color: const Color(0xFFEBEEF9),
                       borderRadius: BorderRadius.circular(20.0)),
                   child: const Text(
                     "Berbayar",
@@ -189,7 +189,7 @@ class _DetailFestivalState extends State<DetailFestival> {
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             Divider(
@@ -298,7 +298,7 @@ class _DetailFestivalState extends State<DetailFestival> {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 3,
                     ),
                     const Row(
@@ -489,7 +489,7 @@ class _DetailFestivalState extends State<DetailFestival> {
         ),
         child: BottomAppBar(
           color: Colors.white,
-          shape: CircularNotchedRectangle(),
+          shape: const CircularNotchedRectangle(),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
@@ -511,10 +511,11 @@ class _DetailFestivalState extends State<DetailFestival> {
                       Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => PilihanTiket()),
+                              builder: (context) => const PilihanTiket()),
                           (route) => false);
                     },
-                    child: Text(
+                    // ignore: sort_child_properties_last
+                    child: const Text(
                       "Beli Tiket",
                       style: TextStyle(
                         color: Colors.white,
