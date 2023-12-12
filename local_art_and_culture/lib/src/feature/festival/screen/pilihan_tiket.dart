@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/src/feature/festival/screen/detail_pembelian.dart';
-import 'package:local_art_and_culture/src/feature/festival/screen/metode_pembayaran.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/appbarpt.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/cardtp.dart';
 
