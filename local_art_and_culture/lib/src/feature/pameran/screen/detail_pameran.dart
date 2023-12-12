@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:local_art_and_culture/src/feature/pameran/screen/home_screen.dart';
 import 'package:local_art_and_culture/src/feature/pameran/screen/pilihan_tiket.dart';
-import 'package:local_art_and_culture/src/feature/pameran/widget/bottm_sheet.dart';
+
 import 'package:local_art_and_culture/src/feature/pameran/widget/marchandies.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/tiket.dart';
 
@@ -286,24 +286,14 @@ class _DetailPameranState extends State<DetailPameran> {
                         const SizedBox(
                           width: 5,
                         ),
-                        TextButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      ShowCustomBottomSheetPage()),
-                            );
-                          },
-                          child: const Text(
-                            'Museum Macan',
-                            style: TextStyle(
-                              color: Color(0xFF0C1226),
-                              fontSize: 13,
-                              fontFamily: 'Plus Jakarta Sans',
-                              fontWeight: FontWeight.w600,
-                              height: 0,
-                            ),
+                        const Text(
+                          'Museum Macan',
+                          style: TextStyle(
+                            color: Color(0xFF0C1226),
+                            fontSize: 13,
+                            fontFamily: 'Plus Jakarta Sans',
+                            fontWeight: FontWeight.w600,
+                            height: 0,
                           ),
                         ),
                       ],
@@ -359,7 +349,7 @@ class _DetailPameranState extends State<DetailPameran> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            BottomSheetFstv(context);
+                            BottomSheetFstv();
                           },
                           child: const Text(
                             "Lihat Denah Acara",
@@ -553,4 +543,7 @@ class _DetailPameranState extends State<DetailPameran> {
       ),
     );
   }
+}
+
+class BottomSheetFstv {
 }
