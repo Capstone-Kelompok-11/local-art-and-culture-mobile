@@ -20,24 +20,17 @@ class _MetodePembayaranState extends State<MetodePembayaran> {
           children: [AppBarMP(), MetodePM()],
         ),
       ),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.3),
-              spreadRadius: 1,
-              blurRadius: 5,
-              offset: const Offset(0, -3),
-            ),
-          ],
-        ),
-        child: BottomAppBar(
-          color: Colors.white,
-          shape: const CircularNotchedRectangle(),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.white,
+        shape: const CircularNotchedRectangle(),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
                     "Total Pembayaran",
@@ -59,35 +52,33 @@ class _MetodePembayaranState extends State<MetodePembayaran> {
                   )
                 ],
               ),
-              Row(
-                children: [
-                  const SizedBox(
-                    width: 100,
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const InvoiceScreen(),
+                    ),
+                    (route) => false,
+                  );
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 8.0),
+                  child: Text(
+                    "Checkout",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                      fontFamily: 'Plus Jakarta Sans',
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const InvoiceScreen()),
-                          (route) => false);
-                    },
-                    child: Text(
-                      "Checkout",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontFamily: 'Plus Jakarta Sans',
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      primary:
-                          Color(0xFF3653B0), // Ubah warna tombol menjadi biru
-                    ),
-                  )
-                ],
-              )
+                ),
+                style: ElevatedButton.styleFrom(
+                  primary: Color(0xFF3653B0),
+                ),
+              ),
             ],
           ),
         ),

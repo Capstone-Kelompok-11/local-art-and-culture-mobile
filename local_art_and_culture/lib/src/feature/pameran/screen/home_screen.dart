@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:local_art_and_culture/src/feature/pameran/components/categories.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/card.dart';
 
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -15,7 +14,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     // ignore: unused_local_variable
-    const Padding = EdgeInsets.all(10.0);
+    //const Padding = EdgeInsets.all(10.0);
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -35,7 +34,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   Row(
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                         icon: const Icon(
                           Icons.arrow_back,
                           size: 24,
@@ -88,7 +89,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   SizedBox(height: 16.0),
                   Categories(),
                   SizedBox(height: 16.0),
-                  
                   RoundedImageCard(
                     width: MediaQuery.of(context).size.width - 32,
                     imagePath: 'assets/img/Pameran2.png',
@@ -101,7 +101,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             )
-
           ],
         ),
       ),

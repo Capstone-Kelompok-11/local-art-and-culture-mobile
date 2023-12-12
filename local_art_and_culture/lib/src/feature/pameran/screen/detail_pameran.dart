@@ -103,7 +103,7 @@ class _DetailPameranState extends State<DetailPameran> {
               ],
             ),
             const SizedBox(
-              height: 29.25,
+              height: 16,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -182,12 +182,15 @@ class _DetailPameranState extends State<DetailPameran> {
                   "Museum macan",
                   style: TextStyle(
                     color: Color(0xFF666666),
-                    fontSize: 16,
+                    fontSize: 14,
                     fontFamily: 'Plus Jakarta Sans',
                     fontWeight: FontWeight.w400,
                   ),
                 )
               ],
+            ),
+            const SizedBox(
+              height: 16,
             ),
             Divider(
               color: Colors.grey.shade200,
@@ -265,51 +268,42 @@ class _DetailPameranState extends State<DetailPameran> {
                             ),
                           ),
                         ),
-                        const SizedBox(
-                          height: 8,
-                        ),
                       ],
+                    ),
+                    const SizedBox(
+                      height: 8,
                     ),
                     Row(
                       children: [
                         SizedBox(
                           width: 24,
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            ShowCustomBottomSheetPage(); // Ganti dengan fungsi yang sesuai
+                        const Icon(
+                          Icons.location_on,
+                          color: Colors.black,
+                          size: 20,
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      ShowCustomBottomSheetPage()),
+                            );
                           },
-                          child: Row(
-                            children: [
-                              const Icon(
-                                Icons.location_on,
-                                color: Colors.black,
-                                size: 20,
-                              ),
-                              const SizedBox(
-                                width: 5,
-                              ),
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            ShowCustomBottomSheetPage()),
-                                  );
-                                },
-                                child: const Text(
-                                  'Museum Macan',
-                                  style: TextStyle(
-                                    color: Color(0xFF0C1226),
-                                    fontSize: 13,
-                                    fontFamily: 'Plus Jakarta Sans',
-                                    fontWeight: FontWeight.w600,
-                                    height: 0,
-                                  ),
-                                ),
-                              ),
-                            ],
+                          child: const Text(
+                            'Museum Macan',
+                            style: TextStyle(
+                              color: Color(0xFF0C1226),
+                              fontSize: 13,
+                              fontFamily: 'Plus Jakarta Sans',
+                              fontWeight: FontWeight.w600,
+                              height: 0,
+                            ),
                           ),
                         ),
                       ],
@@ -342,6 +336,33 @@ class _DetailPameranState extends State<DetailPameran> {
                           onTap: () {},
                           child: const Text(
                             "Lihat di Google Maps",
+                            style: TextStyle(
+                              color: Color(0xFF627DCF),
+                              fontSize: 12,
+                              fontFamily: 'Plus Jakarta Sans',
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    Row(
+                      children: [
+                        const SizedBox(
+                          width: 46,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            BottomSheetFstv(context);
+                          },
+                          child: const Text(
+                            "Lihat Denah Acara",
                             style: TextStyle(
                               color: Color(0xFF627DCF),
                               fontSize: 12,

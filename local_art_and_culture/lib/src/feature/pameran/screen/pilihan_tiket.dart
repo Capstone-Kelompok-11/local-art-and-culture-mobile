@@ -316,24 +316,17 @@ class _PilihanTiketState extends State<PilihanTiket> {
           ],
         ),
       ),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.3),
-              spreadRadius: 1,
-              blurRadius: 5,
-              offset: const Offset(0, -3),
-            ),
-          ],
-        ),
-        child: BottomAppBar(
-          color: Colors.white,
-          shape: const CircularNotchedRectangle(),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.white,
+        shape: const CircularNotchedRectangle(),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
                     "Total Pembayaran",
@@ -345,7 +338,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
                     ),
                   ),
                   Text(
-                    "RP.293.000",
+                    "RP.208.000",
                     style: TextStyle(
                       color: Color(0xFF3653B0),
                       fontSize: 20,
@@ -355,35 +348,34 @@ class _PilihanTiketState extends State<PilihanTiket> {
                   )
                 ],
               ),
-              Row(
-                children: [
-                  const SizedBox(
-                    width: 100,
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const DetailPembelian(),
+                    ),
+                    (route) => false,
+                  );
+                },
+                // ignore: sort_child_properties_last
+                child: const Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  child: Text(
+                    "Selanjutnya",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                      fontFamily: 'Plus Jakarta Sans',
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const DetailPembelian()),
-                          (route) => false);
-                    },
-                    child: Text(
-                      "Selanjutnya",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontFamily: 'Plus Jakarta Sans',
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      primary:
-                          Color(0xFF3653B0), // Ubah warna tombol menjadi biru
-                    ),
-                  )
-                ],
-              )
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF3653B0),
+                ),
+              ),
             ],
           ),
         ),
