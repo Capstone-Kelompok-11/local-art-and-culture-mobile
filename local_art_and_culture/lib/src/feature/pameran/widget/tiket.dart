@@ -4,7 +4,6 @@ class Tiket extends StatelessWidget {
   final String imagePath;
   final String title;
   final String date;
-  
   final String harga;
 
   const Tiket({
@@ -83,20 +82,7 @@ class Tiket extends StatelessWidget {
                             fontWeight: FontWeight.w700,
                           ),
                         ),
-                        // Row(
-                        //   children: [
-                        //     Image.asset("assets/img/label_important.png"),
-                        //     Text(
-                        //       "$category",
-                        //       style: const TextStyle(
-                        //         color: Color(0xFF999999),
-                        //         fontSize: 10,
-                        //         fontFamily: 'Plus Jakarta Sans',
-                        //         fontWeight: FontWeight.w400,
-                        //       ),
-                        //     )
-                        //   ],
-                        // ),
+                        
                         Row(
                           children: [
                             Image.asset("assets/img/access_alarm1.png"),

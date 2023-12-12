@@ -39,6 +39,21 @@ class _FormDpState extends State<FormDp> {
           TextFields(text: "Nomor Handphone *"),
           TextFields(text: "Alamat Email *"),
           TextFields(text: "No KTP *"),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              const Text(
+                'Tambahkan sebagai Pengunjung',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 12,
+                  fontFamily: 'Plus Jakarta Sans',
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SwitchButton(),
+            ],
+          )
         ],
       ),
     );

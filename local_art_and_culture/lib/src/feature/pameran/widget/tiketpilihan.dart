@@ -20,7 +20,7 @@ class TiketPilihan extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 394,
-      height: 172,
+      height: 272,
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
