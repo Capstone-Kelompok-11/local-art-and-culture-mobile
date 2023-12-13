@@ -232,23 +232,25 @@ class _EventPageState extends State<EventPage> {
                               padding: const EdgeInsets.only(
                                   left: 15, right: 15, top: 7),
                               child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(
-                                    'From IDR 79K | ',
-                                    style: TextStyle(
-                                        fontSize: 12, color: Colors.grey),
-                                  ),
-                                  Icon(
-                                    Icons.add_location_rounded,
-                                    size: 12,
-                                  ),
-                                  Text(
-                                    events[index].location,
-                                    style: TextStyle(
-                                        fontSize: 12, color: Colors.grey),
-                                  ),
-                                  SizedBox(
-                                    width: 144,
+                                  Row(
+                                    children: [
+                                      Text(
+                                        'From IDR 79K | ',
+                                        style: TextStyle(
+                                            fontSize: 12, color: Colors.grey),
+                                      ),
+                                      Icon(
+                                        Icons.add_location_rounded,
+                                        size: 12,
+                                      ),
+                                      Text(
+                                        events[index].location,
+                                        style: TextStyle(
+                                            fontSize: 12, color: Colors.grey),
+                                      ),
+                                    ],
                                   ),
                                   Container(
                                     height: 15,
