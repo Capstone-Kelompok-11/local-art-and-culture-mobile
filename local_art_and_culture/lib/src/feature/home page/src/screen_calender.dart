@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class DetailCalenderEvent extends StatefulWidget {
-  const DetailCalenderEvent({super.key});
+  const DetailCalenderEvent({Key? key}) : super(key: key);
 
   @override
   State<DetailCalenderEvent> createState() => _DetailCalenderEventState();
@@ -13,6 +13,7 @@ class _DetailCalenderEventState extends State<DetailCalenderEvent> {
   List<DateTime?> _singleDate = [DateTime.now()];
   String? duedate;
   List<dynamic> _data = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,23 +27,22 @@ class _DetailCalenderEventState extends State<DetailCalenderEvent> {
               margin: const EdgeInsets.all(30),
               child: CalendarDatePicker2(
                 config: CalendarDatePicker2Config(
-                    calendarType: CalendarDatePicker2Type.single),
+                  calendarType: CalendarDatePicker2Type.single,
+                ),
                 value: _singleDate,
                 onValueChanged: (value) {
-                  _singleDate = value;
-                  print(_singleDate);
-                  DateTime? dateTime = _singleDate.first!;
-                  duedate = DateFormat("yyyy-MM-dd").format(dateTime);
-                  print(duedate);
-                  if (duedate == "2023-12-27") {
-                    setState(() {
+                  setState(() {
+                    _singleDate = value;
+                    print(_singleDate);
+                    DateTime? dateTime = _singleDate.first!;
+                    duedate = DateFormat("yyyy-MM-dd").format(dateTime!);
+                    print(duedate);
+                    if (duedate == "2023-12-27") {
                       _data.add({"title": "A", "desk": "aaa"});
-                    });
-                  } else {
-                    setState(() {
+                    } else {
                       _data.clear();
-                    });
-                  }
+                    }
+                  });
                 },
               ),
             ),
@@ -52,13 +52,15 @@ class _DetailCalenderEventState extends State<DetailCalenderEvent> {
             child: ListView.builder(
               itemCount: _data.length,
               itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text('Haloo'),
-                  subtitle: Text('haloo'),
+                return Card(
+                  child: ListTile(
+                    title: Text(_data[index]["title"]),
+                    subtitle: Text(_data[index]["desk"]),
+                  ),
                 );
               },
             ),
-          )
+          ),
         ],
       ),
     );
