@@ -3,8 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:chat_bubbles/bubbles/bubble_normal.dart';
 
-class ChatScreen extends StatelessWidget {
-  const ChatScreen({super.key});
+class DetailChatScreen extends StatelessWidget {
+  const DetailChatScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
