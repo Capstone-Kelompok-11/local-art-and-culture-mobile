@@ -125,7 +125,7 @@ class RoundedImageCard extends StatelessWidget {
               const Stack(
                 children: [
                   SizedBox(
-                    width: 75,
+                    width: 60,
                   ),
                 ],
               ),
