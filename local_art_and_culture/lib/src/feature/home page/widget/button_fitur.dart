@@ -43,7 +43,7 @@ class MyButtons extends StatelessWidget {
                 // Navigasi ke halaman EditScreen
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                  MaterialPageRoute(builder: (context) => HomeScreenFstv()),
                 );
               },
               child: buildButton(

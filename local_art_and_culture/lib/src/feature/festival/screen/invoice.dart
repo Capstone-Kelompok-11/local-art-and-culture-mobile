@@ -99,10 +99,12 @@ class _InvoiceScreenState extends State<InvoiceScreen> {
                   onPressed: () {
                     Navigator.pushAndRemoveUntil(
                         context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                        MaterialPageRoute(
+                            builder: (context) => const HomeScreenFstv()),
                         (route) => false);
                   },
-                  style: ElevatedButton.styleFrom(primary: Color(0xFF3653B0)),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFF3653B0)),
                   child: const Text(
                     'Lanjut Berbelanja',
                     textAlign: TextAlign.center,

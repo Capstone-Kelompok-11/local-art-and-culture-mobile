@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:local_art_and_culture/src/feature/festival/widget/switchbutton.dart';
 
 class FormDp extends StatefulWidget {
   const FormDp({super.key});
@@ -12,14 +13,14 @@ class _FormDpState extends State<FormDp> {
   Widget build(BuildContext context) {
     return Container(
       width: 394,
-      height: 420,
+      height: 440,
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
       decoration: const BoxDecoration(
         color: Colors.white,
       ),
-      child: const Column(
+      child: Column(
         children: [
-          Row(
+          const Row(
             children: [
               SizedBox(
                 width: 20,
@@ -35,10 +36,25 @@ class _FormDpState extends State<FormDp> {
               ),
             ],
           ),
-          TextFields(text: "Nama Lengkap *"),
-          TextFields(text: "Nomor Handphone *"),
-          TextFields(text: "Alamat Email *"),
-          TextFields(text: "No KTP *"),
+          const TextFields(text: "Nama Lengkap *"),
+          const TextFields(text: "Nomor Handphone *"),
+          const TextFields(text: "Alamat Email *"),
+          const TextFields(text: "No KTP *"),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              const Text(
+                'Tambahkan sebagai Pengunjung',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 12,
+                  fontFamily: 'Plus Jakarta Sans',
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SwitchButton(),
+            ],
+          )
         ],
       ),
     );

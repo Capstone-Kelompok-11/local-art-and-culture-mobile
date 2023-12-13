@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:local_art_and_culture/src/feature/profil/screen_alamat_profil.dart';
 import 'package:local_art_and_culture/src/feature/profil/screen_edit_profil.dart';
+import 'package:local_art_and_culture/src/feature/profil/screen_ubahpw.dart';
 
 class AccountSection extends StatefulWidget {
   const AccountSection({Key? key}) : super(key: key);
@@ -59,7 +61,14 @@ class _AccountSectionState extends State<AccountSection> {
                   decoration: const BoxDecoration(),
                   child: Stack(children: [
                     IconButton(
-                        onPressed: () {},
+                        onPressed: () async {
+                          // Navigasi ke halaman EditScreen
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => UbahPassword()),
+                          );
+                        },
                         icon: const Icon(Icons.keyboard_arrow_right))
                   ]),
                 )
@@ -131,7 +140,14 @@ class _AccountSectionState extends State<AccountSection> {
                   decoration: const BoxDecoration(),
                   child: Stack(children: [
                     IconButton(
-                        onPressed: () {},
+                        onPressed: () async {
+                          // Navigasi ke halaman EditScreen
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AlamatPage()),
+                          );
+                        },
                         icon: const Icon(Icons.keyboard_arrow_right))
                   ]),
                 )

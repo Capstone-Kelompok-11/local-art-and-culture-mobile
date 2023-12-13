@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:local_art_and_culture/src/feature/festival/screen/home_screen.dart';
 import 'package:local_art_and_culture/src/feature/festival/screen/pilihan_tiket.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/bintang_tamu.dart';
+import 'package:local_art_and_culture/src/feature/festival/widget/bottomsheet.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/marchandies.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/tiket.dart';
 
@@ -37,10 +38,10 @@ class _DetailFestivalState extends State<DetailFestival> {
                                   .withOpacity(0.2), // Warna bayangan
                               spreadRadius: 2, // Radius penyebaran bayangan
                               blurRadius: 5, // Radius blur bayangan
-                              offset: Offset(0, 3),
+                              offset: const Offset(0, 3),
                             )
                           ],
-                          image: DecorationImage(
+                          image: const DecorationImage(
                               image: AssetImage('assets/png/gambar1_21.png'),
                               fit: BoxFit.fill),
                         ),
@@ -56,7 +57,7 @@ class _DetailFestivalState extends State<DetailFestival> {
                               color: Colors.black.withOpacity(0.2),
                               spreadRadius: 5,
                               blurRadius: 7,
-                              offset: Offset(0, 3),
+                              offset: const Offset(0, 3),
                             )
                           ]),
                         ),
@@ -93,7 +94,8 @@ class _DetailFestivalState extends State<DetailFestival> {
                     onPressed: () {
                       Navigator.pushAndRemoveUntil(
                           context,
-                          MaterialPageRoute(builder: (context) => HomeScreen()),
+                          MaterialPageRoute(
+                              builder: (context) => const HomeScreenFstv()),
                           (route) => false);
                       // Handle favorite button press
                     },
@@ -102,19 +104,19 @@ class _DetailFestivalState extends State<DetailFestival> {
               ],
             ),
             const SizedBox(
-              height: 29.25,
+              height: 16,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   width: 24,
                 ),
                 Container(
-                  margin: EdgeInsets.all(5.0),
-                  padding: EdgeInsets.all(8),
+                  margin: const EdgeInsets.all(5.0),
+                  padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                      color: Color(0xFF91A1D3),
+                      color: const Color(0xFF91A1D3),
                       borderRadius: BorderRadius.circular(20.0)),
                   child: const Text(
                     "Festival Budaya",
@@ -128,7 +130,7 @@ class _DetailFestivalState extends State<DetailFestival> {
                   margin: const EdgeInsets.all(5.0),
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                      color: Color(0xFFEBEEF9),
+                      color: const Color(0xFFEBEEF9),
                       borderRadius: BorderRadius.circular(20.0)),
                   child: const Text(
                     "Berbayar",
@@ -160,7 +162,6 @@ class _DetailFestivalState extends State<DetailFestival> {
                     fontSize: 24,
                     fontFamily: 'Plus Jakarta Sans',
                     fontWeight: FontWeight.w700,
-                    height: 0.06,
                   ),
                 ),
               ],
@@ -180,13 +181,16 @@ class _DetailFestivalState extends State<DetailFestival> {
                 const Text(
                   "Jak-Japan Projects",
                   style: TextStyle(
-                    color: Color(0xFF666666),
-                    fontSize: 16,
+                    color: Colors.black,
+                    fontSize: 14,
                     fontFamily: 'Plus Jakarta Sans',
-                    fontWeight: FontWeight.w400,
+                    fontWeight: FontWeight.w600,
                   ),
                 )
               ],
+            ),
+            const SizedBox(
+              height: 16,
             ),
             Divider(
               color: Colors.grey.shade200,
@@ -264,10 +268,10 @@ class _DetailFestivalState extends State<DetailFestival> {
                             ),
                           ),
                         ),
-                        const SizedBox(
-                          height: 8,
-                        ),
                       ],
+                    ),
+                    const SizedBox(
+                      height: 24,
                     ),
                     const Row(
                       children: [
@@ -294,7 +298,7 @@ class _DetailFestivalState extends State<DetailFestival> {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 3,
                     ),
                     const Row(
@@ -322,6 +326,33 @@ class _DetailFestivalState extends State<DetailFestival> {
                           onTap: () {},
                           child: const Text(
                             "Lihat di Google Maps",
+                            style: TextStyle(
+                              color: Color(0xFF627DCF),
+                              fontSize: 12,
+                              fontFamily: 'Plus Jakarta Sans',
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    Row(
+                      children: [
+                        const SizedBox(
+                          width: 46,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            BottomSheetFstv(context);
+                          },
+                          child: const Text(
+                            "Lihat Denah Acara",
                             style: TextStyle(
                               color: Color(0xFF627DCF),
                               fontSize: 12,
@@ -458,7 +489,7 @@ class _DetailFestivalState extends State<DetailFestival> {
         ),
         child: BottomAppBar(
           color: Colors.white,
-          shape: CircularNotchedRectangle(),
+          shape: const CircularNotchedRectangle(),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
@@ -480,10 +511,11 @@ class _DetailFestivalState extends State<DetailFestival> {
                       Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => PilihanTiket()),
+                              builder: (context) => const PilihanTiket()),
                           (route) => false);
                     },
-                    child: Text(
+                    // ignore: sort_child_properties_last
+                    child: const Text(
                       "Beli Tiket",
                       style: TextStyle(
                         color: Colors.white,
