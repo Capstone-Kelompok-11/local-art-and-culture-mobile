@@ -1,11 +1,8 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/models/login_model.dart';
 import 'package:local_art_and_culture/utils/token_account.dart';
 import 'package:local_art_and_culture/utils/utils.dart';
-import 'package:http/http.dart' as http;
 
 class SignInService {
   final Dio _dio = Dio();
@@ -19,6 +16,7 @@ class SignInService {
           'password': password,
         },
       );
+      // ignore: avoid_print
       print(response.statusCode);
       debugPrint("=>${response.data}");
 
@@ -51,17 +49,14 @@ class SignInService {
         data: data,
       );
 
-      // Check if the request was successful (status code 200)
       if (response.statusCode == 200) {
-        // Parse the response and return the data
         Map<String, dynamic> responseData = response.data;
         return responseData;
       } else {
-        // If the request was not successful, throw an exception
         throw Exception('Failed to log in');
       }
     } catch (error) {
-      // Handle Dio errors or other exceptions
+      // ignore: avoid_print
       print('Error during login: $error');
       throw Exception('Failed to log in');
     }
