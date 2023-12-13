@@ -94,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     imagePath: 'assets/img/Pameran1.png',
                     title: 'Orasis Art Gallery',
                     harga: 'From IDR 10 K',
-                    location: 'Orasis Art Gallery',
+                    location: 'Orasis Art Gallery                          ',
                   ),
                   SizedBox(height: 18),
                   RoundedImageCard(
@@ -102,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     imagePath: 'assets/img/Pameran2.png',
                     title: 'Edwin galley',
                     harga: 'From IDR 0 K',
-                    location: 'Edwin Gallery',
+                    location: 'Edwin Gallery                                  ',
                   ),
                   SizedBox(height: 18),
                   RoundedImageCard(
@@ -110,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     imagePath: 'assets/img/Pameran3.png',
                     title: 'Orasis Art Gallery',
                     harga: 'From IDR 0 K',
-                    location: 'Jl. Kemang Timur No. 90C',
+                    location: 'Jl. Kemang Timur No. 90C    ',
                   ),
                   SizedBox(height: 18),
                   RoundedImageCard(
@@ -118,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     imagePath: 'assets/img/Pameran4.png',
                     title: 'Museum Macan (Voice Against Reason)',
                     harga: 'From IDR 50 K',
-                    location: 'Museum Macan',
+                    location: 'Museum Macan                          ',
                   ),
                   SizedBox(height: 18),
                   RoundedImageCard(
@@ -126,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     imagePath: 'assets/img/Pameran5.png',
                     title: 'Biasa Art Space Bali',
                     harga: 'From IDR 10 K',
-                    location: 'Seminyak',
+                    location: 'Seminyak                                         ',
                   ),
                   SizedBox(height: 18),
                 ],

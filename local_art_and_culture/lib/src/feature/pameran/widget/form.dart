@@ -18,7 +18,7 @@ class _FormDpState extends State<FormDp> {
       decoration: const BoxDecoration(
         color: Colors.white,
       ),
-      child: const Column(
+      child:  Column(
         children: [
           Row(
             children: [
@@ -43,7 +43,7 @@ class _FormDpState extends State<FormDp> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              const Text(
+              Text(
                 'Tambahkan sebagai Pengunjung',
                 style: TextStyle(
                   color: Colors.black,
@@ -52,7 +52,7 @@ class _FormDpState extends State<FormDp> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              //SwitchButton(),
+              SwitchButton(),
             ],
           )
         ],
