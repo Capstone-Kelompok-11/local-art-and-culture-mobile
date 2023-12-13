@@ -345,11 +345,38 @@ class _PilihanTiketState extends State<PilihanTiket> {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
+<<<<<<< Updated upstream
                 ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF3653B0),
                 ),
               ),
+=======
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const DetailPembelian()),
+                          (route) => false);
+                    },
+                    child: Text(
+                      "Selanjutnya",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontFamily: 'Plus Jakarta Sans',
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      primary:
+                          Color(0xFF3653B0), // Ubah warna tombol menjadi biru
+                    ),
+                  )
+                ],
+              )
+>>>>>>> Stashed changes
             ],
           ),
         ),

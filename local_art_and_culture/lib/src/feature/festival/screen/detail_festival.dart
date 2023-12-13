@@ -449,6 +449,25 @@ class _DetailFestivalState extends State<DetailFestival> {
               height: 8,
               thickness: 8,
             ),
+            const Row(
+              children: [
+                SizedBox(
+                  width: 24,
+                ),
+                Text(
+                  'Merchandise',
+                  style: TextStyle(
+                    color: Color(0xFF0C1226),
+                    fontSize: 20,
+                    fontFamily: 'Plus Jakarta Sans',
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 16,
+            ),
             const SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -525,7 +544,8 @@ class _DetailFestivalState extends State<DetailFestival> {
                       ),
                     ),
                     style: ElevatedButton.styleFrom(
-                      primary: Colors.blue, // Ubah warna tombol menjadi biru
+                      primary:
+                          Color(0xFF3653B0), // Ubah warna tombol menjadi biru
                     ),
                   )
                 ],
