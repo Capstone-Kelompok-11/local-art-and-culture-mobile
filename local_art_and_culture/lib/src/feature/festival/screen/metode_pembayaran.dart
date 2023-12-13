@@ -76,6 +76,9 @@ class _MetodePembayaranState extends State<MetodePembayaran> {
                 ),
                 style: ElevatedButton.styleFrom(
                   primary: Color(0xFF3653B0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
                 ),
               ),
             ],

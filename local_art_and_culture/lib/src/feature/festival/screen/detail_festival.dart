@@ -520,32 +520,39 @@ class _DetailFestivalState extends State<DetailFestival> {
                 onPressed: () {},
                 icon: SvgPicture.asset("assets/svg/cart Navbar.svg"),
               ),
+              Spacer(),
               Row(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  const SizedBox(
-                    width: 100,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const PilihanTiket()),
-                          (route) => false);
-                    },
-                    // ignore: sort_child_properties_last
-                    child: const Text(
-                      "Beli Tiket",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontFamily: 'Plus Jakarta Sans',
-                        fontWeight: FontWeight.w600,
+                  Container(
+                    width: 209,
+                    height: 48,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 12),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const PilihanTiket()),
+                            (route) => false);
+                      },
+                      // ignore: sort_child_properties_last
+                      child: const Text(
+                        "Beli Tiket",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                          fontFamily: 'Plus Jakarta Sans',
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      primary:
-                          Color(0xFF3653B0), // Ubah warna tombol menjadi biru
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xFF3653B0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
                     ),
                   )
                 ],
