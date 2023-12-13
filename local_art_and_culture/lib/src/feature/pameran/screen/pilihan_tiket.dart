@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:local_art_and_culture/src/feature/festival/screen/detail_pembelian.dart';
-import 'package:local_art_and_culture/src/feature/festival/widget/appbarpt.dart';
-import 'package:local_art_and_culture/src/feature/festival/widget/cardtp.dart';
-
-import 'package:local_art_and_culture/src/feature/festival/widget/tiketpilihan.dart';
+import 'package:local_art_and_culture/src/feature/pameran/screen/detail_pembelian.dart';
+import 'package:local_art_and_culture/src/feature/pameran/widget/appbarpt.dart';
+import 'package:local_art_and_culture/src/feature/pameran/widget/cardtp.dart';
+import 'package:local_art_and_culture/src/feature/pameran/widget/tiketpilihan.dart';
 
 class PilihanTiket extends StatefulWidget {
   const PilihanTiket({super.key});
@@ -33,10 +32,17 @@ class _PilihanTiketState extends State<PilihanTiket> {
               height: 16,
             ),
             TiketPilihan(
-              imagePath: "assets/png/gambar1_3.png",
-              title: "Tickets Jak-japan Matsuri 2023 Day 1",
-              date: "18 Nov ‘23, 09:30-20.30 WIB",
-              harga: "120.000",
+              imagePath: "assets/img/Pameran2.png",
+              title: "Museum Macan (Voice Against \nReason)",
+              date: "Senin - Jumat",
+              harga: "50.000",
+              category: 'Regular Day2',
+            ),
+            TiketPilihan(
+              imagePath: "assets/img/Pameran2.png",
+              title: "Museum Macan (Voice Against \nReason)",
+              date: "Senin - Jumat",
+              harga: "79.000",
               category: 'Regular Day2',
             ),
             Row(
@@ -60,16 +66,37 @@ class _PilihanTiketState extends State<PilihanTiket> {
               child: Row(
                 children: [
                   CardTP(
-                      imagePath: "assets/png/mug.png",
-                      title: "Mug Jak",
-                      harga: "55.000"),
+                      imagePath: "assets/img/Merch1.png",
+                      title: "Bloom",
+                      harga: "170.000"),
                   SizedBox(
                     width: 20,
                   ),
                   CardTP(
-                      imagePath: "assets/png/masker.png",
-                      title: "Masker",
-                      harga: "30.000")
+                      imagePath: "assets/img/Merch2.png",
+                      title: "Medioker",
+                      harga: "200.000")
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  CardTP(
+                      imagePath: "assets/img/Merch3.png",
+                      title: "Poster",
+                      harga: "150.000"),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  CardTP(
+                      imagePath: "assets/img/Merch4.png",
+                      title: "Medioker",
+                      harga: "200.000")
                 ],
               ),
             ),
@@ -118,7 +145,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  width: 3,
+                  width: 15,
                 ),
                 Text(
                   "Total Harga",
@@ -133,7 +160,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
                   width: 140,
                 ),
                 Text(
-                  'Rp.205.000',
+                  'Rp.290.000',
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 14,
@@ -178,7 +205,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  width: 16,
+                  width: 25,
                 ),
                 Text(
                   "Biaya Layanan",
@@ -190,7 +217,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
                   ),
                 ),
                 SizedBox(
-                  width: 190,
+                  width: 170,
                 ),
                 Text(
                   'Rp.1.000',
@@ -214,7 +241,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  width: 14,
+                  width: 22,
                 ),
                 Text(
                   "Biaya Jasa Aplikasi",
@@ -226,7 +253,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
                   ),
                 ),
                 SizedBox(
-                  width: 150,
+                  width: 130,
                 ),
                 Text(
                   'Rp.2.000',
@@ -255,7 +282,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  width: 16,
+                  width: 20,
                 ),
                 Text(
                   "Total Pembayaran",
@@ -267,10 +294,10 @@ class _PilihanTiketState extends State<PilihanTiket> {
                   ),
                 ),
                 SizedBox(
-                  width: 130,
+                  width: 115,
                 ),
                 Text(
-                  'Rp.208.000',
+                  'Rp.293.000',
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 14,
@@ -293,7 +320,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
         color: Colors.white,
         shape: const CircularNotchedRectangle(),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 5.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
@@ -311,7 +338,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
                     ),
                   ),
                   Text(
-                    "RP.208.000",
+                    "RP.293.000",
                     style: TextStyle(
                       color: Color(0xFF3653B0),
                       fontSize: 20,
@@ -344,38 +371,11 @@ class _PilihanTiketState extends State<PilihanTiket> {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-<<<<<<< Updated upstream
                 ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF3653B0),
                 ),
               ),
-=======
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const DetailPembelian()),
-                          (route) => false);
-                    },
-                    child: Text(
-                      "Selanjutnya",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontFamily: 'Plus Jakarta Sans',
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      primary:
-                          Color(0xFF3653B0), // Ubah warna tombol menjadi biru
-                    ),
-                  )
-                ],
-              )
->>>>>>> Stashed changes
             ],
           ),
         ),

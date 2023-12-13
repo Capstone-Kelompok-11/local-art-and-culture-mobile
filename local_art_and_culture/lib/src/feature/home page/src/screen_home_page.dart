@@ -11,6 +11,7 @@ import 'package:local_art_and_culture/src/feature/home%20page/widget/icon_filter
 import 'package:local_art_and_culture/src/feature/home%20page/widget/news_card.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/searchbar.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/slider_home_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -26,7 +27,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    fetchNewsData(); // Ubah pemanggilan dari fetchData() menjadi fetchNewsData()
+    fetchNewsData();
+    GetName(); // Ubah pemanggilan dari fetchData() menjadi fetchNewsData()
   }
 
   Future<void> fetchNewsData() async {
@@ -50,6 +52,14 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+  String nama = '';
+  Future<void> GetName() async {
+    SharedPreferences name = await SharedPreferences.getInstance();
+    setState(() {
+      nama = name.getString('nama') ?? 'Sule';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     const cardPadding = EdgeInsets.all(10.0); // Tetapkan padding untuk kartu
@@ -64,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 Container(
                   padding: const EdgeInsets.only(
-                    top: 20,
+                    top: 5,
                     left: 24,
                     right: 24,
                     bottom: 28,
@@ -83,12 +93,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Row(
+                      Row(
                         children: [
                           Expanded(
                             child: CustomContainer(
                               profileImageUrl: 'assets/foto.jpg',
-                              greetingText: 'Horas, Sule!',
+                              greetingText: 'Horas, $nama',
                               locationText: 'Surabaya',
                             ),
                           )
