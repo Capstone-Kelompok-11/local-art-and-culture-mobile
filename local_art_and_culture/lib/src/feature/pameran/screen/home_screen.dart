@@ -86,9 +86,17 @@ class _HomeScreenState extends State<HomeScreen> {
               margin: EdgeInsets.all(16.0), // Atur margin sesuai kebutuhan
               child: Column(
                 children: [
-                  SizedBox(height: 16.0),
+                  SizedBox(height: 2.0),
                   Categories(),
                   SizedBox(height: 16.0),
+                  RoundedImageCard(
+                    width: MediaQuery.of(context).size.width - 32,
+                    imagePath: 'assets/img/Pameran1.png',
+                    title: 'Orasis Art Gallery',
+                    harga: 'From IDR 10 K',
+                    location: 'Orasis Art Gallery',
+                  ),
+                  SizedBox(height: 18),
                   RoundedImageCard(
                     width: MediaQuery.of(context).size.width - 32,
                     imagePath: 'assets/img/Pameran2.png',
@@ -96,8 +104,31 @@ class _HomeScreenState extends State<HomeScreen> {
                     harga: 'From IDR 0 K',
                     location: 'Edwin Gallery',
                   ),
-                  SizedBox(height: 16),
-                  // Tambahkan widget lainnya sesuai kebutuhan
+                  SizedBox(height: 18),
+                  RoundedImageCard(
+                    width: MediaQuery.of(context).size.width - 32,
+                    imagePath: 'assets/img/Pameran3.png',
+                    title: 'Orasis Art Gallery',
+                    harga: 'From IDR 0 K',
+                    location: 'Jl. Kemang Timur No. 90C',
+                  ),
+                  SizedBox(height: 18),
+                  RoundedImageCard(
+                    width: MediaQuery.of(context).size.width - 32,
+                    imagePath: 'assets/img/Pameran4.png',
+                    title: 'Museum Macan (Voice Against Reason)',
+                    harga: 'From IDR 50 K',
+                    location: 'Museum Macan',
+                  ),
+                  SizedBox(height: 18),
+                  RoundedImageCard(
+                    width: MediaQuery.of(context).size.width - 32,
+                    imagePath: 'assets/img/Pameran5.png',
+                    title: 'Biasa Art Space Bali',
+                    harga: 'From IDR 10 K',
+                    location: 'Seminyak',
+                  ),
+                  SizedBox(height: 18),
                 ],
               ),
             )

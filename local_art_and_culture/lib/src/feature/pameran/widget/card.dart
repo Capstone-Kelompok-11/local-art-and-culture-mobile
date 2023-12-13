@@ -41,7 +41,7 @@ class RoundedImageCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(30.0),
+            borderRadius: BorderRadius.circular(14.0),
             child: Image.asset(
               imagePath,
               width: 321,
@@ -54,29 +54,29 @@ class RoundedImageCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
-                margin: EdgeInsets.all(5.0),
-                padding: EdgeInsets.all(8),
+                margin: const EdgeInsets.all(5.0),
+                padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                    color: Color(0xFF91A1D3),
+                    color: const Color(0xFFE8644B),
                     borderRadius: BorderRadius.circular(20.0)),
                 child: const Text(
                   "Pameran",
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 10,
-                      fontWeight: FontWeight.w500),
+                      fontWeight: FontWeight.w900),
                 ),
               ),
               Container(
                 margin: const EdgeInsets.all(5.0),
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                    color: Color(0xFFEBEEF9),
+                    color: const Color(0xFF91A1D3),
                     borderRadius: BorderRadius.circular(20.0)),
                 child: const Text(
                   "Berbayar",
                   style: TextStyle(
-                    color: Color(0xFF768DD5),
+                    color: Colors.white,
                     fontSize: 10,
                     fontFamily: 'Plus Jakarta Sans',
                     fontWeight: FontWeight.w500,
@@ -85,7 +85,7 @@ class RoundedImageCard extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 10),
           Text(
             '$title',
             style: const TextStyle(
@@ -95,7 +95,7 @@ class RoundedImageCard extends StatelessWidget {
               fontWeight: FontWeight.w700,
             ),
           ),
-          const SizedBox(height: 5),
+          const SizedBox(height: 3),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [

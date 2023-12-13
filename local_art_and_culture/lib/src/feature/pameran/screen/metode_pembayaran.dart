@@ -24,7 +24,7 @@ class _MetodePembayaranState extends State<MetodePembayaran> {
         color: Colors.white,
         shape: const CircularNotchedRectangle(),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 5.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[

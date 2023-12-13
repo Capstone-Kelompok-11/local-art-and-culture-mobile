@@ -2,9 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:local_art_and_culture/src/feature/pameran/screen/home_screen.dart';
 import 'package:local_art_and_culture/src/feature/pameran/screen/pilihan_tiket.dart';
-
+import 'package:local_art_and_culture/src/feature/pameran/widget/bottomsheet.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/marchandies.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/tiket.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Nama Aplikasi Anda',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: HomeScreen(),
+    );
+  }
+}
 
 class DetailPameran extends StatefulWidget {
   const DetailPameran({super.key});
@@ -235,7 +252,7 @@ class _DetailPameranState extends State<DetailPameran> {
                     const Row(
                       children: [
                         SizedBox(
-                          width: 29,
+                          width: 20,
                         ),
                         Text(
                           "Voice Against Reason adalah pameran besar \nyang melibatkan 24 perupa dari Australia, \nBangladesh, India, Indonesia, Jepang, \nSingapura, Taiwan, Thailand, dan Vietnam.",
@@ -273,20 +290,20 @@ class _DetailPameranState extends State<DetailPameran> {
                     const SizedBox(
                       height: 8,
                     ),
-                    Row(
+                    const Row(
                       children: [
                         SizedBox(
                           width: 24,
                         ),
-                        const Icon(
+                        Icon(
                           Icons.location_on,
                           color: Colors.black,
                           size: 20,
                         ),
-                        const SizedBox(
+                        SizedBox(
                           width: 5,
                         ),
-                        const Text(
+                        Text(
                           'Museum Macan',
                           style: TextStyle(
                             color: Color(0xFF0C1226),
@@ -349,7 +366,7 @@ class _DetailPameranState extends State<DetailPameran> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            BottomSheetFstv();
+                            BottomSheetFstv(context);
                           },
                           child: const Text(
                             "Lihat Denah Acara",
@@ -545,5 +562,5 @@ class _DetailPameranState extends State<DetailPameran> {
   }
 }
 
-class BottomSheetFstv {
-}
+// class BottomSheetFstv {
+// }

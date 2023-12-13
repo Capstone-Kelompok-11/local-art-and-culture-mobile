@@ -39,7 +39,7 @@ class _DetailPembelianState extends State<DetailPembelian> {
         color: Colors.white,
         shape: const CircularNotchedRectangle(),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 5.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
@@ -57,7 +57,7 @@ class _DetailPembelianState extends State<DetailPembelian> {
                     ),
                   ),
                   Text(
-                    "RP.208.000",
+                    "RP.293.000",
                     style: TextStyle(
                       color: Color(0xFF3653B0),
                       fontSize: 20,

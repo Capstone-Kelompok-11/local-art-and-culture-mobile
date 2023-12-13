@@ -17,7 +17,7 @@ void BottomSheetFstv(BuildContext context) {
                   children: [
                     IconButton(
                       onPressed: () {},
-                      icon: SvgPicture.asset("assets/svg/denah.png"),
+                      icon: SvgPicture.asset("assets/svg/close.svg"),
                     ),
                     const SizedBox(
                       width: 8,
@@ -35,7 +35,7 @@ void BottomSheetFstv(BuildContext context) {
                 ),
                 Container(
                   width: 362,
-                  height: 300,
+                  height: 280,
                   decoration: const BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage("assets/png/denah.png"),

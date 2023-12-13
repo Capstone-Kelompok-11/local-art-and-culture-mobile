@@ -145,7 +145,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  width: 3,
+                  width: 15,
                 ),
                 Text(
                   "Total Harga",
@@ -205,7 +205,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  width: 16,
+                  width: 25,
                 ),
                 Text(
                   "Biaya Layanan",
@@ -217,7 +217,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
                   ),
                 ),
                 SizedBox(
-                  width: 190,
+                  width: 170,
                 ),
                 Text(
                   'Rp.1.000',
@@ -241,7 +241,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  width: 14,
+                  width: 22,
                 ),
                 Text(
                   "Biaya Jasa Aplikasi",
@@ -253,7 +253,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
                   ),
                 ),
                 SizedBox(
-                  width: 150,
+                  width: 130,
                 ),
                 Text(
                   'Rp.2.000',
@@ -282,7 +282,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  width: 16,
+                  width: 20,
                 ),
                 Text(
                   "Total Pembayaran",
@@ -294,7 +294,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
                   ),
                 ),
                 SizedBox(
-                  width: 150,
+                  width: 115,
                 ),
                 Text(
                   'Rp.293.000',
@@ -320,7 +320,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
         color: Colors.white,
         shape: const CircularNotchedRectangle(),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 5.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
@@ -338,7 +338,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
                     ),
                   ),
                   Text(
-                    "RP.208.000",
+                    "RP.293.000",
                     style: TextStyle(
                       color: Color(0xFF3653B0),
                       fontSize: 20,

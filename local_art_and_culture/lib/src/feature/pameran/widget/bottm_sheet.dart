@@ -6,14 +6,14 @@ class ShowCustomBottomSheetPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Denah Acara'),
+        title: const Text('Denah Acara'),
       ),
       body: Center(
         child: ElevatedButton(
           onPressed: () {
             _showCustomBottomSheet(context);
           },
-          child: Icon(Icons.add),
+          child: const Icon(Icons.add),
         ),
       ),
     );
@@ -22,7 +22,7 @@ class ShowCustomBottomSheetPage extends StatelessWidget {
   void _showCustomBottomSheet(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20.0)),
       ),
       builder: (BuildContext context) {
@@ -36,7 +36,7 @@ class CustomBottomSheetContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(16.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
@@ -44,36 +44,36 @@ class CustomBottomSheetContent extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               IconButton(
-                icon: Icon(Icons.close),
+                icon: const Icon(Icons.close),
                 onPressed: () {
                   Navigator.pop(context);
                 },
               ),
-              SizedBox(width: 3),
-              Text(
+              const SizedBox(width: 3),
+              const Text(
                 'Denah Acara',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
             ],
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Image.asset(
             'assets/denah.png',
             height: 100,
             width: 300,
             fit: BoxFit.cover,
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           Container(
             height: 5,
             color: const Color.fromARGB(255, 63, 57, 57),
           ),
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
           Container(
             width: double.infinity,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(20.0)),
-              color: const Color.fromARGB(255, 15, 95, 160),
+              color:  Color.fromARGB(255, 15, 95, 160),
             ),
             child: ElevatedButton(
               onPressed: () {
