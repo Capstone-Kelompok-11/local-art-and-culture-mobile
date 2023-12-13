@@ -11,8 +11,9 @@ class _EventPageState extends State<EventPage> {
   List<Event> events = [
     Event(
       title: 'Alkafest 2023 Closing Ceremony',
-      imageUrl: 'assets/images/event/alkafest.png',
-      description: 'Hello Fellas! SMAI Al-Azhar Kelapa Gading \nProudly Presents  “CLOSING CEREMONY ALKAFEST”!',
+      imageUrl: 'assets/png/Event.png',
+      description:
+          'Hello Fellas! SMAI Al-Azhar Kelapa Gading \nProudly Presents  “CLOSING CEREMONY ALKAFEST”!',
       location: 'Britama Mahaka Square',
       detail_location: 'Britama Arena Mahaka Square',
     ),
@@ -45,7 +46,7 @@ class _EventPageState extends State<EventPage> {
         backgroundColor: Colors.white,
         elevation: 0,
         title: Padding(
-          padding: const EdgeInsets.only(left: 10,right: 10, top: 10),
+          padding: const EdgeInsets.only(left: 10, right: 10, top: 10),
           child: Row(
             children: [
               Icon(Icons.arrow_back, color: Colors.black),
@@ -63,29 +64,29 @@ class _EventPageState extends State<EventPage> {
                       });
                     },
                     decoration: InputDecoration(
-                      hintText: 'Search...',
-                      border: InputBorder.none,
-                      contentPadding: EdgeInsets.symmetric(vertical: 10.0),
-                      prefixIcon: Icon(Icons.search, color: Colors.black,),
-                      filled: true,
-                      fillColor: Colors.white,
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                        borderSide: BorderSide(color: Colors.grey.shade300, width: 1)
-                      )
-                    ),
+                        hintText: 'Search...',
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.symmetric(vertical: 10.0),
+                        prefixIcon: Icon(
+                          Icons.search,
+                          color: Colors.black,
+                        ),
+                        filled: true,
+                        fillColor: Colors.white,
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide: BorderSide(
+                                color: Colors.grey.shade300, width: 1))),
                   ),
                 ),
               ),
               Container(
-                height: 50,
-                width: 50,
-                decoration: BoxDecoration(
-                  color: Colors.cyan.shade500,
-                  borderRadius: BorderRadius.circular(20)
-                ),
-                child: Icon(Icons.sort)
-              )
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                      color: Colors.cyan.shade500,
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Icon(Icons.sort))
             ],
           ),
         ),
@@ -104,18 +105,15 @@ class _EventPageState extends State<EventPage> {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: ElevatedButton(
-                      onPressed: () {
-
-                      },
+                      onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.grey.shade400,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)
-                        )
+                          primary: Colors.grey.shade400,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20))),
+                      child: Text(
+                        categories[index],
+                        style: TextStyle(color: Colors.white),
                       ),
-                      child: Text(categories[index], style: TextStyle(
-                        color: Colors.white
-                      ),),
                     ),
                   );
                 },
@@ -126,42 +124,46 @@ class _EventPageState extends State<EventPage> {
             child: ListView.builder(
               itemCount: events.length,
               itemBuilder: (context, index) {
-                if (events[index].title.toLowerCase().contains(searchTerm.toLowerCase())) {
+                if (events[index]
+                    .title
+                    .toLowerCase()
+                    .contains(searchTerm.toLowerCase())) {
                   return GestureDetector(
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => EventDetailPage(event: events[index]),
+                          builder: (context) =>
+                              EventDetailPage(event: events[index]),
                         ),
                       );
                     },
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
+                      padding: const EdgeInsets.only(
+                          left: 20, right: 20, top: 10, bottom: 10),
                       child: Container(
                         height: 257,
                         width: 345,
                         decoration: BoxDecoration(
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.shade200,
-                              spreadRadius: 2,
-                              blurRadius: 1,
-                            )
-                          ],
-                          borderRadius: BorderRadius.circular(20)
-                        ),
+                            color: Colors.white,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.shade200,
+                                spreadRadius: 2,
+                                blurRadius: 1,
+                              )
+                            ],
+                            borderRadius: BorderRadius.circular(20)),
                         child: Column(
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(left: 0, right: 0, top: 15),
+                              padding: const EdgeInsets.only(
+                                  left: 0, right: 0, top: 15),
                               child: Container(
                                 height: 154,
                                 width: 340,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10)
-                                ),
+                                    borderRadius: BorderRadius.circular(10)),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(12),
                                   child: Image.asset(
@@ -172,7 +174,8 @@ class _EventPageState extends State<EventPage> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(right: 10, left: 15, top: 10),
+                              padding: const EdgeInsets.only(
+                                  right: 10, left: 15, top: 10),
                               child: Row(
                                 children: [
                                   Container(
@@ -219,20 +222,21 @@ class _EventPageState extends State<EventPage> {
                                 alignment: Alignment.centerLeft,
                                 child: Text(
                                   events[index].title,
-                                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                                  style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold),
                                 ),
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(left: 15, right: 15, top: 7),
+                              padding: const EdgeInsets.only(
+                                  left: 15, right: 15, top: 7),
                               child: Row(
                                 children: [
                                   Text(
                                     'From IDR 79K | ',
                                     style: TextStyle(
-                                      fontSize: 12,
-                                      color: Colors.grey
-                                    ),
+                                        fontSize: 12, color: Colors.grey),
                                   ),
                                   Icon(
                                     Icons.add_location_rounded,
@@ -241,9 +245,7 @@ class _EventPageState extends State<EventPage> {
                                   Text(
                                     events[index].location,
                                     style: TextStyle(
-                                      fontSize: 12,
-                                      color: Colors.grey
-                                    ),
+                                        fontSize: 12, color: Colors.grey),
                                   ),
                                   SizedBox(
                                     width: 144,
@@ -252,9 +254,8 @@ class _EventPageState extends State<EventPage> {
                                     height: 15,
                                     width: 15,
                                     decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15),
-                                      color: Colors.amber
-                                    ),
+                                        borderRadius: BorderRadius.circular(15),
+                                        color: Colors.amber),
                                     child: Icon(
                                       Icons.arrow_forward_ios_rounded,
                                       size: 10,
