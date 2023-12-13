@@ -1,6 +1,6 @@
-import 'package:event_capstone/event_model.dart';
-import 'package:event_capstone/event_page.dart';
 import 'package:flutter/material.dart';
+import 'package:local_art_and_culture/src/feature/event/event_model.dart';
+import 'package:local_art_and_culture/src/feature/event/event_page.dart';
 import 'form_model.dart';
 
 class ReceiptPage extends StatefulWidget {
@@ -9,7 +9,11 @@ class ReceiptPage extends StatefulWidget {
   final double totalPrice;
   final int ticketCount;
 
-  ReceiptPage({required this.formDetails, required this.event, required this.ticketCount, required this.totalPrice});
+  ReceiptPage(
+      {required this.formDetails,
+      required this.event,
+      required this.ticketCount,
+      required this.totalPrice});
 
   @override
   _ReceiptPageState createState() => _ReceiptPageState();
@@ -37,17 +41,23 @@ class _ReceiptPageState extends State<ReceiptPage> {
                       );
                     },
                     child: Icon(
-                      Icons.arrow_back, size: 24,
+                      Icons.arrow_back,
+                      size: 24,
                     ),
                   ),
                   Container(
                     alignment: Alignment.center,
                     child: Text(
                       'Invoice',
-                      style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                      style:
+                          TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
                     ),
                   ),
-                  Icon(Icons.abc, color: Colors.cyan.shade200, size: 24,)
+                  Icon(
+                    Icons.abc,
+                    color: Colors.cyan.shade200,
+                    size: 24,
+                  )
                 ],
               ),
               SizedBox(
@@ -66,22 +76,27 @@ class _ReceiptPageState extends State<ReceiptPage> {
                     padding: const EdgeInsets.all(20.0),
                     child: Column(
                       children: [
-                        Icon(Icons.check_circle, size: 58, color: Colors.green,),
+                        Icon(
+                          Icons.check_circle,
+                          size: 58,
+                          color: Colors.green,
+                        ),
                         SizedBox(
                           height: 10,
                         ),
                         Text(
-                          'Terima Kasih!', style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.deepPurple,
-                            fontWeight: FontWeight.w600
-                          ),
+                          'Terima Kasih!',
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.deepPurple,
+                              fontWeight: FontWeight.w600),
                         ),
                         SizedBox(
                           height: 5,
                         ),
                         Text(
-                          'Pembayaran kamu berhasil', style: TextStyle(
+                          'Pembayaran kamu berhasil',
+                          style: TextStyle(
                             fontSize: 14,
                             color: Colors.grey.shade400,
                           ),
@@ -97,32 +112,44 @@ class _ReceiptPageState extends State<ReceiptPage> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text('Nomor Invoice', style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 12,
-                                  ),),
+                                  Text(
+                                    'Nomor Invoice',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 12,
+                                    ),
+                                  ),
                                   SizedBox(
                                     height: 5,
                                   ),
-                                  Text('12312213', style: TextStyle(
-                                    color: Colors.blue,
-                                    fontSize: 12,
-                                  ),)
+                                  Text(
+                                    '12312213',
+                                    style: TextStyle(
+                                      color: Colors.blue,
+                                      fontSize: 12,
+                                    ),
+                                  )
                                 ],
                               ),
                               Column(
                                 children: [
-                                  Text('Tanggal Transaksi', style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 12,
-                                  ),),
+                                  Text(
+                                    'Tanggal Transaksi',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 12,
+                                    ),
+                                  ),
                                   SizedBox(
                                     height: 5,
                                   ),
-                                  Text('18 Agustus 2023', style: TextStyle(
-                                    color: Colors.blue,
-                                    fontSize: 12,
-                                  ),)
+                                  Text(
+                                    '18 Agustus 2023',
+                                    style: TextStyle(
+                                      color: Colors.blue,
+                                      fontSize: 12,
+                                    ),
+                                  )
                                 ],
                               )
                             ],
@@ -132,16 +159,16 @@ class _ReceiptPageState extends State<ReceiptPage> {
                           height: 20,
                         ),
                         Text(
-                          '--------------------------------------------------------------------------', style: TextStyle(
-                            color: Colors.grey.shade400
-                          ),
+                          '--------------------------------------------------------------------------',
+                          style: TextStyle(color: Colors.grey.shade400),
                         ),
                         Row(
                           children: [
                             Container(
                               height: 150,
                               width: 100,
-                              child: Image.asset('assets/images/event/realitytiket.png'),
+                              child: Image.asset(
+                                  'assets/images/event/realitytiket.png'),
                             ),
                             SizedBox(
                               width: 20,
@@ -158,7 +185,9 @@ class _ReceiptPageState extends State<ReceiptPage> {
                                       children: [
                                         Text(
                                           widget.event.title,
-                                          style: TextStyle(fontWeight: FontWeight.w600, fontSize: 12),
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 12),
                                         ),
                                         SizedBox(
                                           height: 20,
@@ -167,15 +196,20 @@ class _ReceiptPageState extends State<ReceiptPage> {
                                           height: 5,
                                         ),
                                         Row(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
-                                            Icon(Icons.add_location_alt, size: 10, color: Colors.grey.shade400),
+                                            Icon(Icons.add_location_alt,
+                                                size: 10,
+                                                color: Colors.grey.shade400),
                                             SizedBox(
                                               width: 5,
                                             ),
                                             Text(
                                               widget.event.location,
-                                              style: TextStyle(fontSize: 10, color: Colors.grey.shade400),
+                                              style: TextStyle(
+                                                  fontSize: 10,
+                                                  color: Colors.grey.shade400),
                                             )
                                           ],
                                         ),
@@ -183,15 +217,20 @@ class _ReceiptPageState extends State<ReceiptPage> {
                                           height: 5,
                                         ),
                                         Row(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
-                                            Icon(Icons.alarm_add, size: 10, color: Colors.grey.shade400),
+                                            Icon(Icons.alarm_add,
+                                                size: 10,
+                                                color: Colors.grey.shade400),
                                             SizedBox(
                                               width: 5,
                                             ),
                                             Text(
                                               '13 Januari 2023',
-                                              style: TextStyle(fontSize: 10, color: Colors.grey.shade400),
+                                              style: TextStyle(
+                                                  fontSize: 10,
+                                                  color: Colors.grey.shade400),
                                             )
                                           ],
                                         ),
@@ -204,73 +243,94 @@ class _ReceiptPageState extends State<ReceiptPage> {
                           ],
                         ),
                         SizedBox(
-                              height: 10,
-                            ),
+                          height: 10,
+                        ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Info Pengunjung', style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600
-                            ),),
+                            Text(
+                              'Info Pengunjung',
+                              style: TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.w600),
+                            ),
                             SizedBox(
                               height: 20,
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(left: 10.0, right: 10),
+                              padding:
+                                  const EdgeInsets.only(left: 10.0, right: 10),
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      Text('Nama Lengkap', style: TextStyle(
-                                        fontWeight: FontWeight.w600
-                                      ),),
+                                      Text(
+                                        'Nama Lengkap',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w600),
+                                      ),
                                       SizedBox(
                                         height: 5,
                                       ),
-                                      Text('${widget.formDetails.fullName}', style: TextStyle(
-                                        color: Colors.grey.shade500
-                                      ),),
+                                      Text(
+                                        '${widget.formDetails.fullName}',
+                                        style: TextStyle(
+                                            color: Colors.grey.shade500),
+                                      ),
                                       SizedBox(
                                         height: 15,
                                       ),
-                                      Text('Email', style: TextStyle(
-                                        fontWeight: FontWeight.w600
-                                      ),),
+                                      Text(
+                                        'Email',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w600),
+                                      ),
                                       SizedBox(
                                         height: 5,
                                       ),
-                                      Text('${widget.formDetails.emailAddress}', style: TextStyle(
-                                        color: Colors.grey.shade500
-                                      ),),
+                                      Text(
+                                        '${widget.formDetails.emailAddress}',
+                                        style: TextStyle(
+                                            color: Colors.grey.shade500),
+                                      ),
                                     ],
                                   ),
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      Text('Nomor Handphone', style: TextStyle(
-                                        fontWeight: FontWeight.w600
-                                      ),),
+                                      Text(
+                                        'Nomor Handphone',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w600),
+                                      ),
                                       SizedBox(
                                         height: 5,
                                       ),
-                                      Text('${widget.formDetails.phoneNumber}', style: TextStyle(
-                                        color: Colors.grey.shade500
-                                      ),),
+                                      Text(
+                                        '${widget.formDetails.phoneNumber}',
+                                        style: TextStyle(
+                                            color: Colors.grey.shade500),
+                                      ),
                                       SizedBox(
                                         height: 15,
                                       ),
-                                      Text('Nomor KTP', style: TextStyle(
-                                        fontWeight: FontWeight.w600
-                                      ),),
+                                      Text(
+                                        'Nomor KTP',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w600),
+                                      ),
                                       SizedBox(
                                         height: 5,
                                       ),
-                                      Text('${widget.formDetails.ktp}', style: TextStyle(
-                                        color: Colors.grey.shade500
-                                      ),),
+                                      Text(
+                                        '${widget.formDetails.ktp}',
+                                        style: TextStyle(
+                                            color: Colors.grey.shade500),
+                                      ),
                                     ],
                                   ),
                                 ],
@@ -279,39 +339,42 @@ class _ReceiptPageState extends State<ReceiptPage> {
                           ],
                         ),
                         SizedBox(
-                              height: 30,
-                            ),
+                          height: 30,
+                        ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Info Pesanan', style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600
-                            ),),
+                            Text(
+                              'Info Pesanan',
+                              style: TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.w600),
+                            ),
                             SizedBox(
                               height: 20,
                             ),
                             Column(
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 10, right: 10),
+                                  padding: const EdgeInsets.only(
+                                      left: 10, right: 10),
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        'Pembelian', style: TextStyle(
-                                          fontWeight: FontWeight.w600
-                                        ),
+                                        'Pembelian',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w600),
                                       ),
                                       Text(
-                                        'Jumlah', style: TextStyle(
-                                          fontWeight: FontWeight.w600
-                                        ),
+                                        'Jumlah',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w600),
                                       ),
                                       Text(
-                                        'Harga', style: TextStyle(
-                                          fontWeight: FontWeight.w600
-                                        ),
+                                        'Harga',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w600),
                                       ),
                                     ],
                                   ),
@@ -323,28 +386,29 @@ class _ReceiptPageState extends State<ReceiptPage> {
                                   height: 23,
                                   width: 285,
                                   decoration: BoxDecoration(
-                                    color: Colors.cyan.shade100,
-                                    borderRadius: BorderRadius.circular(5)
-                                  ),
+                                      color: Colors.cyan.shade100,
+                                      borderRadius: BorderRadius.circular(5)),
                                   child: Padding(
-                                    padding: const EdgeInsets.only(left: 10, right: 5),
+                                    padding: const EdgeInsets.only(
+                                        left: 10, right: 5),
                                     child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          'Alkafest', style: TextStyle(
-                                            fontWeight: FontWeight.w400
-                                          ),
+                                          'Alkafest',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w400),
                                         ),
                                         Text(
-                                          '         x${widget.ticketCount.toStringAsFixed(0)}', style: TextStyle(
-                                            fontWeight: FontWeight.w400
-                                          ),
+                                          '         x${widget.ticketCount.toStringAsFixed(0)}',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w400),
                                         ),
                                         Text(
-                                          'Rp 79000', style: TextStyle(
-                                            fontWeight: FontWeight.w400
-                                          ),
+                                          'Rp 79000',
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w400),
                                         ),
                                       ],
                                     ),
@@ -354,19 +418,21 @@ class _ReceiptPageState extends State<ReceiptPage> {
                                   height: 10,
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(left: 10, right: 10),
+                                  padding: const EdgeInsets.only(
+                                      left: 10, right: 10),
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        'Pembelian', style: TextStyle(
-                                          fontWeight: FontWeight.w600
-                                        ),
+                                        'Pembelian',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w600),
                                       ),
                                       Text(
-                                        'Rp ${widget.totalPrice.toStringAsFixed(0)}', style: TextStyle(
-                                          fontWeight: FontWeight.w600
-                                        ),
+                                        'Rp ${widget.totalPrice.toStringAsFixed(0)}',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w600),
                                       ),
                                     ],
                                   ),
@@ -379,15 +445,17 @@ class _ReceiptPageState extends State<ReceiptPage> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Metode Pembayaran', style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600
-                            ),),
+                            Text(
+                              'Metode Pembayaran',
+                              style: TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.w600),
+                            ),
                             SizedBox(
                               height: 20,
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(left: 10.0, right: 10),
+                              padding:
+                                  const EdgeInsets.only(left: 10.0, right: 10),
                               child: Row(
                                 children: [
                                   Container(
@@ -395,23 +463,23 @@ class _ReceiptPageState extends State<ReceiptPage> {
                                     height: 32,
                                     width: 32,
                                     decoration: BoxDecoration(
-                                      color: Colors.deepPurple,
-                                      borderRadius: BorderRadius
-                                      .circular(30)
-                                    ),
+                                        color: Colors.deepPurple,
+                                        borderRadius:
+                                            BorderRadius.circular(30)),
                                     child: Text(
-                                      'OVO', style: TextStyle(
-                                        color: Colors.white, fontSize: 12
-                                      ),
+                                      'OVO',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 12),
                                     ),
                                   ),
                                   SizedBox(
                                     width: 15,
                                   ),
                                   Text(
-                                    'OVO', style: TextStyle(
-                                      fontSize: 14, fontWeight: FontWeight.w400
-                                    ),
+                                    'OVO',
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w400),
                                   )
                                 ],
                               ),
@@ -420,17 +488,15 @@ class _ReceiptPageState extends State<ReceiptPage> {
                         ),
                         SizedBox(height: 20),
                         Text(
-                          '--------------------------------------------------------------------------', style: TextStyle(
-                            color: Colors.grey.shade400
-                          ),
+                          '--------------------------------------------------------------------------',
+                          style: TextStyle(color: Colors.grey.shade400),
                         ),
                         SizedBox(height: 20),
-                        Image.asset(
-                          'assets/images/event/qrcode.png'
-                        ),
+                        Image.asset('assets/images/event/qrcode.png'),
                         SizedBox(height: 25),
                         Text(
-                          'Tunjukkan QR code kamu di tempat pengambilan tiket event kamu!', textAlign: TextAlign.center,
+                          'Tunjukkan QR code kamu di tempat pengambilan tiket event kamu!',
+                          textAlign: TextAlign.center,
                         ),
                       ],
                     ),
@@ -445,21 +511,22 @@ class _ReceiptPageState extends State<ReceiptPage> {
                 height: 45,
                 width: 330,
                 decoration: BoxDecoration(
-                  color: Colors.deepPurple,
-                  borderRadius: BorderRadius.circular(30)
-                ),
+                    color: Colors.deepPurple,
+                    borderRadius: BorderRadius.circular(30)),
                 child: GestureDetector(
                   onTap: () {
                     Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => EventPage(),
-                        ),
-                      );
+                      MaterialPageRoute(
+                        builder: (context) => EventPage(),
+                      ),
+                    );
                   },
                   child: Text(
-                    '             Lanjut Berbelanja', style: TextStyle(
-                      color: Colors.white, fontSize: 14, fontWeight: FontWeight.w400
-                    ),
+                    '             Lanjut Berbelanja',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w400),
                   ),
                 ),
               ),

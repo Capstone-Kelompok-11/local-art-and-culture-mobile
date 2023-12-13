@@ -1,13 +1,12 @@
-import 'package:event_capstone/event_page.dart';
 import 'package:flutter/material.dart';
+import 'package:local_art_and_culture/src/feature/event/event_page.dart';
 import 'event_model.dart';
 
 class EventDetailPage extends StatelessWidget {
   final Event event;
 
   EventDetailPage({required this.event});
-  
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,13 +26,13 @@ class EventDetailPage extends StatelessWidget {
                   child: Row(
                     children: [
                       GestureDetector(
-                        onTap: (){
-                          Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context)=> EventPage())
-                          );
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => EventPage()));
                         },
                         child: Icon(
-                          Icons.arrow_back, size: 32,
+                          Icons.arrow_back,
+                          size: 32,
                         ),
                       ),
                       SizedBox(
@@ -43,11 +42,12 @@ class EventDetailPage extends StatelessWidget {
                         height: 32,
                         width: 32,
                         decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(30)
-                        ),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(30)),
                         child: Icon(
-                          Icons.favorite, size: 24, color: Colors.grey.shade400,
+                          Icons.favorite,
+                          size: 24,
+                          color: Colors.grey.shade400,
                         ),
                       ),
                       SizedBox(
@@ -57,11 +57,12 @@ class EventDetailPage extends StatelessWidget {
                         height: 32,
                         width: 32,
                         decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(30)
-                        ),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(30)),
                         child: Icon(
-                          Icons.shopping_cart, size: 24, color: Colors.grey.shade400,
+                          Icons.shopping_cart,
+                          size: 24,
+                          color: Colors.grey.shade400,
                         ),
                       ),
                       SizedBox(
@@ -71,11 +72,12 @@ class EventDetailPage extends StatelessWidget {
                         height: 32,
                         width: 32,
                         decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(30)
-                        ),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(30)),
                         child: Icon(
-                          Icons.chat, size: 24, color: Colors.grey.shade400,
+                          Icons.chat,
+                          size: 24,
+                          color: Colors.grey.shade400,
                         ),
                       ),
                     ],
@@ -93,40 +95,40 @@ class EventDetailPage extends StatelessWidget {
                     Row(
                       children: [
                         Container(
-                                    alignment: Alignment.center,
-                                    height: 20,
-                                    width: 45,
-                                    decoration: BoxDecoration(
-                                      color: Colors.grey,
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Text(
-                                      'Event',
-                                      style: TextStyle(
-                                        fontSize: 10,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Container(
-                                    alignment: Alignment.center,
-                                    height: 20,
-                                    width: 60,
-                                    decoration: BoxDecoration(
-                                      color: Colors.cyan.shade500,
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: Text(
-                                      'Berbayar',
-                                      style: TextStyle(
-                                        fontSize: 10,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
+                          alignment: Alignment.center,
+                          height: 20,
+                          width: 45,
+                          decoration: BoxDecoration(
+                            color: Colors.grey,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Text(
+                            'Event',
+                            style: TextStyle(
+                              fontSize: 10,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Container(
+                          alignment: Alignment.center,
+                          height: 20,
+                          width: 60,
+                          decoration: BoxDecoration(
+                            color: Colors.cyan.shade500,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Text(
+                            'Berbayar',
+                            style: TextStyle(
+                              fontSize: 10,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                     SizedBox(
@@ -134,7 +136,8 @@ class EventDetailPage extends StatelessWidget {
                     ),
                     Text(
                       event.title,
-                      style: TextStyle(fontSize: 26, fontWeight: FontWeight.w600),
+                      style:
+                          TextStyle(fontSize: 26, fontWeight: FontWeight.w600),
                     ),
                     SizedBox(
                       height: 10,
@@ -142,14 +145,16 @@ class EventDetailPage extends StatelessWidget {
                     Row(
                       children: [
                         Icon(
-                          Icons.circle_outlined, size: 14,
+                          Icons.circle_outlined,
+                          size: 14,
                         ),
                         SizedBox(
                           width: 10,
                         ),
                         Text(
                           'Event Project',
-                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+                          style: TextStyle(
+                              fontSize: 14, fontWeight: FontWeight.w400),
                         ),
                       ],
                     ),
@@ -159,9 +164,7 @@ class EventDetailPage extends StatelessWidget {
             ),
             Container(
               height: 10,
-              decoration: BoxDecoration(
-                color: Colors.grey.shade200
-              ),
+              decoration: BoxDecoration(color: Colors.grey.shade200),
             ),
             Container(
               alignment: Alignment.centerLeft,
@@ -172,28 +175,35 @@ class EventDetailPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Deskripsi Acara', style: TextStyle(
-                        fontWeight: FontWeight.w600, fontSize: 18
-                      ),
+                      'Deskripsi Acara',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      event.description, style: TextStyle(
-                        fontWeight: FontWeight.w300, fontSize: 18
-                      ),
+                      event.description,
+                      style:
+                          TextStyle(fontWeight: FontWeight.w300, fontSize: 18),
                     ),
                     SizedBox(
                       height: 20,
                     ),
                     Row(
                       children: [
-                        Icon(Icons.add_location_rounded, size: 18,),
-                        SizedBox(width: 5,),
-                        Text(event.location, style: TextStyle(
-                          fontSize: 12, fontWeight: FontWeight.w600
-                        ),),
+                        Icon(
+                          Icons.add_location_rounded,
+                          size: 18,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          event.location,
+                          style: TextStyle(
+                              fontSize: 12, fontWeight: FontWeight.w600),
+                        ),
                       ],
                     ),
                     SizedBox(
@@ -201,8 +211,13 @@ class EventDetailPage extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        SizedBox(width: 23,),
-                          Text('Jl. Raya Kelapa Nias No.6, RT.8/RW.6, Klp. Gading Bar.,\nKec. Klp. Gading, Jkt Utara, Daerah Khusus Ibukota\nJakarta 14240',style: TextStyle(fontWeight: FontWeight.w300),)
+                        SizedBox(
+                          width: 23,
+                        ),
+                        Text(
+                          'Jl. Raya Kelapa Nias No.6, RT.8/RW.6, Klp. Gading Bar.,\nKec. Klp. Gading, Jkt Utara, Daerah Khusus Ibukota\nJakarta 14240',
+                          style: TextStyle(fontWeight: FontWeight.w300),
+                        )
                       ],
                     ),
                     SizedBox(
@@ -210,8 +225,14 @@ class EventDetailPage extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        SizedBox(width: 23,),
-                          Text('Lihat di Google Maps',style: TextStyle(fontWeight: FontWeight.w300, color: Colors.blue),)
+                        SizedBox(
+                          width: 23,
+                        ),
+                        Text(
+                          'Lihat di Google Maps',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w300, color: Colors.blue),
+                        )
                       ],
                     ),
                     SizedBox(
@@ -219,9 +240,18 @@ class EventDetailPage extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Icon(Icons.calendar_month, size: 18,),
-                        SizedBox(width: 5,),
-                        Text('13 Januari 2023', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 12),)
+                        Icon(
+                          Icons.calendar_month,
+                          size: 18,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          '13 Januari 2023',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600, fontSize: 12),
+                        )
                       ],
                     ),
                     SizedBox(
@@ -229,9 +259,18 @@ class EventDetailPage extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Icon(Icons.access_alarm, size: 18,),
-                        SizedBox(width: 5,),
-                        Text('09.30 - 20.30 WIB', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 12),)
+                        Icon(
+                          Icons.access_alarm,
+                          size: 18,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          '09.30 - 20.30 WIB',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600, fontSize: 12),
+                        )
                       ],
                     ),
                   ],
@@ -240,9 +279,7 @@ class EventDetailPage extends StatelessWidget {
             ),
             Container(
               height: 10,
-              decoration: BoxDecoration(
-                color: Colors.grey.shade200
-              ),
+              decoration: BoxDecoration(color: Colors.grey.shade200),
             ),
             Container(
               height: 309,
@@ -252,24 +289,38 @@ class EventDetailPage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Bintang Tamu', style: TextStyle(
-                      fontWeight: FontWeight.w600, fontSize: 18
-                    ),),
-                    SizedBox(height: 15,),
+                    Text(
+                      'Bintang Tamu',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
                     Image.asset('assets/images/event/reality.png'),
-                    SizedBox(height: 10,),
-                    Text('Reality Club', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),),
-                    SizedBox(height: 5,),
-                    Text('Penyanyi', style: TextStyle(fontWeight: FontWeight.w300, fontSize: 12),),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      'Reality Club',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      'Penyanyi',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w300, fontSize: 12),
+                    ),
                   ],
                 ),
               ),
             ),
             Container(
               height: 10,
-              decoration: BoxDecoration(
-                color: Colors.grey.shade200
-              ),
+              decoration: BoxDecoration(color: Colors.grey.shade200),
             ),
             Container(
               alignment: Alignment.centerLeft,
@@ -278,34 +329,53 @@ class EventDetailPage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Tiket', style: TextStyle(
-                      fontWeight: FontWeight.w600, fontSize: 18
-                    ),),
-                    SizedBox(height: 15,),
+                    Text(
+                      'Tiket',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
                     Row(
                       children: [
                         Container(
-                          height: 91,
-                          width: 83,
-                          child: Image.asset('assets/images/event/realitytiket.png', )),
+                            height: 91,
+                            width: 83,
+                            child: Image.asset(
+                              'assets/images/event/realitytiket.png',
+                            )),
                         SizedBox(
                           width: 20,
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Alkafest 2023 - Closing Ceremony', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 12),),
+                            Text(
+                              'Alkafest 2023 - Closing Ceremony',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w600, fontSize: 12),
+                            ),
                             SizedBox(
                               height: 5,
                             ),
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Icon(Icons.label_important, size: 10, color: Colors.grey.shade400,),
+                                Icon(
+                                  Icons.label_important,
+                                  size: 10,
+                                  color: Colors.grey.shade400,
+                                ),
                                 SizedBox(
                                   width: 5,
                                 ),
-                                Text('VIP', style: TextStyle(fontSize: 10, color: Colors.grey.shade400),)
+                                Text(
+                                  'VIP',
+                                  style: TextStyle(
+                                      fontSize: 10,
+                                      color: Colors.grey.shade400),
+                                )
                               ],
                             ),
                             SizedBox(
@@ -314,11 +384,20 @@ class EventDetailPage extends StatelessWidget {
                             Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Icon(Icons.alarm_add, size: 10, color: Colors.grey.shade400,),
+                                Icon(
+                                  Icons.alarm_add,
+                                  size: 10,
+                                  color: Colors.grey.shade400,
+                                ),
                                 SizedBox(
                                   width: 5,
                                 ),
-                                Text('13 Januari 2023', style: TextStyle(fontSize: 10, color: Colors.grey.shade400),)
+                                Text(
+                                  '13 Januari 2023',
+                                  style: TextStyle(
+                                      fontSize: 10,
+                                      color: Colors.grey.shade400),
+                                )
                               ],
                             ),
                             SizedBox(
@@ -327,7 +406,13 @@ class EventDetailPage extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text('Rp. 79.000', style: TextStyle(fontSize: 18, color: Colors.deepPurple, fontWeight: FontWeight.w600),),
+                                Text(
+                                  'Rp. 79.000',
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      color: Colors.deepPurple,
+                                      fontWeight: FontWeight.w600),
+                                ),
                                 SizedBox(
                                   width: 100,
                                 ),
@@ -337,8 +422,9 @@ class EventDetailPage extends StatelessWidget {
                                       height: 20,
                                       width: 20,
                                       decoration: BoxDecoration(
-                                        color: Colors.deepPurple, borderRadius: BorderRadius.circular(20)
-                                      ),
+                                          color: Colors.deepPurple,
+                                          borderRadius:
+                                              BorderRadius.circular(20)),
                                     ),
                                     SizedBox(
                                       width: 10,
@@ -351,8 +437,9 @@ class EventDetailPage extends StatelessWidget {
                                       height: 20,
                                       width: 20,
                                       decoration: BoxDecoration(
-                                        color: Colors.deepPurple, borderRadius: BorderRadius.circular(20)
-                                      ),
+                                          color: Colors.deepPurple,
+                                          borderRadius:
+                                              BorderRadius.circular(20)),
                                     ),
                                   ],
                                 ),
@@ -369,22 +456,28 @@ class EventDetailPage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.chat, size: 24,),
-            label: ''
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag, size: 24,),
-            label: ''
-          ),
-          BottomNavigationBarItem(
-            icon: Badge(child: Icon(Icons.chat, size: 24,)),
-            label: ''
-          ),
-        ]
-      ),
+      bottomNavigationBar:
+          BottomNavigationBar(items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+            icon: Icon(
+              Icons.chat,
+              size: 24,
+            ),
+            label: ''),
+        BottomNavigationBarItem(
+            icon: Icon(
+              Icons.shopping_bag,
+              size: 24,
+            ),
+            label: ''),
+        BottomNavigationBarItem(
+            icon: Badge(
+                child: Icon(
+              Icons.chat,
+              size: 24,
+            )),
+            label: ''),
+      ]),
     );
   }
 }

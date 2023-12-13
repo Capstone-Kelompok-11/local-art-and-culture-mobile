@@ -1,6 +1,6 @@
-import 'package:event_capstone/detail_info.dart';
-import 'package:event_capstone/event_detail_page.dart';
 import 'package:flutter/material.dart';
+import 'package:local_art_and_culture/src/feature/event/detail_info.dart';
+import 'package:local_art_and_culture/src/feature/event/event_detail_page.dart';
 import 'event_model.dart';
 
 class TicketEventPage extends StatefulWidget {
@@ -46,28 +46,34 @@ class _TicketEventPageState extends State<TicketEventPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  
                   GestureDetector(
-                          onTap: (){
-                            Navigator.of(context).push(
-                              MaterialPageRoute(builder: (context)=> EventDetailPage(event: widget.event,))
-                            );
-                          },
-                          child: Icon(
-                            Icons.arrow_back, size: 24,
-                          ),
-                        ),
-                  Container(
-                    alignment: Alignment.center,
-                    child: Text(
-                      'Pilih Tiket',
-                      style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => EventDetailPage(
+                                event: widget.event,
+                              )));
+                    },
+                    child: const Icon(
+                      Icons.arrow_back,
+                      size: 24,
                     ),
                   ),
-                  Icon(Icons.abc, color: Colors.white, size: 24,)
+                  Container(
+                    alignment: Alignment.center,
+                    child: const Text(
+                      'Pilih Tiket',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+                    ),
+                  ),
+                  const Icon(
+                    Icons.abc,
+                    color: Colors.white,
+                    size: 24,
+                  )
                 ],
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Row(
                 children: [
                   Container(
@@ -75,7 +81,7 @@ class _TicketEventPageState extends State<TicketEventPage> {
                     width: 83,
                     child: Image.asset('assets/images/event/realitytiket.png'),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
                   Column(
@@ -83,35 +89,42 @@ class _TicketEventPageState extends State<TicketEventPage> {
                     children: [
                       Text(
                         widget.event.title,
-                        style: TextStyle(fontWeight: FontWeight.w600, fontSize: 12),
+                        style: const TextStyle(
+                            fontWeight: FontWeight.w600, fontSize: 12),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Icon(Icons.label_important, size: 10, color: Colors.grey.shade400),
-                          SizedBox(
+                          Icon(Icons.label_important,
+                              size: 10, color: Colors.grey.shade400),
+                          const SizedBox(
                             width: 5,
                           ),
-                          Text('VIP', style: TextStyle(fontSize: 10, color: Colors.grey.shade400)),
+                          Text('VIP',
+                              style: TextStyle(
+                                  fontSize: 10, color: Colors.grey.shade400)),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Icon(Icons.alarm_add, size: 10, color: Colors.grey.shade400),
-                          SizedBox(
+                          Icon(Icons.alarm_add,
+                              size: 10, color: Colors.grey.shade400),
+                          const SizedBox(
                             width: 5,
                           ),
-                          Text('13 Januari 2023', style: TextStyle(fontSize: 10, color: Colors.grey.shade400)),
+                          Text('13 Januari 2023',
+                              style: TextStyle(
+                                  fontSize: 10, color: Colors.grey.shade400)),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       Row(
@@ -119,9 +132,12 @@ class _TicketEventPageState extends State<TicketEventPage> {
                         children: [
                           Text(
                             'Rp ${ticketPrice.toStringAsFixed(0)}',
-                            style: TextStyle(fontSize: 18, color: Colors.deepPurple, fontWeight: FontWeight.w600),
+                            style: const TextStyle(
+                                fontSize: 18,
+                                color: Colors.deepPurple,
+                                fontWeight: FontWeight.w600),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 80,
                           ),
                           GestureDetector(
@@ -130,13 +146,13 @@ class _TicketEventPageState extends State<TicketEventPage> {
                                 ticketCount = 0;
                               });
                             },
-                            child: Icon(
+                            child: const Icon(
                               Icons.delete_outline,
                               color: Colors.grey,
                               size: 24,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 10,
                           ),
                           Row(
@@ -156,18 +172,18 @@ class _TicketEventPageState extends State<TicketEventPage> {
                                     color: Colors.deepPurple,
                                     borderRadius: BorderRadius.circular(20),
                                   ),
-                                  child: Icon(
+                                  child: const Icon(
                                     Icons.remove,
                                     color: Colors.white,
                                     size: 12,
                                   ),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                               Text('$ticketCount'),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10,
                               ),
                               GestureDetector(
@@ -183,7 +199,7 @@ class _TicketEventPageState extends State<TicketEventPage> {
                                     color: Colors.deepPurple,
                                     borderRadius: BorderRadius.circular(20),
                                   ),
-                                  child: Icon(
+                                  child: const Icon(
                                     Icons.add,
                                     color: Colors.white,
                                     size: 12,
@@ -194,197 +210,202 @@ class _TicketEventPageState extends State<TicketEventPage> {
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                     ],
                   ),
                 ],
               ),
-              
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                   'Rincian Pembayaran', style: TextStyle(
-                    fontWeight: FontWeight.w500, fontSize: 20
-                    ),
+                  const Text(
+                    'Rincian Pembayaran',
+                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
-                  Text(
-                   'Total Pembelian', style: TextStyle(
-                    fontWeight: FontWeight.w500, fontSize: 16
-                    ),
+                  const Text(
+                    'Total Pembelian',
+                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        'Total Harga', style: TextStyle(fontWeight: FontWeight.w400, fontSize: 14),
+                      const Text(
+                        'Total Harga',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w400, fontSize: 14),
                       ),
                       Text(
-                        'Rp ${calculateTotalPrice().toStringAsFixed(0)}', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14),
+                        'Rp ${calculateTotalPrice().toStringAsFixed(0)}',
+                        style: const TextStyle(
+                            fontWeight: FontWeight.w500, fontSize: 14),
                       ),
-                      
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Container(
-                        height: 1,
-                        width: 393,
-                        color: Colors.grey.shade300,
+                    height: 1,
+                    width: 393,
+                    color: Colors.grey.shade300,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
-                  Text(
-                   'Biaya Transaksi', style: TextStyle(
-                    fontWeight: FontWeight.w500, fontSize: 16
-                    ),
+                  const Text(
+                    'Biaya Transaksi',
+                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Biaya Layanan', style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
+                        'Biaya Layanan',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w400, fontSize: 16),
                       ),
                       Text(
-                        'Rp 1000', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14),
+                        'Rp 1000',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500, fontSize: 14),
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
-                  Row(
+                  const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Biaya Aplikasi', style: TextStyle(fontWeight: FontWeight.w400, fontSize: 16),
+                        'Biaya Aplikasi',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w400, fontSize: 16),
                       ),
                       Text(
-                        'Rp 2000', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14),
+                        'Rp 2000',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500, fontSize: 14),
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Container(
-                        height: 1,
-                        width: 393,
-                        color: Colors.grey.shade300,
+                    height: 1,
+                    width: 393,
+                    color: Colors.grey.shade300,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                       'Total Pembayaran', style: TextStyle(
-                        fontWeight: FontWeight.w500, fontSize: 16
-                        ),
+                      const Text(
+                        'Total Pembayaran',
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500, fontSize: 16),
                       ),
                       Text(
-                        'Rp ${calculateTotalPayment().toStringAsFixed(0)}', style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14),
+                        'Rp ${calculateTotalPayment().toStringAsFixed(0)}',
+                        style: const TextStyle(
+                            fontWeight: FontWeight.w500, fontSize: 14),
                       ),
                     ],
                   ),
                 ],
               ),
-
             ],
           ),
         ),
       ),
       bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.shade300,
-              blurRadius: 5,
-              spreadRadius: 5
-            )
-          ]
-        ),
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(color: Colors.grey.shade300, blurRadius: 5, spreadRadius: 5)
+        ]),
         child: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-        label: '',
-        icon: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 20, top: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+          items: [
+            BottomNavigationBarItem(
+              label: '',
+              icon: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'Total Pembayaran', style: TextStyle(
-                      fontSize: 12, color: Colors.grey.shade500
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20, top: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Total Pembayaran',
+                          style: TextStyle(
+                              fontSize: 12, color: Colors.grey.shade500),
+                        ),
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          'Rp ${calculateTotalPayment().toStringAsFixed(0)}',
+                          style: const TextStyle(
+                              fontSize: 20,
+                              color: Colors.deepPurple,
+                              fontWeight: FontWeight.w600),
+                        ),
+                      ],
                     ),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                    'Rp ${calculateTotalPayment().toStringAsFixed(0)}',
-                    style: TextStyle(fontSize: 20, color: Colors.deepPurple, fontWeight: FontWeight.w600),
                   ),
                 ],
               ),
             ),
+            BottomNavigationBarItem(
+              icon: Padding(
+                padding: const EdgeInsets.only(top: 10),
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 44,
+                  width: 163,
+                  decoration: BoxDecoration(
+                    color: Colors.deepPurple,
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => DetailInfoPage(
+                          event: widget.event,
+                          totalPrice: calculateTotalPayment(),
+                          ticketCount: ticketCount,
+                        ),
+                      ));
+                    },
+                    child: const Text(
+                      'Selanjutnya',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500, color: Colors.white),
+                    ),
+                  ),
+                ),
+              ),
+              label: '',
+            ),
           ],
         ),
-          ),
-          BottomNavigationBarItem(
-        icon: Padding(
-          padding: const EdgeInsets.only(top: 10),
-          child: Container(
-            alignment: Alignment.center,
-            height: 44,
-            width: 163,
-            child: GestureDetector(
-              onTap: () {
-                Navigator.of(context).push(
-                              MaterialPageRoute(builder: (context) => DetailInfoPage(
-                                event: widget.event,
-                                totalPrice: calculateTotalPayment(),
-                                ticketCount: ticketCount,
-                              ),)
-                            );
-              },
-              child: Text(
-                'Selanjutnya',
-                style: TextStyle(fontWeight: FontWeight.w500, color: Colors.white),
-              ),
-            ),
-            decoration: BoxDecoration(
-              color: Colors.deepPurple,
-              borderRadius: BorderRadius.circular(30),
-            ),
-          ),
-        ),
-        label: '',
-          ),
-        ],
       ),
-      ),
-
     );
   }
 }
