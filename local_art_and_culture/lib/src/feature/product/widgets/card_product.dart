@@ -11,25 +11,29 @@ class CardProducts extends StatefulWidget {
 }
 
 class _CardProductsState extends State<CardProducts> {
-  List<ModelProduct> products = [];
+  late List<ModelProduct> products = [];
 
   @override
   void initState() {
     super.initState();
+    // await _fetchProducts();
+
     _fetchProducts();
   }
 
-  Future<void> _fetchProducts() async {
+  void _fetchProducts() async {
     try {
       ProductService productService = ProductService();
-      List<ModelProduct> fetchedProducts = await productService.getProducts();
-
+      final fetchedProducts = await productService.getProducts();
+      print(fetchedProducts);
       setState(() {
         products = fetchedProducts;
       });
+      print(fetchedProducts.length);
+      print('ini adalah fungsi fetch produk');
     } catch (error) {
       print('Error fetching products: $error');
-    }
+    } finally {}
   }
 
   @override
@@ -61,7 +65,7 @@ class _CardProductsState extends State<CardProducts> {
                         : 'assets/gambar-produk-1.jpg';
 
                     String category = index.isEven ? 'Fasion' : 'Karya Tangan';
-                    String title = item.name;
+                    String title = item.name!;
                     String price = 'Rp ${products[index].price}';
 
                     return InkWell(

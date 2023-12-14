@@ -6,26 +6,26 @@ ModelProduct modelProductFromJson(Map<String, dynamic> str) =>
 String modelProductToJson(ModelProduct data) => json.encode(data.toJson());
 
 class ModelProduct {
-  int id;
-  String name;
-  int price;
-  String description;
-  String status;
-  int categoryId;
-  int creatorId;
-  Creator creator;
-  Category category;
+  int? id;
+  String? name;
+  int? price;
+  String? description;
+  String? status;
+  int? categoryId;
+  int? creatorId;
+  Creator? creator;
+  Category? category;
 
   ModelProduct({
-    required this.id,
-    required this.name,
-    required this.price,
-    required this.description,
-    required this.status,
-    required this.categoryId,
-    required this.creatorId,
-    required this.creator,
-    required this.category,
+    this.id,
+    this.name,
+    this.price,
+    this.description,
+    this.status,
+    this.categoryId,
+    this.creatorId,
+    this.creator,
+    this.category,
   });
 
   factory ModelProduct.fromJson(Map<String, dynamic> json) => ModelProduct(
@@ -48,28 +48,28 @@ class ModelProduct {
         "status": status,
         "categoryId": categoryId,
         "creatorId": creatorId,
-        "creator": creator.toJson(),
-        "category": category.toJson(),
+        "creator": creator!.toJson(),
+        "category": category!.toJson(),
       };
 }
 
 class Creator {
-  int id;
-  String outletName;
-  String email;
-  String phoneNumber;
-  int userId;
-  int roleId;
+  int? id;
+  String? outletName;
+  String? email;
+  String? phoneNumber;
+  int? userId;
+  int? roleId;
   int? addressId;
 
   Creator({
-    required this.id,
-    required this.outletName,
-    required this.email,
-    required this.phoneNumber,
-    required this.userId,
-    required this.roleId,
-    required this.addressId,
+    this.id,
+    this.outletName,
+    this.email,
+    this.phoneNumber,
+    this.userId,
+    this.roleId,
+    this.addressId,
   });
 
   factory Creator.fromJson(Map<String, dynamic> json) => Creator(
