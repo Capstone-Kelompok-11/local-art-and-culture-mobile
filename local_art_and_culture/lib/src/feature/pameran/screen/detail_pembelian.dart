@@ -24,12 +24,13 @@ class _DetailPembelianState extends State<DetailPembelian> {
             AppBarDP(),
             TiketDP(
                 imagePath: "assets/img/Pameran2.png",
-                title: "Museum Macan",
-                location: "Gambir Expo - Jiexpo Kemayoran",
-                date: "Museum Macan",
-                time: "Setiap Hari"),
+                title: "Museum Macan\n",
+                location: "Museum Macan\n",
+                date: "Setiap Hari",
+                //time: "Setiap Hari"),
+            ),
             SizedBox(
-              height: 8,
+              height: 1,
             ),
             FormDp()
           ],
