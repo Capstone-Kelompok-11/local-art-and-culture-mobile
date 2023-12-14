@@ -20,9 +20,6 @@ class _HomeScreenFstvState extends State<HomeScreenFstv> {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              const SizedBox(
-                height: 16.0,
-              ),
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 10.0),
                 padding: const EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 0.0),

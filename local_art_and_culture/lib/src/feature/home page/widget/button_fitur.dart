@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/src/feature/festival/screen/home_screen.dart';
+import 'package:local_art_and_culture/src/feature/pameran/screen/home_screen.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -60,9 +61,12 @@ class MyButtons extends StatelessWidget {
             ),
             const SizedBox(width: 28),
             GestureDetector(
-              onTap: () {
-                // Tambahkan navigasi atau aksi yang diperlukan untuk Pameran di sini
-                print('Pameran');
+              onTap: () async {
+                // Navigasi ke halaman EditScreen
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                );
               },
               child: buildButton(
                   'Pameran', const Color(0xFF026C52), Icons.local_activity),
