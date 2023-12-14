@@ -64,12 +64,12 @@ class _InvoiceScreenState extends State<InvoiceScreen> {
                     ),
                     const TiketInvoice(
                         imagePath: "assets/img/Pameran2.png",
-                        title: "Jak-Japan Matsuri 2023\n - Closing Ceremony",
-                        location: "Gambir Expo - Jiexpo \nKemayoran",
-                        date: "18 - 19 Nov 2023"),
-                    InfoPengunjung(),
-                    InfopsnInvoice(),
-                    InvoiceMP(),
+                        title: "Museum Macan\n",
+                        location: "Museum Macan\n",
+                        date: "Setiap Hari"),
+                    const InfoPengunjung(),
+                    const InfopsnInvoice(),
+                    const InvoiceMP(),
                     SizedBox(
                       height: 8,
                       child: Column(
