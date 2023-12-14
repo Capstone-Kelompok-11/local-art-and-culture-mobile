@@ -21,8 +21,7 @@ class RoundedImageCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 345, // Menentukan lebar card
-      height:
-          MediaQuery.of(context).size.height * 0.41, // Menentukan tinggi card
+     // Menentukan tinggi card
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
 
       decoration: BoxDecoration(

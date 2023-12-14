@@ -4,14 +4,14 @@ class TiketPilihan extends StatelessWidget {
   final String imagePath;
   final String title;
   final String date;
-  final String category;
+  //final String category;
   final String harga;
 
   const TiketPilihan({
     Key? key,
     required this.imagePath,
     required this.title,
-    required this.category,
+    //required this.category,
     required this.date,
     required this.harga,
   }) : super(key: key);
@@ -20,7 +20,7 @@ class TiketPilihan extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 394,
-      height: 272,
+      height: 120,
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
@@ -33,19 +33,11 @@ class TiketPilihan extends StatelessWidget {
               SizedBox(
                 width: 20,
               ),
-              Text(
-                "Tiket",
-                style: TextStyle(
-                  color: Color(0xFF0C1226),
-                  fontSize: 20,
-                  fontFamily: 'Plus Jakarta Sans',
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
+              
             ],
           ),
           const SizedBox(
-            height: 8,
+            height: 3,
           ),
           Row(
             children: [
@@ -83,20 +75,20 @@ class TiketPilihan extends StatelessWidget {
                             fontWeight: FontWeight.w700,
                           ),
                         ),
-                        Row(
-                          children: [
-                            Image.asset("assets/img/label_important.png"),
-                            Text(
-                              "$category",
-                              style: const TextStyle(
-                                color: Color(0xFF999999),
-                                fontSize: 10,
-                                fontFamily: 'Plus Jakarta Sans',
-                                fontWeight: FontWeight.w400,
-                              ),
-                            )
-                          ],
-                        ),
+                        // Row(
+                        //   children: [
+                        //     Image.asset("assets/img/label_important.png"),
+                        //     Text(
+                        //       //"$category",
+                        //       style: const TextStyle(
+                        //         color: Color(0xFF999999),
+                        //         fontSize: 10,
+                        //         fontFamily: 'Plus Jakarta Sans',
+                        //         fontWeight: FontWeight.w400,
+                        //       ),
+                        //     )
+                        //   ],
+                        // ),
                         Row(
                           children: [
                             Image.asset("assets/img/access_alarm1.png"),

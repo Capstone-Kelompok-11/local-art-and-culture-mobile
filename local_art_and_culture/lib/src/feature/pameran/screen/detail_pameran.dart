@@ -421,13 +421,13 @@ class _DetailPameranState extends State<DetailPameran> {
               child: Column(
                 children: [
                   Tiket(
-                    imagePath: "assets/img/pameran2.png",
+                    imagePath: "assets/img/Pameran2.png",
                     title: "Museum Macan(Voice Against)",
                     date: "Senin-Jumat",
                     harga: "79.000",
                   ),
                   Tiket(
-                    imagePath: "assets/img/pameran2.png",
+                    imagePath: "assets/img/Pameran2.png",
                     title: "Museum Macan(Voice Against)",
                     date: "Senin-Jumat",
                     harga: "79.000",
@@ -457,7 +457,7 @@ class _DetailPameranState extends State<DetailPameran> {
               child: Row(
                 children: [
                   Marchandise(
-                    imagePath: "assets/img/merch1.png",
+                    imagePath: "assets/img/Merch1.png",
                     title: "Blom totebag",
                     harga: "170.000",
                   ),
@@ -465,7 +465,7 @@ class _DetailPameranState extends State<DetailPameran> {
                     width: 10,
                   ),
                   Marchandise(
-                      imagePath: 'assets/img/merch2.png',
+                      imagePath: 'assets/img/Merch2.png',
                       title: "Medioker",
                       harga: "200.000")
                 ],
@@ -479,7 +479,7 @@ class _DetailPameranState extends State<DetailPameran> {
               child: Row(
                 children: [
                   Marchandise(
-                    imagePath: "assets/img/merch3.png",
+                    imagePath: "assets/img/Merch3.png",
                     title: "Poster By Teratai",
                     harga: "150.000",
                   ),
@@ -487,7 +487,7 @@ class _DetailPameranState extends State<DetailPameran> {
                     width: 10,
                   ),
                   Marchandise(
-                      imagePath: 'assets/img/merch4.png',
+                      imagePath: 'assets/img/Merch4.png',
                       title: "Sarung tali Hutan",
                       harga: "475.000")
                 ],
