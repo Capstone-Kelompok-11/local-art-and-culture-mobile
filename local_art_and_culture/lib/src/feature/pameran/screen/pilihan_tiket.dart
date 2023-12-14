@@ -85,7 +85,9 @@ class _PilihanTiketState extends State<PilihanTiket> {
                 ),
               ),
             ),
-            
+            SizedBox(
+              height: 0.90, 
+            ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Padding(
