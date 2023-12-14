@@ -566,7 +566,8 @@ class _DetailPameranState extends State<DetailPameran> {
                       ),
                     ),
                     style: ElevatedButton.styleFrom(
-                      primary: Color.fromARGB(255, 14, 56, 192), // Ubah warna tombol menjadi biru
+                      primary: Color.fromARGB(
+                          255, 14, 56, 192), // Ubah warna tombol menjadi biru
                     ),
                   )
                 ],
