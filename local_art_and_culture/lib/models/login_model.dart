@@ -32,7 +32,7 @@ class Data {
   String phoneNumber;
   int userId;
   int roleId;
-  int? addressId;
+  String? addressId;
   Users users;
   Role role;
 
@@ -43,7 +43,7 @@ class Data {
     required this.phoneNumber,
     required this.userId,
     required this.roleId,
-    required this.addressId,
+    this.addressId,
     required this.users,
     required this.role,
   });
@@ -82,7 +82,7 @@ class Users {
   String token;
   String phoneNumber;
   String nik;
-  String gender;
+  String? gender;
   String birthday;
 
   Users({
@@ -94,7 +94,7 @@ class Users {
     required this.token,
     required this.phoneNumber,
     required this.nik,
-    required this.gender,
+    this.gender,
     required this.birthday,
   });
 

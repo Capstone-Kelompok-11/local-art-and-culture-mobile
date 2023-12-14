@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:http/http.dart';
 
 import 'package:local_art_and_culture/src/feature/chat/pesan_semua_screen.dart';
 import 'package:local_art_and_culture/src/feature/notif/src/notifikasi.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class CustomContainer extends StatelessWidget {
   final String profileImageUrl;
@@ -19,128 +21,90 @@ class CustomContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 345,
-      height: 46,
+      width: double.infinity,
+      height: 70, // Set your desired height here
       child: Row(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
+          Padding(
+            padding: const EdgeInsets.only(left: 8.0),
+            child: Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                  image: AssetImage(profileImageUrl),
+                  fit: BoxFit.fill,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  width: 32,
-                  height: 32,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: ShapeDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(profileImageUrl),
-                      fit: BoxFit.fill,
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(24),
-                    ),
+                Text(
+                  greetingText,
+                  style: const TextStyle(
+                    color: Color(0xFF3653B0),
+                    fontSize: 16,
+                    fontFamily: 'Plus Jakarta Sans',
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
-                const SizedBox(width: 12),
-                Container(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              greetingText,
-                              style: const TextStyle(
-                                color: Color(0xFF3653B0),
-                                fontSize: 16,
-                                fontFamily: 'Plus Jakarta Sans',
-                                fontWeight: FontWeight.w700,
-                                height: 0.09,
-                              ),
-                            ),
-                          ],
-                        ),
+                SizedBox(height: 4),
+                Row(
+                  children: [
+                    Container(
+                      width: 8,
+                      height: 8,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFF3B502),
+                        shape: BoxShape.circle,
                       ),
-                      const SizedBox(height: 10),
-                      Container(
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              width: 8,
-                              height: 8,
-                              clipBehavior: Clip.antiAlias,
-                              decoration: ShapeDecoration(
-                                color: const Color(0xFFF3B502),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 8),
-                            const Text(
-                              'Surabaya',
-                              style: TextStyle(
-                                color: Color(0xFF5F5F5F),
-                                fontSize: 12,
-                                fontFamily: 'Plus Jakarta Sans',
-                                fontWeight: FontWeight.w400,
-                                height: 0.12,
-                              ),
-                            )
-                          ],
-                        ),
+                    ),
+                    SizedBox(width: 8),
+                    Text(
+                      locationText,
+                      style: TextStyle(
+                        color: Color(0xFF5F5F5F),
+                        fontSize: 12,
+                        fontFamily: 'Plus Jakarta Sans',
+                        fontWeight: FontWeight.w400,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ],
             ),
           ),
-          // Additional
-
           Row(
-            mainAxisSize: MainAxisSize.min,
             children: [
               IconButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            SliderPage()), // Ganti dengan halaman "Event" yang sesuai
+                    MaterialPageRoute(builder: (context) => SliderPage()),
                   );
                 },
                 icon: SvgPicture.asset('assets/svg/bell-ring.svg'),
                 iconSize: 24,
               ),
-              const SizedBox(width: 16),
+              SizedBox(width: 16),
               IconButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            PesanSemuaScreen()), // Ganti dengan halaman "Event" yang sesuai
+                    MaterialPageRoute(builder: (context) => PesanSemuaScreen()),
                   );
                 },
                 icon: SvgPicture.asset('assets/svg/chat-processing.svg'),
                 iconSize: 24,
               ),
-              const SizedBox(width: 16),
+              SizedBox(width: 16),
               IconButton(
                 onPressed: () {
                   // Action for shopping cart icon

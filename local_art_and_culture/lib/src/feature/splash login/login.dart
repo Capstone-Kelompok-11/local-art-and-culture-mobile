@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/models/login_model.dart';
 import 'package:local_art_and_culture/service/login_service.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/src/screen_home_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'register.dart';
 
 class LoginPage extends StatefulWidget {
@@ -259,7 +262,7 @@ class _ThirdComponentState extends State<ThirdComponent> {
                 padding: const EdgeInsets.symmetric(vertical: 15),
                 backgroundColor: const Color.fromRGBO(54, 83, 176, 1),
               ),
-              onPressed: _isLoading ? null : () => _handleLogin(),
+              onPressed: _isLoading ? null : () => Login(),
               child: _isLoading
                   ? const CircularProgressIndicator(
                       color: Color.fromRGBO(54, 83, 176, 1))
@@ -348,6 +351,37 @@ class _ThirdComponentState extends State<ThirdComponent> {
     );
   }
 
+  Future<void> Login() async {
+    SharedPreferences masuk = await SharedPreferences.getInstance();
+    setState(() {
+      _isLoading = true;
+      _radioValue = !_radioValue;
+    });
+    final signInService = SignInService();
+    try {
+      Map<String, dynamic> loginResult = await signInService.loginUser(
+          widget.emailController.text.trim(),
+          widget.passwordController.text.trim());
+      if (loginResult['message'] == 'Success') {
+        masuk.setString('token', loginResult['data']['users']['token']);
+        masuk.setString('nama', loginResult['data']['users']['first_name']);
+        masuk.setInt('id', loginResult['data']['id']);
+        // ignore: use_build_context_synchronously
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => const MyHomePage()),
+          (Route<dynamic> route) => false,
+        );
+      }
+    } catch (e) {
+      print(e);
+    } finally {
+      setState(() {
+        _isLoading = false;
+      });
+    }
+  }
+
   Future<void> _handleLogin() async {
     setState(() {
       _isLoading = true;
@@ -360,10 +394,35 @@ class _ThirdComponentState extends State<ThirdComponent> {
     final signInService = SignInService();
     final ModelSignIn? modelSignIn =
         await signInService.signInAccount(email, password);
+    final response = await signInService.loginUser(
+        widget.emailController.text.trim().toString(), password);
+    // try {
+    //   setState(() {
+    //     _isLoading = true;
+    //   });
+    //   print(email);
+    //   print(password);
 
-    setState(() {
-      _isLoading = false;
-    });
+    //   print(response.statusCode);
+    //   final responData = json.decode(response.body);
+    //   print(responData['message']);
+    //   if (response.statusCode == 200) {
+    //     SharedPreferences login = await SharedPreferences.getInstance();
+    //     login.setString('token', responData['data']['users']['token']);
+    //     login.setInt('id', responData['data']['id']);
+    //     // ignore: use_build_context_synchronously
+    //     Navigator.push(
+    //       context,
+    //       MaterialPageRoute(builder: (context) => const MyHomePage()),
+    //     );
+    //   }
+    // } catch (e) {
+    //   print(e);
+    // } finally {
+    //   setState(() {
+    //     _isLoading = false;
+    //   });
+    // }
 
     if (modelSignIn != null) {
       // ignore: use_build_context_synchronously
