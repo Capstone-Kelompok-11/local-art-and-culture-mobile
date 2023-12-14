@@ -80,6 +80,8 @@ flutter:
     - assets/svg/
     - assets/png/
     - assets/fonts/
+    - assets/gambar-produk-1.jpg
+    - assets/gambar-produk-2.jpg
 
   fonts:
     # - family: Schyler

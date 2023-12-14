@@ -11,6 +11,7 @@ import 'package:local_art_and_culture/src/feature/home%20page/widget/icon_filter
 import 'package:local_art_and_culture/src/feature/home%20page/widget/news_card.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/searchbar.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/slider_home_page.dart';
+import 'package:local_art_and_culture/src/feature/product/screens/product_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -325,28 +326,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ),
                       SizedBox(
-                        height: 385, // Ubah tinggi sesuai kebutuhan
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 4,
-                          itemBuilder: (context, index) {
-                            return const Padding(
-                              padding: cardPadding,
-                              child: RoundedImageCard(
-                                imagePath: 'assets/dompet.jpg',
-                                label: 'Fashion',
-                                subtitle:
-                                    'Dompet Wanita Series AMC Kulit Naga Asli',
-                                title: 'Rp 80.000',
-                                locationRating: "Surabaya",
-                                starRating: 4.5,
-                                terjual: '120',
-                              ),
-                            );
-                          },
-                        ),
+                        child: CardProducts(),
                       ),
-                      // Contoh elemen tambahan di dalam SingleChildScrollView
                       const SizedBox(height: 20),
                       Padding(
                         padding: const EdgeInsets.symmetric(
@@ -362,8 +343,12 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                             ),
                             GestureDetector(
-                              onTap: () {
-                                // Tindakan ketika "Lihat Semua" ditekan
+                              onTap: () async {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ListProductPage()),
+                                );
                               },
                               child: const Text(
                                 'Lihat Semua',
@@ -376,27 +361,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           ],
                         ),
                       ),
-                      SizedBox(
-                        height: 385, // Ubah tinggi sesuai kebutuhan
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 4,
-                          itemBuilder: (context, index) {
-                            return const Padding(
-                              padding: cardPadding,
-                              child: RoundedImageCard(
-                                imagePath: 'assets/dompet.jpg',
-                                label: 'Fashion',
-                                subtitle:
-                                    'Dompet Wanita Series AMC Kulit Naga Asli',
-                                title: 'Rp 80.000',
-                                locationRating: "Surabaya",
-                                starRating: 4.5,
-                                terjual: '138',
-                              ),
-                            );
-                          },
-                        ),
+                      const SizedBox(
+                        child: CardProducts(),
                       ),
                     ],
                   ),
@@ -406,16 +372,17 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         bottomNavigationBar: CustomBottomNavigationBar(
-            selectedIndex: 0,
-            onItemTapped: (index) {
-              if (index == 1) {
-                Navigator.pushNamed(context, '/event');
-              } else if (index == 2) {
-                Navigator.pushNamed(context, '/product');
-              } else if (index == 3) {
-                Navigator.pushNamed(context, '/profile');
-              }
-            }),
+          selectedIndex: 0,
+          onItemTapped: (index) {
+            if (index == 1) {
+              Navigator.pushNamed(context, '/event');
+            } else if (index == 2) {
+              Navigator.pushNamed(context, '/product');
+            } else if (index == 3) {
+              Navigator.pushNamed(context, '/profile');
+            }
+          },
+        ),
       ),
     );
   }
