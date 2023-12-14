@@ -23,7 +23,7 @@ class _MetodePMState extends State<MetodePM> {
                 width: 20,
               ),
               Text(
-                "Pilih Metode Pembayaran",
+                "Pilih Metode Pembayaran\nDompen Digital",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 16,
@@ -37,7 +37,7 @@ class _MetodePMState extends State<MetodePM> {
             height: 10,
           ),
           PaymentList(
-            title: 'Dompet Digital',
+            title: '',
             options: [
               Payment(name: 'OVO', image: 'ovo.png'),
               Payment(name: "Shopeepay", image: "shopeepay.png"),

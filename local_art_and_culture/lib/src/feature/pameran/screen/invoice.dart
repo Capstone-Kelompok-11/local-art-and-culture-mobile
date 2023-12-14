@@ -9,7 +9,6 @@ import 'package:local_art_and_culture/src/feature/pameran/widget/mp_invoice.dart
 import 'package:local_art_and_culture/src/feature/pameran/widget/succes.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/tiket_invoice.dart';
 
-
 class InvoiceScreen extends StatefulWidget {
   const InvoiceScreen({super.key});
 
@@ -23,15 +22,11 @@ class _InvoiceScreenState extends State<InvoiceScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          width: 393,
+          width: 493,
           height: 1451,
           clipBehavior: Clip.antiAlias,
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment(-0.07, -1.00),
-              end: Alignment(0.07, 1),
-              colors: [Color(0xFF3653B0), Color(0x003653B0)],
-            ),
+          decoration: BoxDecoration(
+            color: Color(0xFF91A2D4), // Ganti dengan warna yang diinginkan
           ),
           child: Column(
             children: [
@@ -64,12 +59,12 @@ class _InvoiceScreenState extends State<InvoiceScreen> {
                     ),
                     const TiketInvoice(
                         imagePath: "assets/img/Pameran2.png",
-                        title: "Jak-Japan Matsuri 2023\n - Closing Ceremony",
-                        location: "Gambir Expo - Jiexpo \nKemayoran",
-                        date: "18 - 19 Nov 2023"),
-                    InfoPengunjung(),
-                    InfopsnInvoice(),
-                    InvoiceMP(),
+                        title: "Museum Macan\n",
+                        location: "Museum Macan\n",
+                        date: "Setiap Hari"),
+                    const InfoPengunjung(),
+                    const InfopsnInvoice(),
+                    const InvoiceMP(),
                     SizedBox(
                       height: 8,
                       child: Column(

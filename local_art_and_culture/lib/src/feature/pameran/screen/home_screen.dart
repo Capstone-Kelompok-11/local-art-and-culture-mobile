@@ -60,11 +60,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           ]),
                           child: const TextField(
                             decoration: InputDecoration(
-                              hintText: "Cari....",
+                              hintText: "Cari di Lokasani",
                               prefixIcon: Icon(Icons.search),
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.all(
-                                    Radius.circular(25.0),
+                                    Radius.circular(35.0),
                                   ),
                                   borderSide: BorderSide.none),
                               filled: true,
@@ -74,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       const SizedBox(
-                        width: 8,
+                        width: 5,
                       ),
                       IconButton(
                         onPressed: () {},
