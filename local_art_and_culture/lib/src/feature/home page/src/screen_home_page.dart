@@ -8,7 +8,7 @@ import 'package:local_art_and_culture/src/feature/home%20page/widget/calender.da
 import 'package:local_art_and_culture/src/feature/home%20page/widget/card.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/card_event.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/filter_button.dart';
-import 'package:local_art_and_culture/src/feature/home%20page/widget/icon_filter.dart';
+
 import 'package:local_art_and_culture/src/feature/home%20page/widget/news_card.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/searchbar.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/slider_home_page.dart';

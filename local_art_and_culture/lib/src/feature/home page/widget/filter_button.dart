@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:local_art_and_culture/src/feature/home%20page/src/screen_home_page.dart';
 
 class FilterButton extends StatefulWidget {
   const FilterButton({Key? key}) : super(key: key);
