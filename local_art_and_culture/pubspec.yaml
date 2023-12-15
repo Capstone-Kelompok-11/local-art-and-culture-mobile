@@ -53,6 +53,7 @@ dependencies:
   syncfusion_flutter_datepicker: ^21.2.10
   calendar_date_picker2: ^0.5.3
   shared_preferences: ^2.2.2
+  table_calendar: ^3.0.9
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -80,6 +81,8 @@ flutter:
     - assets/svg/
     - assets/png/
     - assets/fonts/
+    - assets/gambar-produk-1.jpg
+    - assets/gambar-produk-2.jpg
 
   fonts:
     # - family: Schyler
