@@ -58,7 +58,7 @@ class _DetailPameranState extends State<DetailPameran> {
                             )
                           ],
                           image: const DecorationImage(
-                              image: AssetImage('assets/img/pameran2.png'),
+                              image: AssetImage('assets/img/Pameran2.png'),
                               fit: BoxFit.fill),
                         ),
                       ),
