@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:local_art_and_culture/src/feature/chat/chat_screen.dart';
-import 'package:local_art_and_culture/src/feature/chat/componen/list_tile_chat.dart';
-import 'package:local_art_and_culture/src/feature/chat/pesan_unreply_screen.dart';
-import 'package:local_art_and_culture/src/feature/chat/pesan_unseen_screen.dart';
-import '../chat/componen/search_bar.dart';
+import 'package:local_art_and_culture/components/search_bar.dart';
+import 'package:local_art_and_culture/src/feature/chat/komponen/list_tile_chat.dart';
+// import 'package:local_art_and_culture/src/feature/chat/chat_screen.dart';
+// import 'package:local_art_and_culture/src/feature/chat/componen/list_tile_chat.dart';
+// import 'package:local_art_and_culture/src/feature/chat/komponen/list_tile_chat.dart';
+// import 'package:local_art_and_culture/src/feature/chat/pesan_unreply_screen.dart';
+// import 'package:local_art_and_culture/src/feature/chat/pesan_unseen_screen.dart';
+// import '../chat/componen/search_bar.dart';
 
 class PesanSemuaScreen extends StatelessWidget {
   const PesanSemuaScreen({Key? key}) : super(key: key);
@@ -73,14 +76,14 @@ class PesanSemuaScreen extends StatelessWidget {
                   ],
                 ),
                 GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const PesanUnseenScreen(),
-                      ),
-                    );
-                  },
+                  // onTap: () {
+                  //   Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //       builder: (context) => const PesanUnseenScreen(),
+                  //     ),
+                  //   );
+                  // },
                   child: Column(
                     children: [
                       Text(
@@ -95,14 +98,14 @@ class PesanSemuaScreen extends StatelessWidget {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const PesanUnreplyScreen(),
-                      ),
-                    );
-                  },
+                  // onTap: () {
+                  //   Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //       builder: (context) => const PesanUnreplyScreen(),
+                  //     ),
+                  //   );
+                  // },
                   child: Column(
                     children: [
                       Text(
@@ -127,14 +130,14 @@ class PesanSemuaScreen extends StatelessWidget {
                 child: ListView(
               children: [
                 GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ChatScreen(),
-                      ),
-                    );
-                  },
+                  // onTap: () {
+                  //   Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //       builder: (context) => ChatScreen(),
+                  //     ),
+                  //   );
+                  // },
                   child: ListTileChat(
                     name: 'Tumi Batik',
                     image: 'assets/icons/tumibatik.png',
