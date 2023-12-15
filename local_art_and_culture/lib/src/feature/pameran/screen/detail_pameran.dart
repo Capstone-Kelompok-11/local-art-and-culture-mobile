@@ -5,6 +5,7 @@ import 'package:local_art_and_culture/src/feature/pameran/screen/pilihan_tiket.d
 import 'package:local_art_and_culture/src/feature/pameran/widget/bottomsheet.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/marchandies.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/tiket.dart';
+import 'package:expandable_text/expandable_text.dart';
 
 void main() {
   runApp(MyApp());
@@ -249,89 +250,37 @@ class _DetailPameranState extends State<DetailPameran> {
                     const SizedBox(
                       height: 8,
                     ),
-                    const Row(
+                    const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Text(
-                          "\tVoice Against Reason adalah pameran besar \n\tyang melibatkan 24 perupa dari Australia, \n\tBangladesh, India, Indonesia, Jepang, \n\tSingapura, Taiwan, Thailand, dan Vietnam.",
-                          style: TextStyle(
-                            color: Color(0xFF666666),
-                            fontSize: 16,
-                            fontFamily: 'Plus Jakarta Sans',
-                            fontWeight: FontWeight.w400,
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                          child: ExpandableText(
+                            "\tVoice Against Reason adalah sebuah pameran seni yang memperlihatkan karya-karya luar biasa dari 24 perupa yang berasal dari berbagai negara, menciptakan sebuah ruang dialog artistik yang melintasi batas geografis dan budaya. Pameran ini tidak hanya menyajikan karya seni visual, tetapi juga menjadi sebuah platform untuk mengamati suara dan pikiran di balik setiap karya."
+                            "Dengan menghadirkan perupa dari Australia, Bangladesh, India, Indonesia, Jepang, Singapura, Taiwan, Thailand, dan Vietnam, pameran ini merangkul keberagaman dan pluralitas ekspresi seni kontemporer di Asia dan Pasifik. Masing-masing seniman membawa perspektif unik mereka sendiri, memberikan nuansa kaya dan kompleksitas dalam merespons isu-isu zaman ini."
+                            "Voice Against Reason mengajak penontonnya untuk merenung dan meresapi pesan yang disampaikan oleh setiap karya. Dalam keragaman tema dan gaya, pameran ini menggambarkan suara-suara yang mendesak, memberikan tantangan terhadap pemikiran rasional, dan mendorong refleksi mendalam terhadap realitas kompleks dunia kita."
+                            "Pameran ini juga menjadi sebuah wadah bagi kolaborasi lintas-budaya, di mana seniman-seniman dari latar belakang yang berbeda dapat saling berinteraksi dan bertukar ide. Melalui karya-karya mereka, Voice Against Reason membangun jembatan antara berbagai tradisi seni, menciptakan ruang untuk dialog global yang melampaui batasan fisik dan politik."
+                            "Tidak hanya sekadar merayakan keindahan visual, pameran ini juga mengajak penontonnya untuk mempertanyakan dan meresapi esensi dari setiap karya. Voice Against Reason tidak hanya menjadi tempat untuk mengeksplorasi berbagai bentuk seni kontemporer, tetapi juga sebuah panggilan untuk mendengarkan dan menghargai beragam suara yang mewarnai dunia seni saat ini."
+                            "Dengan melibatkan seniman-seniman dari berbagai negara, Voice Against Reason membuktikan bahwa seni adalah bahasa universal yang dapat menghubungkan kita melewati perbedaan-perbedaan yang mungkin ada. Pameran ini bukan hanya sebuah showcase visual, tetapi juga sebuah perayaan kekayaan budaya dan intelektual yang ada di seluruh kawasan Asia dan Pasifik.",
+                            expandText: '\nBaca Selengkapnya',
+                            collapseText: '\nSembunyikan',
+                            linkColor: Color(0xFF627DCF),
+                            // onExpand: () {
+                            //   setState(() {
+                            //     isExpanded = true;
+                            //   });
+                            // },
+                            // onCollapse: () {
+                            //   setState(() {
+                            //     isExpanded = false;
+                            //   });
+                            // },
                           ),
                         ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    Row(
-                      children: [
-                        const SizedBox(
-                          width: 29,
-                        ),
-                        GestureDetector(
-                          onTap: () {},
-                          child: const Text(
-                            "Baca Selengkapnya",
-                            style: TextStyle(
-                              color: Color(0xFF627DCF),
-                              fontSize: 12,
-                              fontFamily: 'Plus Jakarta Sans',
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    const Row(
-                      children: [
                         SizedBox(
-                          width: 24,
+                          height: 8,
                         ),
-                        Icon(
-                          Icons.location_on,
-                          color: Colors.black,
-                          size: 20,
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          'Museum Macan',
-                          style: TextStyle(
-                            color: Color(0xFF0C1226),
-                            fontSize: 13,
-                            fontFamily: 'Plus Jakarta Sans',
-                            fontWeight: FontWeight.w600,
-                            height: 0,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 3,
-                    ),
-                    const Row(
-                      children: [
-                        SizedBox(
-                          width: 47,
-                        ),
-                        Text(
-                          'Jalan Perjuangan, Rt.11/Rw.10, Kebon Jeruk',
-                          style: TextStyle(
-                            color: Color(0xFF666666),
-                            fontSize: 12,
-                            fontFamily: 'Plus Jakarta Sans',
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
+                        // You can add additional widgets here
                       ],
                     ),
                     Row(
