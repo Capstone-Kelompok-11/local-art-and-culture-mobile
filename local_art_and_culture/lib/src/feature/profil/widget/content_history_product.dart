@@ -20,8 +20,8 @@ class ContentHistoryProduct extends StatelessWidget {
                   borderRadius: BorderRadius.circular(15.0),
                   child: const Image(
                     image: AssetImage('assets/gambar-produk-2.jpg'),
-                    width: 140,
-                    height: 140,
+                    width: 120,
+                    height: 120,
                     fit: BoxFit.cover,
                   ),
                 ),
