@@ -7,6 +7,7 @@ import 'package:local_art_and_culture/src/feature/home%20page/widget/button_fitu
 import 'package:local_art_and_culture/src/feature/home%20page/widget/calender.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/card.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/card_event.dart';
+import 'package:local_art_and_culture/src/feature/home%20page/widget/filter_button.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/icon_filter.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/news_card.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/searchbar.dart';
@@ -106,18 +107,15 @@ class _MyHomePageState extends State<MyHomePage> {
                         ],
                       ),
                       const SizedBox(height: 32),
-                      Row(
+                      const Row(
                         children: [
-                          const Expanded(
+                          Expanded(
                             child: CustomSearchBar(
                               leadingIcon: Icon(Icons.search),
                             ),
                           ),
-                          const SizedBox(width: 12),
-                          CustomIconButton(
-                            icon: const Icon(Icons.filter_list),
-                            onTap: () {},
-                          ),
+                          SizedBox(width: 5),
+                          FilterButton(),
                         ],
                       ),
                       const SizedBox(height: 32),
@@ -248,7 +246,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          ArticleList()), // Ganti dengan halaman "Event" yang sesuai
+                                          const ArticleList()), // Ganti dengan halaman "Event" yang sesuai
                                 );
                               },
                               child: const Text(
@@ -325,7 +323,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ],
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         child: CardProducts(),
                       ),
                       const SizedBox(height: 20),
@@ -347,7 +345,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => ListProductPage()),
+                                      builder: (context) =>
+                                          const ListProductPage()),
                                 );
                               },
                               child: const Text(
