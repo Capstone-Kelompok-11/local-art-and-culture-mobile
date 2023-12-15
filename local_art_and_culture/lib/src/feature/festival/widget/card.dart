@@ -7,6 +7,7 @@ class RoundedImageCard extends StatelessWidget {
   final String title;
   final String harga;
   final String location;
+  final String categorie1;
 
   const RoundedImageCard({
     Key? key,
@@ -14,14 +15,14 @@ class RoundedImageCard extends StatelessWidget {
     required this.title,
     required this.harga,
     required this.location,
+    required this.categorie1,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 345, // Menentukan lebar card
-      height:
-          MediaQuery.of(context).size.height * 0.35, // Menentukan tinggi card
+
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
 
       decoration: BoxDecoration(
@@ -72,9 +73,9 @@ class RoundedImageCard extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: Color(0xFFEBEEF9),
                     borderRadius: BorderRadius.circular(20.0)),
-                child: const Text(
-                  "Berbayar",
-                  style: TextStyle(
+                child: Text(
+                  "$categorie1",
+                  style: const TextStyle(
                     color: Color(0xFF768DD5),
                     fontSize: 10,
                     fontFamily: 'Plus Jakarta Sans',
@@ -123,15 +124,20 @@ class RoundedImageCard extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => DetailFestival()),
-                        (route) => false);
-                  },
-                  icon: SvgPicture.asset("assets/svg/arrow right.svg"),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DetailFestival()),
+                            (route) => false);
+                      },
+                      icon: SvgPicture.asset("assets/svg/arrow right.svg"),
+                    ),
+                  ],
                 ),
               ),
               // const Spacer(),

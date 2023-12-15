@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:local_art_and_culture/service/login_service.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/src/screen_home_page.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 import 'register.dart';
 
 class LoginPage extends StatefulWidget {
@@ -10,6 +11,9 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool _isPasswordVisible = false;
+
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +34,14 @@ class _LoginPageState extends State<LoginPage> {
                       _isPasswordVisible = isVisible;
                     });
                   },
+                  emailController: emailController,
+                  passwordController: passwordController,
                 ),
                 const SizedBox(height: 20),
-                ThirdComponent(),
+                ThirdComponent(
+                  emailController: emailController,
+                  passwordController: passwordController,
+                ),
               ],
             ),
           ),
@@ -72,10 +81,14 @@ class TitleComponent extends StatelessWidget {
 class FieldComponent extends StatelessWidget {
   final bool isPasswordVisible;
   final Function(bool) togglePasswordVisibility;
+  final TextEditingController emailController;
+  final TextEditingController passwordController;
 
   const FieldComponent({
     required this.isPasswordVisible,
     required this.togglePasswordVisibility,
+    required this.emailController,
+    required this.passwordController,
   });
 
   @override
@@ -97,6 +110,7 @@ class FieldComponent extends StatelessWidget {
                     color: Color.fromRGBO(102, 102, 102, 1))),
           ),
           TextField(
+            controller: emailController,
             decoration: InputDecoration(
               hintText: 'Masukkan Email',
               filled: true,
@@ -134,6 +148,7 @@ class FieldComponent extends StatelessWidget {
             ),
           ),
           TextField(
+            controller: passwordController,
             obscureText: !isPasswordVisible,
             decoration: InputDecoration(
               hintText: 'Masukkan Kata Sandi',
@@ -166,9 +181,7 @@ class FieldComponent extends StatelessWidget {
             ),
           ),
           TextButton(
-            onPressed: () {
-              // Navigate to forgot password page
-            },
+            onPressed: () {},
             child: const Text(
               'Lupa Kata Sandi?',
               style: TextStyle(
@@ -185,12 +198,21 @@ class FieldComponent extends StatelessWidget {
 }
 
 class ThirdComponent extends StatefulWidget {
+  final TextEditingController emailController;
+  final TextEditingController passwordController;
+
+  const ThirdComponent({
+    required this.emailController,
+    required this.passwordController,
+  });
+
   @override
   _ThirdComponentState createState() => _ThirdComponentState();
 }
 
 class _ThirdComponentState extends State<ThirdComponent> {
   bool _radioValue = false;
+  bool _isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -233,31 +255,27 @@ class _ThirdComponentState extends State<ThirdComponent> {
             ],
           ),
           ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              padding: const EdgeInsets.symmetric(vertical: 15),
-              backgroundColor: const Color.fromRGBO(54, 83, 176, 1),
-            ),
-            onPressed: () {
-              // Ini adalah bagian yang akan dijalankan saat tombol ditekan
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const MyHomePage()),
-              );
-            },
-            child: Container(
-              width: double.infinity,
-              child: const Center(
-                child: Text(
-                  'Masuk',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white,
-                    fontFamily: 'Plus Jakarta Sans',
-                  ),
-                ),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(vertical: 15),
+                backgroundColor: const Color.fromRGBO(54, 83, 176, 1),
               ),
-            ),
-          ),
+              onPressed: _isLoading ? null : () => Login(),
+              child: _isLoading
+                  ? const CircularProgressIndicator(
+                      color: Color.fromRGBO(54, 83, 176, 1))
+                  : const SizedBox(
+                      width: double.infinity,
+                      child: Center(
+                        child: Text(
+                          'Masuk',
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Colors.white,
+                            fontFamily: 'Plus Jakarta Sans',
+                          ),
+                        ),
+                      ),
+                    )),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -287,48 +305,136 @@ class _ThirdComponentState extends State<ThirdComponent> {
             ],
           ),
           const SizedBox(height: 10),
-          Container(
-            child: Column(
-              children: [
-                Container(
-                  margin: const EdgeInsets.symmetric(vertical: 10),
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Container(
-                        height: 1,
-                        color: Colors.grey,
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(8),
-                        color: Theme.of(context).scaffoldBackgroundColor,
-                        child: const Text(
-                          'Atau Masuk Dengan',
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 12,
-                            fontFamily: 'Plus Jakarta Sans',
-                          ),
+          Column(
+            children: [
+              Container(
+                margin: const EdgeInsets.symmetric(vertical: 10),
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Container(
+                      height: 1,
+                      color: Colors.grey,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      color: Theme.of(context).scaffoldBackgroundColor,
+                      child: const Text(
+                        'Atau Masuk Dengan',
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 12,
+                          fontFamily: 'Plus Jakarta Sans',
                         ),
                       ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    InkWell(
-                      onTap: () {},
-                      child: Image.asset('assets/google_logo.png', height: 40),
                     ),
                   ],
                 ),
-              ],
-            ),
+              ),
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                    onTap: () {},
+                    child: Image.asset('assets/google_logo.png', height: 40),
+                  ),
+                ],
+              ),
+            ],
           ),
         ],
       ),
     );
   }
+
+  Future<void> Login() async {
+    SharedPreferences masuk = await SharedPreferences.getInstance();
+    setState(() {
+      _isLoading = true;
+      _radioValue = !_radioValue;
+    });
+    final signInService = SignInService();
+    try {
+      Map<String, dynamic> loginResult = await signInService.loginUser(
+          widget.emailController.text.trim(),
+          widget.passwordController.text.trim());
+      if (loginResult['message'] == 'Success') {
+        masuk.setString('token', loginResult['data']['users']['token']);
+        masuk.setString('nama', loginResult['data']['users']['first_name']);
+        masuk.setInt('id', loginResult['data']['id']);
+        // ignore: use_build_context_synchronously
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(builder: (context) => const MyHomePage()),
+          (Route<dynamic> route) => false,
+        );
+      }
+    } catch (e) {
+      print(e);
+    } finally {
+      setState(() {
+        _isLoading = false;
+      });
+    }
+  }
+
+  // Future<void> _handleLogin() async {
+  //   setState(() {
+  //     _isLoading = true;
+  //     _radioValue = !_radioValue;
+  //   });
+
+  //   String email = widget.emailController.text.trim();
+  //   String password = widget.passwordController.text.trim();
+
+  //   final signInService = SignInService();
+  //   final ModelSignIn? modelSignIn =
+  //       await signInService.signInAccount(email, password);
+  //   final response = await signInService.loginUser(
+  //       widget.emailController.text.trim().toString(), password);
+  //   // try {
+  //   //   setState(() {
+  //   //     _isLoading = true;
+  //   //   });
+  //   //   print(email);
+  //   //   print(password);
+
+  //   //   print(response.statusCode);
+  //   //   final responData = json.decode(response.body);
+  //   //   print(responData['message']);
+  //   //   if (response.statusCode == 200) {
+  //   //     SharedPreferences login = await SharedPreferences.getInstance();
+  //   //     login.setString('token', responData['data']['users']['token']);
+  //   //     login.setInt('id', responData['data']['id']);
+  //   //     // ignore: use_build_context_synchronously
+  //   //     Navigator.push(
+  //   //       context,
+  //   //       MaterialPageRoute(builder: (context) => const MyHomePage()),
+  //   //     );
+  //   //   }
+  //   // } catch (e) {
+  //   //   print(e);
+  //   // } finally {
+  //   //   setState(() {
+  //   //     _isLoading = false;
+  //   //   });
+  //   // }
+
+  //   if (modelSignIn != null) {
+  //     // ignore: use_build_context_synchronously
+  //     Navigator.push(
+  //       context,
+  //       MaterialPageRoute(builder: (context) => const MyHomePage()),
+  //     );
+  //   } else {
+  //     // ignore: use_build_context_synchronously
+  //     ScaffoldMessenger.of(context).showSnackBar(
+  //       // ignore: prefer_const_constructors
+  //       SnackBar(
+  //         content: const Text('Login Gagal, username atau password anda salah'),
+  //       ),
+  //     );
+  //   }
+  // }
 }

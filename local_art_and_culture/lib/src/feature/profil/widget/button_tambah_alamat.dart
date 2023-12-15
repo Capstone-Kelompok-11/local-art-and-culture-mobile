@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:local_art_and_culture/src/feature/profil/tambahalamatbaru.dart';
 
 class AddAddressButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -19,8 +20,14 @@ class AddAddressButton extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           borderRadius: BorderRadius.circular(24),
-          onTap:
-              onPressed, // Arahkan ke halaman tambah alamat saat tombol ditekan
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      AddressPage()), // Ganti dengan halaman "Event" yang sesuai
+            );
+          }, // Arahkan ke halaman tambah alamat saat tombol ditekan
           child: const Row(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,

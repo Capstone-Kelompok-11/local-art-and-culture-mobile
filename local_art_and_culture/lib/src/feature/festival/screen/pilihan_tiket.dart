@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/src/feature/festival/screen/detail_pembelian.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/appbarpt.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/cardtp.dart';
+import 'package:local_art_and_culture/src/feature/festival/widget/rincian_pembayaran.dart';
 
 import 'package:local_art_and_culture/src/feature/festival/widget/tiketpilihan.dart';
 
@@ -92,221 +93,24 @@ class _PilihanTiketState extends State<PilihanTiket> {
                 ),
               ],
             ),
-            SizedBox(
-              height: 15,
-            ),
-            Row(
-              children: [
-                SizedBox(
-                  width: 24,
-                ),
-                Text(
-                  "Total Pembelian",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontFamily: 'Plus Jakarta Sans',
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SizedBox(
-                  width: 3,
-                ),
-                Text(
-                  "Total Harga",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 14,
-                    fontFamily: 'Plus Jakarta Sans',
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                SizedBox(
-                  width: 140,
-                ),
-                Text(
-                  'Rp.205.000',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 14,
-                    fontFamily: 'Plus Jakarta Sans',
-                    fontWeight: FontWeight.w600,
-                    height: 0.11,
-                  ),
-                ),
-                SizedBox(
-                  width: 24,
-                ),
-              ],
-            ),
-            Divider(
-              color: Colors.grey,
-              height: 1,
-              thickness: 1,
-            ),
-            SizedBox(
-              height: 32,
-            ),
-            Row(
-              children: [
-                SizedBox(
-                  width: 24,
-                ),
-                Text(
-                  "Biaya Transaksi",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontFamily: 'Plus Jakarta Sans',
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SizedBox(
-                  width: 16,
-                ),
-                Text(
-                  "Biaya Layanan",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 14,
-                    fontFamily: 'Plus Jakarta Sans',
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                SizedBox(
-                  width: 190,
-                ),
-                Text(
-                  'Rp.1.000',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 14,
-                    fontFamily: 'Plus Jakarta Sans',
-                    fontWeight: FontWeight.w600,
-                    height: 0.11,
-                  ),
-                ),
-                SizedBox(
-                  width: 24,
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 4,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SizedBox(
-                  width: 14,
-                ),
-                Text(
-                  "Biaya Jasa Aplikasi",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 14,
-                    fontFamily: 'Plus Jakarta Sans',
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                SizedBox(
-                  width: 150,
-                ),
-                Text(
-                  'Rp.2.000',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 14,
-                    fontFamily: 'Plus Jakarta Sans',
-                    fontWeight: FontWeight.w600,
-                    height: 0.11,
-                  ),
-                ),
-                SizedBox(
-                  width: 24,
-                ),
-              ],
-            ),
-            Divider(
-              color: Colors.grey,
-              height: 1,
-              thickness: 1,
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SizedBox(
-                  width: 16,
-                ),
-                Text(
-                  "Total Pembayaran",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontFamily: 'Plus Jakarta Sans',
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                SizedBox(
-                  width: 150,
-                ),
-                Text(
-                  'Rp.208.000',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 14,
-                    fontFamily: 'Plus Jakarta Sans',
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-              ],
-            ),
+            RincianPembayaran(),
             SizedBox(
               height: 95,
             ),
           ],
         ),
       ),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.3),
-              spreadRadius: 1,
-              blurRadius: 5,
-              offset: const Offset(0, -3),
-            ),
-          ],
-        ),
-        child: BottomAppBar(
-          color: Colors.white,
-          shape: const CircularNotchedRectangle(),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.white,
+        shape: const CircularNotchedRectangle(),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
               const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
                     "Total Pembayaran",
@@ -328,35 +132,36 @@ class _PilihanTiketState extends State<PilihanTiket> {
                   )
                 ],
               ),
-              Row(
-                children: [
-                  const SizedBox(
-                    width: 100,
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const DetailPembelian(),
+                    ),
+                    (route) => false,
+                  );
+                },
+                child: const Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                  child: Text(
+                    "Selanjutnya",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                      fontFamily: 'Plus Jakarta Sans',
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const DetailPembelian()),
-                          (route) => false);
-                    },
-                    child: Text(
-                      "Checkout",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontFamily: 'Plus Jakarta Sans',
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      primary:
-                          Color(0xFF3653B0), // Ubah warna tombol menjadi biru
-                    ),
-                  )
-                ],
-              )
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF3653B0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
