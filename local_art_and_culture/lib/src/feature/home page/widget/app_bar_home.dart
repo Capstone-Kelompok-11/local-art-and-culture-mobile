@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:http/http.dart';
 
 import 'package:local_art_and_culture/src/feature/chat/pesan_semua_screen.dart';
 import 'package:local_art_and_culture/src/feature/notif/src/notifikasi.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class CustomContainer extends StatelessWidget {
   final String profileImageUrl;
