@@ -23,7 +23,7 @@ class _MetodePMState extends State<MetodePM> {
                 width: 20,
               ),
               Text(
-                "Pilih Metode Pembayaran",
+                "Pilih Metode Pembayaran\nDompen Digital",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 16,
@@ -37,8 +37,8 @@ class _MetodePMState extends State<MetodePM> {
             height: 10,
           ),
           PaymentList(
-            title: 'Dompet Digital',
-            options: [
+            title: '',
+            options: const [
               Payment(name: 'OVO', image: 'ovo.png'),
               Payment(name: "Shopeepay", image: "shopeepay.png"),
               Payment(name: "GoPay", image: "gopay.png"),
@@ -63,6 +63,7 @@ class PaymentList extends StatelessWidget {
   final Function(String?) onChanged;
 
   const PaymentList({
+    super.key,
     required this.title,
     required this.options,
     required this.selectedOption,
@@ -76,19 +77,19 @@ class PaymentList extends StatelessWidget {
       children: [
         Row(
           children: [
-            SizedBox(
+            const SizedBox(
               width: 37,
             ),
             Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ],
         ),
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         Column(
           children: options.map((option) {
             return InkWell(
@@ -96,8 +97,8 @@ class PaymentList extends StatelessWidget {
                 onChanged(option.name);
               },
               child: Container(
-                padding: EdgeInsets.all(8),
-                margin: EdgeInsets.only(bottom: 8),
+                padding: const EdgeInsets.all(8),
+                margin: const EdgeInsets.only(bottom: 8),
                 decoration: BoxDecoration(
                   color: selectedOption == option.name
                       ? Colors.blue.withOpacity(0.1)
@@ -114,7 +115,7 @@ class PaymentList extends StatelessWidget {
                           width: 40,
                           height: 40,
                         ),
-                        SizedBox(width: 8),
+                        const SizedBox(width: 8),
                         Text(option.name),
                       ],
                     ),

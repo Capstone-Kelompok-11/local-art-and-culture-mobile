@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:local_art_and_culture/src/feature/chat/pesan_semua_screen.dart';
+import 'package:local_art_and_culture/src/feature/keranjang/screen/keranjang.dart';
 import 'package:local_art_and_culture/src/feature/notif/src/notifikasi.dart';
 
 class CustomContainer extends StatelessWidget {
@@ -19,7 +20,7 @@ class CustomContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 70, // Set your desired height here
+      height: 70, 
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -105,7 +106,11 @@ class CustomContainer extends StatelessWidget {
               const SizedBox(width: 16),
               IconButton(
                 onPressed: () {
-                  // Action for shopping cart icon
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const KeranjangPage()),
+                  );
                 },
                 icon: SvgPicture.asset('assets/svg/shopping_cart.svg'),
                 iconSize: 24,

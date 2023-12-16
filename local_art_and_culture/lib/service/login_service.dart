@@ -58,14 +58,4 @@ class SignInService {
       throw Exception('Failed to log in');
     }
   }
-
-  // Future<http.Response> loginUser(String email, String password) async {
-  //   final response =
-  //       await http.post(Uri.parse('https://lokasani.my.id/users/login'),
-  //           body: json.encode({
-  //             'email': email,
-  //             'password': password,
-  //           }));
-  //   return response;
-  // }
 }

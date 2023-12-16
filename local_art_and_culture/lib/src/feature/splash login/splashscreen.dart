@@ -66,16 +66,26 @@ class _OnboardScreenState extends State<OnboardScreen> {
               );
             },
           ),
-          const Positioned(
+          Positioned(
             top: 30,
             right: 20,
-            child: Text(
-              "Skip",
-              style: TextStyle(
-                color: Color(0xFFF3B502),
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'Plus Jakarta Sans',
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => LoginPage(),
+                  ),
+                );
+              },
+              child: const Text(
+                "Skip",
+                style: TextStyle(
+                  color: Color(0xFFF3B502),
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Plus Jakarta Sans',
+                ),
               ),
             ),
           ),
@@ -190,7 +200,7 @@ class PageBuilderWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
+          SizedBox(
             width: 280,
             height: 280,
             child: Image.asset(

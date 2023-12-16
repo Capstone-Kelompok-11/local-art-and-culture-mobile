@@ -29,26 +29,26 @@ class _PilihanTiketState extends State<PilihanTiket> {
             ),
             AppBarPT(),
             SizedBox(
-              height: 16,
+              height: 3,
             ),
             TiketPilihan(
               imagePath: "assets/img/Pameran2.png",
               title: "Museum Macan (Voice Against \nReason)",
               date: "Senin - Jumat",
               harga: "50.000",
-              category: 'Regular Day2',
+              //category: 'Regular Day2',
             ),
             TiketPilihan(
               imagePath: "assets/img/Pameran2.png",
               title: "Museum Macan (Voice Against \nReason)",
               date: "Senin - Jumat",
               harga: "79.000",
-              category: 'Regular Day2',
+              //category: 'Regular Day2',
             ),
             Row(
               children: [
                 SizedBox(
-                  width: 24,
+                  width: 37,
                 ),
                 Text(
                   "Marchandise",
@@ -63,41 +63,50 @@ class _PilihanTiketState extends State<PilihanTiket> {
             ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  CardTP(
+              child: Padding(
+                padding: EdgeInsets.all(
+                    30.0), // Sesuaikan dengan jumlah padding yang diinginkan
+                child: Row(
+                  children: [
+                    CardTP(
                       imagePath: "assets/img/Merch1.png",
                       title: "Bloom",
-                      harga: "170.000"),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  CardTP(
+                      harga: "170.000",
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    CardTP(
                       imagePath: "assets/img/Merch2.png",
                       title: "Medioker",
-                      harga: "200.000")
-                ],
+                      harga: "200.000",
+                    ),
+                  ],
+                ),
               ),
             ),
             SizedBox(
-              height: 10,
+              height: 0.90, 
             ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  CardTP(
-                      imagePath: "assets/img/Merch3.png",
-                      title: "Poster",
-                      harga: "150.000"),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  CardTP(
-                      imagePath: "assets/img/Merch4.png",
-                      title: "Medioker",
-                      harga: "200.000")
-                ],
+              child: Padding(
+                padding: EdgeInsets.all(30.0),
+                child: Row(
+                  children: [
+                    CardTP(
+                        imagePath: "assets/img/Merch3.png",
+                        title: "Poster",
+                        harga: "150.000"),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    CardTP(
+                        imagePath: "assets/img/Merch4.png",
+                        title: "Medioker",
+                        harga: "200.000")
+                  ],
+                ),
               ),
             ),
             SizedBox(
@@ -106,7 +115,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
             Row(
               children: [
                 SizedBox(
-                  width: 24,
+                  width: 36,
                 ),
                 Text(
                   "Rincian Pembayaran",
@@ -125,7 +134,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
             Row(
               children: [
                 SizedBox(
-                  width: 24,
+                  width: 36,
                 ),
                 Text(
                   "Total Pembelian",
@@ -145,7 +154,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  width: 15,
+                  width: 23,
                 ),
                 Text(
                   "Total Harga",
@@ -185,7 +194,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
             Row(
               children: [
                 SizedBox(
-                  width: 24,
+                  width: 36,
                 ),
                 Text(
                   "Biaya Transaksi",
@@ -205,7 +214,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  width: 25,
+                  width: 30,
                 ),
                 Text(
                   "Biaya Layanan",
@@ -241,7 +250,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  width: 22,
+                  width: 28,
                 ),
                 Text(
                   "Biaya Jasa Aplikasi",
@@ -282,7 +291,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  width: 20,
+                  width: 28,
                 ),
                 Text(
                   "Total Pembayaran",

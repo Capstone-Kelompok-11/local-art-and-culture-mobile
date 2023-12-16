@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:local_art_and_culture/src/feature/profil/widget/content_history_product.dart';
+import 'package:local_art_and_culture/src/feature/keranjang/widget/card_event.dart';
+import 'package:local_art_and_culture/src/feature/keranjang/widget/card_produk.dart';
 
-class HistoryOrderPage extends StatefulWidget {
-  const HistoryOrderPage({super.key});
+class KeranjangPage extends StatefulWidget {
+  const KeranjangPage({super.key});
 
   @override
-  State<HistoryOrderPage> createState() => _HistoryOrderPageState();
+  State<KeranjangPage> createState() => _KeranjangPageState();
 }
 
-class _HistoryOrderPageState extends State<HistoryOrderPage> {
+class _KeranjangPageState extends State<KeranjangPage> {
   int _selectedIndex = 0;
 
   @override
@@ -19,7 +20,7 @@ class _HistoryOrderPageState extends State<HistoryOrderPage> {
         backgroundColor: Colors.white,
         elevation: 0.0,
         title: Text(
-          'Riwayat Pembelian',
+          'Keranjang',
           style: GoogleFonts.plusJakartaSans(
             fontSize: 20,
             fontWeight: FontWeight.w600,
@@ -27,12 +28,7 @@ class _HistoryOrderPageState extends State<HistoryOrderPage> {
           ),
         ),
         centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
+        iconTheme: const IconThemeData(color: Colors.black),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,12 +44,9 @@ class _HistoryOrderPageState extends State<HistoryOrderPage> {
               index: _selectedIndex,
               children: const [
                 Center(
-                  child: Text(
-                    'Event History',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
+                  child: KeranjangEvent(),
                 ),
-                Center(child: ContentHistoryProduct()),
+                Center(child: KeranjangProduk()),
               ],
             ),
           ),
