@@ -2,12 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:local_art_and_culture/components/search_bar.dart';
 import 'package:local_art_and_culture/src/feature/chat/komponen/list_tile_chat.dart';
-// import 'package:local_art_and_culture/src/feature/chat/chat_screen.dart';
-// import 'package:local_art_and_culture/src/feature/chat/componen/list_tile_chat.dart';
-// import 'package:local_art_and_culture/src/feature/chat/komponen/list_tile_chat.dart';
-// import 'package:local_art_and_culture/src/feature/chat/pesan_unreply_screen.dart';
-// import 'package:local_art_and_culture/src/feature/chat/pesan_unseen_screen.dart';
-// import '../chat/componen/search_bar.dart';
 
 class PesanSemuaScreen extends StatelessWidget {
   const PesanSemuaScreen({Key? key}) : super(key: key);
@@ -51,7 +45,7 @@ class PesanSemuaScreen extends StatelessWidget {
         padding: const EdgeInsets.only(left: 16, top: 16, right: 16),
         child: Column(
           children: [
-            SearchHeader(),
+            const SearchHeader(),
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -116,7 +110,7 @@ class PesanSemuaScreen extends StatelessWidget {
                             fontWeight: FontWeight.w600),
                       ),
                       const SizedBox(height: 8),
-                      Container(
+                      const SizedBox(
                         width: 100,
                         height: 2,
                       ),
@@ -138,7 +132,7 @@ class PesanSemuaScreen extends StatelessWidget {
                   //     ),
                   //   );
                   // },
-                  child: ListTileChat(
+                  child: const ListTileChat(
                     name: 'Tumi Batik',
                     image: 'assets/icons/tumibatik.png',
                     message: 'Hihihi, ditunggu ya kak ord...',
@@ -147,7 +141,7 @@ class PesanSemuaScreen extends StatelessWidget {
                     unreadMessageCount: 2,
                   ),
                 ),
-                ListTileChat(
+                const ListTileChat(
                   name: 'Beyours',
                   image: 'assets/icons/beyours.png',
                   message: 'Promo diskon untukmu hanya',
@@ -155,7 +149,7 @@ class PesanSemuaScreen extends StatelessWidget {
                   isMessageRead: false,
                   unreadMessageCount: 3,
                 ),
-                ListTileChat(
+                const ListTileChat(
                   name: 'Bateeq',
                   image: 'assets/icons/bateeq.png',
                   message: 'Bisa kak, mau warna apa?',
@@ -163,7 +157,7 @@ class PesanSemuaScreen extends StatelessWidget {
                   isMessageRead: false,
                   unreadMessageCount: 1,
                 ),
-                ListTileChat(
+                const ListTileChat(
                   name: 'GG Store.id',
                   image: 'assets/icons/gg.png',
                   message: 'Ayo checkout keranjang mu',
@@ -171,7 +165,7 @@ class PesanSemuaScreen extends StatelessWidget {
                   isMessageRead: false,
                   unreadMessageCount: 1,
                 ),
-                ListTileChat(
+                const ListTileChat(
                   name: 'Blow',
                   image: 'assets/icons/blow.png',
                   message: 'Bisa kok kak',

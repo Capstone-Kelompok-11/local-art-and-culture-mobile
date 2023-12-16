@@ -37,7 +37,7 @@ class _HomeScreenFstvState extends State<HomeScreenFstv> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => MyHomePage()),
+                                  builder: (context) => const MyHomePage()),
                             );
                           },
                           icon: const Icon(
@@ -150,6 +150,7 @@ void _showFilterBottomSheet(BuildContext context) async {
 
   // Handle the result from the bottom sheet here
   if (result != null) {
+    // ignore: avoid_print
     print('Selected Filters: $result');
     // You can apply filter logic using the selected filters
   }

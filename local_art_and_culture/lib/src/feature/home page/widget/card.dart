@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/models/product_model.dart';
 import 'package:local_art_and_culture/service/product_service.dart';
@@ -33,7 +35,7 @@ class _CardProductsState extends State<CardProducts> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 300,
       child: DefaultTextStyle(
         style: const TextStyle(

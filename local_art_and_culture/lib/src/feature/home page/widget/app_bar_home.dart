@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import 'package:local_art_and_culture/src/feature/chat/pesan_semua_screen.dart';
 import 'package:local_art_and_culture/src/feature/keranjang/screen/keranjang.dart';
 import 'package:local_art_and_culture/src/feature/notif/src/notifikasi.dart';
@@ -19,9 +18,9 @@ class CustomContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
-      height: 70, // Set your desired height here
+      height: 70, 
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [

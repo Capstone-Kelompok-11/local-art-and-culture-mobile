@@ -1,12 +1,14 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:local_art_and_culture/components/search_bar.dart';
-
 import 'package:local_art_and_culture/src/feature/chat/detai_chat_screen.dart';
-
 import '../chat/model/model_chat.dart';
 
 class HomeChatScreen extends StatefulWidget {
+  const HomeChatScreen({super.key});
+
   @override
   _HomeChatScreenState createState() => _HomeChatScreenState();
 }
@@ -65,7 +67,7 @@ class _HomeChatScreenState extends State<HomeChatScreen> {
         children: [
           Container(
             margin: const EdgeInsets.symmetric(vertical: 16),
-            child: SearchHeader(),
+            child: const SearchHeader(),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -78,12 +80,12 @@ class _HomeChatScreenState extends State<HomeChatScreen> {
                 },
                 child: Column(
                   children: [
-                    Text('Semua'),
+                    const Text('Semua'),
                     if (currentIndex == 0)
                       Container(
                         width: 42,
                         height: 2,
-                        color: Color(0xff3653B0),
+                        color: const Color(0xff3653B0),
                       ),
                   ],
                 ),
@@ -96,12 +98,12 @@ class _HomeChatScreenState extends State<HomeChatScreen> {
                 },
                 child: Column(
                   children: [
-                    Text('Sudah Dibaca'),
+                    const Text('Sudah Dibaca'),
                     if (currentIndex == 1)
                       Container(
                         width: 85,
                         height: 2,
-                        color: Color(0xff3653B0),
+                        color: const Color(0xff3653B0),
                       ),
                   ],
                 ),
@@ -114,12 +116,12 @@ class _HomeChatScreenState extends State<HomeChatScreen> {
                 },
                 child: Column(
                   children: [
-                    Text('Belum Dibaca'),
+                    const Text('Belum Dibaca'),
                     if (currentIndex == 2)
                       Container(
                         width: 85,
                         height: 2,
-                        color: Color(0xff3653B0),
+                        color: const Color(0xff3653B0),
                       ),
                   ],
                 ),
@@ -168,7 +170,7 @@ class _HomeChatScreenState extends State<HomeChatScreen> {
                             style: GoogleFonts.plusJakartaSans(
                                 fontWeight: FontWeight.w500,
                                 fontSize: 12,
-                                color: Color(0xff9999999)),
+                                color: const Color(0xff9999999)),
                           ),
                           trailing: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -195,7 +197,7 @@ class _HomeChatScreenState extends State<HomeChatScreen> {
                           ),
                         ),
                       ),
-                      Divider(
+                      const Divider(
                         height: 1,
                         thickness: 1,
                         indent: 36,
@@ -204,7 +206,8 @@ class _HomeChatScreenState extends State<HomeChatScreen> {
                     ],
                   );
                 } else {
-                  return SizedBox.shrink(); // Item dihilangkan dari tampilan
+                  return const SizedBox
+                      .shrink(); // Item dihilangkan dari tampilan
                 }
               },
             ),

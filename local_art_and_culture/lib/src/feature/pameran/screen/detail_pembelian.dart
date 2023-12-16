@@ -23,11 +23,11 @@ class _DetailPembelianState extends State<DetailPembelian> {
             ),
             AppBarDP(),
             TiketDP(
-                imagePath: "assets/img/Pameran2.png",
-                title: "Museum Macan\n",
-                location: "Museum Macan\n",
-                date: "Setiap Hari",
-                //time: "Setiap Hari"),
+              imagePath: "assets/img/Pameran2.png",
+              title: "Museum Macan\n",
+              location: "Museum Macan\n",
+              date: "Setiap Hari",
+              //time: "Setiap Hari"),
             ),
             SizedBox(
               height: 1,
@@ -78,6 +78,9 @@ class _DetailPembelianState extends State<DetailPembelian> {
                     (route) => false,
                   );
                 },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF3653B0),
+                ),
                 child: const Padding(
                   padding:
                       EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
@@ -90,9 +93,6 @@ class _DetailPembelianState extends State<DetailPembelian> {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  primary: const Color(0xFF3653B0),
                 ),
               ),
             ],

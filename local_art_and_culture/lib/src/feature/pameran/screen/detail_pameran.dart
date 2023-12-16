@@ -6,23 +6,6 @@ import 'package:local_art_and_culture/src/feature/pameran/widget/bottomsheet.dar
 import 'package:local_art_and_culture/src/feature/pameran/widget/marchandies.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/tiket.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Nama Aplikasi Anda',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: HomeScreen(),
-    );
-  }
-}
-
 class DetailPameran extends StatefulWidget {
   const DetailPameran({super.key});
 
@@ -217,7 +200,7 @@ class _DetailPameranState extends State<DetailPameran> {
             // const SizedBox(
             //   height: 15,
             // ),
-            Container(
+            SizedBox(
               height: 363,
               width: 393,
               child: SingleChildScrollView(
@@ -531,7 +514,7 @@ class _DetailPameranState extends State<DetailPameran> {
         ),
         child: BottomAppBar(
           color: Colors.white,
-          shape: CircularNotchedRectangle(),
+          shape: const CircularNotchedRectangle(),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
@@ -553,10 +536,14 @@ class _DetailPameranState extends State<DetailPameran> {
                       Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => PilihanTiket()),
+                              builder: (context) => const PilihanTiket()),
                           (route) => false);
                     },
-                    child: Text(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(
+                          255, 14, 56, 192), // Ubah warna tombol menjadi biru
+                    ),
+                    child: const Text(
                       "Beli Tiket",
                       style: TextStyle(
                         color: Colors.white,
@@ -564,10 +551,6 @@ class _DetailPameranState extends State<DetailPameran> {
                         fontFamily: 'Plus Jakarta Sans',
                         fontWeight: FontWeight.w600,
                       ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      primary: Color.fromARGB(
-                          255, 14, 56, 192), // Ubah warna tombol menjadi biru
                     ),
                   )
                 ],
@@ -579,6 +562,3 @@ class _DetailPameranState extends State<DetailPameran> {
     );
   }
 }
-
-// class BottomSheetFstv {
-// }

@@ -70,10 +70,10 @@ class _SearchHeaderBarState extends State<SearchHeaderBar> {
           groupValue: selectedFilter,
           onChanged: (value) {
             setState(() {
-              selectedFilter = value as String?;
+              selectedFilter = value;
             });
           },
-          activeColor: Color.fromARGB(255, 0, 131, 11),
+          activeColor: const Color.fromARGB(255, 0, 131, 11),
         ),
       ],
     );

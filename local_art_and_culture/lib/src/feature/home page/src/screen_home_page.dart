@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:local_art_and_culture/components/bottom_navigation_bar.dart';
 import 'package:local_art_and_culture/src/feature/article/ui/article_list.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/app_bar_home.dart';
@@ -8,7 +7,6 @@ import 'package:local_art_and_culture/src/feature/home%20page/widget/calender.da
 import 'package:local_art_and_culture/src/feature/home%20page/widget/card.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/card_event.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/filter_button.dart';
-
 import 'package:local_art_and_culture/src/feature/home%20page/widget/news_card.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/searchbar.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/slider_home_page.dart';
@@ -55,6 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   String nama = '';
+  // ignore: non_constant_identifier_names
   Future<void> GetName() async {
     SharedPreferences name = await SharedPreferences.getInstance();
     setState(() {

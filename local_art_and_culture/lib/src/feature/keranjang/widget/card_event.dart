@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
@@ -11,9 +13,9 @@ class KeranjangEvent extends StatefulWidget {
 
 class _KeranjangEventState extends State<KeranjangEvent> {
   int quantity = 1;
-  final double price = 10000; // Harga per item
+  final double price = 10000;
   bool isChecked = false;
-  String totalPrice = '-'; // Awalnya menampilkan '-' sebagai tanda
+  String totalPrice = '-';
 
   void incrementQuantity() {
     setState(() {
@@ -34,10 +36,9 @@ class _KeranjangEventState extends State<KeranjangEvent> {
   void calculateTotalPrice() {
     setState(() {
       if (isChecked) {
-        final formatCurrency = NumberFormat.currency(
-            locale: 'id', symbol: 'Rp'); // Menentukan format rupiah
-        totalPrice = formatCurrency.format(
-            quantity * price); // Menggunakan format rupiah untuk total harga
+        final formatCurrency =
+            NumberFormat.currency(locale: 'id', symbol: 'Rp');
+        totalPrice = formatCurrency.format(quantity * price);
       } else {
         totalPrice = '-';
       }
@@ -65,7 +66,7 @@ class _KeranjangEventState extends State<KeranjangEvent> {
                       onChanged: (value) {
                         setState(() {
                           isChecked = value!;
-                          calculateTotalPrice(); // Hitung total harga saat checkbox berubah
+                          calculateTotalPrice();
                         });
                       },
                     ),
@@ -234,7 +235,7 @@ class _KeranjangEventState extends State<KeranjangEvent> {
                                 ),
                                 const SizedBox(width: 10),
                                 Text(
-                                  '$quantity', // Menampilkan jumlah item
+                                  '$quantity',
                                   style: GoogleFonts.plusJakartaSans(
                                     fontSize: 15,
                                     fontWeight: FontWeight.w400,

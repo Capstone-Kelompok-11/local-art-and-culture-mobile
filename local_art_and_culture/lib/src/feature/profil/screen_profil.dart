@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api, unnecessary_string_interpolations
+
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/components/bottom_navigation_bar.dart';
 import 'package:local_art_and_culture/src/feature/profil/widget/profil_akun.dart';

@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:calendar_date_picker2/calendar_date_picker2.dart';
 import 'package:intl/intl.dart';
@@ -13,6 +15,7 @@ class DetailCalenderEvent extends StatefulWidget {
 class _DetailCalenderEventState extends State<DetailCalenderEvent> {
   List<DateTime?> _singleDate = [DateTime.now()];
   String? duedate;
+  // ignore: prefer_final_fields
   List<dynamic> _data = [];
 
   @override

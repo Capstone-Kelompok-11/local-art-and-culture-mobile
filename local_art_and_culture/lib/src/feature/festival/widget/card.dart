@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_string_interpolations
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:local_art_and_culture/src/feature/festival/screen/detail_festival.dart';
@@ -54,10 +56,10 @@ class RoundedImageCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
-                margin: EdgeInsets.all(5.0),
-                padding: EdgeInsets.all(8),
+                margin: const EdgeInsets.all(5.0),
+                padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                    color: Color(0xFF91A1D3),
+                    color: const Color(0xFF91A1D3),
                     borderRadius: BorderRadius.circular(20.0)),
                 child: const Text(
                   "Festival Budaya",
@@ -71,7 +73,7 @@ class RoundedImageCard extends StatelessWidget {
                 margin: const EdgeInsets.all(5.0),
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                    color: Color(0xFFEBEEF9),
+                    color: const Color(0xFFEBEEF9),
                     borderRadius: BorderRadius.circular(20.0)),
                 child: Text(
                   "$categorie1",
@@ -114,7 +116,6 @@ class RoundedImageCard extends StatelessWidget {
                 color: Colors.grey,
               ),
               Text(
-                // ignore: unnecessary_string_interpolations
                 '$location',
                 style: const TextStyle(
                   color: Color(0xFFB3B3B3),
@@ -132,7 +133,7 @@ class RoundedImageCard extends StatelessWidget {
                         Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => DetailFestival()),
+                                builder: (context) => const DetailFestival()),
                             (route) => false);
                       },
                       icon: SvgPicture.asset("assets/svg/arrow right.svg"),

@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_cast
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -73,7 +75,7 @@ class _FilterButtonState extends State<FilterButton> {
               selectedFilter = value as String?;
             });
           },
-          activeColor: Color.fromARGB(255, 0, 131, 11),
+          activeColor: const Color.fromARGB(255, 0, 131, 11),
         ),
       ],
     );

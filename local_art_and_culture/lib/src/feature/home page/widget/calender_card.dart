@@ -1,10 +1,12 @@
+// ignore_for_file: prefer_const_constructors_in_immutables, use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 
 class EventCard extends StatelessWidget {
   final String date;
   final String eventTitle;
   final String eventDescription;
-  final String imagePath; // Path gambar dari assets
+  final String imagePath;
 
   EventCard({
     required this.date,
@@ -15,7 +17,7 @@ class EventCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 345,
       height: 262,
       child: Column(
@@ -109,44 +111,40 @@ class EventCard extends StatelessWidget {
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                Container(
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'From IDR 70K |',
-                        style: TextStyle(
-                          color: Color(0xFFB3B3B3),
-                          fontSize: 12,
-                          fontFamily: 'Plus Jakarta Sans',
-                          fontWeight: FontWeight.w400,
-                        ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Text(
+                      'From IDR 70K |',
+                      style: TextStyle(
+                        color: Color(0xFFB3B3B3),
+                        fontSize: 12,
+                        fontFamily: 'Plus Jakarta Sans',
+                        fontWeight: FontWeight.w400,
                       ),
-                      const SizedBox(width: 1),
-                      Icon(Icons.location_on),
-                      Container(
-                        clipBehavior: Clip.antiAlias,
-                        decoration: const BoxDecoration(),
-                        child: const Stack(
-                          children: [
-                            // Tambahkan widget yang sesuai di sini
-                          ],
-                        ),
+                    ),
+                    const SizedBox(width: 1),
+                    const Icon(Icons.location_on),
+                    Container(
+                      clipBehavior: Clip.antiAlias,
+                      decoration: const BoxDecoration(),
+                      child: const Stack(
+                        children: [],
                       ),
-                      const SizedBox(width: 1),
-                      const Text(
-                        'Edwin’s Gallery',
-                        style: TextStyle(
-                          color: Color(0xFFB3B3B3),
-                          fontSize: 12,
-                          fontFamily: 'Plus Jakarta Sans',
-                          fontWeight: FontWeight.w400,
-                        ),
+                    ),
+                    const SizedBox(width: 1),
+                    const Text(
+                      'Edwin’s Gallery',
+                      style: TextStyle(
+                        color: Color(0xFFB3B3B3),
+                        fontSize: 12,
+                        fontFamily: 'Plus Jakarta Sans',
+                        fontWeight: FontWeight.w400,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 )
               ],
             ),

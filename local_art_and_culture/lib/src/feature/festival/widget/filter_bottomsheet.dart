@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class FestivalFilterBottomSheet extends StatefulWidget {
+  const FestivalFilterBottomSheet({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _FestivalFilterBottomSheetState createState() =>
       _FestivalFilterBottomSheetState();
 }
@@ -97,7 +100,7 @@ class _FestivalFilterBottomSheetState extends State<FestivalFilterBottomSheet> {
                       },
                     ),
                   ),
-                  child: Text('A-Z'),
+                  child: const Text('A-Z'),
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -115,11 +118,11 @@ class _FestivalFilterBottomSheetState extends State<FestivalFilterBottomSheet> {
                       },
                     ),
                   ),
-                  child: Text('Z-A'),
+                  child: const Text('Z-A'),
                 ),
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 // Apply the festival filters and close the bottom sheet
@@ -134,7 +137,7 @@ class _FestivalFilterBottomSheetState extends State<FestivalFilterBottomSheet> {
                   },
                 );
               },
-              child: Text('Apply Filters'),
+              child: const Text('Apply Filters'),
             ),
           ],
         ),

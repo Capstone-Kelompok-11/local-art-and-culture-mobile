@@ -58,6 +58,8 @@ class RegisterTitleComponent extends StatelessWidget {
 }
 
 class RegisterFieldComponent extends StatelessWidget {
+  const RegisterFieldComponent({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(

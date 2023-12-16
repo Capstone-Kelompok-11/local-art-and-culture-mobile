@@ -18,7 +18,7 @@ class _FormDpState extends State<FormDp> {
       decoration: const BoxDecoration(
         color: Colors.white,
       ),
-      child:  Column(
+      child: Column(
         children: [
           const Row(
             children: [
@@ -63,7 +63,7 @@ class _FormDpState extends State<FormDp> {
 
 class TextFields extends StatelessWidget {
   final String text;
-  const TextFields({required this.text});
+  const TextFields({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {

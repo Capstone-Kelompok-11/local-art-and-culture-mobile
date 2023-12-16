@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_string_interpolations
+
 import 'package:flutter/material.dart';
 
 class Tiket extends StatelessWidget {
@@ -10,7 +12,6 @@ class Tiket extends StatelessWidget {
     Key? key,
     required this.imagePath,
     required this.title,
-    
     required this.date,
     required this.harga,
   }) : super(key: key);
@@ -82,7 +83,6 @@ class Tiket extends StatelessWidget {
                             fontWeight: FontWeight.w700,
                           ),
                         ),
-                        
                         Row(
                           children: [
                             Image.asset("assets/img/access_alarm1.png"),
