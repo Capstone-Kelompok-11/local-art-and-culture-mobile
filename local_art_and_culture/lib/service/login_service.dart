@@ -31,19 +31,16 @@ class SignInService {
   }
 
   Future<Map<String, dynamic>> loginUser(String email, String password) async {
-    const String apiUrl =
-        "https://lokasani.my.id/users/login"; // Replace with your actual API endpoint
+    const String apiUrl = "https://lokasani.my.id/users/login";
 
     try {
       Dio dio = Dio();
 
-      // Define the request payload
       Map<String, dynamic> data = {
         'email': email,
         'password': password,
       };
 
-      // Make the POST request
       Response response = await dio.post(
         apiUrl,
         data: data,

@@ -1,5 +1,4 @@
 // ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/src/feature/splash%20login/login.dart';
 

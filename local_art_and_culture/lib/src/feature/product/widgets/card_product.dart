@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/models/product_model.dart';
 import 'package:local_art_and_culture/service/product_service.dart';
@@ -12,12 +14,11 @@ class CardProducts extends StatefulWidget {
 
 class _CardProductsState extends State<CardProducts> {
   late List<ModelProduct> products = [];
+  bool isLoading = true;
 
   @override
   void initState() {
     super.initState();
-    // await _fetchProducts();
-
     _fetchProducts();
   }
 
@@ -28,11 +29,15 @@ class _CardProductsState extends State<CardProducts> {
       print(fetchedProducts);
       setState(() {
         products = fetchedProducts;
+        isLoading = false;
       });
       print(fetchedProducts.length);
       print('ini adalah fungsi fetch produk');
     } catch (error) {
       print('Error fetching products: $error');
+      setState(() {
+        isLoading = false;
+      });
     } finally {}
   }
 
@@ -45,6 +50,14 @@ class _CardProductsState extends State<CardProducts> {
         ),
         child: ListView(
           children: [
+            if (isLoading)
+              const Center(
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(Color(0xff3653B0)),
+                ),
+              ),
+            if (!isLoading && products.isEmpty)
+              const Center(child: Text('Tidak ada produk yang ditemukan')),
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 10.0, vertical: 30.0),
