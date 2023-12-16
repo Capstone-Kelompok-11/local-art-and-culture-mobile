@@ -9,7 +9,6 @@ import 'package:local_art_and_culture/src/feature/pameran/widget/mp_invoice.dart
 import 'package:local_art_and_culture/src/feature/pameran/widget/succes.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/tiket_invoice.dart';
 
-
 class InvoiceScreen extends StatefulWidget {
   const InvoiceScreen({super.key});
 
@@ -23,23 +22,19 @@ class _InvoiceScreenState extends State<InvoiceScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          width: 393,
+          width: 493,
           height: 1451,
           clipBehavior: Clip.antiAlias,
           decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment(-0.07, -1.00),
-              end: Alignment(0.07, 1),
-              colors: [Color(0xFF3653B0), Color(0x003653B0)],
-            ),
+            color: Color(0xFF91A2D4),
           ),
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
-              AppBarInvoice(),
-              SizedBox(
+              const AppBarInvoice(),
+              const SizedBox(
                 height: 16,
               ),
               Container(
@@ -53,7 +48,7 @@ class _InvoiceScreenState extends State<InvoiceScreen> {
                 ),
                 child: Column(
                   children: [
-                    SuccesInvoice(),
+                    const SuccesInvoice(),
                     SizedBox(
                       height: 8,
                       child: Column(
@@ -64,12 +59,12 @@ class _InvoiceScreenState extends State<InvoiceScreen> {
                     ),
                     const TiketInvoice(
                         imagePath: "assets/img/Pameran2.png",
-                        title: "Jak-Japan Matsuri 2023\n - Closing Ceremony",
-                        location: "Gambir Expo - Jiexpo \nKemayoran",
-                        date: "18 - 19 Nov 2023"),
-                    InfoPengunjung(),
-                    InfopsnInvoice(),
-                    InvoiceMP(),
+                        title: "Museum Macan\n",
+                        location: "Museum Macan\n",
+                        date: "Setiap Hari"),
+                    const InfoPengunjung(),
+                    const InfopsnInvoice(),
+                    const InvoiceMP(),
                     SizedBox(
                       height: 8,
                       child: Column(
@@ -78,7 +73,7 @@ class _InvoiceScreenState extends State<InvoiceScreen> {
                         ],
                       ),
                     ),
-                    InvoiceQR()
+                    const InvoiceQR()
                   ],
                 ),
               ),
@@ -89,7 +84,7 @@ class _InvoiceScreenState extends State<InvoiceScreen> {
                 width: 345,
                 height: 45,
                 decoration: ShapeDecoration(
-                  color: Color(0xFF3653B0),
+                  color: const Color(0xFF3653B0),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(24),
                   ),
@@ -100,10 +95,12 @@ class _InvoiceScreenState extends State<InvoiceScreen> {
                   onPressed: () {
                     Navigator.pushAndRemoveUntil(
                         context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()),
+                        MaterialPageRoute(
+                            builder: (context) => const HomeScreen()),
                         (route) => false);
                   },
-                  style: ElevatedButton.styleFrom(primary: Color(0xFF3653B0)),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF3653B0)),
                   child: const Text(
                     'Lanjut Berbelanja',
                     textAlign: TextAlign.center,
@@ -153,8 +150,8 @@ class _DashedLinePainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.square;
 
-    final dashWidth = 5;
-    final dashSpace = 5;
+    const dashWidth = 5;
+    const dashSpace = 5;
 
     double startX = 0;
     while (startX < size.width) {

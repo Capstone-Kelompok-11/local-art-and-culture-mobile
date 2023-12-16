@@ -6,23 +6,6 @@ import 'package:local_art_and_culture/src/feature/pameran/widget/bottomsheet.dar
 import 'package:local_art_and_culture/src/feature/pameran/widget/marchandies.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/tiket.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Nama Aplikasi Anda',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: HomeScreen(),
-    );
-  }
-}
-
 class DetailPameran extends StatefulWidget {
   const DetailPameran({super.key});
 
@@ -46,7 +29,7 @@ class _DetailPameranState extends State<DetailPameran> {
                     children: [
                       Container(
                         height: 386,
-                        width: 393,
+                        width: 593,
                         decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
@@ -58,7 +41,7 @@ class _DetailPameranState extends State<DetailPameran> {
                             )
                           ],
                           image: const DecorationImage(
-                              image: AssetImage('assets/img/pameran2.png'),
+                              image: AssetImage('assets/img/Pameran2.png'),
                               fit: BoxFit.fill),
                         ),
                       ),
@@ -172,7 +155,7 @@ class _DetailPameranState extends State<DetailPameran> {
                   width: 5,
                 ),
                 Text(
-                  "Orasist Art Gallery",
+                  "Orasist Art Gallery\n\n\n\n",
                   style: TextStyle(
                     color: Color(0xFF1A1A1A),
                     fontSize: 24,
@@ -217,7 +200,7 @@ class _DetailPameranState extends State<DetailPameran> {
             // const SizedBox(
             //   height: 15,
             // ),
-            Container(
+            SizedBox(
               height: 363,
               width: 393,
               child: SingleChildScrollView(
@@ -232,7 +215,7 @@ class _DetailPameranState extends State<DetailPameran> {
                           width: 24,
                         ),
                         Text(
-                          'Deskripsi Acara',
+                          'Deskripsi Acara\n',
                           style: TextStyle(
                             color: Color(0xFF1A1A1A),
                             fontSize: 18,
@@ -255,7 +238,7 @@ class _DetailPameranState extends State<DetailPameran> {
                           width: 20,
                         ),
                         Text(
-                          "Voice Against Reason adalah pameran besar \nyang melibatkan 24 perupa dari Australia, \nBangladesh, India, Indonesia, Jepang, \nSingapura, Taiwan, Thailand, dan Vietnam.",
+                          "\tVoice Against Reason adalah pameran besar \n\tyang melibatkan 24 perupa dari Australia, \n\tBangladesh, India, Indonesia, Jepang, \n\tSingapura, Taiwan, Thailand, dan Vietnam.",
                           style: TextStyle(
                             color: Color(0xFF666666),
                             fontSize: 16,
@@ -342,7 +325,7 @@ class _DetailPameranState extends State<DetailPameran> {
                         GestureDetector(
                           onTap: () {},
                           child: const Text(
-                            "Lihat di Google Maps",
+                            "",
                             style: TextStyle(
                               color: Color(0xFF627DCF),
                               fontSize: 12,
@@ -369,7 +352,7 @@ class _DetailPameranState extends State<DetailPameran> {
                             BottomSheetFstv(context);
                           },
                           child: const Text(
-                            "Lihat Denah Acara",
+                            "Lihat di Google Maps",
                             style: TextStyle(
                               color: Color(0xFF627DCF),
                               fontSize: 12,
@@ -384,7 +367,7 @@ class _DetailPameranState extends State<DetailPameran> {
                       ],
                     ),
                     const SizedBox(
-                      height: 8,
+                      height: 10,
                     ),
                     Row(
                       children: [
@@ -421,15 +404,15 @@ class _DetailPameranState extends State<DetailPameran> {
               child: Column(
                 children: [
                   Tiket(
-                    imagePath: "assets/img/pameran2.png",
+                    imagePath: "assets/img/Pameran2.png",
                     title: "Museum Macan(Voice Against)",
-                    date: "Senin-Jumat",
+                    date: "Senin-Jumat\n",
                     harga: "79.000",
                   ),
                   Tiket(
-                    imagePath: "assets/img/pameran2.png",
+                    imagePath: "assets/img/Pameran2.png",
                     title: "Museum Macan(Voice Against)",
-                    date: "Senin-Jumat",
+                    date: "Senin-Jumat\n",
                     harga: "79.000",
                   ),
                 ],
@@ -442,57 +425,74 @@ class _DetailPameranState extends State<DetailPameran> {
               thickness: 8,
             ),
 
-            const Text(
-              'Marchandise',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-            const SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  Marchandise(
-                    imagePath: "assets/img/merch1.png",
-                    title: "Blom totebag",
-                    harga: "170.000",
+            const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 35.0),
+                  child: Text(
+                    'Marchandise',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                  SizedBox(
-                    width: 10,
+                ),
+                SizedBox(
+                  height: 25,
+                ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(right: 10.0),
+                        child: Marchandise(
+                          imagePath: "assets/img/Merch1.png",
+                          title: "Blom totebag",
+                          harga: "170.000",
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(right: 10.0),
+                        child: Marchandise(
+                          imagePath: 'assets/img/Merch2.png',
+                          title: "Medioker",
+                          harga: "200.000",
+                        ),
+                      ),
+                    ],
                   ),
-                  Marchandise(
-                      imagePath: 'assets/img/merch2.png',
-                      title: "Medioker",
-                      harga: "200.000")
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            const SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  Marchandise(
-                    imagePath: "assets/img/merch3.png",
-                    title: "Poster By Teratai",
-                    harga: "150.000",
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(right: 10.0),
+                        child: Marchandise(
+                          imagePath: "assets/img/Merch3.png",
+                          title: "Poster By Teratai",
+                          harga: "150.000",
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(right: 10.0),
+                        child: Marchandise(
+                          imagePath: 'assets/img/Merch4.png',
+                          title: "Sarung tali Hutan",
+                          harga: "475.000",
+                        ),
+                      ),
+                    ],
                   ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Marchandise(
-                      imagePath: 'assets/img/merch4.png',
-                      title: "Sarung tali Hutan",
-                      harga: "475.000")
-                ],
-              ),
+                ),
+              ],
             ),
+
             Divider(
               color: Colors.grey.shade200,
               height: 8,
@@ -514,7 +514,7 @@ class _DetailPameranState extends State<DetailPameran> {
         ),
         child: BottomAppBar(
           color: Colors.white,
-          shape: CircularNotchedRectangle(),
+          shape: const CircularNotchedRectangle(),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
@@ -536,10 +536,14 @@ class _DetailPameranState extends State<DetailPameran> {
                       Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => PilihanTiket()),
+                              builder: (context) => const PilihanTiket()),
                           (route) => false);
                     },
-                    child: Text(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(
+                          255, 14, 56, 192), // Ubah warna tombol menjadi biru
+                    ),
+                    child: const Text(
                       "Beli Tiket",
                       style: TextStyle(
                         color: Colors.white,
@@ -547,9 +551,6 @@ class _DetailPameranState extends State<DetailPameran> {
                         fontFamily: 'Plus Jakarta Sans',
                         fontWeight: FontWeight.w600,
                       ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.blue, // Ubah warna tombol menjadi biru
                     ),
                   )
                 ],
@@ -561,6 +562,3 @@ class _DetailPameranState extends State<DetailPameran> {
     );
   }
 }
-
-// class BottomSheetFstv {
-// }

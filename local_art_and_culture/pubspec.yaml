@@ -53,11 +53,12 @@ dependencies:
   syncfusion_flutter_datepicker: ^21.2.10
   calendar_date_picker2: ^0.5.3
   shared_preferences: ^2.2.2
+  table_calendar: ^3.0.9
+  chat_bubbles: ^1.5.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
-  chat_bubbles: ^1.5.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -81,6 +82,8 @@ flutter:
     - assets/svg/
     - assets/png/
     - assets/fonts/
+    - assets/gambar-produk-1.jpg
+    - assets/gambar-produk-2.jpg
 
   fonts:
     # - family: Schyler

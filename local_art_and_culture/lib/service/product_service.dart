@@ -21,15 +21,22 @@ class ProductService {
       print(response.data['data']['data'].length);
       print(response.data['data']['data']);
 
-      if (response.data.containsKey('data') && response.data['data'] is List) {
-        final List<dynamic> data = response.data['data'];
-        List<ModelProduct> products =
-            data.map((item) => ModelProduct.fromJson(item)).toList();
-        return products;
-      } else {
-        debugPrint('Respons sesuai ekspektasi: $response');
-        return [];
-      }
+      final List<dynamic> data = response.data['data']['data'];
+      print(data);
+      List<ModelProduct> products =
+          data.map((item) => ModelProduct.fromJson(item)).toList();
+      print(products);
+      print('ini adalah data');
+      // data.forEach((e) {
+      //   print(e);
+      //   ModelProduct.fromJson(e);
+      // });
+
+      return products;
+
+      // print(products);
+      // print('ini adalah service product');
+      // return products;
     } catch (error) {
       debugPrint('Terjadi kesalahan saat melakukan permintaan: $error');
       rethrow;
