@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CardTP extends StatelessWidget {
   final String imagePath;
   final String title;
-
   final String harga;
 
   const CardTP({
@@ -72,10 +72,9 @@ class CardTP extends StatelessWidget {
                       children: [
                         Text(
                           "$title",
-                          style: const TextStyle(
-                            color: Color(0xFF1A1A1A),
+                          style: GoogleFonts.plusJakartaSans(
+                            color: const Color(0xFF1A1A1A),
                             fontSize: 14,
-                            fontFamily: 'Plus Jakarta Sans',
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -83,10 +82,9 @@ class CardTP extends StatelessWidget {
                           children: [
                             Text(
                               "Rp.$harga",
-                              style: const TextStyle(
+                              style: GoogleFonts.plusJakartaSans(
                                 color: Color(0xFFB3B3B3),
                                 fontSize: 10,
-                                fontFamily: 'Plus Jakarta Sans',
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
@@ -149,7 +147,7 @@ class _ButtonPlusMinState extends State<ButtonPlusMin> {
         SizedBox(width: 8), // Provide some spacing between buttons
         Text(
           '$number', // Display the current number
-          style: TextStyle(fontSize: 12),
+          style: GoogleFonts.plusJakartaSans(fontSize: 12),
         ),
         SizedBox(width: 8), // Provide some spacing between buttons
         GestureDetector(

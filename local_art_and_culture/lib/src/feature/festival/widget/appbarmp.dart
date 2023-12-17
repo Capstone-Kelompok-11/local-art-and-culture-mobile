@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:local_art_and_culture/src/feature/festival/screen/detail_pembelian.dart';
 
 class AppBarMP extends StatefulWidget {
@@ -38,12 +39,11 @@ class _AppBarMPState extends State<AppBarMP> {
               const SizedBox(
                 width: 60,
               ),
-              const Text(
+              Text(
                 "Metode Pembayaran",
-                style: TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Color(0xFF1A1A1A),
                   fontSize: 20,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w600,
                   height: 0.07,
                 ),

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:local_art_and_culture/src/feature/festival/screen/detail_festival.dart';
 
 class RoundedImageCard extends StatelessWidget {
@@ -61,9 +62,9 @@ class RoundedImageCard extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: const Color(0xFF91A1D3),
                     borderRadius: BorderRadius.circular(20.0)),
-                child: const Text(
+                child: Text(
                   "Festival Budaya",
-                  style: TextStyle(
+                  style: GoogleFonts.plusJakartaSans(
                       color: Colors.white,
                       fontSize: 10,
                       fontWeight: FontWeight.w500),
@@ -77,10 +78,9 @@ class RoundedImageCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20.0)),
                 child: Text(
                   "$categorie1",
-                  style: const TextStyle(
+                  style: GoogleFonts.plusJakartaSans(
                     color: Color(0xFF768DD5),
                     fontSize: 10,
-                    fontFamily: 'Plus Jakarta Sans',
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -90,10 +90,9 @@ class RoundedImageCard extends StatelessWidget {
           const SizedBox(height: 12),
           Text(
             '$title',
-            style: const TextStyle(
+            style: GoogleFonts.plusJakartaSans(
               color: Color(0xFF1A1A1A),
               fontSize: 14,
-              fontFamily: 'Plus Jakarta Sans',
               fontWeight: FontWeight.w700,
             ),
           ),
@@ -103,10 +102,9 @@ class RoundedImageCard extends StatelessWidget {
             children: [
               Text(
                 "$harga | ",
-                style: const TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Color(0xFFB3B3B3),
                   fontSize: 12,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w400,
                 ),
               ),
@@ -117,10 +115,9 @@ class RoundedImageCard extends StatelessWidget {
               ),
               Text(
                 '$location',
-                style: const TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Color(0xFFB3B3B3),
                   fontSize: 12,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w400,
                 ),
               ),

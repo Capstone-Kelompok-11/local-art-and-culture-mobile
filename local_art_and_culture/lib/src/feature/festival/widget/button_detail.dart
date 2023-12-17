@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ButtonDetail extends StatefulWidget {
   const ButtonDetail({super.key});
@@ -30,10 +31,9 @@ class _ButtonDetailState extends State<ButtonDetail> {
           children: <Widget>[
             Text(
               detail[index],
-              style: const TextStyle(
+              style: GoogleFonts.plusJakartaSans(
                 color: Color(0xFF162146),
                 fontSize: 16,
-                fontFamily: 'Plus Jakarta Sans',
                 fontWeight: FontWeight.w600,
               ),
             ),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:local_art_and_culture/src/feature/festival/screen/home_screen.dart';
 import 'package:local_art_and_culture/src/feature/festival/screen/pilihan_tiket.dart';
+import 'package:local_art_and_culture/src/feature/festival/widget/bacaselengkapnya.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/bintang_tamu.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/bottomsheet.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/marchandies.dart';
@@ -118,9 +120,9 @@ class _DetailFestivalState extends State<DetailFestival> {
                   decoration: BoxDecoration(
                       color: const Color(0xFF91A1D3),
                       borderRadius: BorderRadius.circular(20.0)),
-                  child: const Text(
+                  child: Text(
                     "Festival Budaya",
-                    style: TextStyle(
+                    style: GoogleFonts.plusJakartaSans(
                         color: Colors.white,
                         fontSize: 10,
                         fontWeight: FontWeight.w500),
@@ -132,12 +134,11 @@ class _DetailFestivalState extends State<DetailFestival> {
                   decoration: BoxDecoration(
                       color: const Color(0xFFEBEEF9),
                       borderRadius: BorderRadius.circular(20.0)),
-                  child: const Text(
+                  child: Text(
                     "Berbayar",
-                    style: TextStyle(
-                      color: Color(0xFF768DD5),
+                    style: GoogleFonts.plusJakartaSans(
+                      color: const Color(0xFF768DD5),
                       fontSize: 10,
-                      fontFamily: 'Plus Jakarta Sans',
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -147,20 +148,19 @@ class _DetailFestivalState extends State<DetailFestival> {
             const SizedBox(
               height: 10,
             ),
-            const Row(
+            Row(
               children: [
-                SizedBox(
+                const SizedBox(
                   width: 24,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
                 Text(
                   "Jak-Japan Matsuri 2023",
-                  style: TextStyle(
-                    color: Color(0xFF1A1A1A),
+                  style: GoogleFonts.plusJakartaSans(
+                    color: const Color(0xFF1A1A1A),
                     fontSize: 24,
-                    fontFamily: 'Plus Jakarta Sans',
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -178,12 +178,11 @@ class _DetailFestivalState extends State<DetailFestival> {
                 const SizedBox(
                   width: 5,
                 ),
-                const Text(
+                Text(
                   "Jak-Japan Projects",
-                  style: TextStyle(
+                  style: GoogleFonts.plusJakartaSans(
                     color: Colors.black,
                     fontSize: 14,
-                    fontFamily: 'Plus Jakarta Sans',
                     fontWeight: FontWeight.w600,
                   ),
                 )
@@ -209,17 +208,16 @@ class _DetailFestivalState extends State<DetailFestival> {
                     const SizedBox(
                       height: 20,
                     ),
-                    const Row(
+                    Row(
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           width: 24,
                         ),
                         Text(
                           'Deskripsi Acara',
-                          style: TextStyle(
-                            color: Color(0xFF1A1A1A),
+                          style: GoogleFonts.plusJakartaSans(
+                            color: const Color(0xFF1A1A1A),
                             fontSize: 18,
-                            fontFamily: 'Plus Jakarta Sans',
                             fontWeight: FontWeight.w700,
                             height: 0.08,
                           ),
@@ -232,17 +230,16 @@ class _DetailFestivalState extends State<DetailFestival> {
                     const SizedBox(
                       height: 8,
                     ),
-                    const Row(
+                    Row(
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           width: 29,
                         ),
                         Text(
                           "Jak-Japan Matsuri adalah wadah pertukaran\nyang bertujuan untuk memperdalam saling\npemahaman antara warga Jepang dan\nIndonesia.",
-                          style: TextStyle(
-                            color: Color(0xFF666666),
+                          style: GoogleFonts.plusJakartaSans(
+                            color: const Color(0xFF666666),
                             fontSize: 16,
-                            fontFamily: 'Plus Jakarta Sans',
                             fontWeight: FontWeight.w400,
                           ),
                         ),
@@ -257,13 +254,14 @@ class _DetailFestivalState extends State<DetailFestival> {
                           width: 29,
                         ),
                         GestureDetector(
-                          onTap: () {},
-                          child: const Text(
+                          onTap: () {
+                            BacaSelengkapnya(context);
+                          },
+                          child: Text(
                             "Baca Selengkapnya",
-                            style: TextStyle(
-                              color: Color(0xFF627DCF),
+                            style: GoogleFonts.plusJakartaSans(
+                              color: const Color(0xFF627DCF),
                               fontSize: 12,
-                              fontFamily: 'Plus Jakarta Sans',
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -273,25 +271,24 @@ class _DetailFestivalState extends State<DetailFestival> {
                     const SizedBox(
                       height: 24,
                     ),
-                    const Row(
+                    Row(
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           width: 24,
                         ),
-                        Icon(
+                        const Icon(
                           Icons.location_on,
                           color: Colors.black,
                           size: 20,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 5,
                         ),
                         Text(
                           'Gambir Expo - Jiexpo Kemayoran',
-                          style: TextStyle(
+                          style: GoogleFonts.plusJakartaSans(
                             color: Color(0xFF0C1226),
                             fontSize: 13,
-                            fontFamily: 'Plus Jakarta Sans',
                             fontWeight: FontWeight.w600,
                             height: 0,
                           ),
@@ -301,17 +298,16 @@ class _DetailFestivalState extends State<DetailFestival> {
                     const SizedBox(
                       height: 3,
                     ),
-                    const Row(
+                    Row(
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           width: 47,
                         ),
                         Text(
                           'Jiexpo Kemayiran, Jl. Benyamin Sueab, 27, Jakarta Utara, \nJakarta, Indonesia',
-                          style: TextStyle(
-                            color: Color(0xFF666666),
+                          style: GoogleFonts.plusJakartaSans(
+                            color: const Color(0xFF666666),
                             fontSize: 12,
-                            fontFamily: 'Plus Jakarta Sans',
                             fontWeight: FontWeight.w400,
                           ),
                         ),
@@ -324,12 +320,11 @@ class _DetailFestivalState extends State<DetailFestival> {
                         ),
                         GestureDetector(
                           onTap: () {},
-                          child: const Text(
+                          child: Text(
                             "Lihat di Google Maps",
-                            style: TextStyle(
-                              color: Color(0xFF627DCF),
+                            style: GoogleFonts.plusJakartaSans(
+                              color: const Color(0xFF627DCF),
                               fontSize: 12,
-                              fontFamily: 'Plus Jakarta Sans',
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -351,12 +346,11 @@ class _DetailFestivalState extends State<DetailFestival> {
                           onTap: () {
                             BottomSheetFstv(context);
                           },
-                          child: const Text(
+                          child: Text(
                             "Lihat Denah Acara",
-                            style: TextStyle(
-                              color: Color(0xFF627DCF),
+                            style: GoogleFonts.plusJakartaSans(
+                              color: const Color(0xFF627DCF),
                               fontSize: 12,
-                              fontFamily: 'Plus Jakarta Sans',
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -378,12 +372,11 @@ class _DetailFestivalState extends State<DetailFestival> {
                         const SizedBox(
                           width: 5,
                         ),
-                        const Text(
+                        Text(
                           '18-19 November 2023',
-                          style: TextStyle(
-                            color: Color(0xFF0C1226),
+                          style: GoogleFonts.plusJakartaSans(
+                            color: const Color(0xFF0C1226),
                             fontSize: 13,
-                            fontFamily: 'Plus Jakarta Sans',
                             fontWeight: FontWeight.w600,
                             height: 0,
                           ),
@@ -402,12 +395,11 @@ class _DetailFestivalState extends State<DetailFestival> {
                         const SizedBox(
                           width: 5,
                         ),
-                        const Text(
+                        Text(
                           'Gambir Expo - Jiexpo Kemayoran',
-                          style: TextStyle(
-                            color: Color(0xFF0C1226),
+                          style: GoogleFonts.plusJakartaSans(
+                            color: const Color(0xFF0C1226),
                             fontSize: 13,
-                            fontFamily: 'Plus Jakarta Sans',
                             fontWeight: FontWeight.w600,
                             height: 0,
                           ),
@@ -449,17 +441,16 @@ class _DetailFestivalState extends State<DetailFestival> {
               height: 8,
               thickness: 8,
             ),
-            const Row(
+            Row(
               children: [
-                SizedBox(
+                const SizedBox(
                   width: 24,
                 ),
                 Text(
                   'Merchandise',
-                  style: TextStyle(
-                    color: Color(0xFF0C1226),
+                  style: GoogleFonts.plusJakartaSans(
+                    color: const Color(0xFF0C1226),
                     fontSize: 20,
-                    fontFamily: 'Plus Jakarta Sans',
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -520,7 +511,7 @@ class _DetailFestivalState extends State<DetailFestival> {
                 onPressed: () {},
                 icon: SvgPicture.asset("assets/svg/cart Navbar.svg"),
               ),
-              Spacer(),
+              const Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -538,17 +529,16 @@ class _DetailFestivalState extends State<DetailFestival> {
                             (route) => false);
                       },
                       // ignore: sort_child_properties_last
-                      child: const Text(
+                      child: Text(
                         "Beli Tiket",
-                        style: TextStyle(
+                        style: GoogleFonts.plusJakartaSans(
                           color: Colors.white,
                           fontSize: 14,
-                          fontFamily: 'Plus Jakarta Sans',
                           fontWeight: FontWeight.w600,
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFF3653B0),
+                        backgroundColor: const Color(0xFF3653B0),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),

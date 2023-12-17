@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:local_art_and_culture/src/feature/festival/screen/metode_pembayaran.dart';
 
 class AppBarInvoice extends StatefulWidget {
@@ -39,12 +40,11 @@ class _AppBarInvoiceState extends State<AppBarInvoice> {
               const SizedBox(
                 width: 108,
               ),
-              const Text(
+              Text(
                 "Invoice",
-                style: TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Colors.white,
                   fontSize: 20,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w600,
                   height: 0.07,
                 ),

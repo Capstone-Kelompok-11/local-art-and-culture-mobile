@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SuccesInvoice extends StatefulWidget {
   const SuccesInvoice({super.key});
@@ -29,21 +30,19 @@ class _SuccesInvoiceState extends State<SuccesInvoice> {
                 const SizedBox(
                   height: 20,
                 ),
-                const Text(
+                Text(
                   "Terima Kasih !",
-                  style: TextStyle(
+                  style: GoogleFonts.plusJakartaSans(
                     color: Color(0xFF3653B0),
                     fontSize: 20,
-                    fontFamily: 'Plus Jakarta Sans',
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                const Text(
+                Text(
                   "Pembayaran Kamu Berhasil",
-                  style: TextStyle(
+                  style: GoogleFonts.plusJakartaSans(
                     color: Color(0xFF999999),
                     fontSize: 14,
-                    fontFamily: 'Plus Jakarta Sans',
                     fontWeight: FontWeight.w400,
                   ),
                 )
@@ -53,24 +52,22 @@ class _SuccesInvoiceState extends State<SuccesInvoice> {
           const SizedBox(
             height: 16,
           ),
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 'Nomor Invoice',
-                style: TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Color(0xFF162146),
                   fontSize: 12,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w700,
                 ),
               ),
               Text(
                 'Tanggal Transaksi',
-                style: TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Color(0xFF162146),
                   fontSize: 12,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w700,
                 ),
               )
@@ -79,24 +76,22 @@ class _SuccesInvoiceState extends State<SuccesInvoice> {
           const SizedBox(
             height: 4,
           ),
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 '12345678',
-                style: TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Color(0xFF3653B0),
                   fontSize: 10,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w400,
                 ),
               ),
               Text(
                 '12 Desember 2023',
-                style: TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Color(0xFF3653B0),
                   fontSize: 10,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w400,
                 ),
               ),

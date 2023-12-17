@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class FestivalFilterBottomSheet extends StatefulWidget {
   const FestivalFilterBottomSheet({super.key});
@@ -24,17 +25,17 @@ class _FestivalFilterBottomSheetState extends State<FestivalFilterBottomSheet> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            const Text(
+            Text(
               'Filter Festivals',
-              style: TextStyle(
+              style: GoogleFonts.plusJakartaSans(
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
               ),
             ),
             const SizedBox(height: 20),
-            const Text(
+            Text(
               'Select Date:',
-              style: TextStyle(
+              style: GoogleFonts.plusJakartaSans(
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -74,9 +75,9 @@ class _FestivalFilterBottomSheetState extends State<FestivalFilterBottomSheet> {
               },
             ),
             const SizedBox(height: 20),
-            const Text(
+            Text(
               'Sort Order:',
-              style: TextStyle(
+              style: GoogleFonts.plusJakartaSans(
                 fontWeight: FontWeight.bold,
               ),
             ),
