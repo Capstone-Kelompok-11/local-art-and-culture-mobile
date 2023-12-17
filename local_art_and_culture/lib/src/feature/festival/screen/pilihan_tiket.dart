@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:local_art_and_culture/src/feature/festival/screen/detail_pembelian.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/appbarpt.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/cardtp.dart';
@@ -23,7 +24,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(
@@ -47,10 +48,9 @@ class _PilihanTiketState extends State<PilihanTiket> {
                 ),
                 Text(
                   "Marchandise",
-                  style: TextStyle(
+                  style: GoogleFonts.plusJakartaSans(
                     color: Color(0xFF0C1226),
                     fontSize: 20,
-                    fontFamily: 'Plus Jakarta Sans',
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -84,10 +84,9 @@ class _PilihanTiketState extends State<PilihanTiket> {
                 ),
                 Text(
                   "Rincian Pembayaran",
-                  style: TextStyle(
+                  style: GoogleFonts.plusJakartaSans(
                     color: Color(0xFF0C1226),
                     fontSize: 20,
-                    fontFamily: 'Plus Jakarta Sans',
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -108,25 +107,23 @@ class _PilihanTiketState extends State<PilihanTiket> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Column(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
                     "Total Pembayaran",
-                    style: TextStyle(
+                    style: GoogleFonts.plusJakartaSans(
                       color: Color(0xFF666666),
                       fontSize: 12,
-                      fontFamily: 'Plus Jakarta Sans',
                       fontWeight: FontWeight.w400,
                     ),
                   ),
                   Text(
                     "RP.208.000",
-                    style: TextStyle(
+                    style: GoogleFonts.plusJakartaSans(
                       color: Color(0xFF3653B0),
                       fontSize: 20,
-                      fontFamily: 'Plus Jakarta Sans',
                       fontWeight: FontWeight.w700,
                     ),
                   )
@@ -142,15 +139,14 @@ class _PilihanTiketState extends State<PilihanTiket> {
                     (route) => false,
                   );
                 },
-                child: const Padding(
+                child: Padding(
                   padding:
                       EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                   child: Text(
                     "Selanjutnya",
-                    style: TextStyle(
+                    style: GoogleFonts.plusJakartaSans(
                       color: Colors.white,
                       fontSize: 14,
-                      fontFamily: 'Plus Jakarta Sans',
                       fontWeight: FontWeight.w600,
                     ),
                   ),

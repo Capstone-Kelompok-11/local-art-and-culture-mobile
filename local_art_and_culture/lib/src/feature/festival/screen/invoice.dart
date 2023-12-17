@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:local_art_and_culture/src/feature/festival/screen/home_screen.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/appbarinvoice.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/infopengunjung_invoice.dart';
@@ -105,13 +106,13 @@ class _InvoiceScreenState extends State<InvoiceScreen> {
                   },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFF3653B0)),
-                  child: const Text(
+                  child:  Text(
                     'Lanjut Berbelanja',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: GoogleFonts.plusJakartaSans(
                       color: Colors.white,
                       fontSize: 14,
-                      fontFamily: 'Plus Jakarta Sans',
+                      
                       fontWeight: FontWeight.w600,
                       height: 0.11,
                     ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void BottomSheetFstv(BuildContext context) {
   showModalBottomSheet(
@@ -22,12 +23,11 @@ void BottomSheetFstv(BuildContext context) {
                     const SizedBox(
                       width: 8,
                     ),
-                    const Text(
+                    Text(
                       'Denah Acara',
-                      style: TextStyle(
+                      style: GoogleFonts.plusJakartaSans(
                         color: Colors.black,
                         fontSize: 20,
-                        fontFamily: 'Plus Jakarta Sans',
                         fontWeight: FontWeight.w700,
                       ),
                     ),
@@ -61,12 +61,11 @@ void BottomSheetFstv(BuildContext context) {
                                 Color(0xFF3653B0),
                               ),
                             ),
-                            child: const Text(
+                            child: Text(
                               "Unduh Denah",
-                              style: TextStyle(
+                              style: GoogleFonts.plusJakartaSans(
                                 color: Colors.white,
                                 fontSize: 14,
-                                fontFamily: 'Plus Jakarta Sans',
                                 fontWeight: FontWeight.w600,
                               ),
                             ))

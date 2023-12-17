@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class InfopsnInvoice extends StatelessWidget {
   const InfopsnInvoice({super.key});
@@ -11,21 +12,20 @@ class InfopsnInvoice extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
       child: Column(
         children: [
-          const Row(
+          Row(
             children: [
               Text(
                 'Info Pesanan',
-                style: TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Color(0xFF1A1A1A),
                   fontSize: 18,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w700,
                 ),
               ),
             ],
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(
+          Padding(
+            padding: const EdgeInsets.symmetric(
               horizontal: 24.0,
             ),
             child: Row(
@@ -33,28 +33,25 @@ class InfopsnInvoice extends StatelessWidget {
               children: [
                 Text(
                   "Pembelian",
-                  style: TextStyle(
+                  style: GoogleFonts.plusJakartaSans(
                     color: Color(0xFF162146),
                     fontSize: 12,
-                    fontFamily: 'Plus Jakarta Sans',
                     fontWeight: FontWeight.w700,
                   ),
                 ),
                 Text(
                   "Jumlah",
-                  style: TextStyle(
+                  style: GoogleFonts.plusJakartaSans(
                     color: Color(0xFF162146),
                     fontSize: 12,
-                    fontFamily: 'Plus Jakarta Sans',
                     fontWeight: FontWeight.w700,
                   ),
                 ),
                 Text(
                   "Harga",
-                  style: TextStyle(
+                  style: GoogleFonts.plusJakartaSans(
                     color: Color(0xFF162146),
                     fontSize: 12,
-                    fontFamily: 'Plus Jakarta Sans',
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -67,7 +64,7 @@ class InfopsnInvoice extends StatelessWidget {
               width: 283,
               height: 38,
               color: const Color(0xFFEBEEF9),
-              child: const Row(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
@@ -75,33 +72,22 @@ class InfopsnInvoice extends StatelessWidget {
                       SizedBox(
                         width: 1,
                       ),
-                      // Text(
-                      //   "Jak-japan Matsuri 2023 \nDay 1",
-                      //   style: TextStyle(
-                      //     color: Color(0xFF3653B0),
-                      //     fontSize: 10,
-                      //     fontFamily: 'Plus Jakarta Sans',
-                      //     fontWeight: FontWeight.w400,
-                      //   ),
-                      // ),
                       Text.rich(
                         TextSpan(
                           children: [
                             TextSpan(
                               text: 'Jak-japan Matsuri 2023 \nDay 1 ',
-                              style: TextStyle(
+                              style: GoogleFonts.plusJakartaSans(
                                 color: Color(0xFF3653B0),
                                 fontSize: 10,
-                                fontFamily: 'Plus Jakarta Sans',
                                 fontWeight: FontWeight.w400,
                               ),
                             ),
                             TextSpan(
                               text: '(Reguler)',
-                              style: TextStyle(
+                              style: GoogleFonts.plusJakartaSans(
                                 color: Color(0xFF3653B0),
                                 fontSize: 10,
-                                fontFamily: 'Plus Jakarta Sans',
                                 fontWeight: FontWeight.bold,
                               ),
                             )
@@ -115,10 +101,9 @@ class InfopsnInvoice extends StatelessWidget {
                   ),
                   Text(
                     "x1",
-                    style: TextStyle(
+                    style: GoogleFonts.plusJakartaSans(
                       color: Color(0xFF3653B0),
                       fontSize: 10,
-                      fontFamily: 'Plus Jakarta Sans',
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -127,10 +112,9 @@ class InfopsnInvoice extends StatelessWidget {
                   ),
                   Text(
                     "Rp.120.000",
-                    style: TextStyle(
+                    style: GoogleFonts.plusJakartaSans(
                       color: Color(0xFF3653B0),
                       fontSize: 10,
-                      fontFamily: 'Plus Jakarta Sans',
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -150,7 +134,7 @@ class InfopsnInvoice extends StatelessWidget {
               width: 345,
               height: 24,
               color: const Color(0xFFEBEEF9),
-              child: const Row(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
@@ -160,10 +144,9 @@ class InfopsnInvoice extends StatelessWidget {
                       ),
                       Text(
                         "Merch Mug Jak",
-                        style: TextStyle(
+                        style: GoogleFonts.plusJakartaSans(
                           color: Color(0xFF3653B0),
                           fontSize: 10,
-                          fontFamily: 'Plus Jakarta Sans',
                           fontWeight: FontWeight.w400,
                         ),
                       ),
@@ -174,10 +157,9 @@ class InfopsnInvoice extends StatelessWidget {
                   ),
                   Text(
                     "x1",
-                    style: TextStyle(
+                    style: GoogleFonts.plusJakartaSans(
                       color: Color(0xFF3653B0),
                       fontSize: 10,
-                      fontFamily: 'Plus Jakarta Sans',
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -186,10 +168,9 @@ class InfopsnInvoice extends StatelessWidget {
                   ),
                   Text(
                     "Rp.55.000",
-                    style: TextStyle(
+                    style: GoogleFonts.plusJakartaSans(
                       color: Color(0xFF3653B0),
                       fontSize: 10,
-                      fontFamily: 'Plus Jakarta Sans',
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -209,7 +190,7 @@ class InfopsnInvoice extends StatelessWidget {
               width: 345,
               height: 24,
               color: const Color(0xFFEBEEF9),
-              child: const Row(
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
@@ -219,10 +200,9 @@ class InfopsnInvoice extends StatelessWidget {
                       ),
                       Text(
                         "Merch Masker",
-                        style: TextStyle(
+                        style: GoogleFonts.plusJakartaSans(
                           color: Color(0xFF3653B0),
                           fontSize: 10,
-                          fontFamily: 'Plus Jakarta Sans',
                           fontWeight: FontWeight.w400,
                         ),
                       ),
@@ -233,10 +213,9 @@ class InfopsnInvoice extends StatelessWidget {
                   ),
                   Text(
                     "x1",
-                    style: TextStyle(
+                    style: GoogleFonts.plusJakartaSans(
                       color: Color(0xFF3653B0),
                       fontSize: 10,
-                      fontFamily: 'Plus Jakarta Sans',
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -245,10 +224,9 @@ class InfopsnInvoice extends StatelessWidget {
                   ),
                   Text(
                     "Rp 120.000",
-                    style: TextStyle(
+                    style: GoogleFonts.plusJakartaSans(
                       color: Color(0xFF3653B0),
                       fontSize: 10,
-                      fontFamily: 'Plus Jakarta Sans',
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -262,24 +240,22 @@ class InfopsnInvoice extends StatelessWidget {
           const SizedBox(
             height: 5,
           ),
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
                 'Total Pembayaran',
-                style: TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Color(0xFF162146),
                   fontSize: 12,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w700,
                 ),
               ),
               Text(
                 'Rp 208.000',
-                style: TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Color(0xFF162146),
                   fontSize: 12,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w700,
                 ),
               )

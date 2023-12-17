@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:local_art_and_culture/src/feature/festival/screen/invoice.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/appbarmp.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/metode_pmbyrn.dart';
@@ -33,19 +34,17 @@ class _MetodePembayaranState extends State<MetodePembayaran> {
                 children: [
                   Text(
                     "Total Pembayaran",
-                    style: TextStyle(
+                    style: GoogleFonts.plusJakartaSans(
                       color: Color(0xFF666666),
                       fontSize: 12,
-                      fontFamily: 'Plus Jakarta Sans',
                       fontWeight: FontWeight.w400,
                     ),
                   ),
                   Text(
                     "RP.208.000",
-                    style: TextStyle(
+                    style: GoogleFonts.plusJakartaSans(
                       color: Color(0xFF3653B0),
                       fontSize: 20,
-                      fontFamily: 'Plus Jakarta Sans',
                       fontWeight: FontWeight.w700,
                     ),
                   )
@@ -66,10 +65,9 @@ class _MetodePembayaranState extends State<MetodePembayaran> {
                       horizontal: 16.0, vertical: 8.0),
                   child: Text(
                     "Checkout",
-                    style: TextStyle(
+                    style: GoogleFonts.plusJakartaSans(
                       color: Colors.white,
                       fontSize: 14,
-                      fontFamily: 'Plus Jakarta Sans',
                       fontWeight: FontWeight.w600,
                     ),
                   ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class BintangTamu extends StatelessWidget {
   final List<String> bintangTamuList = [
@@ -26,17 +27,16 @@ class BintangTamu extends StatelessWidget {
       width: 393,
       child: Column(
         children: [
-          const Row(
+          Row(
             children: [
               SizedBox(
                 width: 29,
               ),
               Text(
                 "Bintang Tamu",
-                style: TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Color(0xFF0C1226),
                   fontSize: 20,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w700,
                 ),
               ),
@@ -67,20 +67,18 @@ class BintangTamu extends StatelessWidget {
                         children: [
                           Text(
                             namaBintangTamuList[index],
-                            style: const TextStyle(
+                            style: GoogleFonts.plusJakartaSans(
                               color: Color(0xFF0C1226),
                               fontSize: 16,
-                              fontFamily: 'Plus Jakarta Sans',
                               fontWeight: FontWeight.w700,
                             ),
                           ),
                           const SizedBox(height: 4),
                           Text(
                             rulesList[index],
-                            style: const TextStyle(
+                            style: GoogleFonts.plusJakartaSans(
                               color: Color(0xFF0C1226),
                               fontSize: 14,
-                              fontFamily: 'Plus Jakarta Sans',
                               fontWeight: FontWeight.w400,
                             ),
                           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class InvoiceQR extends StatelessWidget {
   const InvoiceQR({super.key});
@@ -15,16 +16,15 @@ class InvoiceQR extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-          const Center(
+          Center(
             child: Column(
               children: [
                 Text(
                   'Tunjukkan QR code kamu di tempat \npengambilan tiket event kamu!',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Color(0xFF4C4C4C),
+                  style: GoogleFonts.plusJakartaSans(
+                    color: const Color(0xFF4C4C4C),
                     fontSize: 12,
-                    fontFamily: 'Plus Jakarta Sans',
                     fontWeight: FontWeight.w400,
                   ),
                 ),
