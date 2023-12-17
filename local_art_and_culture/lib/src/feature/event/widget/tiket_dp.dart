@@ -24,7 +24,7 @@ class TiketDP extends StatelessWidget {
       child: Container(
         width: 393,
         height: 288,
-        padding: const EdgeInsets.all(12),
+        padding: const EdgeInsets.all(10),
         decoration: const BoxDecoration(
           color: Colors.white,
         ),
