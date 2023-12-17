@@ -1,17 +1,19 @@
+// ignore_for_file: library_private_types_in_public_api, unnecessary_string_interpolations
+
 import 'package:flutter/material.dart';
 
 class TiketPilihan extends StatelessWidget {
   final String imagePath;
   final String title;
   final String date;
-  final String category;
+  //final String category;
   final String harga;
 
   const TiketPilihan({
     Key? key,
     required this.imagePath,
     required this.title,
-    required this.category,
+    //required this.category,
     required this.date,
     required this.harga,
   }) : super(key: key);
@@ -20,7 +22,7 @@ class TiketPilihan extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 394,
-      height: 272,
+      height: 120,
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
@@ -33,19 +35,10 @@ class TiketPilihan extends StatelessWidget {
               SizedBox(
                 width: 20,
               ),
-              Text(
-                "Tiket",
-                style: TextStyle(
-                  color: Color(0xFF0C1226),
-                  fontSize: 20,
-                  fontFamily: 'Plus Jakarta Sans',
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
             ],
           ),
           const SizedBox(
-            height: 8,
+            height: 3,
           ),
           Row(
             children: [
@@ -83,20 +76,20 @@ class TiketPilihan extends StatelessWidget {
                             fontWeight: FontWeight.w700,
                           ),
                         ),
-                        Row(
-                          children: [
-                            Image.asset("assets/img/label_important.png"),
-                            Text(
-                              "$category",
-                              style: const TextStyle(
-                                color: Color(0xFF999999),
-                                fontSize: 10,
-                                fontFamily: 'Plus Jakarta Sans',
-                                fontWeight: FontWeight.w400,
-                              ),
-                            )
-                          ],
-                        ),
+                        // Row(
+                        //   children: [
+                        //     Image.asset("assets/img/label_important.png"),
+                        //     Text(
+                        //       //"$category",
+                        //       style: const TextStyle(
+                        //         color: Color(0xFF999999),
+                        //         fontSize: 10,
+                        //         fontFamily: 'Plus Jakarta Sans',
+                        //         fontWeight: FontWeight.w400,
+                        //       ),
+                        //     )
+                        //   ],
+                        // ),
                         Row(
                           children: [
                             Image.asset("assets/img/access_alarm1.png"),
@@ -132,8 +125,8 @@ class TiketPilihan extends StatelessWidget {
                             //         color: Colors.black,
                             //       )),
                             // )
-                            SizedBox(width: 60),
-                            ButtonPlusMin()
+                            const SizedBox(width: 60),
+                            const ButtonPlusMin()
                           ],
                         ),
                       ],
@@ -175,18 +168,18 @@ class _ButtonPlusMinState extends State<ButtonPlusMin> {
               }
             });
           },
-          child: Container(
+          child: SizedBox(
             height: 24,
             width: 24,
             child: Image.asset("assets/img/mintiket.png"),
           ),
         ),
-        SizedBox(width: 8), // Provide some spacing between buttons
+        const SizedBox(width: 8), // Provide some spacing between buttons
         Text(
           '$number', // Display the current number
-          style: TextStyle(fontSize: 18),
+          style: const TextStyle(fontSize: 18),
         ),
-        SizedBox(width: 8), // Provide some spacing between buttons
+        const SizedBox(width: 8), // Provide some spacing between buttons
         GestureDetector(
           onTap: () {
             setState(() {
@@ -194,7 +187,7 @@ class _ButtonPlusMinState extends State<ButtonPlusMin> {
               number++;
             });
           },
-          child: Container(
+          child: SizedBox(
             height: 24,
             width: 24,
             child: Image.asset("assets/img/plustiket.png"),

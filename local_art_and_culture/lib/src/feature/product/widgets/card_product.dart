@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, unnecessary_null_comparison
+
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/models/product_model.dart';
 import 'package:local_art_and_culture/service/product_service.dart';
@@ -11,7 +13,8 @@ class CardProducts extends StatefulWidget {
 }
 
 class _CardProductsState extends State<CardProducts> {
-  List<ModelProduct> products = [];
+  late List<ModelProduct> products = [];
+  bool isLoading = true;
 
   @override
   void initState() {
@@ -19,16 +22,31 @@ class _CardProductsState extends State<CardProducts> {
     _fetchProducts();
   }
 
-  Future<void> _fetchProducts() async {
+  void _fetchProducts() async {
     try {
       ProductService productService = ProductService();
-      List<ModelProduct> fetchedProducts = await productService.getProducts();
+      final fetchedProducts = await productService.getProducts();
 
-      setState(() {
-        products = fetchedProducts;
-      });
+      if (fetchedProducts != null) {
+        print(fetchedProducts);
+        setState(() {
+          products = fetchedProducts;
+          isLoading = false;
+        });
+        print(fetchedProducts.length);
+      } else {
+        print('Error: fetchedProducts is null');
+        setState(() {
+          isLoading = false;
+        });
+      }
+
+      print('ini adalah fungsi fetch produk');
     } catch (error) {
       print('Error fetching products: $error');
+      setState(() {
+        isLoading = false;
+      });
     }
   }
 
@@ -41,6 +59,14 @@ class _CardProductsState extends State<CardProducts> {
         ),
         child: ListView(
           children: [
+            if (isLoading)
+              const Center(
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(Color(0xff3653B0)),
+                ),
+              ),
+            if (!isLoading && products.isEmpty)
+              const Center(child: Text('Tidak ada produk yang ditemukan')),
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 10.0, vertical: 30.0),
@@ -61,7 +87,7 @@ class _CardProductsState extends State<CardProducts> {
                         : 'assets/gambar-produk-1.jpg';
 
                     String category = index.isEven ? 'Fasion' : 'Karya Tangan';
-                    String title = item.name;
+                    String title = item.name!;
                     String price = 'Rp ${products[index].price}';
 
                     return InkWell(

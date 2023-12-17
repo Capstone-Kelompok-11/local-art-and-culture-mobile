@@ -1,14 +1,14 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:local_art_and_culture/models/login_model.dart';
 import 'package:local_art_and_culture/service/login_service.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/src/screen_home_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'register.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _LoginPageState createState() => _LoginPageState();
 }
 
@@ -55,6 +55,8 @@ class _LoginPageState extends State<LoginPage> {
 }
 
 class TitleComponent extends StatelessWidget {
+  const TitleComponent({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -88,6 +90,7 @@ class FieldComponent extends StatelessWidget {
   final TextEditingController passwordController;
 
   const FieldComponent({
+    super.key,
     required this.isPasswordVisible,
     required this.togglePasswordVisibility,
     required this.emailController,
@@ -205,11 +208,13 @@ class ThirdComponent extends StatefulWidget {
   final TextEditingController passwordController;
 
   const ThirdComponent({
+    super.key,
     required this.emailController,
     required this.passwordController,
   });
 
   @override
+  // ignore: library_private_types_in_public_api
   _ThirdComponentState createState() => _ThirdComponentState();
 }
 
@@ -351,6 +356,7 @@ class _ThirdComponentState extends State<ThirdComponent> {
     );
   }
 
+  // ignore: non_constant_identifier_names
   Future<void> Login() async {
     SharedPreferences masuk = await SharedPreferences.getInstance();
     setState(() {
@@ -374,6 +380,7 @@ class _ThirdComponentState extends State<ThirdComponent> {
         );
       }
     } catch (e) {
+      // ignore: avoid_print
       print(e);
     } finally {
       setState(() {
@@ -382,62 +389,62 @@ class _ThirdComponentState extends State<ThirdComponent> {
     }
   }
 
-  Future<void> _handleLogin() async {
-    setState(() {
-      _isLoading = true;
-      _radioValue = !_radioValue;
-    });
+  // Future<void> _handleLogin() async {
+  //   setState(() {
+  //     _isLoading = true;
+  //     _radioValue = !_radioValue;
+  //   });
 
-    String email = widget.emailController.text.trim();
-    String password = widget.passwordController.text.trim();
+  //   String email = widget.emailController.text.trim();
+  //   String password = widget.passwordController.text.trim();
 
-    final signInService = SignInService();
-    final ModelSignIn? modelSignIn =
-        await signInService.signInAccount(email, password);
-    final response = await signInService.loginUser(
-        widget.emailController.text.trim().toString(), password);
-    // try {
-    //   setState(() {
-    //     _isLoading = true;
-    //   });
-    //   print(email);
-    //   print(password);
+  //   final signInService = SignInService();
+  //   final ModelSignIn? modelSignIn =
+  //       await signInService.signInAccount(email, password);
+  //   final response = await signInService.loginUser(
+  //       widget.emailController.text.trim().toString(), password);
+  //   // try {
+  //   //   setState(() {
+  //   //     _isLoading = true;
+  //   //   });
+  //   //   print(email);
+  //   //   print(password);
 
-    //   print(response.statusCode);
-    //   final responData = json.decode(response.body);
-    //   print(responData['message']);
-    //   if (response.statusCode == 200) {
-    //     SharedPreferences login = await SharedPreferences.getInstance();
-    //     login.setString('token', responData['data']['users']['token']);
-    //     login.setInt('id', responData['data']['id']);
-    //     // ignore: use_build_context_synchronously
-    //     Navigator.push(
-    //       context,
-    //       MaterialPageRoute(builder: (context) => const MyHomePage()),
-    //     );
-    //   }
-    // } catch (e) {
-    //   print(e);
-    // } finally {
-    //   setState(() {
-    //     _isLoading = false;
-    //   });
-    // }
+  //   //   print(response.statusCode);
+  //   //   final responData = json.decode(response.body);
+  //   //   print(responData['message']);
+  //   //   if (response.statusCode == 200) {
+  //   //     SharedPreferences login = await SharedPreferences.getInstance();
+  //   //     login.setString('token', responData['data']['users']['token']);
+  //   //     login.setInt('id', responData['data']['id']);
+  //   //     // ignore: use_build_context_synchronously
+  //   //     Navigator.push(
+  //   //       context,
+  //   //       MaterialPageRoute(builder: (context) => const MyHomePage()),
+  //   //     );
+  //   //   }
+  //   // } catch (e) {
+  //   //   print(e);
+  //   // } finally {
+  //   //   setState(() {
+  //   //     _isLoading = false;
+  //   //   });
+  //   // }
 
-    if (modelSignIn != null) {
-      // ignore: use_build_context_synchronously
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const MyHomePage()),
-      );
-    } else {
-      // ignore: use_build_context_synchronously
-      ScaffoldMessenger.of(context).showSnackBar(
-        // ignore: prefer_const_constructors
-        SnackBar(
-          content: const Text('Login Gagal, username atau password anda salah'),
-        ),
-      );
-    }
-  }
+  //   if (modelSignIn != null) {
+  //     // ignore: use_build_context_synchronously
+  //     Navigator.push(
+  //       context,
+  //       MaterialPageRoute(builder: (context) => const MyHomePage()),
+  //     );
+  //   } else {
+  //     // ignore: use_build_context_synchronously
+  //     ScaffoldMessenger.of(context).showSnackBar(
+  //       // ignore: prefer_const_constructors
+  //       SnackBar(
+  //         content: const Text('Login Gagal, username atau password anda salah'),
+  //       ),
+  //     );
+  //   }
+  // }
 }

@@ -3,15 +3,15 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:chat_bubbles/bubbles/bubble_normal.dart';
 
-class ChatScreen extends StatelessWidget {
-  const ChatScreen({super.key});
+class DetailChatScreen extends StatelessWidget {
+  const DetailChatScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffF2F2F2),
+      backgroundColor: const Color(0xffF2F2F2),
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(56),
+        preferredSize: const Size.fromHeight(56),
         child: Container(
           decoration: BoxDecoration(
             boxShadow: [
@@ -55,7 +55,7 @@ class ChatScreen extends StatelessWidget {
                     Text(
                       "Aktif 20 detik lalu",
                       style: GoogleFonts.plusJakartaSans(
-                          color: Color(0xff999999),
+                          color: const Color(0xff999999),
                           fontSize: 12,
                           fontWeight: FontWeight.w400),
                     ),
@@ -77,7 +77,7 @@ class ChatScreen extends StatelessWidget {
                     text:
                         'Malam kak, mau tanya ini batik cowcowmewon ukuran S restocknya kapan ya kak?',
                     isSender: true,
-                    color: Color(0xffC2CDEF),
+                    color: const Color(0xffC2CDEF),
                     textStyle: GoogleFonts.plusJakartaSans(
                         color: Colors.black,
                         fontSize: 14,
@@ -86,26 +86,26 @@ class ChatScreen extends StatelessWidget {
                     sent: true,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 BubbleNormal(
                   text:
                       'Halo kak, selamat malam. Untuk batik cowcowmewon ukuran S restocknya besok ya kakk',
                   isSender: false,
-                  color: Color(0xffFFFFFF),
+                  color: const Color(0xffFFFFFF),
                   textStyle: GoogleFonts.plusJakartaSans(
                       color: Colors.black,
                       fontSize: 14,
                       fontWeight: FontWeight.w400),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 BubbleNormal(
                   text: 'Oalah ok min, gak sabar aku mau checkout:D',
                   isSender: true,
-                  color: Color(0xffC2CDEF),
+                  color: const Color(0xffC2CDEF),
                   textStyle: GoogleFonts.plusJakartaSans(
                       color: Colors.black,
                       fontSize: 14,
@@ -113,14 +113,14 @@ class ChatScreen extends StatelessWidget {
                   delivered: true,
                   sent: true,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 BubbleNormal(
                   text:
                       'Hihihi, ditunggu ya kak orderannyaa. beli banyak aku kasih diskon deh',
                   isSender: false,
-                  color: Color(0xffFFFFFF),
+                  color: const Color(0xffFFFFFF),
                   textStyle: GoogleFonts.plusJakartaSans(
                       color: Colors.black,
                       fontSize: 14,
@@ -158,7 +158,7 @@ class ChatScreen extends StatelessWidget {
                                 height: 118,
                                 color: Colors.transparent,
                                 child: Container(
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     color: Color(0xffF2F2F2),
                                   ),
                                   child: Row(
@@ -198,7 +198,7 @@ class ChatScreen extends StatelessWidget {
                                           ),
                                         ],
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         width: 12,
                                       ),
                                       Column(
@@ -253,7 +253,7 @@ class ChatScreen extends StatelessWidget {
                     child: Container(
                       width: double.infinity,
                       height: 56,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.white,
                       ),
                       child: Padding(
@@ -279,7 +279,7 @@ class ChatScreen extends StatelessWidget {
                     child: Container(
                       height: 56,
                       width: 60,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.white,
                       ),
                       child: const Icon(

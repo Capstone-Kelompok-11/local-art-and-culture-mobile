@@ -75,15 +75,7 @@ class InfopsnInvoice extends StatelessWidget {
                       SizedBox(
                         width: 1,
                       ),
-                      // Text(
-                      //   "Jak-japan Matsuri 2023 \nDay 1",
-                      //   style: TextStyle(
-                      //     color: Color(0xFF3653B0),
-                      //     fontSize: 10,
-                      //     fontFamily: 'Plus Jakarta Sans',
-                      //     fontWeight: FontWeight.w400,
-                      //   ),
-                      // ),
+                    
                       Text.rich(
                         TextSpan(
                           children: [
@@ -203,7 +195,7 @@ class InfopsnInvoice extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Text(
-                'Total Pembayaran',
+                'Total Pembayaran\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t',
                 style: TextStyle(
                   color: Color(0xFF162146),
                   fontSize: 12,

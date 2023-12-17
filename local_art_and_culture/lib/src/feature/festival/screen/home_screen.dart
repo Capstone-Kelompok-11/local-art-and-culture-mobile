@@ -21,9 +21,6 @@ class _HomeScreenFstvState extends State<HomeScreenFstv> {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              const SizedBox(
-                height: 16.0,
-              ),
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 10.0),
                 padding: const EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 0.0),
@@ -40,7 +37,7 @@ class _HomeScreenFstvState extends State<HomeScreenFstv> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => MyHomePage()),
+                                  builder: (context) => const MyHomePage()),
                             );
                           },
                           icon: const Icon(
@@ -153,6 +150,7 @@ void _showFilterBottomSheet(BuildContext context) async {
 
   // Handle the result from the bottom sheet here
   if (result != null) {
+    // ignore: avoid_print
     print('Selected Filters: $result');
     // You can apply filter logic using the selected filters
   }

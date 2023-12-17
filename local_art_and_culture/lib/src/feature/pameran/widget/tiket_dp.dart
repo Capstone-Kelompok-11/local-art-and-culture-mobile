@@ -6,7 +6,7 @@ class TiketDP extends StatelessWidget {
   final String title;
   final String location;
   final String date;
-  final String time;
+  //final String time;
 
   const TiketDP({
     Key? key,
@@ -14,7 +14,7 @@ class TiketDP extends StatelessWidget {
     required this.title,
     required this.location,
     required this.date,
-    required this.time,
+    //required this.time,
   }) : super(key: key);
 
   @override
@@ -121,34 +121,7 @@ class TiketDP extends StatelessWidget {
                                 )
                               ],
                             ),
-                            Row(
-                              children: [
-                                SvgPicture.asset("assets/svg/access_alarm.svg"),
-                                const SizedBox(
-                                  width: 8,
-                                ),
-                                Text(
-                                  "$time",
-                                  style: const TextStyle(
-                                    color: Color(0xFF828282),
-                                    fontSize: 10,
-                                    fontFamily: 'Plus Jakarta Sans',
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                                // SizedBox(
-                                //   height: 24,
-                                //   width: 24,
-                                //   child: OutlinedButton(
-                                //       onPressed: () {},
-                                //       child: Icon(
-                                //         Icons.remove,
-                                //         color: Colors.black,
-                                //       )),
-                                // )
-                                SizedBox(width: 60),
-                              ],
-                            ),
+                            SizedBox(width: 80),
                           ],
                         ),
                       ),
@@ -158,7 +131,7 @@ class TiketDP extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 40,
             ),
             const Padding(
               padding: EdgeInsets.symmetric(

@@ -13,7 +13,7 @@ class _InfoPengunjungState extends State<InfoPengunjung> {
     return Container(
       width: 331,
       height: 161,
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 16),
       child: const Column(
         children: [
           Row(

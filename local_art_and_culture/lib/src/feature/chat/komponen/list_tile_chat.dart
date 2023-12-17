@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ListTileChat extends StatelessWidget {
-  ListTileChat(
+  const ListTileChat(
       {super.key,
       required this.name,
       required this.image,
