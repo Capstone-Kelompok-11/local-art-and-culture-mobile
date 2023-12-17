@@ -112,7 +112,7 @@ class _CardProductsState extends State<CardProducts> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const DetailProduct()),
+                              builder: (context) => DetailProduct()),
                         );
                       },
                       child: Card(
