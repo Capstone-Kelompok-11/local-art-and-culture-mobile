@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:local_art_and_culture/src/feature/festival/screen/home_screen.dart';
 import 'package:local_art_and_culture/src/feature/festival/screen/pilihan_tiket.dart';
+import 'package:local_art_and_culture/src/feature/festival/widget/bacaselengkapnya.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/bintang_tamu.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/bottomsheet.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/marchandies.dart';
@@ -253,7 +254,9 @@ class _DetailFestivalState extends State<DetailFestival> {
                           width: 29,
                         ),
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            BacaSelengkapnya(context);
+                          },
                           child: Text(
                             "Baca Selengkapnya",
                             style: GoogleFonts.plusJakartaSans(
