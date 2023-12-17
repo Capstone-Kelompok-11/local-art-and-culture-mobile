@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/components/bottom_navigation_bar.dart';
+import 'package:local_art_and_culture/src/feature/profil/widget/logout_section.dart';
 import 'package:local_art_and_culture/src/feature/profil/widget/profil_akun.dart';
 import 'package:local_art_and_culture/src/feature/profil/widget/profil_gambar.dart';
 import 'package:local_art_and_culture/src/feature/profil/widget/profil_konten.dart';
@@ -142,6 +143,8 @@ class _ProfilPageState extends State<ProfilPage> {
                     ),
                     // Tambahkan ProfileContainer di sini
                     KontenSection(),
+                    SizedBox(height: 8),
+                    LogoutSection()
                     // Contoh elemen tambahan di dalam SingleChildScrollView
                   ],
                 ),
