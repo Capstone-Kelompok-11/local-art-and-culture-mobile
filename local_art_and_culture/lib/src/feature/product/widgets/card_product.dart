@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, unnecessary_null_comparison
 
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/models/product_model.dart';
@@ -26,19 +26,28 @@ class _CardProductsState extends State<CardProducts> {
     try {
       ProductService productService = ProductService();
       final fetchedProducts = await productService.getProducts();
-      print(fetchedProducts);
-      setState(() {
-        products = fetchedProducts;
-        isLoading = false;
-      });
-      print(fetchedProducts.length);
+
+      if (fetchedProducts != null) {
+        print(fetchedProducts);
+        setState(() {
+          products = fetchedProducts;
+          isLoading = false;
+        });
+        print(fetchedProducts.length);
+      } else {
+        print('Error: fetchedProducts is null');
+        setState(() {
+          isLoading = false;
+        });
+      }
+
       print('ini adalah fungsi fetch produk');
     } catch (error) {
       print('Error fetching products: $error');
       setState(() {
         isLoading = false;
       });
-    } finally {}
+    }
   }
 
   @override
