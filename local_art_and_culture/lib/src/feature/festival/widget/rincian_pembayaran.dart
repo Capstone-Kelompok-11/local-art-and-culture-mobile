@@ -143,7 +143,7 @@ class _RincianPembayaranState extends State<RincianPembayaran> {
               ),
               Text(
                 'Rp.205.000',
-                style: TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Colors.black,
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
