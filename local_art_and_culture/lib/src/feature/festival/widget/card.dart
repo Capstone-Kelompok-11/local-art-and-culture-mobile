@@ -122,6 +122,13 @@ class RoundedImageCard extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                 ),
               ),
+              const Stack(
+                children: [
+                  SizedBox(
+                    width: 60,
+                  ),
+                ],
+              ),
               Expanded(
                 child: IconButton(
                   onPressed: () {

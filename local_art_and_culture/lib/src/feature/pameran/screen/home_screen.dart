@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:local_art_and_culture/src/feature/home%20page/src/screen_home_page.dart';
 import 'package:local_art_and_culture/src/feature/pameran/components/categories.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/card.dart';
 
@@ -19,9 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            const SizedBox(
-              height: 16.0,
-            ),
+            const SizedBox(height: 45.0),
             Container(
               margin: const EdgeInsets.symmetric(vertical: 10.0),
               padding: const EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 0.0),
@@ -34,8 +33,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   Row(
                     children: [
                       IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
+                        onPressed: () async {
+                          // Navigasi ke halaman EditScreen
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => MyHomePage()),
+                          );
                         },
                         icon: const Icon(
                           Icons.arrow_back,
@@ -126,7 +130,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     imagePath: 'assets/img/Pameran5.png',
                     title: 'Biasa Art Space Bali',
                     harga: 'From IDR 10 K',
-                    location: 'Seminyak                                         ',
+                    location:
+                        'Seminyak                                         ',
                   ),
                   SizedBox(height: 18),
                 ],

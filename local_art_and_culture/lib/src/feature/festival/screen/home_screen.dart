@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/categories.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/card.dart';
+import 'package:local_art_and_culture/src/feature/home%20page/src/screen_home_page.dart';
 
 class HomeScreenFstv extends StatefulWidget {
   const HomeScreenFstv({super.key});
@@ -19,9 +20,6 @@ class _HomeScreenFstvState extends State<HomeScreenFstv> {
         child: SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              const SizedBox(
-                height: 16.0,
-              ),
               Container(
                 margin: const EdgeInsets.symmetric(vertical: 10.0),
                 padding: const EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 0.0),
@@ -34,8 +32,13 @@ class _HomeScreenFstvState extends State<HomeScreenFstv> {
                     Row(
                       children: [
                         IconButton(
-                          onPressed: () {
-                            Navigator.pop(context);
+                          onPressed: () async {
+                            // Navigasi ke halaman EditScreen
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MyHomePage()),
+                            );
                           },
                           icon: const Icon(
                             Icons.arrow_back,
@@ -89,7 +92,7 @@ class _HomeScreenFstvState extends State<HomeScreenFstv> {
                   imagePath: 'assets/png/gambar1.png',
                   title: 'Jak-Japan Matsuri 2023',
                   harga: 'From IDR 113 K',
-                  location: 'Gambir Expo-Jiexpo Kemayoran'),
+                  location: 'Jiexpo Kemayoran'),
               const SizedBox(
                 height: 16,
               ),

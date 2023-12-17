@@ -77,6 +77,12 @@ class _DetailPembelianState extends State<DetailPembelian> {
                     (route) => false,
                   );
                 },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF3653B0),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
                 child: const Padding(
                   padding:
                       EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
@@ -89,9 +95,6 @@ class _DetailPembelianState extends State<DetailPembelian> {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  primary: const Color(0xFF3653B0),
                 ),
               ),
             ],
