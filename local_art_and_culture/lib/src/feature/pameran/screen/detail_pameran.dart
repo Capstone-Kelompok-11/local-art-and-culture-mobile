@@ -6,6 +6,7 @@ import 'package:local_art_and_culture/src/feature/pameran/widget/bottomsheet.dar
 import 'package:local_art_and_culture/src/feature/pameran/widget/marchandies.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/tiket.dart';
 
+
 void main() {
   runApp(MyApp());
 }
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomeScreen(),
+      home:HomeScreen(),
     );
   }
 }
