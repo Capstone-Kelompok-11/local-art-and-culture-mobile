@@ -18,25 +18,17 @@ class ProductService {
       );
       debugPrint("=>${response.data}");
 
-      print(response.data['data']['data'].length);
-      print(response.data['data']['data']);
+      print(response.data['data']['allProduct'].length);
+      print(response.data['data']['allProduct']);
 
-      final List<dynamic> data = response.data['data']['data'];
+      final List<dynamic> data = response.data['data']['allProduct'];
       print(data);
       List<ModelProduct> products =
           data.map((item) => ModelProduct.fromJson(item)).toList();
       print(products);
       print('ini adalah data');
-      // data.forEach((e) {
-      //   print(e);
-      //   ModelProduct.fromJson(e);
-      // });
 
       return products;
-
-      // print(products);
-      // print('ini adalah service product');
-      // return products;
     } catch (error) {
       debugPrint('Terjadi kesalahan saat melakukan permintaan: $error');
       rethrow;

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class InvoiceMP extends StatelessWidget {
   const InvoiceMP({super.key});
@@ -11,14 +12,13 @@ class InvoiceMP extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
       child: Column(
         children: [
-          const Row(
+          Row(
             children: [
               Text(
                 'Metode Pembayaran',
-                style: TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Color(0xFF1A1A1A),
                   fontSize: 18,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w700,
                   height: 0.08,
                 ),
@@ -34,12 +34,11 @@ class InvoiceMP extends StatelessWidget {
               const SizedBox(
                 width: 10,
               ),
-              const Text(
+              Text(
                 'OVO',
-                style: TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Color(0xFF1A1A1A),
                   fontSize: 14,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w600,
                   height: 0.11,
                 ),
