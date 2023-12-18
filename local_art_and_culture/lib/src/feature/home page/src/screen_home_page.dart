@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/components/bottom_navigation_bar.dart';
+import 'package:local_art_and_culture/models/article_model.dart';
+import 'package:local_art_and_culture/service/article_service.dart';
 import 'package:local_art_and_culture/src/feature/article/model/article.dart';
 import 'package:local_art_and_culture/src/feature/article/ui/article_detail.dart';
 import 'package:local_art_and_culture/src/feature/article/ui/article_list.dart';
@@ -25,12 +27,42 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<NewsCard> newsCards = [];
-
+  late List<ArticleModel> articlesData = [];
+  bool isLoading = true;
   @override
   void initState() {
     super.initState();
     fetchNewsData();
     GetName(); // Ubah pemanggilan dari fetchData() menjadi fetchNewsData()
+  }
+
+  void fetchArticles() async {
+    try {
+      ArticleService articleService = ArticleService();
+      final fetchArticles = await articleService.getArticles();
+
+      // ignore: unnecessary_null_comparison
+      if (fetchArticles != null) {
+        print(fetchArticles);
+        setState(() {
+          articlesData = fetchArticles;
+          isLoading = false;
+        });
+        print(fetchArticles.length);
+      } else {
+        print('Error: fetchArticles is null');
+        setState(() {
+          isLoading = false;
+        });
+      }
+
+      print('ini adalah fungsi fetch produk');
+    } catch (error) {
+      print('Error fetching products: $error');
+      setState(() {
+        isLoading = false;
+      });
+    }
   }
 
   Future<void> fetchNewsData() async {
@@ -389,10 +421,17 @@ class _MyHomePageState extends State<MyHomePage> {
 Widget youWidget1(deviceWidth) {
   return Padding(
     padding: EdgeInsets.symmetric(
-        horizontal: deviceWidth / 100, vertical: deviceWidth / 15),
+        horizontal: deviceWidth / 90, vertical: deviceWidth / 15),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        Text(
+          'Hanya Untukmu',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: deviceWidth / 20,
+          ),
+        ),
         ListView.builder(
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,

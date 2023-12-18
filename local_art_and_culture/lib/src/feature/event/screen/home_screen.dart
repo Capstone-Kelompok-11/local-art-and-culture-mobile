@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:local_art_and_culture/components/bottom_navigation_bar.dart';
 import 'package:local_art_and_culture/src/feature/event/widget/categories.dart';
 import 'package:local_art_and_culture/src/feature/event/widget/card.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/src/screen_home_page.dart';
@@ -96,12 +97,28 @@ class _HomeScreenFstvState extends State<HomeScreenFstv> {
                   title: 'Alkafest 2023 Closing Ceremony',
                   harga: 'From IDR 79K',
                   location: 'Mahaka Square'),
-              const SizedBox(
-                height: 16,
-              ),
+              const SizedBox(height: 16),
+              const RoundedImageCard(
+                  imagePath: 'assets/img/event/Eventevent_akurat.png',
+                  title: 'Alkafest 2023 Closing Ceremony',
+                  harga: 'From IDR 79K',
+                  location: 'Mahaka Square'),
+              const SizedBox(height: 16),
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: CustomBottomNavigationBar(
+        selectedIndex: 1,
+        onItemTapped: (index) {
+          if (index == 0) {
+            Navigator.pushNamed(context, '/home');
+          } else if (index == 2) {
+            Navigator.pushNamed(context, '/product');
+          } else if (index == 3) {
+            Navigator.pushNamed(context, '/profile');
+          }
+        },
       ),
     );
   }

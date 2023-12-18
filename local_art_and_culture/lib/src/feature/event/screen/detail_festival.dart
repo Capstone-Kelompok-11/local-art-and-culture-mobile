@@ -425,21 +425,25 @@ class _DetailFestivalState extends State<DetailFestival> {
                 ),
               ],
             ),
-            const SizedBox(
-              height: 16,
-            ),
+            const SizedBox(height: 16),
             const SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  Marchandise(
-                    imagePath: "assets/png/mug.png",
-                    title: "Mug Jak-Japan Limited \nEdition",
-                    harga: "55.000",
-                  ),
-                ],
+              child: Center(
+                child: Column(
+                  children: [
+                    Text(
+                      'Acara tidak memiliki merchandise',
+                      style: TextStyle(
+                        color: Color(0xFF828282),
+                        fontSize: 12,
+                        fontFamily: 'Plus Jakarta Sans',
+                        fontWeight: FontWeight.w400,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
+            const SizedBox(height: 16),
             Divider(
               color: Colors.grey.shade200,
               height: 8,

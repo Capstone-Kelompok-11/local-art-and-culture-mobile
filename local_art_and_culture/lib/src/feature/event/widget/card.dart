@@ -19,11 +19,8 @@ class RoundedImageCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 345, // Menentukan lebar card
-      height:
-          MediaQuery.of(context).size.height * 0.41, // Menentukan tinggi card
+      width: 345,
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
-
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30.0),
         color: Colors.white,
@@ -56,7 +53,7 @@ class RoundedImageCard extends StatelessWidget {
                 margin: EdgeInsets.all(5.0),
                 padding: EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                    color: Color(0xFF91A1D3),
+                    color: Color(0xFF339981),
                     borderRadius: BorderRadius.circular(20.0)),
                 child: const Text(
                   "Event",

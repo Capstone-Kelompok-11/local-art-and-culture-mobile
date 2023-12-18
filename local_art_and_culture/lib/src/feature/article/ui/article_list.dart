@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:local_art_and_culture/src/feature/article/widget/searchbar.dart';
 import '../components/color.dart';
 import 'package:local_art_and_culture/src/feature/article/model/article.dart';
 import 'package:local_art_and_culture/src/feature/article/ui/article_detail.dart';
@@ -39,9 +38,23 @@ class _ArticleListState extends State<ArticleList> {
 
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        primary: true,
+        backgroundColor: Colors.white,
+        elevation: 0,
+        toolbarHeight: deviceWidth / 5,
+        titleSpacing: 2,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+        title: titleAppBar(deviceWidth),
+        actions: [actionsAppBar(deviceWidth)],
+      ),
       body: ListView(
         children: [
-          SearchHeaderBar(),
           titlePage(deviceWidth),
           newsCarouselWidget(deviceWidth),
           onlyForYouWidget(deviceWidth),
