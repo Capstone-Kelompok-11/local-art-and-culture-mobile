@@ -3,7 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/models/product_model.dart';
 import 'package:local_art_and_culture/service/product_service.dart';
-import 'package:local_art_and_culture/src/feature/product/screens/detail_product.dart';
+// import 'package:local_art_and_culture/src/feature/product/screens/detail_product.dart';
+import 'package:local_art_and_culture/src/feature/product/screens/new_detail_product.dart';
 
 class CardProducts extends StatefulWidget {
   const CardProducts({Key? key}) : super(key: key);
@@ -112,7 +113,12 @@ class _CardProductsState extends State<CardProducts> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => DetailProduct()),
+                            builder: (context) => NewDetailProduct(
+                              product: item,
+                              imagePath: imagePaths[index % imagePaths.length],
+                              index: index,
+                            ),
+                          ),
                         );
                       },
                       child: Card(
