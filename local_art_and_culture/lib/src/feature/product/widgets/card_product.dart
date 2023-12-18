@@ -67,7 +67,7 @@ class _CardProductsState extends State<CardProducts> {
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 8.0,
-                    mainAxisSpacing: 198.0,
+                    mainAxisSpacing: 205.0,
                   ),
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
