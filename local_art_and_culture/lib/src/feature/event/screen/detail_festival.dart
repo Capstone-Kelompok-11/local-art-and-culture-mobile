@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:local_art_and_culture/src/feature/event/screen/home_screen.dart';
 import 'package:local_art_and_culture/src/feature/event/screen/pilihan_tiket.dart';
 import 'package:local_art_and_culture/src/feature/event/widget/bintang_tamu.dart';
-import 'package:local_art_and_culture/src/feature/event/widget/marchandies.dart';
 import 'package:local_art_and_culture/src/feature/event/widget/tiket.dart';
 
 class DetailFestival extends StatefulWidget {
