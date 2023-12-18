@@ -1,4 +1,4 @@
- import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:local_art_and_culture/src/feature/pameran/screen/home_screen.dart';
 import 'package:local_art_and_culture/src/feature/pameran/screen/pilihan_tiket.dart';
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Nama Aplikasi Anda',
+      title: '',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -59,7 +59,7 @@ class _DetailPameranState extends State<DetailPameran> {
                             )
                           ],
                           image: const DecorationImage(
-                              image: AssetImage('assets/img/Pameran2.png'),
+                              image: AssetImage('assets/img/Pameran4.png'),
                               fit: BoxFit.fill),
                         ),
                       ),
