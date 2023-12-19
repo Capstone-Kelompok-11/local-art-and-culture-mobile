@@ -8,4 +8,8 @@ class TokenManager {
   static String? getAccessToken() {
     return _accessToken;
   }
+
+  static removeAccessToken() {
+    _accessToken = null;
+  }
 }

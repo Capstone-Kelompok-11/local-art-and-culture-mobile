@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class InfoPengunjung extends StatefulWidget {
   const InfoPengunjung({super.key});
@@ -14,7 +15,7 @@ class _InfoPengunjungState extends State<InfoPengunjung> {
       width: 331,
       height: 161,
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-      child: const Column(
+      child: Column(
         children: [
           Row(
             children: [
@@ -22,10 +23,9 @@ class _InfoPengunjungState extends State<InfoPengunjung> {
                 children: [
                   Text(
                     'Info Pengunjung',
-                    style: TextStyle(
+                    style: GoogleFonts.plusJakartaSans(
                       color: Color(0xFF1A1A1A),
                       fontSize: 18,
-                      fontFamily: 'Plus Jakarta Sans',
                       fontWeight: FontWeight.w700,
                     ),
                   ),
@@ -40,19 +40,17 @@ class _InfoPengunjungState extends State<InfoPengunjung> {
               children: [
                 Text(
                   'Nama Lengkap',
-                  style: TextStyle(
+                  style: GoogleFonts.plusJakartaSans(
                     color: Color(0xFF333333),
                     fontSize: 12,
-                    fontFamily: 'Plus Jakarta Sans',
                     fontWeight: FontWeight.w700,
                   ),
                 ),
                 Text(
                   'Nomor Handphone',
-                  style: TextStyle(
+                  style: GoogleFonts.plusJakartaSans(
                     color: Color(0xFF333333),
                     fontSize: 12,
-                    fontFamily: 'Plus Jakarta Sans',
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -66,20 +64,18 @@ class _InfoPengunjungState extends State<InfoPengunjung> {
               children: [
                 Text(
                   'Athira',
-                  style: TextStyle(
+                  style: GoogleFonts.plusJakartaSans(
                     color: Color(0xFF828282),
                     fontSize: 10,
-                    fontFamily: 'Plus Jakarta Sans',
                     fontWeight: FontWeight.w400,
                     height: 0.15,
                   ),
                 ),
                 Text(
                   '08555667788',
-                  style: TextStyle(
+                  style: GoogleFonts.plusJakartaSans(
                     color: Color(0xFF828282),
                     fontSize: 10,
-                    fontFamily: 'Plus Jakarta Sans',
                     fontWeight: FontWeight.w400,
                     height: 0.15,
                   ),
@@ -94,19 +90,17 @@ class _InfoPengunjungState extends State<InfoPengunjung> {
               children: [
                 Text(
                   'Email',
-                  style: TextStyle(
+                  style: GoogleFonts.plusJakartaSans(
                     color: Color(0xFF333333),
                     fontSize: 12,
-                    fontFamily: 'Plus Jakarta Sans',
                     fontWeight: FontWeight.w700,
                   ),
                 ),
                 Text(
                   'Nomor KTP',
-                  style: TextStyle(
+                  style: GoogleFonts.plusJakartaSans(
                     color: Color(0xFF333333),
                     fontSize: 12,
-                    fontFamily: 'Plus Jakarta Sans',
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -120,19 +114,17 @@ class _InfoPengunjungState extends State<InfoPengunjung> {
               children: [
                 Text(
                   'Athira.Athira@gmail.com',
-                  style: TextStyle(
+                  style: GoogleFonts.plusJakartaSans(
                     color: Color(0xFF828282),
                     fontSize: 10,
-                    fontFamily: 'Plus Jakarta Sans',
                     fontWeight: FontWeight.w400,
                   ),
                 ),
                 Text(
                   '6252311000',
-                  style: TextStyle(
+                  style: GoogleFonts.plusJakartaSans(
                     color: Color(0xFF828282),
                     fontSize: 10,
-                    fontFamily: 'Plus Jakarta Sans',
                     fontWeight: FontWeight.w400,
                   ),
                 ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/components/checkout_navigation_bar.dart';
 import 'package:local_art_and_culture/src/feature/product/widgets/description_product.dart';
-import 'package:local_art_and_culture/src/feature/product/widgets/products_image.dart';
+// import 'package:local_art_and_culture/src/feature/product/widgets/products_image.dart';
 import 'package:local_art_and_culture/src/feature/product/widgets/products_store.dart';
 import 'package:local_art_and_culture/src/feature/product/widgets/review_product.dart';
 import 'package:local_art_and_culture/src/feature/product/widgets/varian_product.dart';
@@ -24,7 +24,7 @@ class _DetailProductState extends State<DetailProduct> {
             Expanded(
               child: ListView(
                 children: const [
-                  ProductsImage(),
+                  // ProductsImage(),
                   SizedBox(height: 8),
                   VarianProductButton(),
                   SizedBox(height: 8),

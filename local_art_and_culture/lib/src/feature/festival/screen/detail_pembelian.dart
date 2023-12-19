@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:local_art_and_culture/src/feature/festival/screen/metode_pembayaran.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/appbardp.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/form.dart';
@@ -43,25 +44,23 @@ class _DetailPembelianState extends State<DetailPembelian> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              const Column(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
                     "Total Pembayaran",
-                    style: TextStyle(
+                    style: GoogleFonts.plusJakartaSans(
                       color: Color(0xFF666666),
                       fontSize: 12,
-                      fontFamily: 'Plus Jakarta Sans',
                       fontWeight: FontWeight.w400,
                     ),
                   ),
                   Text(
                     "RP.208.000",
-                    style: TextStyle(
+                    style: GoogleFonts.plusJakartaSans(
                       color: Color(0xFF3653B0),
                       fontSize: 20,
-                      fontFamily: 'Plus Jakarta Sans',
                       fontWeight: FontWeight.w700,
                     ),
                   )
@@ -83,15 +82,14 @@ class _DetailPembelianState extends State<DetailPembelian> {
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),
-                child: const Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 8.0),
                   child: Text(
                     "Checkout",
-                    style: TextStyle(
+                    style: GoogleFonts.plusJakartaSans(
                       color: Colors.white,
                       fontSize: 14,
-                      fontFamily: 'Plus Jakarta Sans',
                       fontWeight: FontWeight.w600,
                     ),
                   ),

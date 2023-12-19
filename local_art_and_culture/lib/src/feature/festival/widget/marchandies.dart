@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Marchandise extends StatelessWidget {
   final String imagePath;
@@ -45,10 +46,9 @@ class Marchandise extends StatelessWidget {
           const SizedBox(height: 16),
           Text(
             title,
-            style: const TextStyle(
+            style: GoogleFonts.plusJakartaSans(
               color: Color(0xFF1A1A1A),
               fontSize: 12,
-              fontFamily: 'Plus Jakarta Sans',
               fontWeight: FontWeight.w400,
             ),
           ),
@@ -59,10 +59,9 @@ class Marchandise extends StatelessWidget {
               Text(
                 // ignore: unnecessary_string_interpolations
                 'Rp.$harga',
-                style: const TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Color(0xFF1A1A1A),
                   fontSize: 16,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w700,
                 ),
               ),

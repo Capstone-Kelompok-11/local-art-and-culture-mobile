@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/models/payment_model.dart';
-import 'package:local_art_and_culture/src/feature/pameran/screen/home_screen.dart';
-
+import 'package:local_art_and_culture/src/feature/event/screen/home_screen.dart';
+// import 'package:local_art_and_culture/src/feature/event/event_page.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/src/screen_home_page.dart';
 import 'package:local_art_and_culture/src/feature/product/screens/detail_product.dart';
 import 'package:local_art_and_culture/src/feature/product/screens/product_page.dart';
+import 'package:local_art_and_culture/src/feature/splash%20login/login.dart';
 import 'package:local_art_and_culture/src/feature/splash%20login/splashscreen.dart';
 import 'package:local_art_and_culture/src/feature/chatbot/chatbot_screen.dart';
 import 'package:provider/provider.dart';
 import './src/feature/profil/screen_profil.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -33,14 +34,15 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/',
         routes: {
-          '/': (context) => SplashScreenDelay(),
+          '/': (context) => const SplashScreenDelay(),
+          '/login': (context) => const LoginPage(),
           '/home': (context) => const MyHomePage(),
-          '/event': (context) => const HomeScreen(),
+          '/event': (context) => const HomeScreenFstv(),
           '/product': (context) => const ListProductPage(),
           '/detail/product': (context) => const DetailProduct(),
           '/chatbot': (context) => const ChatbotScreen(),
           '/profile': (context) => const ProfilPage(),
-          '/splashscreen': (context) => SplashScreen(),
+          '/splashscreen': (context) => const SplashScreen(),
         },
       ),
     );
@@ -48,6 +50,8 @@ class MyApp extends StatelessWidget {
 }
 
 class SplashScreenDelay extends StatefulWidget {
+  const SplashScreenDelay({super.key});
+
   @override
   State<SplashScreenDelay> createState() => _SplashScreenDelayState();
 }
@@ -65,11 +69,13 @@ class _SplashScreenDelayState extends State<SplashScreenDelay> {
 
   @override
   Widget build(BuildContext context) {
-    return SplashScreen();
+    return const SplashScreen();
   }
 }
 
 class SplashScreen extends StatelessWidget {
+  const SplashScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

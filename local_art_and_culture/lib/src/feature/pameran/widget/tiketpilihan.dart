@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api, unnecessary_string_interpolations
+
 import 'package:flutter/material.dart';
 
 class TiketPilihan extends StatelessWidget {
@@ -33,7 +35,6 @@ class TiketPilihan extends StatelessWidget {
               SizedBox(
                 width: 20,
               ),
-              
             ],
           ),
           const SizedBox(
@@ -124,8 +125,8 @@ class TiketPilihan extends StatelessWidget {
                             //         color: Colors.black,
                             //       )),
                             // )
-                            SizedBox(width: 60),
-                            ButtonPlusMin()
+                            const SizedBox(width: 60),
+                            const ButtonPlusMin()
                           ],
                         ),
                       ],
@@ -167,18 +168,18 @@ class _ButtonPlusMinState extends State<ButtonPlusMin> {
               }
             });
           },
-          child: Container(
+          child: SizedBox(
             height: 24,
             width: 24,
             child: Image.asset("assets/img/mintiket.png"),
           ),
         ),
-        SizedBox(width: 8), // Provide some spacing between buttons
+        const SizedBox(width: 8), // Provide some spacing between buttons
         Text(
           '$number', // Display the current number
-          style: TextStyle(fontSize: 18),
+          style: const TextStyle(fontSize: 18),
         ),
-        SizedBox(width: 8), // Provide some spacing between buttons
+        const SizedBox(width: 8), // Provide some spacing between buttons
         GestureDetector(
           onTap: () {
             setState(() {
@@ -186,7 +187,7 @@ class _ButtonPlusMinState extends State<ButtonPlusMin> {
               number++;
             });
           },
-          child: Container(
+          child: SizedBox(
             height: 24,
             width: 24,
             child: Image.asset("assets/img/plustiket.png"),

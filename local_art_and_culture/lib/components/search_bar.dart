@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:local_art_and_culture/src/feature/home%20page/src/screen_home_page.dart';
 
 class SearchHeader extends StatefulWidget {
   const SearchHeader({Key? key}) : super(key: key);
@@ -86,23 +85,23 @@ class _SearchHeaderState extends State<SearchHeader> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Container(
-          margin: const EdgeInsets.only(top: 20),
-          child: InkWell(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const MyHomePage(),
-                ),
-              );
-            },
-            child: const Icon(
-              Icons.keyboard_backspace_rounded,
-              size: 25,
-            ),
-          ),
-        ),
+        // Container(
+        //   margin: const EdgeInsets.only(top: 20),
+        //   child: InkWell(
+        //     onTap: () {
+        //       Navigator.push(
+        //         context,
+        //         MaterialPageRoute(
+        //           builder: (context) => const MyHomePage(),
+        //         ),
+        //       );
+        //     },
+        //     child: const Icon(
+        //       Icons.keyboard_backspace_rounded,
+        //       size: 25,
+        //     ),
+        //   ),
+        // ),
         const SizedBox(
           width: 10,
         ),

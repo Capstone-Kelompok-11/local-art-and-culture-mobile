@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
-
 import 'package:local_art_and_culture/components/bottom_navigation_bar.dart';
+import 'package:local_art_and_culture/models/article_model.dart';
+import 'package:local_art_and_culture/service/article_service.dart';
+import 'package:local_art_and_culture/src/feature/article/model/article.dart';
+import 'package:local_art_and_culture/src/feature/article/ui/article_detail.dart';
 import 'package:local_art_and_culture/src/feature/article/ui/article_list.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/app_bar_home.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/button_fitur.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/calender.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/card.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/card_event.dart';
-import 'package:local_art_and_culture/src/feature/home%20page/widget/icon_filter.dart';
+import 'package:local_art_and_culture/src/feature/home%20page/widget/filter_button.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/news_card.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/searchbar.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/slider_home_page.dart';
+import 'package:local_art_and_culture/src/feature/product/screens/product_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -23,12 +27,42 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<NewsCard> newsCards = [];
-
+  late List<ArticleModel> articlesData = [];
+  bool isLoading = true;
   @override
   void initState() {
     super.initState();
     fetchNewsData();
     GetName(); // Ubah pemanggilan dari fetchData() menjadi fetchNewsData()
+  }
+
+  void fetchArticles() async {
+    try {
+      ArticleService articleService = ArticleService();
+      final fetchArticles = await articleService.getArticles();
+
+      // ignore: unnecessary_null_comparison
+      if (fetchArticles != null) {
+        print(fetchArticles);
+        setState(() {
+          articlesData = fetchArticles;
+          isLoading = false;
+        });
+        print(fetchArticles.length);
+      } else {
+        print('Error: fetchArticles is null');
+        setState(() {
+          isLoading = false;
+        });
+      }
+
+      print('ini adalah fungsi fetch produk');
+    } catch (error) {
+      print('Error fetching products: $error');
+      setState(() {
+        isLoading = false;
+      });
+    }
   }
 
   Future<void> fetchNewsData() async {
@@ -53,6 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   String nama = '';
+  // ignore: non_constant_identifier_names
   Future<void> GetName() async {
     SharedPreferences name = await SharedPreferences.getInstance();
     setState(() {
@@ -62,8 +97,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    const cardPadding = EdgeInsets.all(10.0); // Tetapkan padding untuk kartu
-
+    const cardPadding = EdgeInsets.all(10.0);
+    var deviceWidth = MediaQuery.of(context).size.width;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -105,18 +140,15 @@ class _MyHomePageState extends State<MyHomePage> {
                         ],
                       ),
                       const SizedBox(height: 32),
-                      Row(
+                      const Row(
                         children: [
-                          const Expanded(
+                          Expanded(
                             child: CustomSearchBar(
                               leadingIcon: Icon(Icons.search),
                             ),
                           ),
-                          const SizedBox(width: 12),
-                          CustomIconButton(
-                            icon: const Icon(Icons.filter_list),
-                            onTap: () {},
-                          ),
+                          SizedBox(width: 5),
+                          FilterButton(),
                         ],
                       ),
                       const SizedBox(height: 32),
@@ -247,7 +279,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          ArticleList()), // Ganti dengan halaman "Event" yang sesuai
+                                          const ArticleList()), // Ganti dengan halaman "Event" yang sesuai
                                 );
                               },
                               child: const Text(
@@ -262,20 +294,18 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ),
                       SizedBox(
-                        height: 270, // Ubah tinggi sesuai kebutuhan
+                        height: 270,
                         child: ListView.builder(
                           scrollDirection: Axis.vertical,
-                          itemCount: 5, // Gunakan panjang list newsCards
+                          itemCount: 5,
                           itemBuilder: (context, index) {
                             return Padding(
                               padding: const EdgeInsets.all(10),
-                              child: newsCards[
-                                  index], // Tampilkan NewsCard dari API
+                              child: youWidget1(deviceWidth),
                             );
                           },
                         ),
                       ),
-                      // Contoh elemen tambahan di dalam SingleChildScrollView
                     ],
                   ),
                 ),
@@ -324,29 +354,9 @@ class _MyHomePageState extends State<MyHomePage> {
                           ],
                         ),
                       ),
-                      SizedBox(
-                        height: 385, // Ubah tinggi sesuai kebutuhan
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 4,
-                          itemBuilder: (context, index) {
-                            return const Padding(
-                              padding: cardPadding,
-                              child: RoundedImageCard(
-                                imagePath: 'assets/dompet.jpg',
-                                label: 'Fashion',
-                                subtitle:
-                                    'Dompet Wanita Series AMC Kulit Naga Asli',
-                                title: 'Rp 80.000',
-                                locationRating: "Surabaya",
-                                starRating: 4.5,
-                                terjual: '120',
-                              ),
-                            );
-                          },
-                        ),
+                      const SizedBox(
+                        child: CardProducts(),
                       ),
-                      // Contoh elemen tambahan di dalam SingleChildScrollView
                       const SizedBox(height: 20),
                       Padding(
                         padding: const EdgeInsets.symmetric(
@@ -362,8 +372,13 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                             ),
                             GestureDetector(
-                              onTap: () {
-                                // Tindakan ketika "Lihat Semua" ditekan
+                              onTap: () async {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const ListProductPage()),
+                                );
                               },
                               child: const Text(
                                 'Lihat Semua',
@@ -376,27 +391,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           ],
                         ),
                       ),
-                      SizedBox(
-                        height: 385, // Ubah tinggi sesuai kebutuhan
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: 4,
-                          itemBuilder: (context, index) {
-                            return const Padding(
-                              padding: cardPadding,
-                              child: RoundedImageCard(
-                                imagePath: 'assets/dompet.jpg',
-                                label: 'Fashion',
-                                subtitle:
-                                    'Dompet Wanita Series AMC Kulit Naga Asli',
-                                title: 'Rp 80.000',
-                                locationRating: "Surabaya",
-                                starRating: 4.5,
-                                terjual: '138',
-                              ),
-                            );
-                          },
-                        ),
+                      const SizedBox(
+                        child: CardProducts(),
                       ),
                     ],
                   ),
@@ -406,17 +402,70 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         bottomNavigationBar: CustomBottomNavigationBar(
-            selectedIndex: 0,
-            onItemTapped: (index) {
-              if (index == 1) {
-                Navigator.pushNamed(context, '/event');
-              } else if (index == 2) {
-                Navigator.pushNamed(context, '/product');
-              } else if (index == 3) {
-                Navigator.pushNamed(context, '/profile');
-              }
-            }),
+          selectedIndex: 0,
+          onItemTapped: (index) {
+            if (index == 1) {
+              Navigator.pushNamed(context, '/event');
+            } else if (index == 2) {
+              Navigator.pushNamed(context, '/product');
+            } else if (index == 3) {
+              Navigator.pushNamed(context, '/profile');
+            }
+          },
+        ),
       ),
     );
   }
+}
+
+Widget youWidget1(deviceWidth) {
+  return Padding(
+    padding: EdgeInsets.symmetric(
+        horizontal: deviceWidth / 90, vertical: deviceWidth / 15),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Hanya Untukmu',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: deviceWidth / 20,
+          ),
+        ),
+        ListView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: articles.length,
+            itemBuilder: (context, index) {
+              final Article article = articles[index];
+
+              return Column(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return ArticleDetail(article: article);
+                          },
+                        ),
+                      );
+                    },
+                    child: onlyForYouCard(
+                      article,
+                      deviceWidth,
+                    ),
+                  ),
+                  (index + 1) >= articles.length
+                      ? const SizedBox()
+                      : const Divider(
+                          thickness: 1,
+                        ),
+                ],
+              );
+            })
+      ],
+    ),
+  );
 }

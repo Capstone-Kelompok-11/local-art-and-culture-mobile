@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:local_art_and_culture/src/feature/pameran/screen/detail_pameran.dart';
@@ -33,6 +32,7 @@ class RoundedImageCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 345, // Menentukan lebar card
+
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30.0),
@@ -123,7 +123,6 @@ class RoundedImageCard extends StatelessWidget {
                 color: Colors.grey,
               ),
               Text(
-                // ignore: unnecessary_string_interpolations
                 '$location',
                 style: const TextStyle(
                   color: Color(0xFFB3B3B3),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class RincianPembayaran extends StatefulWidget {
   const RincianPembayaran({super.key});
@@ -14,16 +15,15 @@ class _RincianPembayaranState extends State<RincianPembayaran> {
       width: 345,
       height: MediaQuery.of(context).size.height * 0.37,
       padding: const EdgeInsets.all(12),
-      child: const Column(
+      child: Column(
         children: [
           Row(
             children: [
               Text(
                 "Total Pembelian",
-                style: TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Colors.black,
                   fontSize: 16,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w700,
                 ),
               ),
@@ -37,19 +37,17 @@ class _RincianPembayaranState extends State<RincianPembayaran> {
             children: [
               Text(
                 "Total Harga",
-                style: TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Colors.black,
                   fontSize: 14,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w400,
                 ),
               ),
               Text(
-                'Rp.205.000',
+                'Rp.79.000',
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 14,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w600,
                   height: 0.11,
                 ),
@@ -68,10 +66,9 @@ class _RincianPembayaranState extends State<RincianPembayaran> {
             children: [
               Text(
                 "Biaya Transaksi",
-                style: TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Colors.black,
                   fontSize: 16,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w700,
                 ),
               ),
@@ -85,19 +82,17 @@ class _RincianPembayaranState extends State<RincianPembayaran> {
             children: [
               Text(
                 "Biaya Layanan",
-                style: TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Colors.black,
                   fontSize: 14,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w400,
                 ),
               ),
               Text(
                 'Rp.1.000',
-                style: TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Colors.black,
                   fontSize: 14,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -111,20 +106,17 @@ class _RincianPembayaranState extends State<RincianPembayaran> {
             children: [
               Text(
                 "Biaya Jasa Aplikasi",
-                style: TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Colors.black,
                   fontSize: 14,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w400,
                 ),
               ),
               Text(
                 'Rp.2.000',
-                style: TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Colors.black,
                   fontSize: 14,
-                  fontFamily: 'Plus Jakarta Sans',
-                  fontWeight: FontWeight.w600,
                   height: 0.11,
                 ),
               ),
@@ -143,19 +135,17 @@ class _RincianPembayaranState extends State<RincianPembayaran> {
             children: [
               Text(
                 "Total Pembayaran",
-                style: TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Colors.black,
                   fontSize: 16,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w700,
                 ),
               ),
               Text(
-                'Rp.208.000',
-                style: TextStyle(
+                'Rp.205.000',
+                style: GoogleFonts.plusJakartaSans(
                   color: Colors.black,
                   fontSize: 14,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w600,
                 ),
               ),
