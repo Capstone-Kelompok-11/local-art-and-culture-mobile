@@ -15,18 +15,18 @@ class Marchandise extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 200, // Menentukan lebar card
-      height: 280, // Menentukan tinggi card
+      width: 170, // Menentukan lebar card
+      height: 238, // Menentukan tinggi card
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(25.0),
+        borderRadius: BorderRadius.circular(60.0),
         color: Colors.white,
         boxShadow: const [
           BoxShadow(
             color: Color(0x3F999999),
-            blurRadius: 20,
+            blurRadius: 3,
             offset: Offset(0, 0),
-            spreadRadius: 2,
+            spreadRadius: 1,
           )
         ],
       ),
@@ -37,8 +37,8 @@ class Marchandise extends StatelessWidget {
             borderRadius: BorderRadius.circular(30.0),
             child: Image.asset(
               imagePath,
-              width: 173,
-              height: 173,
+              width: 130,
+              height: 130,
               fit: BoxFit.cover,
             ),
           ),
