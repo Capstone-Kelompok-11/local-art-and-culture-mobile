@@ -14,7 +14,7 @@ class ArticleDetail extends StatefulWidget {
 }
 
 class _ArticleDetailState extends State<ArticleDetail> {
-  late List<Article> listArticle;
+  late List<Article> listArticle = [];
   late Article article;
 
   @override
@@ -38,11 +38,10 @@ class _ArticleDetailState extends State<ArticleDetail> {
 
   @override
   Widget build(BuildContext context) {
-    if (article.title.isEmpty || listArticle.first.title.isEmpty) {
+    var deviceWidth = MediaQuery.of(context).size.width;
+    if (listArticle.isEmpty) {
       return Center(child: CircularProgressIndicator());
     }
-    var deviceWidth = MediaQuery.of(context).size.width;
-
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(

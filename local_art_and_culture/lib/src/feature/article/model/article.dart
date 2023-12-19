@@ -37,6 +37,8 @@ Future<List<Article>> fetchArticle() async {
     final List<dynamic> articlesData = data['data']['data'];
 
     int gambar = 1;
+    int indexParagraph = 0;
+
 
     List<Article> article = articlesData.map((articleData) {
       var paragraph = dummy;
@@ -49,9 +51,7 @@ Future<List<Article>> fetchArticle() async {
       } else {
         picture = 'assets/img/profil/bambang.png';
       }
-      if (gambar > 5) {
-        paragraph = dummyParagraph[0];
-      }
+      paragraph = dummyParagraph[indexParagraph];
       if (articleData['view_amount'] != null) {
         view = articleData['view_amount'];
         print('view amount : view ${view}');
@@ -59,8 +59,10 @@ Future<List<Article>> fetchArticle() async {
         view = 0;
       }
       gambar++;
-      if(gambar == 11) {
-        gambar = 0;
+      indexParagraph++;
+      if(gambar == 11 || indexParagraph == 5) {
+        gambar = 1;
+        indexParagraph = 0;
       }
       return Article(
         title: articleData['title'],
