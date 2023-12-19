@@ -12,6 +12,26 @@ class ArticleList extends StatefulWidget {
 }
 
 class _ArticleListState extends State<ArticleList> {
+  late List<Article> articles = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadArticles();
+  }
+
+  Future<void> _loadArticles() async {
+    try {
+      articles = await fetchArticle();
+    } catch (error) {
+      print('Error fetching articles: $error');
+    }
+
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
   String getTimeDifferenceFromNow(DateTime dateTime) {
     DateTime dateTimeNow = DateTime.now();
     if (dateTime.year < dateTimeNow.year) {
@@ -34,6 +54,9 @@ class _ArticleListState extends State<ArticleList> {
 
   @override
   Widget build(BuildContext context) {
+    if (articles.isEmpty) {
+      return Center(child: CircularProgressIndicator());
+    }
     var deviceWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
