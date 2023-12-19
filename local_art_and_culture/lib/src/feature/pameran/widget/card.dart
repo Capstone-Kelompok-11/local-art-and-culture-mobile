@@ -18,16 +18,18 @@ class RoundedImageCard extends StatelessWidget {
     required double width,
   }) : super(key: key);
 
-  Future<void> fetchData() async {
-    try {
-      final response = await Dio().get('https://658144ba3dfdd1b11c42c970.mockapi.io/pameran');
-      // Handle response data
-      print(response.data);
-    } catch (error) {
-      // Handle error
-      print('Error fetching data: $error');
-    }
-  }
+  // Future<void> fetchData() async {
+  //   try {
+  //     final response = await Dio().get('https://658144ba3dfdd1b11c42c970.mockapi.io/pameran');
+  //     // Handle response data
+  //     print(response.data);
+  //   } catch (error) {
+  //     // Handle error
+  //     print('Error fetching data: $error');
+  //   }
+  // }
+
+  
 
   @override
   Widget build(BuildContext context) {

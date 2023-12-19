@@ -46,6 +46,14 @@ class EventModel {
     );
   }
 
+  get imagePath => null;
+
+  get title => null;
+
+  get harga => null;
+
+  get location => null;
+
   Map<String?, dynamic> toJson() {
     return {
       'id': id,

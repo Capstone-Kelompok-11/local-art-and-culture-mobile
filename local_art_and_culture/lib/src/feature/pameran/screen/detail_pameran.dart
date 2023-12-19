@@ -46,13 +46,12 @@ class _DetailPameranState extends State<DetailPameran> {
   Future<void> fetchEvents() async {
     try {
       List<EventModel> events = await EventService.fetchEvents();
-      
+
       setState(() {
         event = events;
       });
       print(events);
     } catch (error) {
-      
       print('Error fetching events: $error');
     }
   }
@@ -274,18 +273,28 @@ class _DetailPameranState extends State<DetailPameran> {
                     const SizedBox(
                       height: 8,
                     ),
-                    const Row(
-                      children: [
-                        SizedBox(
-                          width: 20,
+                    const ExpansionTile(
+                      title: Text(
+                        "Voice Against Reason adalah sebuah pameran seni yang merangkum suara dan ekspresi tanpa batas dalam dunia seni rupa.  ",
+                        style: TextStyle(
+                          color: Color(0xFF666666),
+                          fontSize: 16,
+                          fontFamily: 'Plus Jakarta Sans',
+                          fontWeight: FontWeight.w400,
                         ),
-                        Text(
-                          "\tVoice Against Reason adalah pameran besar \n\tyang melibatkan 24 perupa dari Australia, \n\tBangladesh, India, Indonesia, Jepang, \n\tSingapura, Taiwan, Thailand, dan Vietnam.",
-                          style: TextStyle(
-                            color: Color(0xFF666666),
-                            fontSize: 16,
-                            fontFamily: 'Plus Jakarta Sans',
-                            fontWeight: FontWeight.w400,
+                      ),
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 16.0),
+                          child: Text(
+                            // Deskripsi tambahan atau informasi lebih lanjut
+                            "Pameran ini mengeksplorasi kreativitas dan ekspresi melalui berbagai medium dan gaya, membuka dialog antara ekspresi artistik dan pertimbangan rasional. Dalam pameran ini, seniman-seniman berani menggunakan suara mereka sebagai instrumen utama untuk menyampaikan pesan, membawa pemirsa dalam perjalanan visual yang menggugah dan merangsang pemikiran.\nSetiap karya seni dalam pameran ini memiliki kekuatan untuk menyampaikan narasi yang unik, menciptakan jembatan antara logika dan ketidak-beraturan, menyuarakan perasaan dan pemikiran yang mungkin sulit diungkapkan dengan kata-kata. Suara, entah itu yang terangkum dalam warna-warna cerah, garis-garis lembut, atau tekstur yang menarik, menjadi alat utama bagi seniman untuk mengekspresikan diri mereka tanpa membatasi diri pada norma atau nalar yang konvensional.\nPameran ini mengajak pemirsa untuk meresapi keindahan dan kompleksitas seni yang muncul dari pertentangan antara suara dan akal sehat. Dengan melibatkan berbagai elemen visual, pameran Voice Against Reason membuka ruang bagi interpretasi pribadi dan refleksi, mendorong pengunjung untuk mempertanyakan, merenung, dan menyelami makna di balik karya-karya seni yang dipamerkan.",
+                            style: TextStyle(
+                              color: Color(0xFF666666),
+                              fontSize: 16,
+                              fontFamily: 'Plus Jakarta Sans',
+                              fontWeight: FontWeight.w400,
+                            ),
                           ),
                         ),
                       ],
