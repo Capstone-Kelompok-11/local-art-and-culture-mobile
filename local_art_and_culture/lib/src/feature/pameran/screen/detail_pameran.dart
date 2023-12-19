@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:local_art_and_culture/models/event_model.dart';
+import 'package:local_art_and_culture/service/event_service.dart';
 import 'package:local_art_and_culture/src/feature/pameran/screen/home_screen.dart';
 import 'package:local_art_and_culture/src/feature/pameran/screen/pilihan_tiket.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/bottomsheet.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/marchandies.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/tiket.dart';
-
+import 'package:http/http.dart' as http;
 
 void main() {
   runApp(MyApp());
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:HomeScreen(),
+      home: HomeScreen(),
     );
   }
 }
@@ -33,6 +35,28 @@ class DetailPameran extends StatefulWidget {
 
 class _DetailPameranState extends State<DetailPameran> {
   bool isLoved = false;
+  late List<EventModel> event = [];
+
+  @override
+  void initState() {
+    super.initState();
+    fetchEvents();
+  }
+
+  Future<void> fetchEvents() async {
+    try {
+      List<EventModel> events = await EventService.fetchEvents();
+      
+      setState(() {
+        event = events;
+      });
+      print(events);
+    } catch (error) {
+      
+      print('Error fetching events: $error');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -464,7 +488,7 @@ class _DetailPameranState extends State<DetailPameran> {
                   child: Row(
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(right: 10.0),
+                        padding: EdgeInsets.only(left: 30.0),
                         child: Marchandise(
                           imagePath: "assets/img/Merch1.png",
                           title: "Blom totebag",
@@ -472,7 +496,7 @@ class _DetailPameranState extends State<DetailPameran> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(right: 10.0),
+                        padding: EdgeInsets.only(left: 15.0),
                         child: Marchandise(
                           imagePath: 'assets/img/Merch2.png',
                           title: "Medioker",
@@ -483,14 +507,14 @@ class _DetailPameranState extends State<DetailPameran> {
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 15,
                 ),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(right: 10.0),
+                        padding: EdgeInsets.only(left: 30.0),
                         child: Marchandise(
                           imagePath: "assets/img/Merch3.png",
                           title: "Poster By Teratai",
@@ -498,7 +522,7 @@ class _DetailPameranState extends State<DetailPameran> {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(right: 10.0),
+                        padding: EdgeInsets.only(left: 15.0),
                         child: Marchandise(
                           imagePath: 'assets/img/Merch4.png',
                           title: "Sarung tali Hutan",
