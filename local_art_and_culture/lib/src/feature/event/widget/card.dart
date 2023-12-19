@@ -56,7 +56,7 @@ class RoundedImageCard extends StatelessWidget {
                 margin: EdgeInsets.all(5.0),
                 padding: EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                    color: Color(0xFF91A1D3),
+                    color: Color(0xFF339980),
                     borderRadius: BorderRadius.circular(20.0)),
                 child: const Text(
                   "Event",
