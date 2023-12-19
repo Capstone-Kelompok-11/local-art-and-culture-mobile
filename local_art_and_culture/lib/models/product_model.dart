@@ -8,9 +8,11 @@ String modelProductToJson(ModelProduct data) => json.encode(data.toJson());
 class ModelProduct {
   int? id;
   String? name;
+  bool? stock;
   int? price;
   String? description;
   String? status;
+  int? totalProduct;
   int? categoryId;
   int? creatorId;
   Creator? creator;
@@ -19,9 +21,11 @@ class ModelProduct {
   ModelProduct({
     this.id,
     this.name,
+    this.stock,
     this.price,
     this.description,
     this.status,
+    this.totalProduct,
     this.categoryId,
     this.creatorId,
     this.creator,
@@ -31,9 +35,11 @@ class ModelProduct {
   factory ModelProduct.fromJson(Map<String, dynamic> json) => ModelProduct(
         id: json["id"],
         name: json["name"],
+        stock: json["totalProduct"] ?? false,
         price: json["price"],
         description: json["description"],
         status: json["status"],
+        totalProduct: json["total_product"],
         categoryId: json["categoryId"],
         creatorId: json["creatorId"],
         creator: Creator.fromJson(json["creator"]),
@@ -43,9 +49,11 @@ class ModelProduct {
   Map<String, dynamic> toJson() => {
         "id": id,
         "name": name,
+        "stock": stock,
         "price": price,
         "description": description,
         "status": status,
+        "total_product": totalProduct,
         "categoryId": categoryId,
         "creatorId": creatorId,
         "creator": creator!.toJson(),

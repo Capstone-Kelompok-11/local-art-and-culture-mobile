@@ -3,7 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/models/product_model.dart';
 import 'package:local_art_and_culture/service/product_service.dart';
-import 'package:local_art_and_culture/src/feature/product/screens/detail_product.dart';
+// import 'package:local_art_and_culture/src/feature/product/screens/detail_product.dart';
+import 'package:local_art_and_culture/src/feature/product/screens/new_detail_product.dart';
 
 class CardProducts extends StatefulWidget {
   const CardProducts({Key? key}) : super(key: key);
@@ -26,28 +27,19 @@ class _CardProductsState extends State<CardProducts> {
     try {
       ProductService productService = ProductService();
       final fetchedProducts = await productService.getProducts();
-
-      if (fetchedProducts != null) {
-        print(fetchedProducts);
-        setState(() {
-          products = fetchedProducts;
-          isLoading = false;
-        });
-        print(fetchedProducts.length);
-      } else {
-        print('Error: fetchedProducts is null');
-        setState(() {
-          isLoading = false;
-        });
-      }
-
+      print(fetchedProducts);
+      setState(() {
+        products = fetchedProducts;
+        isLoading = false;
+      });
+      print(fetchedProducts.length);
       print('ini adalah fungsi fetch produk');
     } catch (error) {
       print('Error fetching products: $error');
       setState(() {
         isLoading = false;
       });
-    }
+    } finally {}
   }
 
   @override
@@ -69,24 +61,50 @@ class _CardProductsState extends State<CardProducts> {
               const Center(child: Text('Tidak ada produk yang ditemukan')),
             Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 30.0),
+                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 55.0),
               child: SizedBox(
                 child: GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 8.0,
-                    mainAxisSpacing: 140.0,
+                    mainAxisSpacing: 205.0,
                   ),
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: products.length,
                   itemBuilder: (context, index) {
                     var item = products[index];
-                    String imagePath = index.isEven
-                        ? 'assets/gambar-produk-2.jpg'
-                        : 'assets/gambar-produk-1.jpg';
+                    List<String> imagePaths = [
+                      'assets/img/produk/produk-4.png',
+                      'assets/img/produk/product-5.png',
+                      'assets/img/produk/produk-1.png',
+                      'assets/img/produk/product-6.png',
+                      'assets/img/produk/product-7.png',
+                      'assets/img/produk/product-8.png',
+                      'assets/img/produk/product-9.png',
+                      'assets/img/produk/product-10.png',
+                      'assets/img/produk/product-11.png',
+                      'assets/img/produk/product-12.png'
+                    ];
+                    String imagePath = imagePaths[index % imagePaths.length];
 
-                    String category = index.isEven ? 'Fasion' : 'Karya Tangan';
+                    String category;
+                    if (index == 0 || index == 1 || index == 8) {
+                      category = 'Fashion';
+                    } else if (index == 2 ||
+                        index == 3 ||
+                        index == 6 ||
+                        index == 7 ||
+                        index == 9) {
+                      category = 'Karya Tangan';
+                    } else if (index == 4 || index == 5) {
+                      category = 'Buku';
+                    } else if (index == 8) {
+                      category = 'Karya Tangan';
+                    } else {
+                      category = 'Default Category';
+                    }
+
                     String title = item.name!;
                     String price = 'Rp ${products[index].price}';
 
@@ -95,7 +113,12 @@ class _CardProductsState extends State<CardProducts> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const DetailProduct()),
+                            builder: (context) => NewDetailProduct(
+                              product: item,
+                              imagePath: imagePaths[index % imagePaths.length],
+                              index: index,
+                            ),
+                          ),
                         );
                       },
                       child: Card(
@@ -104,7 +127,7 @@ class _CardProductsState extends State<CardProducts> {
                           borderRadius: BorderRadius.circular(25.0),
                         ),
                         child: OverflowBox(
-                          maxHeight: 320,
+                          maxHeight: 375,
                           child: Container(
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -124,7 +147,8 @@ class _CardProductsState extends State<CardProducts> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Container(
-                                    height: 120.0,
+                                    height: 160.0,
+                                    width: 160.0,
                                     decoration: BoxDecoration(
                                       borderRadius: const BorderRadius.vertical(
                                         top: Radius.circular(8.0),

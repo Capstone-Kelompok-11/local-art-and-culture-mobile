@@ -24,7 +24,7 @@ class _DetailPembelianState extends State<DetailPembelian> {
             AppBarDP(),
             TiketDP(
                 imagePath: "assets/img/event/realitytiket.png",
-                title: "Alkafest 2023 - Closing Ceremony",
+                title: "Alkafest 2023-Closing",
                 location: "Mahaka Square",
                 date: "13 Januari 2023",
                 time: "VIP"),

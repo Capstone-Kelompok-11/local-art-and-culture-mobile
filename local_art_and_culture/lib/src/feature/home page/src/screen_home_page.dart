@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/components/bottom_navigation_bar.dart';
+import 'package:local_art_and_culture/models/article_model.dart';
+import 'package:local_art_and_culture/service/article_service.dart';
+import 'package:local_art_and_culture/src/feature/article/model/article.dart';
+import 'package:local_art_and_culture/src/feature/article/ui/article_detail.dart';
 import 'package:local_art_and_culture/src/feature/article/ui/article_list.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/app_bar_home.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/widget/button_fitur.dart';
@@ -23,12 +27,42 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<NewsCard> newsCards = [];
-
+  late List<ArticleModel> articlesData = [];
+  bool isLoading = true;
   @override
   void initState() {
     super.initState();
     fetchNewsData();
     GetName(); // Ubah pemanggilan dari fetchData() menjadi fetchNewsData()
+  }
+
+  void fetchArticles() async {
+    try {
+      ArticleService articleService = ArticleService();
+      final fetchArticles = await articleService.getArticles();
+
+      // ignore: unnecessary_null_comparison
+      if (fetchArticles != null) {
+        print(fetchArticles);
+        setState(() {
+          articlesData = fetchArticles;
+          isLoading = false;
+        });
+        print(fetchArticles.length);
+      } else {
+        print('Error: fetchArticles is null');
+        setState(() {
+          isLoading = false;
+        });
+      }
+
+      print('ini adalah fungsi fetch produk');
+    } catch (error) {
+      print('Error fetching products: $error');
+      setState(() {
+        isLoading = false;
+      });
+    }
   }
 
   Future<void> fetchNewsData() async {
@@ -63,8 +97,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    const cardPadding = EdgeInsets.all(10.0); // Tetapkan padding untuk kartu
-
+    const cardPadding = EdgeInsets.all(10.0);
+    var deviceWidth = MediaQuery.of(context).size.width;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -260,20 +294,18 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ),
                       SizedBox(
-                        height: 270, // Ubah tinggi sesuai kebutuhan
+                        height: 270,
                         child: ListView.builder(
                           scrollDirection: Axis.vertical,
-                          itemCount: 5, // Gunakan panjang list newsCards
+                          itemCount: 5,
                           itemBuilder: (context, index) {
                             return Padding(
                               padding: const EdgeInsets.all(10),
-                              child: newsCards[
-                                  index], // Tampilkan NewsCard dari API
+                              child: youWidget1(deviceWidth),
                             );
                           },
                         ),
                       ),
-                      // Contoh elemen tambahan di dalam SingleChildScrollView
                     ],
                   ),
                 ),
@@ -384,4 +416,56 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+}
+
+Widget youWidget1(deviceWidth) {
+  return Padding(
+    padding: EdgeInsets.symmetric(
+        horizontal: deviceWidth / 90, vertical: deviceWidth / 15),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Hanya Untukmu',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: deviceWidth / 20,
+          ),
+        ),
+        ListView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: articles.length,
+            itemBuilder: (context, index) {
+              final Article article = articles[index];
+
+              return Column(
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return ArticleDetail(article: article);
+                          },
+                        ),
+                      );
+                    },
+                    child: onlyForYouCard(
+                      article,
+                      deviceWidth,
+                    ),
+                  ),
+                  (index + 1) >= articles.length
+                      ? const SizedBox()
+                      : const Divider(
+                          thickness: 1,
+                        ),
+                ],
+              );
+            })
+      ],
+    ),
+  );
 }
