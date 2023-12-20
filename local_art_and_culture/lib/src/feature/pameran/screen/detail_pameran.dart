@@ -8,7 +8,6 @@ import 'package:local_art_and_culture/src/feature/pameran/widget/bottomsheet.dar
 import 'package:local_art_and_culture/src/feature/pameran/widget/marchandies.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/tiket.dart';
 
-
 class DetailPameran extends StatefulWidget {
   const DetailPameran({super.key});
 
