@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/models/product_model.dart';
 import 'package:local_art_and_culture/service/product_service.dart';
-import 'package:local_art_and_culture/src/feature/product/screens/detail_product.dart';
+import 'package:local_art_and_culture/src/feature/product/screens/new_detail_product.dart';
 
 class CardProducts extends StatefulWidget {
   const CardProducts({Key? key}) : super(key: key);
@@ -14,6 +14,19 @@ class CardProducts extends StatefulWidget {
 
 class _CardProductsState extends State<CardProducts> {
   late List<ModelProduct> products = [];
+  List<String> imagePaths = [
+    'assets/img/produk/produk-4.png',
+    'assets/img/produk/product-5.png',
+    'assets/img/produk/produk-1.png',
+    'assets/img/produk/product-6.png',
+    'assets/img/produk/product-7.png',
+    'assets/img/produk/product-8.png',
+    'assets/img/produk/product-9.png',
+    'assets/img/produk/product-10.png',
+    'assets/img/produk/product-11.png',
+    'assets/img/produk/product-12.png'
+  ];
+  late String imagePath;
 
   @override
   void initState() {
@@ -59,7 +72,11 @@ class _CardProductsState extends State<CardProducts> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const DetailProduct(),
+                    builder: (context) => NewDetailProduct(
+                      product: item,
+                      imagePath: imagePaths[index % imagePaths.length],
+                      index: index,
+                    ),
                   ),
                 );
               },

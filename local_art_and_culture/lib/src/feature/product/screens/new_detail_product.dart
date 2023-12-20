@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:local_art_and_culture/components/checkout_navigation_bar.dart';
 import 'package:local_art_and_culture/models/product_model.dart';
 import 'package:local_art_and_culture/src/feature/product/screens/product_page.dart';
@@ -26,10 +27,24 @@ class NewDetailProduct extends StatefulWidget {
 class _NewDetailProductState extends State<NewDetailProduct> {
   bool isFavorite = false;
   late String category;
+  List<String> imagePaths = [
+    'assets/img/produk/produk-4.png',
+    'assets/img/produk/product-5.png',
+    'assets/img/produk/produk-1.png',
+    'assets/img/produk/product-6.png',
+    'assets/img/produk/product-7.png',
+    'assets/img/produk/product-8.png',
+    'assets/img/produk/product-9.png',
+    'assets/img/produk/product-10.png',
+    'assets/img/produk/product-11.png',
+    'assets/img/produk/product-12.png'
+  ];
+  late String imagePath;
 
   @override
   void initState() {
     super.initState();
+    imagePath = imagePaths[widget.index % imagePaths.length];
     determineCategory();
   }
 
@@ -156,7 +171,7 @@ class _NewDetailProductState extends State<NewDetailProduct> {
                         Align(
                           alignment: Alignment.topLeft,
                           child: Text(
-                            'Rp ${widget.product.price}',
+                            'Rp ${NumberFormat('#,###').format(widget.product.price)}',
                             style: GoogleFonts.plusJakartaSans(
                               fontSize: 24,
                               fontWeight: FontWeight.w700,
@@ -320,7 +335,10 @@ class _NewDetailProductState extends State<NewDetailProduct> {
               ],
             ),
           ),
-          const CheckoutNavigationBar()
+          CheckoutNavigationBar(
+              product: widget.product,
+              imagePath: imagePath,
+              index: widget.index)
         ],
       ),
     );

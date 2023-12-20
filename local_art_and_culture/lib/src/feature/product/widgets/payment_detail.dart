@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
-import 'package:local_art_and_culture/models/payment_model.dart';
+import 'package:local_art_and_culture/models/price_model.dart';
 import 'package:provider/provider.dart';
 
 class PaymentDetail extends StatefulWidget {
@@ -12,13 +12,7 @@ class PaymentDetail extends StatefulWidget {
 }
 
 class _PaymentDetailState extends State<PaymentDetail> {
-  late PaymentModel paymentModel;
-
-  @override
-  void initState() {
-    super.initState();
-    paymentModel = Provider.of<PaymentModel>(context, listen: false);
-  }
+  late PriceCalculationModel priceCalculator;
 
   String formatNumber(int number) {
     final formatter = NumberFormat('#,###');
@@ -27,8 +21,8 @@ class _PaymentDetailState extends State<PaymentDetail> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<PaymentModel>(
-      builder: (context, checkoutModel, child) {
+    return Consumer<PriceCalculationModel>(
+      builder: (context, priceCalculator, child) {
         return Container(
           height: 313,
           color: Colors.white,
@@ -66,7 +60,7 @@ class _PaymentDetailState extends State<PaymentDetail> {
                     Padding(
                       padding: const EdgeInsets.only(right: 10.0),
                       child: Text(
-                        'Rp ${formatNumber(checkoutModel.productPrice * checkoutModel.quantity)}',
+                        'Rp ${formatNumber(priceCalculator.getTotalPrice())}',
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
@@ -89,7 +83,7 @@ class _PaymentDetailState extends State<PaymentDetail> {
                     Padding(
                       padding: const EdgeInsets.only(right: 16.0),
                       child: Text(
-                        'Rp ${formatNumber(checkoutModel.shippingPrice)}',
+                        'Rp ${formatNumber(priceCalculator.shippingPrice)}',
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
@@ -129,7 +123,7 @@ class _PaymentDetailState extends State<PaymentDetail> {
                     Padding(
                       padding: const EdgeInsets.only(right: 16.0),
                       child: Text(
-                        'Rp ${formatNumber(checkoutModel.serviceFee)}',
+                        'Rp ${formatNumber(priceCalculator.serviceFee)}',
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
@@ -152,7 +146,7 @@ class _PaymentDetailState extends State<PaymentDetail> {
                     Padding(
                       padding: const EdgeInsets.only(right: 16.0),
                       child: Text(
-                        'Rp ${formatNumber(checkoutModel.applicationService)}',
+                        'Rp ${formatNumber(priceCalculator.applicationService)}',
                         style: GoogleFonts.plusJakartaSans(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
@@ -173,7 +167,7 @@ class _PaymentDetailState extends State<PaymentDetail> {
                     Padding(
                       padding: const EdgeInsets.only(right: 16),
                       child: Text(
-                        'Rp ${formatNumber(checkoutModel.totalPayment)}',
+                        'Rp ${formatNumber(priceCalculator.getTotalPayment())}',
                         style: GoogleFonts.plusJakartaSans(
                             fontSize: 14, fontWeight: FontWeight.w600),
                       ),

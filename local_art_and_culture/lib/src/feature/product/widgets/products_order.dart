@@ -1,20 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:local_art_and_culture/models/payment_model.dart';
+import 'package:local_art_and_culture/models/price_model.dart';
+import 'package:local_art_and_culture/models/product_model.dart';
 import 'package:provider/provider.dart';
 
 class ProductsOrder extends StatefulWidget {
-  const ProductsOrder({super.key});
+  final ModelProduct product;
+  final String imagePath;
+  final int index;
+
+  const ProductsOrder({
+    Key? key,
+    required this.product,
+    required this.imagePath,
+    required this.index,
+  }) : super(key: key);
 
   @override
   State<ProductsOrder> createState() => _ProductsOrderState();
 }
 
 class _ProductsOrderState extends State<ProductsOrder> {
+  late PriceCalculationModel priceCalculator;
+
+  @override
+  void initState() {
+    super.initState();
+    priceCalculator =
+        Provider.of<PriceCalculationModel>(context, listen: false);
+    fetchData();
+  }
+
+  Future<void> fetchData() async {
+    priceCalculator.setProductPrice(widget.product.price ?? 0);
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Consumer<PaymentModel>(
-      builder: (context, paymentModel, child) {
+    return Consumer<PriceCalculationModel>(
+      builder: (context, priceCalculator, child) {
         return Container(
           color: Colors.white,
           height: 185,
@@ -37,7 +61,7 @@ class _ProductsOrderState extends State<ProductsOrder> {
                     ClipRRect(
                       borderRadius: BorderRadius.circular(16.0),
                       child: Image.asset(
-                        'assets/gambar-produk-2.jpg',
+                        widget.imagePath,
                         height: 83,
                         width: 83,
                         fit: BoxFit.cover,
@@ -49,7 +73,7 @@ class _ProductsOrderState extends State<ProductsOrder> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Aksesoris Set Perhiasan Mutiara Khas Bali',
+                            widget.product.name ?? 'Nama Produk Kosong',
                             style: GoogleFonts.plusJakartaSans(
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
@@ -60,7 +84,7 @@ class _ProductsOrderState extends State<ProductsOrder> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'Rp ${paymentModel.formatNumber(paymentModel.productPrice * paymentModel.quantity)}',
+                                priceCalculator.getTotalPriceFormatted(),
                                 style: GoogleFonts.plusJakartaSans(
                                   fontSize: 18,
                                   fontWeight: FontWeight.w700,
@@ -71,10 +95,7 @@ class _ProductsOrderState extends State<ProductsOrder> {
                                 children: [
                                   IconButton(
                                     onPressed: () {
-                                      if (paymentModel.quantity > 1) {
-                                        paymentModel.updateQuantity(
-                                            paymentModel.quantity - 1);
-                                      }
+                                      priceCalculator.decreaseQuantity();
                                     },
                                     icon: const Icon(
                                       Icons.remove_circle,
@@ -84,7 +105,7 @@ class _ProductsOrderState extends State<ProductsOrder> {
                                   ),
                                   const SizedBox(width: 10),
                                   Text(
-                                    '${paymentModel.quantity}',
+                                    '${priceCalculator.quantity}',
                                     style: GoogleFonts.plusJakartaSans(
                                       fontSize: 15,
                                       fontWeight: FontWeight.w400,
@@ -93,8 +114,7 @@ class _ProductsOrderState extends State<ProductsOrder> {
                                   const SizedBox(width: 10),
                                   IconButton(
                                     onPressed: () {
-                                      paymentModel.updateQuantity(
-                                          paymentModel.quantity + 1);
+                                      priceCalculator.increaseQuantity();
                                     },
                                     icon: const Icon(
                                       Icons.add_circle,

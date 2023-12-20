@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:local_art_and_culture/components/invoice_product.dart';
-import 'package:local_art_and_culture/models/payment_model.dart';
+import 'package:local_art_and_culture/models/price_model.dart';
 import 'package:provider/provider.dart';
 
 class PaymentNavigationBar extends StatefulWidget {
@@ -12,10 +13,17 @@ class PaymentNavigationBar extends StatefulWidget {
 }
 
 class _PaymentNavigationBarState extends State<PaymentNavigationBar> {
+  late PriceCalculationModel priceCalculator;
+
+  String formatNumber(int number) {
+    final formatter = NumberFormat('#,###');
+    return formatter.format(number);
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Consumer<PaymentModel>(
-      builder: (context, paymentModel, child) {
+    return Consumer<PriceCalculationModel>(
+      builder: (context, priceCalculator, child) {
         return Container(
           decoration: const BoxDecoration(
             color: Colors.white,
@@ -48,7 +56,7 @@ class _PaymentNavigationBarState extends State<PaymentNavigationBar> {
                         ),
                         const SizedBox(height: 3),
                         Text(
-                          'Rp ${paymentModel.formatNumber(paymentModel.totalPayment)}',
+                          'Rp ${formatNumber(priceCalculator.getTotalPayment())}',
                           style: GoogleFonts.plusJakartaSans(
                             fontSize: 20,
                             fontWeight: FontWeight.w700,
