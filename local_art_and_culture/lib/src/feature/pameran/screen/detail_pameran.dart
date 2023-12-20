@@ -7,9 +7,7 @@ import 'package:local_art_and_culture/src/feature/pameran/screen/pilihan_tiket.d
 import 'package:local_art_and_culture/src/feature/pameran/widget/bottomsheet.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/marchandies.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/tiket.dart';
-import 'package:http/http.dart' as http;
 
-evelop
 class DetailPameran extends StatefulWidget {
   const DetailPameran({super.key});
 
@@ -30,13 +28,12 @@ class _DetailPameranState extends State<DetailPameran> {
   Future<void> fetchEvents() async {
     try {
       List<EventModel> events = await EventService.fetchEvents();
-      
+
       setState(() {
         event = events;
       });
       print(events);
     } catch (error) {
-      
       print('Error fetching events: $error');
     }
   }
@@ -59,20 +56,28 @@ class _DetailPameranState extends State<DetailPameran> {
                         decoration: BoxDecoration(
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black
-                                  .withOpacity(0.2), // Warna bayangan
-                              spreadRadius: 2, // Radius penyebaran bayangan
-                              blurRadius: 5, // Radius blur bayangan
+                              color: Colors.black.withOpacity(0.2),
+                              spreadRadius: 2,
+                              blurRadius: 5,
                               offset: const Offset(0, 3),
                             )
                           ],
-                          image: const DecorationImage(
-
-                              image: AssetImage('assets/img/Pameran4.png'),
-
-                              image: AssetImage('assets/img/Pameran2.png'),
-
-                              fit: BoxFit.fill),
+                        ),
+                        child: Stack(
+                          children: [
+                            Positioned.fill(
+                              child: Image.asset(
+                                'assets/img/Pameran4.png',
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                            Positioned.fill(
+                              child: Image.asset(
+                                'assets/img/Pameran2.png',
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                       Positioned(

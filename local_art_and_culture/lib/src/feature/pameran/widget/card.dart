@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:local_art_and_culture/src/feature/pameran/screen/detail_pameran.dart';
@@ -19,7 +20,8 @@ class RoundedImageCard extends StatelessWidget {
 
   Future<void> fetchData() async {
     try {
-      final response = await Dio().get('https://658144ba3dfdd1b11c42c970.mockapi.io/pameran');
+      final response = await Dio()
+          .get('https://658144ba3dfdd1b11c42c970.mockapi.io/pameran');
       // Handle response data
       print(response.data);
     } catch (error) {
