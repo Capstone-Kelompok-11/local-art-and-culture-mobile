@@ -1,9 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import '../components/color.dart';
-import 'package:local_art_and_culture/src/feature/article/model/article.dart';
-import 'package:local_art_and_culture/src/feature/article/ui/article_detail.dart';
-
+import '../components/color.dart'; // Mengimpor definisi warna kustom
+import 'package:local_art_and_culture/src/feature/article/model/article.dart'; // Mengimpor model artikel
+import 'package:local_art_and_culture/src/feature/article/ui/article_detail.dart'; // Mengimpor halaman detail artikel
+// article_list.dart = halaman depan sebelum detail artikel diklik
+// Kelas untuk menampilkan daftar artikel
 class ArticleList extends StatefulWidget {
   const ArticleList({super.key});
 
@@ -20,6 +21,7 @@ class _ArticleListState extends State<ArticleList> {
     _loadArticles();
   }
 
+  // Fungsi untuk memuat daftar artikel dari sumber data
   Future<void> _loadArticles() async {
     try {
       articles = await fetchArticle();
@@ -32,6 +34,7 @@ class _ArticleListState extends State<ArticleList> {
     }
   }
 
+  // Fungsi untuk menghitung perbedaan waktu dari sekarang
   String getTimeDifferenceFromNow(DateTime dateTime) {
     DateTime dateTimeNow = DateTime.now();
     if (dateTime.year < dateTimeNow.year) {
@@ -87,6 +90,7 @@ class _ArticleListState extends State<ArticleList> {
     );
   }
 
+  // Fungsi untuk membangun widget judul pada AppBar
   Widget titleAppBar(deviceWidth) {
     return Container(
       decoration: BoxDecoration(
@@ -127,6 +131,7 @@ class _ArticleListState extends State<ArticleList> {
     );
   }
 
+  // Fungsi untuk membangun widget aksi pada AppBar
   Widget actionsAppBar(deviceWidth) {
     return Padding(
       padding: EdgeInsets.fromLTRB(deviceWidth / 25, deviceWidth / 25,
@@ -147,6 +152,7 @@ class _ArticleListState extends State<ArticleList> {
     );
   }
 
+  // Fungsi untuk membangun widget judul halaman
   Widget titlePage(deviceWidth) {
     return Padding(
       padding: EdgeInsets.symmetric(
@@ -176,6 +182,7 @@ class _ArticleListState extends State<ArticleList> {
     );
   }
 
+  // Fungsi untuk membangun widget kartu terkini pada carousel
   Widget newscarouselCard(Article article, deviceWidth) {
     return GestureDetector(
       onTap: () {
@@ -264,6 +271,7 @@ class _ArticleListState extends State<ArticleList> {
     );
   }
 
+  // Fungsi untuk membangun widget carousel artikel terkini
   Widget newsCarouselWidget(deviceWidth) {
     return Padding(
       padding: EdgeInsets.symmetric(
@@ -298,6 +306,7 @@ class _ArticleListState extends State<ArticleList> {
     );
   }
 
+  // Fungsi untuk membangun widget kartu "Hanya Untukmu"
   Widget onlyForYouCard(Article article, deviceWidth) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: deviceWidth / 50),
@@ -395,6 +404,7 @@ class _ArticleListState extends State<ArticleList> {
     );
   }
 
+  // Fungsi untuk membangun widget daftar "Hanya Untukmu"
   Widget onlyForYouWidget(deviceWidth) {
     return Padding(
       padding: EdgeInsets.symmetric(

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/src/feature/article/components/color.dart';
 import 'package:local_art_and_culture/src/feature/article/model/article.dart';
-
+// article_detail.dart = halaman detail artikel setelah diklik
+// Widget untuk menampilkan detail artikel
 class ArticleDetail extends StatefulWidget {
   final Article article;
   const ArticleDetail({
@@ -24,6 +25,7 @@ class _ArticleDetailState extends State<ArticleDetail> {
     _loadArticle();
   }
 
+  // Fungsi untuk memuat artikel
   Future<void> _loadArticle() async {
     try {
       listArticle = await fetchArticle();
@@ -46,11 +48,12 @@ class _ArticleDetailState extends State<ArticleDetail> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            // Widget untuk menampilkan gambar artikel
             ArticleImage(
               deviceWidth: deviceWidth,
               article: article,
             ),
-            // Content
+            // Konten artikel
             Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 20,
@@ -58,12 +61,15 @@ class _ArticleDetailState extends State<ArticleDetail> {
               ),
               child: Column(
                 children: [
+                  // Widget untuk menampilkan judul artikel
                   Title(
                     article: article,
                   ),
+                  // Widget untuk menampilkan informasi penulis
                   CopyWriter(
                     article: article,
                   ),
+                  // Widget untuk menampilkan konten artikel
                   ArticleContent(
                     article: article,
                   ),
@@ -73,6 +79,7 @@ class _ArticleDetailState extends State<ArticleDetail> {
             const Divider(
               thickness: 8,
             ),
+            // Widget untuk menampilkan artikel terkait
             onlyForYouWidget(
               listArticle,
               deviceWidth,
@@ -85,6 +92,7 @@ class _ArticleDetailState extends State<ArticleDetail> {
   }
 }
 
+// Widget untuk menampilkan judul artikel
 class Title extends StatelessWidget {
   final Article article;
   const Title({
@@ -104,6 +112,7 @@ class Title extends StatelessWidget {
   }
 }
 
+// Widget untuk menampilkan gambar artikel
 class ArticleImage extends StatefulWidget {
   final Article article;
 
@@ -135,6 +144,7 @@ class _ArticleImageState extends State<ArticleImage> {
             ),
           ),
         ),
+        // Tombol kembali dan favorit di atas gambar
         Padding(
           padding: EdgeInsets.symmetric(
               horizontal: widget.deviceWidth * 0.02,
@@ -142,6 +152,7 @@ class _ArticleImageState extends State<ArticleImage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              // Tombol kembali
               IconButton(
                 onPressed: () {
                   Navigator.pop(context);
@@ -151,6 +162,7 @@ class _ArticleImageState extends State<ArticleImage> {
                   color: Colors.white,
                 ),
               ),
+              // Tombol favorit
               IconButton(
                 onPressed: () {
                   setState(() {
@@ -172,6 +184,7 @@ class _ArticleImageState extends State<ArticleImage> {
   }
 }
 
+// Widget untuk menampilkan informasi penulis
 class CopyWriter extends StatelessWidget {
   final Article article;
 
@@ -188,10 +201,11 @@ class CopyWriter extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          // CopyWriter circle profile picture
+          // Widget untuk menampilkan foto profil penulis
           CopyWriterProfile(
             article: article,
           ),
+          // Widget untuk menampilkan jumlah views dan favorit
           ViewsAndFavorites(
             article: article,
           )
@@ -201,6 +215,7 @@ class CopyWriter extends StatelessWidget {
   }
 }
 
+// Widget untuk menampilkan foto profil penulis
 class CopyWriterProfile extends StatelessWidget {
   final Article article;
 
@@ -213,6 +228,7 @@ class CopyWriterProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
+        // Widget untuk menampilkan foto profil penulis
         CopyWriterProfilePicture(
           article: article,
         ),
@@ -221,6 +237,7 @@ class CopyWriterProfile extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // Nama penulis
               Text(
                 article.copywriter,
                 style: const TextStyle(
@@ -228,6 +245,7 @@ class CopyWriterProfile extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              // Waktu penulisan
               Text(
                 getTimeDifferenceFromNow(article.dateTime),
                 style: const TextStyle(
@@ -243,6 +261,7 @@ class CopyWriterProfile extends StatelessWidget {
   }
 }
 
+// Widget untuk menampilkan jumlah views dan favorit
 class ViewsAndFavorites extends StatelessWidget {
   final Article article;
 
@@ -252,6 +271,7 @@ class ViewsAndFavorites extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
+        // Icon dan jumlah views
         Row(
           children: [
             const Icon(
@@ -274,6 +294,7 @@ class ViewsAndFavorites extends StatelessWidget {
         const SizedBox(
           width: 7,
         ),
+        // Icon dan jumlah favorit
         Row(
           children: [
             const Icon(
@@ -298,6 +319,7 @@ class ViewsAndFavorites extends StatelessWidget {
   }
 }
 
+// Widget untuk menampilkan foto profil penulis
 class CopyWriterProfilePicture extends StatelessWidget {
   final Article article;
 
@@ -319,6 +341,7 @@ class CopyWriterProfilePicture extends StatelessWidget {
   }
 }
 
+// Widget untuk menampilkan konten artikel
 class ArticleContent extends StatelessWidget {
   final Article article;
 
@@ -329,6 +352,7 @@ class ArticleContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Membangun widget untuk setiap paragraf dalam artikel
     return Column(
       children: article.paragraphs
           .map(
@@ -342,6 +366,7 @@ class ArticleContent extends StatelessWidget {
   }
 }
 
+// Widget untuk menampilkan setiap paragraf dalam artikel
 class ParagraphWidget extends StatelessWidget {
   final String? subTitle;
   final String text;
@@ -356,6 +381,7 @@ class ParagraphWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        // Menampilkan sub judul jika ada
         subTitle == null
             ? const SizedBox()
             : Text(
@@ -365,6 +391,7 @@ class ParagraphWidget extends StatelessWidget {
                   height: 1.35,
                 ),
               ),
+        // Menampilkan teks paragraf
         Text(
           text,
           textAlign: TextAlign.justify,
@@ -380,11 +407,13 @@ class ParagraphWidget extends StatelessWidget {
   }
 }
 
+// Widget untuk menampilkan kartu artikel terkait
 Widget onlyForYouCard(Article article, deviceWidth) {
   return Padding(
     padding: EdgeInsets.symmetric(vertical: deviceWidth / 50),
     child: Row(
       children: [
+        // Gambar artikel
         Container(
           width: deviceWidth / 4,
           height: deviceWidth / 4,
@@ -402,6 +431,7 @@ Widget onlyForYouCard(Article article, deviceWidth) {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Judul artikel
             SizedBox(
               width: deviceWidth / 1.8,
               child: Text(
@@ -415,12 +445,14 @@ Widget onlyForYouCard(Article article, deviceWidth) {
             SizedBox(
               height: deviceWidth / 20,
             ),
+            // Informasi waktu dan jumlah favorit
             SizedBox(
               width: deviceWidth / 1.7,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  // Waktu penulisan artikel
                   Row(
                     children: [
                       Text(
@@ -437,20 +469,34 @@ Widget onlyForYouCard(Article article, deviceWidth) {
                           fontSize: deviceWidth / 35,
                         ),
                       ),
+                      // Icon mata untuk views
+                      Icon(
+                        Icons.remove_red_eye,
+                        size: deviceWidth / 30,
+                        color: GlobalColor.blueGrey,
+                      ),
+                      Text(
+                        ' ${article.viewAmount.toString()}',
+                        style: TextStyle(
+                          color: GlobalColor.blueGrey,
+                          fontSize: deviceWidth / 35,
+                        ),
+                      ),
+                      // Jumlah favorit
+                      Text(
+                        ' • ',
+                        style: TextStyle(
+                          color: GlobalColor.blueGrey,
+                          fontSize: deviceWidth / 35,
+                        ),
+                      ),
                       Icon(
                         Icons.favorite,
                         size: deviceWidth / 30,
                         color: GlobalColor.red,
                       ),
                       Text(
-                        ' ${article.likesAmount.toString()}',
-                        style: TextStyle(
-                          color: GlobalColor.blueGrey,
-                          fontSize: deviceWidth / 35,
-                        ),
-                      ),
-                      Text(
-                        ' Disukai',
+                        ' ${article.likesAmount.toString()} Disukai',
                         style: TextStyle(
                           color: GlobalColor.blueGrey,
                           fontSize: deviceWidth / 35,
@@ -458,15 +504,17 @@ Widget onlyForYouCard(Article article, deviceWidth) {
                       ),
                     ],
                   ),
+                  // Tombol panah ke depan
                   Container(
-                      padding: EdgeInsets.all(deviceWidth / 50),
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle, color: GlobalColor.yellow),
-                      child: Icon(
-                        Icons.arrow_forward_ios,
-                        color: Colors.white,
-                        size: deviceWidth / 30,
-                      ))
+                    padding: EdgeInsets.all(deviceWidth / 50),
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle, color: GlobalColor.yellow),
+                    child: Icon(
+                      Icons.arrow_forward_ios,
+                      color: Colors.white,
+                      size: deviceWidth / 30,
+                    ),
+                  ),
                 ],
               ),
             )
@@ -477,11 +525,14 @@ Widget onlyForYouCard(Article article, deviceWidth) {
   );
 }
 
+// Widget untuk menampilkan daftar artikel terkait
 Widget onlyForYouWidget(
     List<Article> listArticle, deviceWidth, String currentArticleTitle) {
+  // Jika daftar artikel kosong, tampilkan indikator loading
   if (listArticle.isEmpty) {
     return Center(child: CircularProgressIndicator());
   }
+  // Filter artikel terkait
   List<Article> listRecommendedArticle = listArticle
       .where((article) => article.title != currentArticleTitle)
       .toList();
@@ -491,6 +542,7 @@ Widget onlyForYouWidget(
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        // Judul seksi artikel terkait
         Text(
           'Rekomendasi Untukmu',
           style: TextStyle(
@@ -498,6 +550,7 @@ Widget onlyForYouWidget(
             fontSize: deviceWidth / 20,
           ),
         ),
+        // Daftar artikel terkait
         ListView.builder(
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
@@ -507,6 +560,7 @@ Widget onlyForYouWidget(
 
               return Column(
                 children: [
+                  // Kartu artikel terkait
                   GestureDetector(
                     onTap: () {
                       Navigator.push(
@@ -523,6 +577,7 @@ Widget onlyForYouWidget(
                       deviceWidth,
                     ),
                   ),
+                  // Garis pemisah antar artikel
                   (index + 1) >= listRecommendedArticle.length
                       ? const SizedBox()
                       : const Divider(
@@ -536,6 +591,7 @@ Widget onlyForYouWidget(
   );
 }
 
+// Fungsi untuk menghitung selisih waktu dari sekarang
 String getTimeDifferenceFromNow(DateTime dateTime) {
   DateTime dateTimeNow = DateTime.now();
   if (dateTime.year < dateTimeNow.year) {

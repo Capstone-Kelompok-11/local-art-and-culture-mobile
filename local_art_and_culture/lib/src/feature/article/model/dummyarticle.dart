@@ -1,5 +1,9 @@
+// Import file paragraph.dart yang berisi definisi kelas Paragraph
 import 'paragraph.dart';
+
+// List dummyParagraph berisi paragraf-paragraf untuk setiap artikel
 List<List<Paragraph>> dummyParagraph = [
+  // Artikel 1
   [const Paragraph(
     text:
         "Pawai Seni Lokal tidak hanya sekadar rangkaian acara, melainkan perayaan hidupnya keberagaman budaya yang mengakar kuat dalam tradisi. Melibatkan masyarakat dari berbagai lapisan, event ini menjadi ajang untuk memperlihatkan kekayaan seni dan budaya setempat, menyatukan orang-orang dalam kegembiraan bersama.",
@@ -24,6 +28,7 @@ List<List<Paragraph>> dummyParagraph = [
     text:
         "Pawai Seni Lokal juga memiliki potensi besar untuk menarik wisatawan dari dalam dan luar negeri. Pengunjung dapat menikmati keunikan budaya setempat, mencicipi kuliner khas, dan memahami lebih dalam kehidupan sehari-hari masyarakat lokal. Dengan demikian, event ini bukan hanya menjadi hiburan lokal tetapi juga berperan sebagai daya tarik pariwisata yang mendukung pertumbuhan ekonomi di tingkat lokal.",
   ),],
+  // Artikel 2
 [const Paragraph(
     text:
         "Seni rupa lokal seringkali menjadi cermin identitas sebuah masyarakat. Namun, sayangnya, beberapa tradisi seni rupa lokal di berbagai belahan dunia mengalami risiko kepunahan karena berbagai faktor seperti modernisasi, globalisasi, dan perubahan sosial. Artikel ini akan membahas upaya untuk menghidupkan kembali seni rupa lokal yang hampir punah, serta pentingnya melestarikan warisan budaya ini.",
@@ -43,6 +48,7 @@ List<List<Paragraph>> dummyParagraph = [
     text:
         "Menghidupkan kembali seni rupa lokal bukan hanya tentang melestarikan warisan budaya, tetapi juga membangun keberlanjutan masyarakat. Seni rupa lokal yang hidup dan berkembang dapat menjadi daya tarik wisata, meningkatkan kebanggaan masyarakat, dan memberikan identitas yang kuat di tengah arus globalisasi.\nDengan memahami nilai dan keunikan setiap karya seni rupa lokal, kita dapat bersama-sama mengambil peran dalam menjaga agar tradisi ini tidak terlupakan. Melestarikan seni rupa lokal bukan hanya tanggung jawab seniman, tetapi juga tanggung jawab kita sebagai anggota masyarakat yang peduli terhadap keberagaman dan kekayaan budaya.",
   ),],
+  // Artikel 3
 [const Paragraph(
     text:
         "Di dalam keragaman budaya Nusantara, terhampar kekayaan seni yang melambangkan kreativitas lokal. Tanah air Indonesia bukan hanya terkenal dengan keindahan alamnya, tetapi juga dipenuhi dengan warisan seni yang mencerminkan keanekaragaman etnis dan tradisi. Melalui kisah-kisah inspiratif dari dunia seni Nusantara, kita dapat membongkar lapisan-lapisan keindahan yang tersembunyi, memberikan pijakan pada kreativitas lokal yang mewarnai setiap sentuhan karya seni.",
@@ -57,6 +63,7 @@ List<List<Paragraph>> dummyParagraph = [
     text:
         "Sementara seni tradisional mengukir sejarah, seni lukis kontemporer Indonesia memproyeksikan dinamika kehidupan masa kini. Para seniman kontemporer Nusantara mengambil inspirasi dari berbagai aspek kehidupan sehari-hari, menyampaikan pesan-pesan sosial dan kritik melalui warna-warni kanvas mereka. Karya-karya seni kontemporer bukan hanya menciptakan sebuah wacana visual yang menarik, tetapi juga menjadi panggilan untuk merenung, meresapi, dan bertindak dalam perubahan positif. Inilah bukti nyata bahwa kreativitas lokal senantiasa berkembang, menyesuaikan diri dengan perubahan zaman, dan terus menjadi sumber inspirasi bagi dunia seni global.",
   ),],
+  // Artikel 4
 [const Paragraph(
     text:
         "Di tengah arus globalisasi dan perkembangan mode yang pesat, batik tetap menjelma sebagai pakaian berwibawa yang merayakan keberagaman budaya Indonesia. Dengan keunikan corak dan motif yang mencerminkan identitas daerah, batik bukan hanya sekadar kain, tetapi juga warisan seni yang memancarkan karakter tradisional. Kini, semakin banyak desainer tanah air yang mengintegrasikan keelokan batik dalam gaya berpakaian kekinian, membuktikan bahwa batik tidak hanya hidup dalam sejarah, tetapi juga merajut kisahnya dalam estetika mode masa kini.",
@@ -71,6 +78,7 @@ List<List<Paragraph>> dummyParagraph = [
     text:
         "Pemakaian batik tidak lagi hanya terbatas pada momen-momen khusus, melainkan menjadi pilihan gaya hidup yang menekankan identitas dan kebanggaan akan warisan budaya. Anak muda Indonesia dengan bangga mengenakan batik dalam berbagai kesempatan, mulai dari aktivitas sehari-hari hingga acara formal. Hal ini menjadi bentuk afirmasi bahwa batik bukanlah sekadar busana tradisional, melainkan pernyataan identitas yang mencerminkan kekayaan budaya dan nilai-nilai luhur yang terus dijunjung tinggi. Dengan begitu, batik tidak hanya menjadi pilihan berpakaian, tetapi juga merupakan penegasan identitas bangsa dalam bingkai gaya hidup modern.",
   ),],
+  // Artikel 5
 [const Paragraph(
     text:
         "Kebaya, sebagai busana tradisional Indonesia yang anggun dan megah, tidak hanya menyimpan nilai-nilai budaya, tetapi juga telah menjadi sumber inspirasi bagi perancang mode global. Pesona kebaya tidak hanya terletak pada kesederhanaan desainnya, tetapi juga pada kehalusan detail dan keindahan kain yang digunakan. Perpaduan antara kearifan lokal dan sentuhan modern dalam desain kebaya telah membuktikan bahwa busana tradisional bisa menjadi kekuatan kreatif yang tak tertandingi di panggung mode dunia.",

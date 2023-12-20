@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'dart:math';
-
 import 'package:http/http.dart' as http;
 
 import 'dummyarticle.dart';
 import 'paragraph.dart';
 
+// Mendefinisikan kelas Article yang merepresentasikan struktur data artikel
 class Article {
   final String title;
   final String imageUrl;
@@ -28,29 +28,40 @@ class Article {
   });
 }
 
+// Fungsi async untuk mengambil data artikel dari API
 Future<List<Article>> fetchArticle() async {
+  // Mengirimkan permintaan HTTP GET ke URL artikel
   final response = await http.get(Uri.parse('https://lokasani.my.id/article'));
 
+  // Memeriksa status kode respons
   if (response.statusCode == 200) {
+    // Mendekodekan respons JSON menjadi Map
     final Map<String, dynamic> data = json.decode(response.body);
 
+    // Mendapatkan data artikel dari dalam Map
     final List<dynamic> articlesData = data['data']['data'];
 
+    // Inisialisasi variabel untuk mengatur gambar dan indeks paragraf
     int gambar = 1;
     int indexParagraph = 0;
 
-
+    // Mengambil data artikel dan membuat instance Article
     List<Article> article = articlesData.map((articleData) {
       var paragraph = dummy;
       var articleImage = 'assets/img/artikel/artikel${gambar}.png';
       var picture = 'assets/img/profil/bambang.png';
 
+      // Menghasilkan jumlah tampilan acak
       int view = Random().nextInt(300);
+
+      // Mengatur gambar profil berdasarkan kecocokan gambar
       if (gambar % 2 == 0) {
         picture = 'assets/img/profil/anindya.png';
       } else {
         picture = 'assets/img/profil/bambang.png';
       }
+
+      // Memeriksa apakah jumlah tampilan dalam data artikel tidak null
       paragraph = dummyParagraph[indexParagraph];
       if (articleData['view_amount'] != null) {
         view = articleData['view_amount'];
@@ -58,12 +69,18 @@ Future<List<Article>> fetchArticle() async {
       } else {
         view = 0;
       }
+
+      // Increment variabel gambar dan indeks paragraf
       gambar++;
       indexParagraph++;
+
+      // Reset gambar dan indeks paragraf jika sudah mencapai batas tertentu
       if(gambar == 11 || indexParagraph == 5) {
         gambar = 1;
         indexParagraph = 0;
       }
+
+      // Membuat instance Article dengan data yang diperoleh
       return Article(
         title: articleData['title'],
         imageUrl: articleImage,
@@ -73,15 +90,18 @@ Future<List<Article>> fetchArticle() async {
         likesAmount: articleData['total_like'],
         viewAmount: view,
         dateTime: DateTime.parse(articleData['posted_at']),
-        // articleData['admin']['phone_number']
       );
     }).toList();
+
+    // Mengembalikan daftar artikel yang telah dibuat
     return article;
   } else {
+    // Melempar exception jika terjadi kesalahan saat mengambil artikel
     throw Exception('Error fetching articles: ${response.statusCode}');
   }
 }
 
+// Membuat daftar paragraf dummy untuk artikel
 var dummy = [
   const Paragraph(
     text:
