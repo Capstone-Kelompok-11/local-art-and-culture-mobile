@@ -15,9 +15,14 @@ class DetailCalenderEvent extends StatefulWidget {
 class _DetailCalenderEventState extends State<DetailCalenderEvent> {
   List<DateTime?> _singleDate = [DateTime.now()];
   String? duedate;
-  final List<EventModel> _data =
-      []; // Use EventModel instead of Map<String, dynamic>
-
+  final List<EventModel> _data = [];
+  List<String> imagePaths = [
+    'assets/img/event/akurat.png',
+    'assets/img/event/alkafest.png',
+    'assets/img/event/Eventevent_akurat.png',
+    'assets/img/event/reality.png',
+    'assets/img/event/sejongmarket.png',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,23 +81,27 @@ class _DetailCalenderEventState extends State<DetailCalenderEvent> {
             SizedBox(
               height: 300,
               child: ListView.builder(
-                itemCount: _data.length,
-                itemBuilder: (context, index) {
-                  final event = _data[index];
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 24,
-                      vertical: 16,
-                    ),
-                    child: EventCard(
-                      date: event.fromDate?.toString() ?? '',
-                      eventTitle: event.eventName ?? '',
-                      eventDescription: event.eventDescription ?? '',
-                      imagePath: 'assets/Event (1).png',
-                    ),
-                  );
-                },
-              ),
+                  itemCount: _data.length,
+                  itemBuilder: (context, index) {
+                    final event = _data[index];
+                    String imagePath = imagePaths[index %
+                        imagePaths.length]; // Get the image path based on index
+
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 24,
+                        vertical: 16,
+                      ),
+                      child: EventCard(
+                        fromDate: event.fromDate?.toString() ?? '',
+                        toDate: event.toDate?.toString() ??
+                            '', // Pass the toDate data
+                        eventTitle: event.eventName ?? '',
+                        eventDescription: event.eventDescription ?? '',
+                        imagePath: imagePath,
+                      ),
+                    );
+                  }),
             ),
           ],
         ),
@@ -403,25 +412,26 @@ class _DetailCalenderEventState extends State<DetailCalenderEvent> {
 }
 
 class EventCard extends StatelessWidget {
-  final String date;
+  final String fromDate;
+  final String toDate; // Added toDate field
   final String eventTitle;
   final String eventDescription;
   final String imagePath;
 
   const EventCard({
     Key? key,
-    required this.date,
+    required this.fromDate,
+    required this.toDate, // Required toDate parameter
     required this.eventTitle,
     required this.eventDescription,
     required this.imagePath,
   }) : super(key: key);
 
   @override
-  @override
   Widget build(BuildContext context) {
     return Container(
       width: 345,
-      height: 223,
+      height: 233,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24),
         image: DecorationImage(
@@ -497,7 +507,7 @@ class EventCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   SizedBox(
-                    width: 297,
+                    width: 300,
                     child: Text(
                       eventTitle,
                       style: const TextStyle(
@@ -515,7 +525,7 @@ class EventCard extends StatelessWidget {
                       const Text(
                         'From IDR 0K  |',
                         style: TextStyle(
-                          color: Color(0xFFB3B3B3),
+                          color: Colors.white,
                           fontSize: 12,
                           fontFamily: 'Plus Jakarta Sans',
                           fontWeight: FontWeight.w400,
@@ -526,7 +536,7 @@ class EventCard extends StatelessWidget {
                         width: 10,
                         height: 10,
                         clipBehavior: Clip.antiAlias,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: Colors
                               .red, // Replace with your dot color or decoration
                           shape: BoxShape.circle,
@@ -537,7 +547,7 @@ class EventCard extends StatelessWidget {
                       Text(
                         eventDescription,
                         style: const TextStyle(
-                          color: Color(0xFFB3B3B3),
+                          color: Colors.white,
                           fontSize: 12,
                           fontFamily: 'Plus Jakarta Sans',
                           fontWeight: FontWeight.w400,
@@ -545,7 +555,30 @@ class EventCard extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 2), // Adjust spacing here
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Text(
+                        'To: ', // Label for to_date
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                          fontFamily: 'Plus Jakarta Sans',
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      Text(
+                        toDate, // Display the to_date
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                          fontFamily: 'Plus Jakarta Sans',
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
