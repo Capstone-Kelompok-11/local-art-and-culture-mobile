@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TiketPilihan extends StatelessWidget {
   final String imagePath;
@@ -28,17 +29,16 @@ class TiketPilihan extends StatelessWidget {
       ),
       child: Column(
         children: [
-          const Row(
+          Row(
             children: [
               SizedBox(
                 width: 20,
               ),
               Text(
                 "Tiket",
-                style: TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Color(0xFF0C1226),
                   fontSize: 20,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w700,
                 ),
               ),
@@ -76,10 +76,9 @@ class TiketPilihan extends StatelessWidget {
                       children: [
                         Text(
                           "$title",
-                          style: const TextStyle(
+                          style: GoogleFonts.plusJakartaSans(
                             color: Color(0xFF1A1A1A),
                             fontSize: 14,
-                            fontFamily: 'Plus Jakarta Sans',
                             fontWeight: FontWeight.w700,
                           ),
                         ),
@@ -88,10 +87,9 @@ class TiketPilihan extends StatelessWidget {
                             Image.asset("assets/png/label_important.png"),
                             Text(
                               "$category",
-                              style: const TextStyle(
+                              style: GoogleFonts.plusJakartaSans(
                                 color: Color(0xFF999999),
                                 fontSize: 10,
-                                fontFamily: 'Plus Jakarta Sans',
                                 fontWeight: FontWeight.w400,
                               ),
                             )
@@ -102,10 +100,9 @@ class TiketPilihan extends StatelessWidget {
                             Image.asset("assets/png/access_alarm1.png"),
                             Text(
                               "$date",
-                              style: const TextStyle(
+                              style: GoogleFonts.plusJakartaSans(
                                 color: Color(0xFF999999),
                                 fontSize: 10,
-                                fontFamily: 'Plus Jakarta Sans',
                                 fontWeight: FontWeight.w400,
                               ),
                             )
@@ -115,10 +112,9 @@ class TiketPilihan extends StatelessWidget {
                           children: [
                             Text(
                               "Rp.$harga",
-                              style: const TextStyle(
+                              style: GoogleFonts.plusJakartaSans(
                                 color: Color(0xFF3653B0),
                                 fontSize: 18,
-                                fontFamily: 'Plus Jakarta Sans',
                                 fontWeight: FontWeight.w700,
                               ),
                             ),
@@ -184,7 +180,7 @@ class _ButtonPlusMinState extends State<ButtonPlusMin> {
         SizedBox(width: 8), // Provide some spacing between buttons
         Text(
           '$number', // Display the current number
-          style: TextStyle(fontSize: 18),
+          style: GoogleFonts.plusJakartaSans(fontSize: 18),
         ),
         SizedBox(width: 8), // Provide some spacing between buttons
         GestureDetector(

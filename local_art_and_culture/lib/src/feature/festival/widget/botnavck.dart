@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:local_art_and_culture/src/feature/festival/screen/pilihan_tiket.dart';
 
 class BotNavCK extends StatefulWidget {
@@ -42,12 +43,11 @@ class _BotNavCKState extends State<BotNavCK> {
                               builder: (context) => PilihanTiket()),
                           (route) => false);
                     },
-                    child: const Text(
+                    child: Text(
                       "Checkout",
-                      style: TextStyle(
+                      style: GoogleFonts.plusJakartaSans(
                         color: Colors.white,
                         fontSize: 14,
-                        fontFamily: 'Plus Jakarta Sans',
                         fontWeight: FontWeight.w600,
                       ),
                     ),

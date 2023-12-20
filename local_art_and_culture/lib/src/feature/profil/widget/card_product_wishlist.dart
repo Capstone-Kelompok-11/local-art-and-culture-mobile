@@ -9,12 +9,22 @@ class CardProductWishlist extends StatefulWidget {
 }
 
 class _CardProductWishlistState extends State<CardProductWishlist> {
-  List<String> products = [
-    "Product 1",
-    "Product 2",
-    "Product 3",
-    "Product 4",
-    "Product 5"
+  List<String> products = ["Product 1", "Product 2", "Product 3", "Product 4"];
+
+  List<String> categories = ['Karya Tangan', 'Fashion'];
+
+  List<String> imagePaths = [
+    'assets/img/produk/produk-1.png',
+    'assets/img/produk/produk-2.png',
+    'assets/img/produk/produk-3.png',
+    'assets/img/produk/produk-4.png',
+  ];
+
+  List<String> titles = [
+    'Aksesoris Set Perhiasan Mutiara Khas Bali',
+    'Tas Anyaman Purun Cokelat Handmade',
+    'Baju Atasan Wanita Batik Premium Homemade',
+    'Baju Kebaya Wanita Pink Full Set'
   ];
 
   @override
@@ -28,25 +38,20 @@ class _CardProductWishlistState extends State<CardProductWishlist> {
           children: [
             Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 90.0),
+                  const EdgeInsets.symmetric(horizontal: 5.0, vertical: 130.0),
               child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 8.0,
-                  mainAxisSpacing: 170.0,
+                  mainAxisSpacing: 220.0,
                 ),
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: products.length,
                 itemBuilder: (context, index) {
-                  String imagePath = index.isEven
-                      ? 'assets/gambar-produk-2.jpg'
-                      : 'assets/gambar-produk-1.jpg';
-
-                  String category = index.isEven ? 'Fasion' : 'Karya Tangan';
-                  String title = index.isEven
-                      ? 'Baju Kebaya Wanita Pink Full Set Lokal'
-                      : 'Dompet Wanita Series AMC Kulit Naga Asli  ';
+                  String imagePath = imagePaths[index % imagePaths.length];
+                  String category = categories[index % categories.length];
+                  String title = titles[index % titles.length];
 
                   return Card(
                     elevation: 0.0,
@@ -54,7 +59,7 @@ class _CardProductWishlistState extends State<CardProductWishlist> {
                       borderRadius: BorderRadius.circular(25.0),
                     ),
                     child: OverflowBox(
-                      maxHeight: 345,
+                      maxHeight: 402,
                       child: Container(
                         decoration: BoxDecoration(
                           color: Colors.white,
@@ -73,7 +78,8 @@ class _CardProductWishlistState extends State<CardProductWishlist> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
-                                height: 120.0,
+                                height: 160.0,
+                                width: 160.0,
                                 decoration: BoxDecoration(
                                   borderRadius: const BorderRadius.vertical(
                                     top: Radius.circular(8.0),
@@ -203,9 +209,9 @@ class _CardProductWishlistState extends State<CardProductWishlist> {
                                     child: Text(
                                       'Beli Sekarang',
                                       style: GoogleFonts.plusJakartaSans(
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.w600,
-                                      ),
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.w600,
+                                          color: Colors.white),
                                     ),
                                   ),
                                 ],

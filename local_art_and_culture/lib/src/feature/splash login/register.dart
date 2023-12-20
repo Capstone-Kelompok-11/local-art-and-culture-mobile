@@ -9,14 +9,14 @@ class RegisterPage extends StatelessWidget {
       body: Center(
         child: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 RegisterTitleComponent(),
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
                 RegisterFieldComponent(),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 RegisterButtonComponent(),
               ],
             ),
@@ -31,8 +31,8 @@ class RegisterTitleComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 20, left: 20, right: 20),
-      child: Column(
+      margin: const EdgeInsets.only(bottom: 20, left: 20, right: 20),
+      child: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
@@ -58,17 +58,19 @@ class RegisterTitleComponent extends StatelessWidget {
 }
 
 class RegisterFieldComponent extends StatelessWidget {
+  const RegisterFieldComponent({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(left: 20, right: 20),
+      margin: const EdgeInsets.only(left: 20, right: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           Container(
             alignment: Alignment.centerLeft,
-            margin: EdgeInsets.only(bottom: 5, left: 8),
-            child: Text('Username',
+            margin: const EdgeInsets.only(bottom: 5, left: 8),
+            child: const Text('Username',
                 style: TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
@@ -80,7 +82,7 @@ class RegisterFieldComponent extends StatelessWidget {
             decoration: InputDecoration(
               hintText: 'Masukkan Username',
               filled: true,
-              hintStyle: TextStyle(
+              hintStyle: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.normal,
                 fontFamily: 'Plus Jakarta Sans',
@@ -91,19 +93,19 @@ class RegisterFieldComponent extends StatelessWidget {
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
-                borderSide: BorderSide(color: Colors.transparent),
+                borderSide: const BorderSide(color: Colors.transparent),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
-                borderSide: BorderSide(color: Colors.transparent),
+                borderSide: const BorderSide(color: Colors.transparent),
               ),
             ),
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Container(
             alignment: Alignment.centerLeft,
-            margin: EdgeInsets.only(bottom: 5, left: 8),
-            child: Text(
+            margin: const EdgeInsets.only(bottom: 5, left: 8),
+            child: const Text(
               'Email',
               style: TextStyle(
                 fontSize: 14,
@@ -117,7 +119,7 @@ class RegisterFieldComponent extends StatelessWidget {
             decoration: InputDecoration(
               hintText: 'Masukkan Email',
               filled: true,
-              hintStyle: TextStyle(
+              hintStyle: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.normal,
                 fontFamily: 'Plus Jakarta Sans',
@@ -128,19 +130,19 @@ class RegisterFieldComponent extends StatelessWidget {
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
-                borderSide: BorderSide(color: Colors.transparent),
+                borderSide: const BorderSide(color: Colors.transparent),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
-                borderSide: BorderSide(color: Colors.transparent),
+                borderSide: const BorderSide(color: Colors.transparent),
               ),
             ),
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Container(
             alignment: Alignment.centerLeft,
-            margin: EdgeInsets.only(bottom: 5, left: 8),
-            child: Text(
+            margin: const EdgeInsets.only(bottom: 5, left: 8),
+            child: const Text(
               'No Telp',
               style: TextStyle(
                 fontSize: 14,
@@ -154,7 +156,7 @@ class RegisterFieldComponent extends StatelessWidget {
             decoration: InputDecoration(
               hintText: 'Masukkan No Telp',
               filled: true,
-              hintStyle: TextStyle(
+              hintStyle: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.normal,
                 fontFamily: 'Plus Jakarta Sans',
@@ -165,19 +167,19 @@ class RegisterFieldComponent extends StatelessWidget {
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
-                borderSide: BorderSide(color: Colors.transparent),
+                borderSide: const BorderSide(color: Colors.transparent),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
-                borderSide: BorderSide(color: Colors.transparent),
+                borderSide: const BorderSide(color: Colors.transparent),
               ),
             ),
           ),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Container(
             alignment: Alignment.centerLeft,
-            margin: EdgeInsets.only(bottom: 5, left: 8),
-            child: Text(
+            margin: const EdgeInsets.only(bottom: 5, left: 8),
+            child: const Text(
               'Kata Sandi',
               style: TextStyle(
                 fontSize: 14,
@@ -191,7 +193,7 @@ class RegisterFieldComponent extends StatelessWidget {
             obscureText: true,
             decoration: InputDecoration(
               hintText: 'Masukkan Kata Sandi',
-              hintStyle: TextStyle(
+              hintStyle: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.normal,
                 fontFamily: 'Plus Jakarta Sans',
@@ -203,11 +205,11 @@ class RegisterFieldComponent extends StatelessWidget {
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
-                borderSide: BorderSide(color: Colors.transparent),
+                borderSide: const BorderSide(color: Colors.transparent),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
-                borderSide: BorderSide(color: Colors.transparent),
+                borderSide: const BorderSide(color: Colors.transparent),
               ),
             ),
           ),
@@ -227,18 +229,18 @@ class _RegisterButtonComponentState extends State<RegisterButtonComponent> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 10, left: 40, right: 40),
+      margin: const EdgeInsets.only(top: 10, left: 40, right: 40),
       child: Column(
         children: [
           ElevatedButton(
             onPressed: () {},
             style: ElevatedButton.styleFrom(
-              padding: EdgeInsets.symmetric(vertical: 15),
-              primary: Color.fromRGBO(54, 83, 176, 1),
+              padding: const EdgeInsets.symmetric(vertical: 15),
+              primary: const Color.fromRGBO(54, 83, 176, 1),
             ),
             child: Container(
               width: double.infinity,
-              child: Center(
+              child: const Center(
                 child: Text(
                   'Daftar',
                   style: TextStyle(
@@ -253,7 +255,7 @@ class _RegisterButtonComponentState extends State<RegisterButtonComponent> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 'Sudah punya akun?',
                 style: TextStyle(
                   fontSize: 12,
@@ -267,7 +269,7 @@ class _RegisterButtonComponentState extends State<RegisterButtonComponent> {
                     MaterialPageRoute(builder: (context) => LoginPage()),
                   );
                 },
-                child: Text(
+                child: const Text(
                   'Masuk di sini',
                   style: TextStyle(
                     color: Colors.grey,
@@ -278,12 +280,12 @@ class _RegisterButtonComponentState extends State<RegisterButtonComponent> {
               ),
             ],
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Container(
             child: Column(
               children: [
                 Container(
-                  margin: EdgeInsets.symmetric(vertical: 10),
+                  margin: const EdgeInsets.symmetric(vertical: 10),
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
@@ -292,9 +294,9 @@ class _RegisterButtonComponentState extends State<RegisterButtonComponent> {
                         color: Colors.grey,
                       ),
                       Container(
-                        padding: EdgeInsets.all(8),
+                        padding: const EdgeInsets.all(8),
                         color: Theme.of(context).scaffoldBackgroundColor,
-                        child: Text(
+                        child: const Text(
                           'Atau Daftar Dengan',
                           style: TextStyle(
                             color: Colors.grey,
@@ -306,7 +308,7 @@ class _RegisterButtonComponentState extends State<RegisterButtonComponent> {
                     ],
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -314,7 +316,7 @@ class _RegisterButtonComponentState extends State<RegisterButtonComponent> {
                       onTap: () {},
                       child: Image.asset('assets/google_logo.png', height: 40),
                     ),
-                    SizedBox(width: 16),
+                    const SizedBox(width: 16),
                     InkWell(
                       onTap: () {},
                       child:

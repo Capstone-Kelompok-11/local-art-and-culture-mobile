@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => MyHomePage()),
+                                builder: (context) => const MyHomePage()),
                           );
                         },
                         icon: const Icon(
@@ -98,12 +98,12 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Container(
-              margin: EdgeInsets.all(16.0), // Atur margin sesuai kebutuhan
+              margin: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
-                  SizedBox(height: 2.0),
-                  Categories(),
-                  SizedBox(height: 16.0),
+                  const SizedBox(height: 2.0),
+                  const Categories(),
+                  const SizedBox(height: 16.0),
                   RoundedImageCard(
                     
                     width: MediaQuery.of(context).size.width - 32,
@@ -112,7 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     harga: 'From IDR 10 K',
                     location: 'Orasis Art Gallery                          ',
                   ),
-                  SizedBox(height: 18),
+                  const SizedBox(height: 18),
                   RoundedImageCard(
                     width: MediaQuery.of(context).size.width - 32,
                     imagePath: 'assets/img/Pameran2.png',
@@ -120,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     harga: 'From IDR 0 K',
                     location: 'Edwin Gallery                                  ',
                   ),
-                  SizedBox(height: 18),
+                  const SizedBox(height: 18),
                   RoundedImageCard(
                     width: MediaQuery.of(context).size.width - 32,
                     imagePath: 'assets/img/Pameran3.png',
@@ -128,7 +128,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     harga: 'From IDR 0 K',
                     location: 'Jl. Kemang Timur No. 90C    ',
                   ),
-                  SizedBox(height: 18),
+                  const SizedBox(height: 18),
                   RoundedImageCard(
                     width: MediaQuery.of(context).size.width - 32,
                     imagePath: 'assets/img/Pameran4.png',
@@ -136,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     harga: 'From IDR 50 K',
                     location: 'Museum Macan                          ',
                   ),
-                  SizedBox(height: 18),
+                  const SizedBox(height: 18),
                   RoundedImageCard(
                     width: MediaQuery.of(context).size.width - 32,
                     imagePath: 'assets/img/Pameran5.png',
@@ -145,7 +145,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     location:
                         'Seminyak                                         ',
                   ),
-                  SizedBox(height: 18),
+                  const SizedBox(height: 18),
                 ],
               ),
             ),

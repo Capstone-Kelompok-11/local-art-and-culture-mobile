@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:http/http.dart';
-
-import 'package:local_art_and_culture/src/feature/chat/pesan_semua_screen.dart';
+import 'package:local_art_and_culture/src/feature/chat/home_chat_screen.dart';
+import 'package:local_art_and_culture/src/feature/keranjang/screen/keranjang.dart';
 import 'package:local_art_and_culture/src/feature/notif/src/notifikasi.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class CustomContainer extends StatelessWidget {
   final String profileImageUrl;
@@ -20,9 +18,9 @@ class CustomContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
-      height: 70, // Set your desired height here
+      height: 70,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -40,7 +38,7 @@ class CustomContainer extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(width: 12),
+          const SizedBox(width: 12),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,21 +53,21 @@ class CustomContainer extends StatelessWidget {
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
                 Row(
                   children: [
                     Container(
                       width: 8,
                       height: 8,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFF3B502),
+                      decoration: const BoxDecoration(
+                        color: Color(0xFFF3B502),
                         shape: BoxShape.circle,
                       ),
                     ),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                     Text(
                       locationText,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Color(0xFF5F5F5F),
                         fontSize: 12,
                         fontFamily: 'Plus Jakarta Sans',
@@ -87,27 +85,32 @@ class CustomContainer extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => SliderPage()),
+                    MaterialPageRoute(builder: (context) => const SliderPage()),
                   );
                 },
                 icon: SvgPicture.asset('assets/svg/bell-ring.svg'),
                 iconSize: 24,
               ),
-              SizedBox(width: 16),
+              const SizedBox(width: 16),
               IconButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => PesanSemuaScreen()),
+                    MaterialPageRoute(
+                        builder: (context) => const HomeChatScreen()),
                   );
                 },
                 icon: SvgPicture.asset('assets/svg/chat-processing.svg'),
                 iconSize: 24,
               ),
-              SizedBox(width: 16),
+              const SizedBox(width: 16),
               IconButton(
                 onPressed: () {
-                  // Action for shopping cart icon
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const KeranjangPage()),
+                  );
                 },
                 icon: SvgPicture.asset('assets/svg/shopping_cart.svg'),
                 iconSize: 24,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/switchbutton.dart';
 
 class FormDp extends StatefulWidget {
@@ -20,17 +21,16 @@ class _FormDpState extends State<FormDp> {
       ),
       child: Column(
         children: [
-          const Row(
+          Row(
             children: [
-              SizedBox(
+              const SizedBox(
                 width: 20,
               ),
               Text(
                 "Info Pengunjung",
-                style: TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Color(0xFF0C1226),
                   fontSize: 20,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w700,
                 ),
               ),
@@ -43,12 +43,11 @@ class _FormDpState extends State<FormDp> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              const Text(
+              Text(
                 'Tambahkan sebagai Pengunjung',
-                style: TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Colors.black,
                   fontSize: 12,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -74,10 +73,9 @@ class TextFields extends StatelessWidget {
         children: [
           Text(
             text,
-            style: const TextStyle(
+            style: GoogleFonts.plusJakartaSans(
               color: Color(0xFF666666),
               fontSize: 12,
-              fontFamily: 'Plus Jakarta Sans',
               fontWeight: FontWeight.w400,
               height: 0.12,
             ),
@@ -91,11 +89,12 @@ class TextFields extends StatelessWidget {
               color: Colors.grey[200], // Warna abu-abu
             ),
             child: TextFormField(
-              decoration: const InputDecoration(
-                hintStyle: TextStyle(color: Colors.grey), // Warna teks hint
+              decoration: InputDecoration(
+                hintStyle: GoogleFonts.plusJakartaSans(
+                    color: Colors.grey), // Warna teks hint
                 border: InputBorder.none, // Hilangkan border bawaan
                 contentPadding:
-                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 1.0),
+                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 1.0),
               ),
             ),
           )
