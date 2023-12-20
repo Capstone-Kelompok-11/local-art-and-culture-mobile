@@ -2,18 +2,46 @@ import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/src/feature/article/components/color.dart';
 import 'package:local_art_and_culture/src/feature/article/model/article.dart';
 
-class ArticleDetail extends StatelessWidget {
+class ArticleDetail extends StatefulWidget {
   final Article article;
-
   const ArticleDetail({
     super.key,
     required this.article,
   });
 
   @override
+  State<ArticleDetail> createState() => _ArticleDetailState();
+}
+
+class _ArticleDetailState extends State<ArticleDetail> {
+  late List<Article> listArticle = [];
+  late Article article;
+
+  @override
+  void initState() {
+    super.initState();
+    article = widget.article;
+    _loadArticle();
+  }
+
+  Future<void> _loadArticle() async {
+    try {
+      listArticle = await fetchArticle();
+    } catch (error) {
+      print('Error fetching article: $error');
+    }
+
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     var deviceWidth = MediaQuery.of(context).size.width;
-
+    if (listArticle.isEmpty) {
+      return Center(child: CircularProgressIndicator());
+    }
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -46,6 +74,7 @@ class ArticleDetail extends StatelessWidget {
               thickness: 8,
             ),
             onlyForYouWidget(
+              listArticle,
               deviceWidth,
               article.title,
             ),
@@ -448,11 +477,14 @@ Widget onlyForYouCard(Article article, deviceWidth) {
   );
 }
 
-Widget onlyForYouWidget(deviceWidth, String currentArticleTitle) {
-  List<Article> recommendedArticles = articles
+Widget onlyForYouWidget(
+    List<Article> listArticle, deviceWidth, String currentArticleTitle) {
+  if (listArticle.isEmpty) {
+    return Center(child: CircularProgressIndicator());
+  }
+  List<Article> listRecommendedArticle = listArticle
       .where((article) => article.title != currentArticleTitle)
       .toList();
-
   return Padding(
     padding: EdgeInsets.symmetric(
         horizontal: deviceWidth / 20, vertical: deviceWidth / 15),
@@ -469,9 +501,9 @@ Widget onlyForYouWidget(deviceWidth, String currentArticleTitle) {
         ListView.builder(
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,
-            itemCount: recommendedArticles.length,
+            itemCount: listRecommendedArticle.length,
             itemBuilder: (context, index) {
-              final Article recommendedArticle = recommendedArticles[index];
+              final Article recommendedArticle = listRecommendedArticle[index];
 
               return Column(
                 children: [
@@ -491,7 +523,7 @@ Widget onlyForYouWidget(deviceWidth, String currentArticleTitle) {
                       deviceWidth,
                     ),
                   ),
-                  (index + 1) >= recommendedArticles.length
+                  (index + 1) >= listRecommendedArticle.length
                       ? const SizedBox()
                       : const Divider(
                           thickness: 1,

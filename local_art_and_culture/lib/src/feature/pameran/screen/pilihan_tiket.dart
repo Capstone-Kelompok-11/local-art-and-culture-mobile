@@ -32,14 +32,14 @@ class _PilihanTiketState extends State<PilihanTiket> {
               height: 3,
             ),
             TiketPilihan(
-              imagePath: "assets/img/Pameran2.png",
+              imagePath: "assets/img/orasis.jpg",
               title: "Museum Macan (Voice Against \nReason)",
               date: "Senin - Jumat",
               harga: "50.000",
               //category: 'Regular Day2',
             ),
             TiketPilihan(
-              imagePath: "assets/img/Pameran2.png",
+              imagePath: "assets/img/orasis.jpg",
               title: "Museum Macan (Voice Against \nReason)",
               date: "Senin - Jumat",
               harga: "79.000",
@@ -158,6 +158,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
                 ),
                 Text(
                   "Total Harga",
+                  
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 14,

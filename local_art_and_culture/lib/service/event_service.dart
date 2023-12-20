@@ -14,7 +14,8 @@ class EventService {
       _dio.options.headers['Authorization'] = 'Bearer $accessToken';
 
       final response = await _dio.get(
-        Urls.baseUrl + Urls.getEvents, // Sesuaikan dengan endpoint API yang sesuai
+        Urls.baseUrl +
+            Urls.getEvents, // Sesuaikan dengan endpoint API yang sesuai
       );
       debugPrint("=>${response.data}");
 
