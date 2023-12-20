@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:local_art_and_culture/components/payment_navigation_bar.dart';
+import 'package:local_art_and_culture/models/product_model.dart';
 import 'package:local_art_and_culture/src/feature/product/widgets/customers_adress.dart';
 import 'package:local_art_and_culture/src/feature/product/widgets/payment_detail.dart';
 import 'package:local_art_and_culture/src/feature/product/widgets/products_order.dart';
 import 'package:local_art_and_culture/src/feature/product/widgets/shipping_option.dart';
 
 class CheckoutProductPage extends StatefulWidget {
-  const CheckoutProductPage({Key? key}) : super(key: key);
+  final ModelProduct product;
+  final String imagePath;
+  final int index;
+
+  const CheckoutProductPage({
+    Key? key,
+    required this.product,
+    required this.imagePath,
+    required this.index,
+  }) : super(key: key);
 
   @override
   State<CheckoutProductPage> createState() => _CheckoutProductPageState();
@@ -30,15 +40,19 @@ class _CheckoutProductPageState extends State<CheckoutProductPage> {
       ),
       body: Center(
         child: ListView(
-          children: const [
-            CustomerAddress(),
-            SizedBox(height: 10),
-            ProductsOrder(),
-            SizedBox(height: 10),
-            ShippingOptions(),
-            PaymentDetail(),
-            SizedBox(height: 10),
-            PaymentNavigationBar()
+          children: [
+            const CustomerAddress(),
+            const SizedBox(height: 10),
+            ProductsOrder(
+              product: widget.product,
+              imagePath: widget.imagePath,
+              index: widget.index,
+            ),
+            const SizedBox(height: 10),
+            const ShippingOptions(),
+            const PaymentDetail(),
+            const SizedBox(height: 10),
+            const PaymentNavigationBar()
           ],
         ),
       ),

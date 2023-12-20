@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:local_art_and_culture/models/product_model.dart';
 import 'package:local_art_and_culture/src/feature/product/screens/checkout_product.dart';
 
 class CheckoutNavigationBar extends StatefulWidget {
-  const CheckoutNavigationBar({super.key});
+  final ModelProduct product;
+  final String imagePath;
+  final int index;
+
+  const CheckoutNavigationBar({
+    Key? key,
+    required this.product,
+    required this.imagePath,
+    required this.index,
+  }) : super(key: key);
 
   @override
   State<CheckoutNavigationBar> createState() => _CheckoutNavigationBarState();
@@ -12,6 +22,25 @@ class CheckoutNavigationBar extends StatefulWidget {
 class _CheckoutNavigationBarState extends State<CheckoutNavigationBar> {
   bool isCartSelected = false;
   bool isChatSelected = false;
+  List<String> imagePaths = [
+    'assets/img/produk/produk-4.png',
+    'assets/img/produk/product-5.png',
+    'assets/img/produk/produk-1.png',
+    'assets/img/produk/product-6.png',
+    'assets/img/produk/product-7.png',
+    'assets/img/produk/product-8.png',
+    'assets/img/produk/product-9.png',
+    'assets/img/produk/product-10.png',
+    'assets/img/produk/product-11.png',
+    'assets/img/produk/product-12.png'
+  ];
+  late String imagePath;
+
+  @override
+  void initState() {
+    super.initState();
+    imagePath = imagePaths[widget.index % imagePaths.length];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -90,7 +119,10 @@ class _CheckoutNavigationBarState extends State<CheckoutNavigationBar> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const CheckoutProductPage()));
+                          builder: (context) => CheckoutProductPage(
+                              product: widget.product,
+                              imagePath: imagePath,
+                              index: widget.index)));
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xff3653B0),
