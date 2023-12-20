@@ -13,7 +13,7 @@ class RoundedImageCard extends StatelessWidget {
     required this.imagePath,
     required this.title,
     required this.harga,
-    required this.location,
+    required this.location, required double width,
   }) : super(key: key);
 
   @override

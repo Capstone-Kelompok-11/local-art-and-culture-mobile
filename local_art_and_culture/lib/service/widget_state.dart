@@ -10,22 +10,22 @@ class MyWidget extends StatefulWidget {
 
 class _MyWidgetState extends State<MyWidget> {
   final CardService _cardService = CardService();
-  late List<CardModel> _cardModels;  // Ganti tipe data List<EventModel> dengan List<CardModel>
+  late List<CardModel> _cardModels;  // 
 
   @override
   void initState() {
     super.initState();
-    _fetchCardModels();  // Ganti _fetchEventCards dengan _fetchCardModels
+    _fetchCardModels();  
   }
 
-  Future<void> _fetchCardModels() async {  // Ganti nama metode _fetchEventCards dengan _fetchCardModels
+  Future<void> _fetchCardModels() async {  
     try {
-      final cardModels = await _cardService.getCardModels();  // Ganti getEventCards dengan getCardModels
+      final cardModels = await _cardService.getCardModels();  
       setState(() {
         _cardModels = cardModels;
       });
     } catch (error) {
-      print('Error fetching card models: $error');  // Ganti pesan error
+      print('Error fetching card models: $error');  
     }
   }
 

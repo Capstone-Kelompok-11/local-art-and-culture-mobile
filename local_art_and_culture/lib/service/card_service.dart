@@ -6,7 +6,7 @@ import 'package:local_art_and_culture/models/card_model.dart';
 class CardService {
   final Dio _dio = Dio();
 
-  Future<List<CardModel>> getDetailPameran() async {
+  Future<List<CardModel>> getHomeScreen() async {
     try {
       // Ganti URL berikut dengan URL API yang sesuai
       final String apiUrl = 'https://658144ba3dfdd1b11c42c970.mockapi.io/pameran';
@@ -32,4 +32,5 @@ class CardService {
   }
 
   getCardModels() {}
+
 }

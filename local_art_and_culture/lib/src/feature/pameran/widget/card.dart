@@ -1,7 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:local_art_and_culture/models/card_model.dart';
+import 'package:local_art_and_culture/service/card_service.dart';
 import 'package:local_art_and_culture/src/feature/pameran/screen/detail_pameran.dart';
+
 
 class RoundedImageCard extends StatelessWidget {
   final String imagePath;
@@ -18,16 +21,21 @@ class RoundedImageCard extends StatelessWidget {
     required double width,
   }) : super(key: key);
 
-  // Future<void> fetchData() async {
-  //   try {
-  //     final response = await Dio().get('https://658144ba3dfdd1b11c42c970.mockapi.io/pameran');
-  //     // Handle response data
-  //     print(response.data);
-  //   } catch (error) {
-  //     // Handle error
-  //     print('Error fetching data: $error');
-  //   }
-  // }
+  
+
+  Future<void> fetchData() async {
+    try {
+      final cardService = CardService();
+      final List<CardModel> cards = await cardService.getHomeScreen();
+      // Handle response data
+      print(cards);
+    } catch (error) {
+      // Handle error
+      print('Error fetching data: $error');
+    }
+  }
+
+  
 
   
 
@@ -53,7 +61,7 @@ class RoundedImageCard extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(14.0),
-            child: Image.asset(
+            child: Image.network(
               imagePath,
               width: 321,
               height: 127,
