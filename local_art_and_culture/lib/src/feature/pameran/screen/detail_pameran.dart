@@ -8,6 +8,7 @@ import 'package:local_art_and_culture/src/feature/pameran/widget/bottomsheet.dar
 import 'package:local_art_and_culture/src/feature/pameran/widget/marchandies.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/tiket.dart';
 
+
 class DetailPameran extends StatefulWidget {
   const DetailPameran({super.key});
 
@@ -62,6 +63,15 @@ class _DetailPameranState extends State<DetailPameran> {
                               offset: const Offset(0, 3),
                             )
                           ],
+
+                          image: const DecorationImage(
+
+                              image: AssetImage('assets/img/orasis.jpg'),
+
+                              //image: AssetImage('assets/img/Pameran2.png'),
+
+                              fit: BoxFit.fill),
+
                         ),
                         child: Stack(
                           children: [
@@ -78,6 +88,7 @@ class _DetailPameranState extends State<DetailPameran> {
                               ),
                             ),
                           ],
+
                         ),
                       ),
                       Positioned(
@@ -449,13 +460,13 @@ class _DetailPameranState extends State<DetailPameran> {
               child: Column(
                 children: [
                   Tiket(
-                    imagePath: "assets/img/Pameran2.png",
+                    imagePath: "assets/img/orasis.jpg",
                     title: "Museum Macan(Voice Against)",
                     date: "Senin-Jumat\n",
                     harga: "79.000",
                   ),
                   Tiket(
-                    imagePath: "assets/img/Pameran2.png",
+                    imagePath: "assets/img/orasis.jpg",
                     title: "Museum Macan(Voice Against)",
                     date: "Senin-Jumat\n",
                     harga: "79.000",

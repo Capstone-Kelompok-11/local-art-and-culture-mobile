@@ -2,37 +2,44 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/categories.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/card.dart';
-// Sesuaikan dengan path yang sesuai
 
-class YourWidget extends StatelessWidget {
+
+class MyWidget extends StatelessWidget {
+  const MyWidget({super.key});
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(16.0),
+      margin: const EdgeInsets.all(6.0),
       child: Column(
         children: [
-          SizedBox(height: 2.0),
-          Categories(), // Gantilah dengan widget kategori yang sesuai
-          SizedBox(height: 16.0),
+          //const SizedBox(height: 10.0),
+          const Categories(),
+          //const SizedBox(height: 16.0),
           FutureBuilder<List<CardData>>(
-            future: fetchData(), // Panggil metode fetchData untuk mendapatkan data dari API
+            future:
+                fetchData(), // Panggil metode fetchData untuk mendapatkan data dari API
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return CircularProgressIndicator(); // Menampilkan indikator loading selama data diambil
+                return const CircularProgressIndicator(); // Menampilkan indikator loading selama data diambil
               } else if (snapshot.hasError) {
                 return Text('Error: ${snapshot.error}');
               } else {
                 // Memproses data dan membangun widget RoundedImageCard sesuai dengan data
-                return Column(
-                  children: snapshot.data!.map((cardData) {
-                    return RoundedImageCard(
-                      width: MediaQuery.of(context).size.width - 32,
-                      imagePath: cardData.imagePath,
-                      title: cardData.title,
-                      harga: cardData.harga,
-                      location: cardData.location,
+                return ListView.builder(
+                  itemCount: snapshot.data!.length,
+                  itemBuilder: (context, index) {
+                    final cardData = snapshot.data![index];
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom:16.0), 
+                      child: RoundedImageCard(
+                        width: MediaQuery.of(context).size.width - 32,
+                        imagePath: cardData.imagePath,
+                        title: cardData.title,
+                        harga: cardData.harga,
+                        location: cardData.location,
+                      ),
                     );
-                  }).toList(),
+                  },
                 );
               }
             },
@@ -43,8 +50,8 @@ class YourWidget extends StatelessWidget {
   }
 
   Future<List<CardData>> fetchData() async {
-    // Gantilah URL dengan URL API yang sesuai
-    final response = await Dio().get('https://api.example.com/your_endpoint');
+    final response =
+        await Dio().get('https://658144ba3dfdd1b11c42c970.mockapi.io/pameran');
 
     if (response.statusCode == 200) {
       // Jika sukses, konversi data mentah menjadi list CardData

@@ -20,7 +20,7 @@ class _MetodePMState extends State<MetodePM> {
           const Row(
             children: [
               SizedBox(
-                width: 20,
+                width: 10,
               ),
               Text(
                 "Pilih Metode Pembayaran\nDompen Digital",
