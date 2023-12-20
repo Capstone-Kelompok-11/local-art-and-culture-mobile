@@ -7,7 +7,19 @@ import 'package:local_art_and_culture/src/feature/pameran/screen/pilihan_tiket.d
 import 'package:local_art_and_culture/src/feature/pameran/widget/bottomsheet.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/marchandies.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/tiket.dart';
-import 'package:http/http.dart' as http;
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: HomeScreen(),
+    );
+  }
+}
 
 
 class DetailPameran extends StatefulWidget {
@@ -67,7 +79,7 @@ class _DetailPameranState extends State<DetailPameran> {
                           ],
                           image: const DecorationImage(
 
-                              image: AssetImage('assets/img/Pameran4.png'),
+                              image: AssetImage('assets/img/orasis.jpg'),
 
                               //image: AssetImage('assets/img/Pameran2.png'),
 
@@ -443,13 +455,13 @@ class _DetailPameranState extends State<DetailPameran> {
               child: Column(
                 children: [
                   Tiket(
-                    imagePath: "assets/img/Pameran2.png",
+                    imagePath: "assets/img/orasis.jpg",
                     title: "Museum Macan(Voice Against)",
                     date: "Senin-Jumat\n",
                     harga: "79.000",
                   ),
                   Tiket(
-                    imagePath: "assets/img/Pameran2.png",
+                    imagePath: "assets/img/orasis.jpg",
                     title: "Museum Macan(Voice Against)",
                     date: "Senin-Jumat\n",
                     harga: "79.000",

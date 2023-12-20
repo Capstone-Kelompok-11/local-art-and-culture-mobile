@@ -23,7 +23,7 @@ class _DetailPembelianState extends State<DetailPembelian> {
             ),
             AppBarDP(),
             TiketDP(
-              imagePath: "assets/img/Pameran2.png",
+              imagePath: "assets/img/orasis.jpg",
               title: "Museum Macan\n",
               location: "Museum Macan\n",
               date: "Setiap Hari",

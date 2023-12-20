@@ -1,4 +1,3 @@
-// cardservice.dart
 import 'package:dio/dio.dart';
 import 'package:local_art_and_culture/models/card_model.dart';
 

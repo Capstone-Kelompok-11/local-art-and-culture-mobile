@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            const SizedBox(height: 45.0),
+            const SizedBox(height: 35.0),
             Container(
               margin: const EdgeInsets.symmetric(vertical: 10.0),
               padding: const EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 0.0),
@@ -97,6 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
+            
             Container(
               margin: const EdgeInsets.all(16.0),
               child: Column(
@@ -104,68 +105,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(height: 2.0),
                   const Categories(),
                   const SizedBox(height: 16.0),
-                  RoundedImageCard(
-                    
-                    width: MediaQuery.of(context).size.width - 32,
-                    imagePath: 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fstatic.promediateknologi.id%2Fcrop%2F0x0%3A0x0%2F0x0%2Fwebp%2Fphoto%2Fkrjogja%2Fsite%2F2022%2F07%2F21%2F232786%2Fpameran-seni-rupa-kecil-itu-indah-miracle-5-dibuka-sore-ini-2207219.jpg&tbnid=xrC5gE72Tg9-yM&vet=12ahUKEwilh7OIiJ2DAxXDbmwGHTEyAhoQMygEegQIARB8..i&imgrefurl=https%3A%2F%2Fwww.krjogja.com%2Fyogyakarta%2F1242472534%2Fpameran-seni-rupa-kecil-itu-indah-miracle-5-dibuka-sore-ininbsp&docid=2mL7Vc3IHvzzAM&w=1599&h=738&q=pameran%20image&ved=2ahUKEwilh7OIiJ2DAxXDbmwGHTEyAhoQMygEegQIARB8',
-                    title: 'Orasis Art Gallery',
-                    harga: 'From IDR 10 K',
-                    location: 'Orasis Art Gallery                          ',
-                  ),
-                  const SizedBox(height: 18),
-                  RoundedImageCard(
-                    width: MediaQuery.of(context).size.width - 32,
-                    imagePath: 'assets/img/Pameran2.png',
-                    title: 'Edwin galley',
-                    harga: 'From IDR 0 K',
-                    location: 'Edwin Gallery                                  ',
-                  ),
-                  const SizedBox(height: 18),
-                  RoundedImageCard(
-                    width: MediaQuery.of(context).size.width - 32,
-                    imagePath: 'assets/img/Pameran3.png',
-                    title: 'Orasis Art Gallery',
-                    harga: 'From IDR 0 K',
-                    location: 'Jl. Kemang Timur No. 90C    ',
-                  ),
-                  const SizedBox(height: 18),
-                  RoundedImageCard(
-                    width: MediaQuery.of(context).size.width - 32,
-                    imagePath: 'assets/img/Pameran4.png',
-                    title: 'Museum Macan (Voice Against Reason)',
-                    harga: 'From IDR 50 K',
-                    location: 'Museum Macan                          ',
-                  ),
-                  const SizedBox(height: 18),
-                  RoundedImageCard(
-                    width: MediaQuery.of(context).size.width - 32,
-                    imagePath: 'assets/img/Pameran5.png',
-                    title: 'Biasa Art Space Bali',
-                    harga: 'From IDR 10 K',
-                    location:
-                        'Seminyak                                         ',
-                  ),
-                  const SizedBox(height: 18),
-                ],
-              ),
-            ),
-
-            Container(
-              margin: const EdgeInsets.all(16.0),
-              child: Column(
-                children: [
-                  SizedBox(height: 2.0),
-                  Categories(),
-                  SizedBox(height: 16.0),
                   FutureBuilder<List<CardModel>>(
                     future: cardsFuture,
                     builder: (context, snapshot) {
                       if (snapshot.connectionState == ConnectionState.waiting) {
-                        return CircularProgressIndicator();
+                        return const CircularProgressIndicator();
                       } else if (snapshot.hasError) {
                         return Text('Error: ${snapshot.error}');
                       } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                        return Text('No data available');
+                        return const Text('No data available');
                       } else {
                         return Column(
                           children: snapshot.data!.map((card) {
@@ -181,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       }
                     },
                   ),
-                  SizedBox(height: 18),
+                  const SizedBox(height: 18),
                 ],
               ),
             )

@@ -58,7 +58,7 @@ class _InvoiceScreenState extends State<InvoiceScreen> {
                       ),
                     ),
                     const TiketInvoice(
-                        imagePath: "assets/img/Pameran2.png",
+                        imagePath: "assets/img/orasis.jpg",
                         title: "Museum Macan\n",
                         location: "Museum Macan\n",
                         date: "Setiap Hari"),
