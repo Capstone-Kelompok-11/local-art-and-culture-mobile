@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:local_art_and_culture/src/feature/event/screen/home_screen.dart';
 import 'package:local_art_and_culture/src/feature/event/screen/pilihan_tiket.dart';
 import 'package:local_art_and_culture/src/feature/event/widget/bintang_tamu.dart';
-import 'package:local_art_and_culture/src/feature/event/widget/marchandies.dart';
 import 'package:local_art_and_culture/src/feature/event/widget/tiket.dart';
 
 class DetailFestival extends StatefulWidget {
@@ -425,21 +424,25 @@ class _DetailFestivalState extends State<DetailFestival> {
                 ),
               ],
             ),
-            const SizedBox(
-              height: 16,
-            ),
+            const SizedBox(height: 16),
             const SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  Marchandise(
-                    imagePath: "assets/png/mug.png",
-                    title: "Mug Jak-Japan Limited \nEdition",
-                    harga: "55.000",
-                  ),
-                ],
+              child: Center(
+                child: Column(
+                  children: [
+                    Text(
+                      'Acara tidak memiliki merchandise',
+                      style: TextStyle(
+                        color: Color(0xFF828282),
+                        fontSize: 12,
+                        fontFamily: 'Plus Jakarta Sans',
+                        fontWeight: FontWeight.w400,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
+            const SizedBox(height: 16),
             Divider(
               color: Colors.grey.shade200,
               height: 8,

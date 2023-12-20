@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:local_art_and_culture/src/feature/article/widget/searchbar.dart';
 import '../components/color.dart';
 import 'package:local_art_and_culture/src/feature/article/model/article.dart';
 import 'package:local_art_and_culture/src/feature/article/ui/article_detail.dart';
@@ -13,6 +12,26 @@ class ArticleList extends StatefulWidget {
 }
 
 class _ArticleListState extends State<ArticleList> {
+  late List<Article> articles = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadArticles();
+  }
+
+  Future<void> _loadArticles() async {
+    try {
+      articles = await fetchArticle();
+    } catch (error) {
+      print('Error fetching articles: $error');
+    }
+
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
   String getTimeDifferenceFromNow(DateTime dateTime) {
     DateTime dateTimeNow = DateTime.now();
     if (dateTime.year < dateTimeNow.year) {
@@ -35,13 +54,31 @@ class _ArticleListState extends State<ArticleList> {
 
   @override
   Widget build(BuildContext context) {
+    if (articles.isEmpty) {
+      return Center(child: CircularProgressIndicator());
+    }
     var deviceWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        primary: true,
+        backgroundColor: Colors.white,
+        elevation: 0,
+        toolbarHeight: deviceWidth / 5,
+        titleSpacing: 2,
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
+        ),
+        title: titleAppBar(deviceWidth),
+        actions: [actionsAppBar(deviceWidth)],
+      ),
       body: ListView(
         children: [
-          SearchHeaderBar(),
           titlePage(deviceWidth),
           newsCarouselWidget(deviceWidth),
           onlyForYouWidget(deviceWidth),

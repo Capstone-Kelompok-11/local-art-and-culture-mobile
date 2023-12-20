@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Categories extends StatefulWidget {
   const Categories({Key? key}) : super(key: key);
@@ -56,7 +57,7 @@ class _CategoriesState extends State<Categories> {
           ),
           child: Text(
             categories[index],
-            style: TextStyle(
+            style: GoogleFonts.plusJakartaSans(
               color: selectedIndex == index ? Colors.white : Colors.white,
               // Warna teks ketika dipilih dan tidak dipilih
             ),

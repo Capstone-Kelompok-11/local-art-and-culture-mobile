@@ -1,7 +1,8 @@
-// ignore_for_file: unnecessary_string_interpolations
-
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:local_art_and_culture/models/card_model.dart';
+import 'package:local_art_and_culture/service/card_service.dart';
 import 'package:local_art_and_culture/src/feature/pameran/screen/detail_pameran.dart';
 
 class RoundedImageCard extends StatelessWidget {
@@ -19,13 +20,24 @@ class RoundedImageCard extends StatelessWidget {
     required double width,
   }) : super(key: key);
 
+  Future<void> fetchData() async {
+    try {
+      final cardService = CardService();
+      final List<CardModel> cards = await cardService.getHomeScreen();
+      // Handle response data
+      print(cards);
+    } catch (error) {
+      // Handle error
+      print('Error fetching data: $error');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 345, // Menentukan lebar card
 
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
-
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30.0),
         color: Colors.white,
@@ -43,7 +55,7 @@ class RoundedImageCard extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(14.0),
-            child: Image.asset(
+            child: Image.network(
               imagePath,
               width: 321,
               height: 127,
@@ -124,15 +136,20 @@ class RoundedImageCard extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const DetailPameran()),
-                        (route) => false);
-                  },
-                  icon: SvgPicture.asset("assets/svg/arrow right.svg"),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DetailPameran()),
+                            (route) => false);
+                      },
+                      icon: SvgPicture.asset("assets/svg/arrow right.svg"),
+                    ),
+                  ],
                 ),
               ),
               // const Spacer(),

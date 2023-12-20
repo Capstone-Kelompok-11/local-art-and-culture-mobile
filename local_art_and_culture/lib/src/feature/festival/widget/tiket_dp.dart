@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TiketDP extends StatelessWidget {
   final String imagePath;
@@ -30,17 +31,16 @@ class TiketDP extends StatelessWidget {
         ),
         child: Column(
           children: [
-            const Row(
+            Row(
               children: [
                 SizedBox(
                   width: 20,
                 ),
                 Text(
                   "Info Pesanan",
-                  style: TextStyle(
+                  style: GoogleFonts.plusJakartaSans(
                     color: Color(0xFF0C1226),
                     fontSize: 20,
-                    fontFamily: 'Plus Jakarta Sans',
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -79,10 +79,9 @@ class TiketDP extends StatelessWidget {
                           children: [
                             Text(
                               "$title",
-                              style: const TextStyle(
+                              style: GoogleFonts.plusJakartaSans(
                                 color: Color(0xFF1A1A1A),
                                 fontSize: 14,
-                                fontFamily: 'Plus Jakarta Sans',
                                 fontWeight: FontWeight.w700,
                               ),
                             ),
@@ -94,10 +93,9 @@ class TiketDP extends StatelessWidget {
                                 ),
                                 Text(
                                   "$location",
-                                  style: const TextStyle(
+                                  style: GoogleFonts.plusJakartaSans(
                                     color: Color(0xFF828282),
                                     fontSize: 10,
-                                    fontFamily: 'Plus Jakarta Sans',
                                     fontWeight: FontWeight.w500,
                                   ),
                                 )
@@ -112,10 +110,9 @@ class TiketDP extends StatelessWidget {
                                 ),
                                 Text(
                                   "$date",
-                                  style: const TextStyle(
+                                  style: GoogleFonts.plusJakartaSans(
                                     color: Color(0xFF828282),
                                     fontSize: 10,
-                                    fontFamily: 'Plus Jakarta Sans',
                                     fontWeight: FontWeight.w500,
                                   ),
                                 )
@@ -129,10 +126,9 @@ class TiketDP extends StatelessWidget {
                                 ),
                                 Text(
                                   "$time",
-                                  style: const TextStyle(
+                                  style: GoogleFonts.plusJakartaSans(
                                     color: Color(0xFF828282),
                                     fontSize: 10,
-                                    fontFamily: 'Plus Jakarta Sans',
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
@@ -160,7 +156,7 @@ class TiketDP extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const Padding(
+            Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: 24.0,
               ),
@@ -169,30 +165,27 @@ class TiketDP extends StatelessWidget {
                 children: [
                   Text(
                     "Pembelian",
-                    style: TextStyle(
+                    style: GoogleFonts.plusJakartaSans(
                       color: Color(0xFF162146),
                       fontSize: 12,
-                      fontFamily: 'Plus Jakarta Sans',
                       fontWeight: FontWeight.w700,
                       height: 0.12,
                     ),
                   ),
                   Text(
                     "Harga",
-                    style: TextStyle(
+                    style: GoogleFonts.plusJakartaSans(
                       color: Color(0xFF162146),
                       fontSize: 12,
-                      fontFamily: 'Plus Jakarta Sans',
                       fontWeight: FontWeight.w700,
                       height: 0.12,
                     ),
                   ),
                   Text(
                     "Jumlah",
-                    style: TextStyle(
+                    style: GoogleFonts.plusJakartaSans(
                       color: Color(0xFF162146),
                       fontSize: 12,
-                      fontFamily: 'Plus Jakarta Sans',
                       fontWeight: FontWeight.w700,
                       height: 0.12,
                     ),
@@ -218,12 +211,11 @@ class TiketDP extends StatelessWidget {
                         SizedBox(
                           width: 1,
                         ),
-                        const Text(
+                        Text(
                           "RegulerDay1",
-                          style: TextStyle(
+                          style: GoogleFonts.plusJakartaSans(
                             color: Color(0xFF3653B0),
                             fontSize: 10,
-                            fontFamily: 'Plus Jakarta Sans',
                             fontWeight: FontWeight.w400,
                           ),
                         ),
@@ -232,24 +224,22 @@ class TiketDP extends StatelessWidget {
                     const SizedBox(
                       width: 1,
                     ),
-                    const Text(
+                    Text(
                       "Rp.120.000",
-                      style: TextStyle(
+                      style: GoogleFonts.plusJakartaSans(
                         color: Color(0xFF3653B0),
                         fontSize: 10,
-                        fontFamily: 'Plus Jakarta Sans',
                         fontWeight: FontWeight.w400,
                       ),
                     ),
                     const SizedBox(
                       width: 30,
                     ),
-                    const Text(
+                    Text(
                       "x1",
-                      style: TextStyle(
+                      style: GoogleFonts.plusJakartaSans(
                         color: Color(0xFF3653B0),
                         fontSize: 10,
-                        fontFamily: 'Plus Jakarta Sans',
                         fontWeight: FontWeight.w400,
                       ),
                     ),

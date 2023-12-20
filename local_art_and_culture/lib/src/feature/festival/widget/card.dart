@@ -1,7 +1,8 @@
-// ignore_for_file: unnecessary_string_interpolations
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:local_art_and_culture/models/card_models_fstv.dart';
+import 'package:local_art_and_culture/service/festival_service.dart';
 import 'package:local_art_and_culture/src/feature/festival/screen/detail_festival.dart';
 
 class RoundedImageCard extends StatelessWidget {
@@ -9,7 +10,6 @@ class RoundedImageCard extends StatelessWidget {
   final String title;
   final String harga;
   final String location;
-  final String categorie1;
 
   const RoundedImageCard({
     Key? key,
@@ -17,12 +17,23 @@ class RoundedImageCard extends StatelessWidget {
     required this.title,
     required this.harga,
     required this.location,
-    required this.categorie1,
   }) : super(key: key);
+  Future<void> fetchData() async {
+    try {
+      final cardService = CardService();
+      final List<CardModel> cards = await cardService.getHomeScreen();
+      // Handle response data
+      print(cards);
+    } catch (error) {
+      // Handle error
+      print('Error fetching data: $error');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.only(bottom: 16),
       width: 345, // Menentukan lebar card
 
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
@@ -44,7 +55,7 @@ class RoundedImageCard extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(30.0),
-            child: Image.asset(
+            child: Image.network(
               imagePath,
               width: 321,
               height: 127,
@@ -59,11 +70,11 @@ class RoundedImageCard extends StatelessWidget {
                 margin: const EdgeInsets.all(5.0),
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                    color: const Color(0xFF91A1D3),
+                    color: Color(0xFF91A1D3),
                     borderRadius: BorderRadius.circular(20.0)),
-                child: const Text(
+                child: Text(
                   "Festival Budaya",
-                  style: TextStyle(
+                  style: GoogleFonts.plusJakartaSans(
                       color: Colors.white,
                       fontSize: 10,
                       fontWeight: FontWeight.w500),
@@ -76,11 +87,10 @@ class RoundedImageCard extends StatelessWidget {
                     color: const Color(0xFFEBEEF9),
                     borderRadius: BorderRadius.circular(20.0)),
                 child: Text(
-                  "$categorie1",
-                  style: const TextStyle(
-                    color: Color(0xFF768DD5),
+                  "Berbayar",
+                  style: GoogleFonts.plusJakartaSans(
+                    color: const Color(0xFF768DD5),
                     fontSize: 10,
-                    fontFamily: 'Plus Jakarta Sans',
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -90,10 +100,9 @@ class RoundedImageCard extends StatelessWidget {
           const SizedBox(height: 12),
           Text(
             '$title',
-            style: const TextStyle(
-              color: Color(0xFF1A1A1A),
+            style: GoogleFonts.plusJakartaSans(
+              color: const Color(0xFF1A1A1A),
               fontSize: 14,
-              fontFamily: 'Plus Jakarta Sans',
               fontWeight: FontWeight.w700,
             ),
           ),
@@ -103,10 +112,9 @@ class RoundedImageCard extends StatelessWidget {
             children: [
               Text(
                 "$harga | ",
-                style: const TextStyle(
-                  color: Color(0xFFB3B3B3),
+                style: GoogleFonts.plusJakartaSans(
+                  color: const Color(0xFFB3B3B3),
                   fontSize: 12,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w400,
                 ),
               ),
@@ -116,11 +124,11 @@ class RoundedImageCard extends StatelessWidget {
                 color: Colors.grey,
               ),
               Text(
+                // ignore: unnecessary_string_interpolations
                 '$location',
-                style: const TextStyle(
-                  color: Color(0xFFB3B3B3),
+                style: GoogleFonts.plusJakartaSans(
+                  color: const Color(0xFFB3B3B3),
                   fontSize: 12,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w400,
                 ),
               ),
@@ -133,7 +141,7 @@ class RoundedImageCard extends StatelessWidget {
                         Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const DetailFestival()),
+                                builder: (context) => DetailFestival()),
                             (route) => false);
                       },
                       icon: SvgPicture.asset("assets/svg/arrow right.svg"),

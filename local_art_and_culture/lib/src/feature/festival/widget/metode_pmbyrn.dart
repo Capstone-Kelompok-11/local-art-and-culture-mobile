@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MetodePM extends StatefulWidget {
   const MetodePM({super.key});
@@ -17,17 +18,16 @@ class _MetodePMState extends State<MetodePM> {
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
       child: Column(
         children: [
-          const Row(
+          Row(
             children: [
               SizedBox(
                 width: 20,
               ),
               Text(
                 "Pilih Metode Pembayaran",
-                style: TextStyle(
+                style: GoogleFonts.plusJakartaSans(
                   color: Colors.black,
                   fontSize: 16,
-                  fontFamily: 'Plus Jakarta Sans',
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -81,7 +81,7 @@ class PaymentList extends StatelessWidget {
             ),
             Text(
               title,
-              style: TextStyle(
+              style: GoogleFonts.plusJakartaSans(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class TiketInvoice extends StatelessWidget {
   final String imagePath;
@@ -61,10 +62,9 @@ class TiketInvoice extends StatelessWidget {
                           children: [
                             Text(
                               "$title",
-                              style: const TextStyle(
+                              style: GoogleFonts.plusJakartaSans(
                                 color: Color(0xFF1A1A1A),
                                 fontSize: 14,
-                                fontFamily: 'Plus Jakarta Sans',
                                 fontWeight: FontWeight.w700,
                               ),
                             ),
@@ -76,10 +76,9 @@ class TiketInvoice extends StatelessWidget {
                                 ),
                                 Text(
                                   "$location",
-                                  style: const TextStyle(
+                                  style: GoogleFonts.plusJakartaSans(
                                     color: Color(0xFF828282),
                                     fontSize: 12,
-                                    fontFamily: 'Plus Jakarta Sans',
                                     fontWeight: FontWeight.w400,
                                   ),
                                 ),
@@ -94,10 +93,9 @@ class TiketInvoice extends StatelessWidget {
                                 ),
                                 Text(
                                   "$date",
-                                  style: const TextStyle(
+                                  style: GoogleFonts.plusJakartaSans(
                                     color: Color(0xFF828282),
                                     fontSize: 12,
-                                    fontFamily: 'Plus Jakarta Sans',
                                     fontWeight: FontWeight.w400,
                                   ),
                                 )

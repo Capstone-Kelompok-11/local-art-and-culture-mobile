@@ -236,7 +236,7 @@ class _RegisterButtonComponentState extends State<RegisterButtonComponent> {
             onPressed: () {},
             style: ElevatedButton.styleFrom(
               padding: const EdgeInsets.symmetric(vertical: 15),
-              primary: const Color.fromRGBO(54, 83, 176, 1),
+              backgroundColor: const Color.fromRGBO(54, 83, 176, 1),
             ),
             child: Container(
               width: double.infinity,
@@ -315,12 +315,6 @@ class _RegisterButtonComponentState extends State<RegisterButtonComponent> {
                     InkWell(
                       onTap: () {},
                       child: Image.asset('assets/google_logo.png', height: 40),
-                    ),
-                    const SizedBox(width: 16),
-                    InkWell(
-                      onTap: () {},
-                      child:
-                          Image.asset('assets/facebook_logo.png', height: 40),
                     ),
                   ],
                 ),

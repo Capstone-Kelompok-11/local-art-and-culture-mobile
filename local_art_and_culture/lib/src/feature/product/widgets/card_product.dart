@@ -61,13 +61,13 @@ class _CardProductsState extends State<CardProducts> {
               const Center(child: Text('Tidak ada produk yang ditemukan')),
             Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 40.0),
+                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 55.0),
               child: SizedBox(
                 child: GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 8.0,
-                    mainAxisSpacing: 175.0,
+                    mainAxisSpacing: 205.0,
                   ),
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
@@ -126,7 +126,7 @@ class _CardProductsState extends State<CardProducts> {
                           borderRadius: BorderRadius.circular(25.0),
                         ),
                         child: OverflowBox(
-                          maxHeight: 350,
+                          maxHeight: 375,
                           child: Container(
                             decoration: BoxDecoration(
                               color: Colors.white,

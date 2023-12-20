@@ -38,7 +38,7 @@ class _CardProductWishlistState extends State<CardProductWishlist> {
           children: [
             Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 120.0),
+                  const EdgeInsets.symmetric(horizontal: 5.0, vertical: 130.0),
               child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,

@@ -32,7 +32,7 @@ class _ChatScreenState extends State<ChatbotScreen> {
 
   void sendMsg() async {
     String text = controller.text;
-    String apiKey = "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";
+    String apiKey = "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";
     controller.clear();
     try {
       if (text.isNotEmpty) {
@@ -379,7 +379,12 @@ class _ChatScreenState extends State<ChatbotScreen> {
                           showCursor: true,
                           decoration: const InputDecoration(
                               border: InputBorder.none,
-                              hintText: "Tulis pertanyaanmu di sini"),
+                              hintText: "Tulis pertanyaanmu di sini",
+                              hintStyle: TextStyle(
+                                color: Color(0xff828282),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400,
+                              )),
                         ),
                       ),
                     ),

@@ -49,7 +49,7 @@ class _CardProductsState extends State<CardProducts> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 300,
+      height: 320,
       child: DefaultTextStyle(
         style: const TextStyle(
           fontFamily: 'Plus Jakarta Sans',
