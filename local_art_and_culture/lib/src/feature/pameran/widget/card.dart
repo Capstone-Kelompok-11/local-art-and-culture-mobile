@@ -142,15 +142,20 @@ class RoundedImageCard extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const DetailPameran()),
-                        (route) => false);
-                  },
-                  icon: SvgPicture.asset("assets/svg/arrow right.svg"),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DetailPameran()),
+                            (route) => false);
+                      },
+                      icon: SvgPicture.asset("assets/svg/arrow right.svg"),
+                    ),
+                  ],
                 ),
               ),
               // const Spacer(),
