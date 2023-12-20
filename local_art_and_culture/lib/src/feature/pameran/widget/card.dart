@@ -1,9 +1,9 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:local_art_and_culture/models/card_model.dart';
 import 'package:local_art_and_culture/service/card_service.dart';
 import 'package:local_art_and_culture/src/feature/pameran/screen/detail_pameran.dart';
-
 
 class RoundedImageCard extends StatelessWidget {
   final String imagePath;
@@ -20,8 +20,6 @@ class RoundedImageCard extends StatelessWidget {
     required double width,
   }) : super(key: key);
 
-  
-
   Future<void> fetchData() async {
     try {
       final cardService = CardService();
@@ -33,10 +31,6 @@ class RoundedImageCard extends StatelessWidget {
       print('Error fetching data: $error');
     }
   }
-
-  
-
-  
 
   @override
   Widget build(BuildContext context) {
