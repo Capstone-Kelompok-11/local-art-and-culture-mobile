@@ -5,6 +5,7 @@ import 'package:local_art_and_culture/service/card_service.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/src/screen_home_page.dart';
 import 'package:local_art_and_culture/src/feature/pameran/components/categories.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/card.dart';
+import 'package:local_art_and_culture/src/feature/pameran/widget/filter_bottomsheet.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -25,8 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: unused_local_variable
-    //const Padding = EdgeInsets.all(10.0);
+  
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -88,7 +88,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         width: 5,
                       ),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          _showFilterBottomSheet(context);
+                        },
                         icon:
                             SvgPicture.asset("assets/svg/Frame 347filter.svg"),
                       ),
@@ -137,5 +139,21 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
+  }
+}
+
+void _showFilterBottomSheet(BuildContext context) async {
+  final result = await showModalBottomSheet(
+    context: context,
+    builder: (BuildContext context) {
+      return PameranFilterBottomSheet();
+    },
+  );
+
+  // Handle the result from the bottom sheet here
+  if (result != null) {
+    // ignore: avoid_print
+    print('Selected Filters: $result');
+    // You can apply filter logic using the selected filters
   }
 }
