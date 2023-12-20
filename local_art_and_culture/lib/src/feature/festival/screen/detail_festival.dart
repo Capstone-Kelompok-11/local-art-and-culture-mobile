@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:local_art_and_culture/src/feature/chat/home_chat_screen.dart';
 import 'package:local_art_and_culture/src/feature/festival/screen/home_screen.dart';
 import 'package:local_art_and_culture/src/feature/festival/screen/pilihan_tiket.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/bacaselengkapnya.dart';
@@ -8,6 +9,7 @@ import 'package:local_art_and_culture/src/feature/festival/widget/bintang_tamu.d
 import 'package:local_art_and_culture/src/feature/festival/widget/bottomsheet.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/marchandies.dart';
 import 'package:local_art_and_culture/src/feature/festival/widget/tiket.dart';
+import 'package:local_art_and_culture/src/feature/keranjang/widget/card_event.dart';
 
 class DetailFestival extends StatefulWidget {
   const DetailFestival({super.key});
@@ -44,7 +46,8 @@ class _DetailFestivalState extends State<DetailFestival> {
                             )
                           ],
                           image: const DecorationImage(
-                              image: AssetImage('assets/png/gambar1_21.png'),
+                              image: NetworkImage(
+                                  'https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20231218140940_657ff0341512e.jpg'),
                               fit: BoxFit.fill),
                         ),
                       ),
@@ -504,11 +507,23 @@ class _DetailFestivalState extends State<DetailFestival> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const HomeChatScreen()),
+                      (route) => false);
+                },
                 icon: SvgPicture.asset("assets/svg/chat navbar.svg"),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const KeranjangEvent()),
+                      (route) => false);
+                },
                 icon: SvgPicture.asset("assets/svg/cart Navbar.svg"),
               ),
               const Spacer(),
