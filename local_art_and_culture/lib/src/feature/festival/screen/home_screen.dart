@@ -91,6 +91,7 @@ class _HomeScreenFstvState extends State<HomeScreenFstv> {
               const Categories(),
               const SizedBox(height: 16.0),
               const RoundedImageCard(
+                  //width: 300.0,
                   imagePath: 'assets/png/gambar1.png',
                   title: 'Jak-Japan Matsuri 2023',
                   harga: 'From IDR 113 K',

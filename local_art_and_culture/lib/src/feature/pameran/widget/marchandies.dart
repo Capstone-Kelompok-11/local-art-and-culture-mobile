@@ -19,7 +19,7 @@ class Marchandise extends StatelessWidget {
       height: 238, // Menentukan tinggi card
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(60.0),
+        borderRadius: BorderRadius.circular(30.0),
         color: Colors.white,
         boxShadow: const [
           BoxShadow(
@@ -34,7 +34,7 @@ class Marchandise extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(30.0),
+            borderRadius: BorderRadius.circular(15.0),
             child: Image.asset(
               imagePath,
               width: 130,
