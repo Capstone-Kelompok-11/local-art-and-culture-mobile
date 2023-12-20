@@ -8,6 +8,20 @@ import 'package:local_art_and_culture/src/feature/pameran/widget/bottomsheet.dar
 import 'package:local_art_and_culture/src/feature/pameran/widget/marchandies.dart';
 import 'package:local_art_and_culture/src/feature/pameran/widget/tiket.dart';
 
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: HomeScreen(),
+    );
+  }
+}
 
 class DetailPameran extends StatefulWidget {
   const DetailPameran({super.key});
@@ -77,13 +91,13 @@ class _DetailPameranState extends State<DetailPameran> {
                           children: [
                             Positioned.fill(
                               child: Image.asset(
-                                'assets/img/Pameran4.png',
+                                'assets/img/orasis.jpg',
                                 fit: BoxFit.fill,
                               ),
                             ),
                             Positioned.fill(
                               child: Image.asset(
-                                'assets/img/Pameran2.png',
+                                'assets/img/orasis.jpg',
                                 fit: BoxFit.fill,
                               ),
                             ),
