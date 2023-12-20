@@ -68,7 +68,9 @@ class _ArticleListState extends State<ArticleList> {
         toolbarHeight: deviceWidth / 5,
         titleSpacing: 2,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: const Icon(
             Icons.arrow_back,
             color: Colors.black,

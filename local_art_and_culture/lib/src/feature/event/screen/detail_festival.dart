@@ -94,7 +94,7 @@ class _DetailFestivalState extends State<DetailFestival> {
                       Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const HomeScreenFstv()),
+                              builder: (context) => const HomeScreenEvent()),
                           (route) => false);
                       // Handle favorite button press
                     },

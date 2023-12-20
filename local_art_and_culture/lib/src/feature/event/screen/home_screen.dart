@@ -5,14 +5,14 @@ import 'package:local_art_and_culture/src/feature/event/widget/categories.dart';
 import 'package:local_art_and_culture/src/feature/event/widget/card.dart';
 import 'package:local_art_and_culture/src/feature/home%20page/src/screen_home_page.dart';
 
-class HomeScreenFstv extends StatefulWidget {
-  const HomeScreenFstv({super.key});
+class HomeScreenEvent extends StatefulWidget {
+  const HomeScreenEvent({super.key});
 
   @override
-  State<HomeScreenFstv> createState() => _HomeScreenFstvState();
+  State<HomeScreenEvent> createState() => _HomeScreenEventState();
 }
 
-class _HomeScreenFstvState extends State<HomeScreenFstv> {
+class _HomeScreenEventState extends State<HomeScreenEvent> {
   @override
   Widget build(BuildContext context) {
     // const Padding = EdgeInsets.all(10.0);

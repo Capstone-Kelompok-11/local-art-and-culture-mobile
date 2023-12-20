@@ -102,7 +102,7 @@ class _InvoiceScreenState extends State<InvoiceScreen> {
                     Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const HomeScreenFstv()),
+                            builder: (context) => const HomeScreenEvent()),
                         (route) => false);
                   },
                   style: ElevatedButton.styleFrom(
