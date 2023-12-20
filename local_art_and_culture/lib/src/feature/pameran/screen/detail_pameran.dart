@@ -9,7 +9,7 @@ import 'package:local_art_and_culture/src/feature/pameran/widget/marchandies.dar
 import 'package:local_art_and_culture/src/feature/pameran/widget/tiket.dart';
 import 'package:http/http.dart' as http;
 
-evelop
+
 class DetailPameran extends StatefulWidget {
   const DetailPameran({super.key});
 
@@ -69,7 +69,7 @@ class _DetailPameranState extends State<DetailPameran> {
 
                               image: AssetImage('assets/img/Pameran4.png'),
 
-                              image: AssetImage('assets/img/Pameran2.png'),
+                              //image: AssetImage('assets/img/Pameran2.png'),
 
                               fit: BoxFit.fill),
                         ),
