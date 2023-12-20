@@ -33,6 +33,7 @@ class RoundedImageCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.only(bottom: 16),
       width: 345, // Menentukan lebar card
 
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
