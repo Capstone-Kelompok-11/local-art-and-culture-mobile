@@ -16,8 +16,8 @@ class RoundedImageCard extends StatelessWidget {
     Key? key,
     required this.imagePath,
     required this.title,
-    required this.harga,
-    required this.location,
+    required this.harga, 
+    required this.location, 
     required this.categorie1,
   }) : super(key: key);
 

@@ -158,6 +158,7 @@ class _PilihanTiketState extends State<PilihanTiket> {
                 ),
                 Text(
                   "Total Harga",
+                  
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 14,
