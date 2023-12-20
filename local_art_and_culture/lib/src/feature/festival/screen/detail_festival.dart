@@ -46,7 +46,8 @@ class _DetailFestivalState extends State<DetailFestival> {
                             )
                           ],
                           image: const DecorationImage(
-                              image: AssetImage('assets/png/gambar1_21.png'),
+                              image: NetworkImage(
+                                  'https://s3-ap-southeast-1.amazonaws.com/loket-production-sg/images/banner/20231218140940_657ff0341512e.jpg'),
                               fit: BoxFit.fill),
                         ),
                       ),
