@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:local_art_and_culture/components/checkout_navigation_bar.dart';
 import 'package:local_art_and_culture/models/product_model.dart';
 import 'package:local_art_and_culture/src/feature/product/screens/product_page.dart';
@@ -170,7 +171,7 @@ class _NewDetailProductState extends State<NewDetailProduct> {
                         Align(
                           alignment: Alignment.topLeft,
                           child: Text(
-                            'Rp ${widget.product.price}',
+                            'Rp ${NumberFormat('#,###').format(widget.product.price)}',
                             style: GoogleFonts.plusJakartaSans(
                               fontSize: 24,
                               fontWeight: FontWeight.w700,

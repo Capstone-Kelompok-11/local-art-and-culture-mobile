@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:local_art_and_culture/models/payment_model.dart';
+import 'package:local_art_and_culture/models/price_model.dart';
 import 'package:local_art_and_culture/models/product_model.dart';
 import 'package:provider/provider.dart';
 
@@ -21,10 +21,24 @@ class ProductsOrder extends StatefulWidget {
 }
 
 class _ProductsOrderState extends State<ProductsOrder> {
+  late PriceCalculationModel priceCalculator;
+
+  @override
+  void initState() {
+    super.initState();
+    priceCalculator =
+        Provider.of<PriceCalculationModel>(context, listen: false);
+    fetchData();
+  }
+
+  Future<void> fetchData() async {
+    priceCalculator.setProductPrice(widget.product.price ?? 0);
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Consumer<PaymentModel>(
-      builder: (context, paymentModel, child) {
+    return Consumer<PriceCalculationModel>(
+      builder: (context, priceCalculator, child) {
         return Container(
           color: Colors.white,
           height: 185,
@@ -59,7 +73,7 @@ class _ProductsOrderState extends State<ProductsOrder> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            '${widget.product.name}',
+                            widget.product.name ?? 'Nama Produk Kosong',
                             style: GoogleFonts.plusJakartaSans(
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
@@ -70,7 +84,7 @@ class _ProductsOrderState extends State<ProductsOrder> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                'Rp ${widget.product.price}',
+                                priceCalculator.getTotalPriceFormatted(),
                                 style: GoogleFonts.plusJakartaSans(
                                   fontSize: 18,
                                   fontWeight: FontWeight.w700,
@@ -81,10 +95,7 @@ class _ProductsOrderState extends State<ProductsOrder> {
                                 children: [
                                   IconButton(
                                     onPressed: () {
-                                      if (paymentModel.quantity > 1) {
-                                        paymentModel.updateQuantity(
-                                            paymentModel.quantity - 1);
-                                      }
+                                      priceCalculator.decreaseQuantity();
                                     },
                                     icon: const Icon(
                                       Icons.remove_circle,
@@ -94,7 +105,7 @@ class _ProductsOrderState extends State<ProductsOrder> {
                                   ),
                                   const SizedBox(width: 10),
                                   Text(
-                                    '${paymentModel.quantity}',
+                                    '${priceCalculator.quantity}',
                                     style: GoogleFonts.plusJakartaSans(
                                       fontSize: 15,
                                       fontWeight: FontWeight.w400,
@@ -103,8 +114,7 @@ class _ProductsOrderState extends State<ProductsOrder> {
                                   const SizedBox(width: 10),
                                   IconButton(
                                     onPressed: () {
-                                      paymentModel.updateQuantity(
-                                          paymentModel.quantity + 1);
+                                      priceCalculator.increaseQuantity();
                                     },
                                     icon: const Icon(
                                       Icons.add_circle,

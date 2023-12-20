@@ -24,6 +24,8 @@ class CheckoutProductPage extends StatefulWidget {
 }
 
 class _CheckoutProductPageState extends State<CheckoutProductPage> {
+  get quantity => 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
