@@ -1,9 +1,9 @@
 // ignore_for_file: avoid_print, unnecessary_null_comparison
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:local_art_and_culture/models/product_model.dart';
 import 'package:local_art_and_culture/service/product_service.dart';
-// import 'package:local_art_and_culture/src/feature/product/screens/detail_product.dart';
 import 'package:local_art_and_culture/src/feature/product/screens/new_detail_product.dart';
 
 class CardProducts extends StatefulWidget {
@@ -106,7 +106,6 @@ class _CardProductsState extends State<CardProducts> {
                     }
 
                     String title = item.name!;
-                    String price = 'Rp ${products[index].price}';
 
                     return InkWell(
                       onTap: () {
@@ -190,7 +189,7 @@ class _CardProductsState extends State<CardProducts> {
                                   ),
                                   const SizedBox(height: 8.0),
                                   Text(
-                                    price,
+                                    'Rp ${NumberFormat('#,###').format(products[index].price)}',
                                     style: const TextStyle(
                                       fontSize: 16.0,
                                       fontWeight: FontWeight.w700,

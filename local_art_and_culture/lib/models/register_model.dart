@@ -29,36 +29,30 @@ class Data {
   String firstName;
   String lastName;
   String email;
+  String username;
   String password;
   String phoneNumber;
-  String nik;
-  String gender;
   String birthday;
-  int roleId;
   Users users;
 
   Data(
       {required this.firstName,
       required this.lastName,
       required this.email,
+      required this.username,
       required this.password,
       required this.phoneNumber,
-      required this.nik,
-      required this.gender,
       required this.birthday,
-      required this.roleId,
       required this.users});
 
   factory Data.fromJson(Map<String, dynamic> json) => Data(
         firstName: json["firstName"],
         lastName: json["lastName"],
         email: json["email"],
+        username: json["username"],
         password: json["password"],
         phoneNumber: json["phoneNumber"],
-        nik: json["nik"],
-        gender: json["gender"],
         birthday: json["birthday"],
-        roleId: json["roleId"],
         users: Users.fromJson(json["users"]),
       );
 
@@ -66,12 +60,10 @@ class Data {
         "firstName": firstName,
         "lastName": lastName,
         "email": email,
+        "username": username,
         "password": password,
         "phoneNumber": phoneNumber,
-        "nik": nik,
-        "gender": gender,
         "birthday": birthday,
-        "roleId": roleId,
       };
 }
 
